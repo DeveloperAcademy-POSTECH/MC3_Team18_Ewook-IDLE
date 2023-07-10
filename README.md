@@ -52,12 +52,12 @@ git switch Feat/#1-main    // 해당 브랜치로 변경
 ```
 
 ### 4. 작업이 끝난 뒤, add와 commit을 진행합니다.
- - 커밋 메세지 : **타입: 커밋메세지**  
-    - ex. Feat: 추가 Question1
+ - 커밋 메세지 : **타입/#이슈번호: 커밋메세지**  
+    - ex. Feat/#1: 추가 Question1
 
 ```bash
 git add .    //작업 요소를 더해줌
-git commit -m "Feat: 추가 Question1"    //무엇을 했는지 메세지로 작성
+git commit -m "Feat/#1: 추가 Question1"    //무엇을 했는지 메세지로 작성
 ```
 
 ### 5. 내가 작업을 하는 도중에 다른 사람이 작업을 진행하여 원본(메인)레포가 변경되어 있을 수도 있으니,
@@ -116,9 +116,9 @@ ex. Feat/#1-main
 
 ### ☁️ 커밋 구조
 
-**타입: 커밋메세지**
+**타입/#이슈번호: 커밋메세지**
 
-ex. Feat: 추가 Question1
+ex. Feat/#1: 추가 Question1
 
 ### ☁️ Issue
 
