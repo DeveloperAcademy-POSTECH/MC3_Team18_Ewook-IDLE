@@ -3,7 +3,7 @@
 //  MC3Team18
 //
 //  Created by ChoiYujin on 2023/07/10.
-//
+// 세팅 테스트용 주석입니다.
 
 import SwiftUI
 
