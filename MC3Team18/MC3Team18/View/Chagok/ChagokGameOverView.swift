@@ -12,23 +12,18 @@ struct ChagokGameOverView: View {
         ZStack {
             ChagokView()
             Color.black.opacity(0.5).ignoresSafeArea()
-            VStack {
+            VStack(spacing: 13) {
                 Spacer().frame(height: 157)
                 Text("Your Score")
-                    .padding(.bottom, 40)
-                    .fontWeight(.light)
-                    .font(.system(size: 32))
+                    .pretendardLight32()
                 Text("140")
-                    .fontWeight(.regular)
-                    .font(.system(size: 64))
-                    .padding(.bottom, 40)
+                    .postNoBillsJaffnaRegular64()
                 HStack {
                     Text("Best Score")
-                        .fontWeight(.regular)
-                        .font(.system(size: 24))
+                        .pretendardRegular24()
                     Text("140")
-                        .fontWeight(.semibold)
-                        .font(.system(size: 24))
+                        .pretendardSemiBold24()
+                        .foregroundColor(.yellow)
                 }
                 Spacer()
                 HStack(spacing: 60) {
@@ -37,11 +32,13 @@ struct ChagokGameOverView: View {
                     } label: {
                         Image("GameOverBtn")
                             .overlay {
-                                VStack(spacing: 17) {
+                                VStack(spacing: 9) {
                                     Image(systemName: "house")
+                                        .resizable()
+                                        .pretendardSemiBold20()
+                                        .frame(width: 29, height: 25)
                                     Text("Home")
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 24))
+                                        .pretendardBold24()
                                 }
                             }
                     }
@@ -50,11 +47,13 @@ struct ChagokGameOverView: View {
                     } label: {
                         Image("GameOverBtn")
                             .overlay {
-                                VStack(spacing: 17) {
+                                VStack(spacing: 9) {
                                     Image(systemName: "arrow.clockwise")
+                                        .resizable()
+                                        .pretendardSemiBold20()
+                                        .frame(width: 21, height: 26)
                                     Text("Retry")
-                                        .fontWeight(.bold)
-                                        .font(.system(size: 24))
+                                        .pretendardBold24()
                                 }
                             }
                     }

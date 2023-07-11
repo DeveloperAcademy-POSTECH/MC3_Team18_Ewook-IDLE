@@ -18,13 +18,17 @@ struct ChagokView: View {
             .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                HStack {
-                    Text("Score: 0")
-                        .font(.system(size: 20))
+                HStack(spacing: 0) {
+                    Text("Score: ")
+                        .pretendardRegular20()
                         .frame(height: 29)
+                    Text("0")
+                        .pretendardSemiBold24()
+                        .foregroundColor(.yellow)
                     Spacer()
                     Image(systemName: "pause.circle")
                         .resizable()
+                        .pretendardSemiBold20()
                         .frame(width: 29, height: 29)
                     
                 }
@@ -34,19 +38,20 @@ struct ChagokView: View {
                 HStack(spacing: 4) {
                     Image(systemName: "hourglass")
                         .resizable()
-                        .frame(width: 22, height: 31)
                         .scaledToFit()
+                        .pretendardSemiBold20()
+                        .frame(width: 15, height: 24)
                         .foregroundColor(.white)
                     Spacer()
                     Capsule()
                         .frame(height: 16)
-                        .foregroundColor(.gray).opacity(0.4)
+                        .foregroundColor(.white).opacity(0.4)
                         .overlay {
                             HStack {
                                 Capsule()
                                     .frame(height: 10)
                                     .frame(width: 30)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.white.opacity(0.9))
                                     .padding(5)
                                 Spacer()
                             }
@@ -58,7 +63,7 @@ struct ChagokView: View {
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                 }
-                .foregroundColor(.gray.opacity(0.4))
+                .foregroundColor(.white.opacity(0.4))
                 Spacer()
             }
             .padding(.top, 50)
