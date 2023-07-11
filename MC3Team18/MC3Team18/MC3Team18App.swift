@@ -20,14 +20,6 @@ struct MC3Team18App: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
-                .onAppear {
-                    for family: String in UIFont.familyNames {
-                        print(family)
-                        for names : String in UIFont.fontNames(forFamilyName: family){
-                            print("=== \(names)")
-                        }
-                    }
-                }
         }
     }
 }
