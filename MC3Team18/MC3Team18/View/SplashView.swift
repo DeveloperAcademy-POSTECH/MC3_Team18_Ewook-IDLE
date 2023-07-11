@@ -10,15 +10,31 @@ import SwiftUI
 //Logo가 확정이 안나서 일단 이미지로 대체
 
 struct SplashView: View {
+    
+    @State var isActive : Bool = false
+    
     var body: some View {
-        VStack(){
-            Image("SplashViewBackground")
-                .overlay(
-                Image("SplashLogoImage")
-                )
+        ZStack{
+            if self.isActive{
+                HomeView()
+            }else{
+                VStack(){
+                    Image("SplashViewBackground")
+                        .overlay(
+                        Image("SplashLogoImage")
+                        )
+                }
+                .ignoresSafeArea()
+            }
+            
         }
-        .ignoresSafeArea()
-        
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation {
+                                self.isActive = true
+                            }
+                        }
+        }
     }
 }
 
