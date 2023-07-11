@@ -9,27 +9,24 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-                   Button {
-                       //풍선껌 불기 View 넣어주시면 됩니다
-                       EmptyView()
-                   } label: {
-                       Text("풍선껌 불기")
+        ZStack{
+            Image("SplashViewBackground")
+            VStack {
+                Image("BalloonButtonImage")
+                    .onTapGesture {
+                        EmptyView()
+                        print("BalloonButtonImage Clicked")
+                    }
+                Image("CupStackButtonImage")
+                    .onTapGesture {
+                        EmptyView()
+                        print("CupStackButtonImage Clicked")
+                    }
                    }
-                   .padding(50)
-                   .border(Color.red)
+                   .padding()
+        }
+        .ignoresSafeArea()
 
-                   Button {
-                       //차곡차곡 View 넣어주시면 됩니다
-                       EmptyView()
-                   } label: {
-                       Text("차곡차곡")
-                   }
-                   .padding(50)
-                   .border(Color.red)
-
-               }
-               .padding()
     }
 }
 
