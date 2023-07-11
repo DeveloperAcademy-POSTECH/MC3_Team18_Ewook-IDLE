@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokView.swift */; };
+		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
+		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
 		78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB92A5BAFC10007251D /* ContentView.swift */; };
 		78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBB2A5BAFC20007251D /* Assets.xcassets */; };
 		78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */; };
 		78DD4FCE2A5BB09C0007251D /* 1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FCD2A5BB09C0007251D /* 1.swift */; };
-		78DD4FD02A5BB0A30007251D /* 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FCF2A5BB0A30007251D /* 2.swift */; };
 		78DD4FD22A5BB0A90007251D /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD12A5BB0A90007251D /* 3.swift */; };
 		78DD4FD42A5BB0B00007251D /* 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD32A5BB0B00007251D /* 4.swift */; };
 		78DD4FD62A5BB0BA0007251D /* 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD52A5BB0BA0007251D /* 5.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7872CA682A5CFB8C00FC8444 /* ChagokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokView.swift; sourceTree = "<group>"; };
+		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
+		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
 		78DD4FB42A5BAFC10007251D /* MC3Team18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Team18.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3Team18App.swift; sourceTree = "<group>"; };
 		78DD4FB92A5BAFC10007251D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		78DD4FBB2A5BAFC20007251D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78DD4FCD2A5BB09C0007251D /* 1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1.swift; sourceTree = "<group>"; };
-		78DD4FCF2A5BB0A30007251D /* 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2.swift; sourceTree = "<group>"; };
 		78DD4FD12A5BB0A90007251D /* 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3.swift; sourceTree = "<group>"; };
 		78DD4FD32A5BB0B00007251D /* 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4.swift; sourceTree = "<group>"; };
 		78DD4FD52A5BB0BA0007251D /* 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5.swift; sourceTree = "<group>"; };
@@ -133,7 +137,9 @@
 		78DD4FCB2A5BB04A0007251D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				78DD4FCF2A5BB0A30007251D /* 2.swift */,
+				7872CA682A5CFB8C00FC8444 /* ChagokView.swift */,
+				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
+				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,9 +222,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
+				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				78DD4FD42A5BB0B00007251D /* 4.swift in Sources */,
-				78DD4FD02A5BB0A30007251D /* 2.swift in Sources */,
 				78DD4FCE2A5BB09C0007251D /* 1.swift in Sources */,
+				7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */,
 				78DD4FD22A5BB0A90007251D /* 3.swift in Sources */,
 				78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */,
 				78DD4FD62A5BB0BA0007251D /* 5.swift in Sources */,
