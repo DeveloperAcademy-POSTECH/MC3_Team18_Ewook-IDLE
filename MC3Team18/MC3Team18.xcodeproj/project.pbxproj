@@ -10,6 +10,7 @@
 		7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokView.swift */; };
 		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
+		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
 		78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB92A5BAFC10007251D /* ContentView.swift */; };
 		78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBB2A5BAFC20007251D /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		7872CA682A5CFB8C00FC8444 /* ChagokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokView.swift; sourceTree = "<group>"; };
 		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
+		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78DD4FB42A5BAFC10007251D /* MC3Team18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Team18.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3Team18App.swift; sourceTree = "<group>"; };
 		78DD4FB92A5BAFC10007251D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78BE77C92A5D4E8B0028A446 /* Chagok */ = {
+			isa = PBXGroup;
+			children = (
+				7872CA682A5CFB8C00FC8444 /* ChagokView.swift */,
+				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
+				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
+			);
+			path = Chagok;
+			sourceTree = "<group>";
+		};
 		78DD4FAB2A5BAFC10007251D = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +85,8 @@
 				78DD4FC92A5BB0370007251D /* Resources */,
 				78DD4FCC2A5BB04C0007251D /* View */,
 				78DD4FCB2A5BB04A0007251D /* Model */,
-				78DD4FC52A5BB0140007251D /* Global */,
 				78DD4FBD2A5BAFC20007251D /* Preview Content */,
+				78DD4FC52A5BB0140007251D /* Global */,
 			);
 			path = MC3Team18;
 			sourceTree = "<group>";
@@ -141,9 +153,7 @@
 		78DD4FCB2A5BB04A0007251D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7872CA682A5CFB8C00FC8444 /* ChagokView.swift */,
-				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
-				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
+				78BE77C72A5D4E850028A446 /* Sample.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +161,7 @@
 		78DD4FCC2A5BB04C0007251D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				78BE77C92A5D4E8B0028A446 /* Chagok */,
 				E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */,
 				78DD4FB92A5BAFC10007251D /* ContentView.swift */,
 				E53CEA192A5D3E7000BE59B9 /* HomeView.swift */,
@@ -229,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
+				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				78DD4FD42A5BB0B00007251D /* 4.swift in Sources */,
 				78DD4FCE2A5BB09C0007251D /* 1.swift in Sources */,
