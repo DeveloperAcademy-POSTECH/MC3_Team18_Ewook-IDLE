@@ -17,7 +17,7 @@
 		78DD4FD42A5BB0B00007251D /* 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD32A5BB0B00007251D /* 4.swift */; };
 		78DD4FD62A5BB0BA0007251D /* 5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD52A5BB0BA0007251D /* 5.swift */; };
 		E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA192A5D3E7000BE59B9 /* HomeView.swift */; };
-		E53CEA1C2A5D42EA00BE59B9 /* SplahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplahView.swift */; };
+		E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		78DD4FD32A5BB0B00007251D /* 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4.swift; sourceTree = "<group>"; };
 		78DD4FD52A5BB0BA0007251D /* 5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5.swift; sourceTree = "<group>"; };
 		E53CEA192A5D3E7000BE59B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		E53CEA1B2A5D42EA00BE59B9 /* SplahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplahView.swift; sourceTree = "<group>"; };
+		E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,7 @@
 		78DD4FCC2A5BB04C0007251D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E53CEA1B2A5D42EA00BE59B9 /* SplahView.swift */,
+				E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */,
 				78DD4FB92A5BAFC10007251D /* ContentView.swift */,
 				E53CEA192A5D3E7000BE59B9 /* HomeView.swift */,
 			);
@@ -228,7 +228,7 @@
 				78DD4FD22A5BB0A90007251D /* 3.swift in Sources */,
 				78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
-				E53CEA1C2A5D42EA00BE59B9 /* SplahView.swift in Sources */,
+				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
 				78DD4FD62A5BB0BA0007251D /* 5.swift in Sources */,
 				78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */,
 			);
