@@ -10,14 +10,15 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack{
-            Image("SplashViewBackground")
-            VStack {
-                Image("BalloonButtonImage")
+            Image("BackgroundHomeVIew")
+            VStack(){
+                Image("ButtonBalloon")
+                    .border(Color.red)
                     .onTapGesture {
                         EmptyView()
                         print("BalloonButtonImage Clicked")
                     }
-                Image("CupStackButtonImage")
+                Image("ButtonCupStack")
                     .onTapGesture {
                         EmptyView()
                         print("CupStackButtonImage Clicked")

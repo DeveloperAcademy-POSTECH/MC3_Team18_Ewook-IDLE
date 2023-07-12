@@ -30,7 +30,7 @@ struct ChagokGameOverView: View {
                     Button {
                         
                     } label: {
-                        Image("GameOverBtn")
+                        Image("ButtonGameOver")
                             .overlay {
                                 VStack(spacing: 9) {
                                     Image(systemName: "house")
@@ -45,7 +45,7 @@ struct ChagokGameOverView: View {
                     Button {
                         
                     } label: {
-                        Image("GameOverBtn")
+                        Image("ButtonGameOver")
                             .overlay {
                                 VStack(spacing: 9) {
                                     Image(systemName: "arrow.clockwise")
