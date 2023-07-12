@@ -24,7 +24,7 @@ struct ChagokView: View {
                         .frame(height: 29)
                     Text("0")
                         .pretendardSemiBold24()
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.Yellow)
                     Spacer()
                     Image(systemName: "pause.circle")
                         .resizable()
