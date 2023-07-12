@@ -37,7 +37,7 @@ struct HomeView: View {
         case .bubbleGum:
             BubbleGumMainView()
         case .chagok:
-            ChagokView()
+            ChagokMainView(gameSelection: $gameSelected)
         }
         
     }

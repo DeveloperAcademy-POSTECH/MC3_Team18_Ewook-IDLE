@@ -24,6 +24,8 @@ struct ChagokView: View {
     @State var mouthWidth: Double = 0
     @State var mouthHeight: Double = 0
     
+    @Binding var chagokStatus: ChagokStatus
+    
     var scene: SKScene {
         let scene = ChagokSKScene()
         scene.size = CGSize(width: 300, height: 400)
@@ -50,11 +52,14 @@ struct ChagokView: View {
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                     Spacer()
-                    Image(systemName: "pause.circle")
-                        .resizable()
-                        .pretendardSemiBold20()
-                        .frame(width: 29, height: 29)
-                    
+                    Button {
+                        chagokStatus = .pause
+                    } label: {
+                        Image(systemName: "pause.circle")
+                            .resizable()
+                            .pretendardSemiBold20()
+                            .frame(width: 29, height: 29)
+                    }
                 }
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
@@ -114,6 +119,6 @@ struct ChagokView: View {
 
 struct ChagokView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokView()
+        ChagokView(chagokStatus: .constant(.game))
     }
 }

@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct ChagokTutorialView: View {
+    
+    @Binding var chagokStatus: ChagokStatus
+    
     var body: some View {
         ZStack {
-            ChagokView()
+            ChagokView(chagokStatus: .constant(.game))
             Color.black.opacity(0.5)
                 .ignoresSafeArea()
             VStack {
                 HStack {
                     Spacer()
-                    Image(systemName: "x.circle")
-                        .resizable()
-                        .pretendardSemiBold20()
-                        .frame(width: 36, height: 36)
+                    Button {
+                        chagokStatus = .game
+                    } label: {
+                        Image(systemName: "x.circle")
+                            .resizable()
+                            .pretendardSemiBold20()
+                            .frame(width: 36, height: 36)
+                    }
                 }
                 .padding(.top, 26)
                 .padding(.trailing, 27)
@@ -56,6 +63,6 @@ struct ChagokTutorialView: View {
 
 struct ChagokTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokTutorialView()
+        ChagokTutorialView(chagokStatus: .constant(.tutorial))
     }
 }

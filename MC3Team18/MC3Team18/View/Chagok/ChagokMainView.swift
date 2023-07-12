@@ -16,9 +16,9 @@ struct ChagokMainView: View {
         ZStack {
             switch chagokStatus {
             case .tutorial:
-                ChagokTutorialView()
+                ChagokTutorialView(chagokStatus: $chagokStatus)
             case .game:
-                ChagokView()
+                ChagokView(chagokStatus: $chagokStatus)
             case .pause:
                 ChagokPauseView()
             case .gameover:
