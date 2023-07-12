@@ -20,7 +20,7 @@ struct ChagokMainView: View {
             case .game:
                 ChagokGameView(chagokStatus: $chagokStatus)
             case .pause:
-                ChagokPauseView()
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
             case .gameover:
                 ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
             }
