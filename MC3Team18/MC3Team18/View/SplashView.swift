@@ -28,6 +28,7 @@ struct SplashView: View {
                 .ignoresSafeArea()
             }
         }
+        .statusBarHidden()
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {

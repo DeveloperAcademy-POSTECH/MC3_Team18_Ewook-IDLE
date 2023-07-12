@@ -113,6 +113,7 @@ struct ChagokGameView: View {
                     .shadow(radius: 3)
             }
         }
+        .statusBarHidden()
         .ignoresSafeArea()
     }
 }

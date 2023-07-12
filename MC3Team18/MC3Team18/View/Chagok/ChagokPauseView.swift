@@ -58,6 +58,7 @@ struct ChagokPauseView: View {
             .padding(.horizontal, 110)
             .padding(.vertical, 160)
         }
+        .statusBarHidden()
     }
 }
 

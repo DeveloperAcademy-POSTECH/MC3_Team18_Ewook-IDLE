@@ -25,6 +25,7 @@ struct ChagokMainView: View {
                 ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
             }
         }
+        .statusBarHidden()
         .onAppear {
             // 만약 게임이 처음이 아니라면
             if false {

@@ -68,6 +68,7 @@ struct ChagokGameOverView: View {
             .ignoresSafeArea()
             .foregroundColor(.white)
         }
+        .statusBarHidden()
     }
 }
 
