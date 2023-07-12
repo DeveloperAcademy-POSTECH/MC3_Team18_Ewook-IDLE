@@ -14,9 +14,12 @@
 		6080598B2A5E71DC007A716D /* BubbleGumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059872A5E71DC007A716D /* BubbleGumMainView.swift */; };
 		6080598C2A5E71DC007A716D /* BubbleGumPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059882A5E71DC007A716D /* BubbleGumPauseView.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
-		7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokView.swift */; };
+		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
 		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
+		78777F0A2A5E951C008826DA /* ChagokMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F092A5E951C008826DA /* ChagokMainView.swift */; };
+		78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0B2A5E9594008826DA /* ChagokStatus.swift */; };
+		78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0D2A5E9630008826DA /* ChagokPauseView.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
 		78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */; };
@@ -45,9 +48,12 @@
 		608059872A5E71DC007A716D /* BubbleGumMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumMainView.swift; sourceTree = "<group>"; };
 		608059882A5E71DC007A716D /* BubbleGumPauseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumPauseView.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
-		7872CA682A5CFB8C00FC8444 /* ChagokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokView.swift; sourceTree = "<group>"; };
+		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
 		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
+		78777F092A5E951C008826DA /* ChagokMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokMainView.swift; sourceTree = "<group>"; };
+		78777F0B2A5E9594008826DA /* ChagokStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokStatus.swift; sourceTree = "<group>"; };
+		78777F0D2A5E9630008826DA /* ChagokPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokPauseView.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				784A209C2A5E8C9B0091B59F /* GameSelection.swift */,
+				78777F0B2A5E9594008826DA /* ChagokStatus.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -102,11 +109,13 @@
 		78BE77C92A5D4E8B0028A446 /* Chagok */ = {
 			isa = PBXGroup;
 			children = (
-				7872CA682A5CFB8C00FC8444 /* ChagokView.swift */,
+				78777F092A5E951C008826DA /* ChagokMainView.swift */,
+				7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */,
 				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
 				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
 				2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */,
 				2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */,
+				78777F0D2A5E9630008826DA /* ChagokPauseView.swift */,
 			);
 			path = Chagok;
 			sourceTree = "<group>";
@@ -302,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78777F0A2A5E951C008826DA /* ChagokMainView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
+				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				6080598C2A5E71DC007A716D /* BubbleGumPauseView.swift in Sources */,
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
@@ -314,10 +325,11 @@
 				608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
 				6080598B2A5E71DC007A716D /* BubbleGumMainView.swift in Sources */,
-				7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */,
+				7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */,
 				6080598A2A5E71DC007A716D /* BubbleGumEndView.swift in Sources */,
 				78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
+				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
 				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
