@@ -5,9 +5,33 @@
 //  Created by ChoiYujin on 2023/07/11.
 //
 
+import ARKit
+import RealityKit
+import SpriteKit
 import SwiftUI
 
+//전역변수 : SKScene과 값을 공유해야 하는 변수들
+public var publicJawValue : Double = 0
+public var jawDrop : Bool = false
+public var publicMouthLeftAndRight : Double = 0
+public var mouthLeftAndRightDrop : Bool = false
+
 struct ChagokView: View {
+    
+    //얼굴 표정 인식 변수
+    @State var isJawOpen: Bool = false
+    @State var isMouthLeftAndRight: Bool = false
+    @State var mouthWidth: Double = 0
+    @State var mouthHeight: Double = 0
+    
+    var scene: SKScene {
+        let scene = ChagokSKScene()
+        scene.size = CGSize(width: 300, height: 400)
+        scene.scaleMode = .aspectFit
+        scene.statusChanged = isJawOpen
+        return scene
+    }
+    
     var body: some View {
         ZStack {
             Color.clear.overlay {
