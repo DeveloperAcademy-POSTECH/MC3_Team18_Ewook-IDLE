@@ -19,7 +19,7 @@ struct MC3Team18App: App {
     }
     var body: some Scene {
         WindowGroup {
-            ChagokView()
+            SplashView()
         }
     }
 }
