@@ -11,11 +11,11 @@ struct BubbleGumMainView: View {
     @State var isShowingTutorial: Bool = true
     @State private var isShowingStartTitle = false
 
-    private let offsetValue: CGFloat = -740.0
-    
     @State private var scale: CGFloat = 0.02
     private let animationMaxDuration: Double = 12.0
     
+    var offsetValue: CGFloat = -740.0
+    @State private var backgroundOffset = -740.0
     @State private var currentImageIndex = 0
     private let images = ["BubbleGumPink","BubbleGumOrange", "BubbleGumBlue"]
     
@@ -25,8 +25,8 @@ struct BubbleGumMainView: View {
             Image("BackgroundBubbleGum")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .offset(y: offsetValue)
-            
+                .offset(y: backgroundOffset)
+                .animation(.linear(duration: animationMaxDuration), value: backgroundOffset)
             VStack(){
                 Text((isShowingTutorial || isShowingStartTitle) ? "" : "소리를 내면 시작합니다")
                     .pretendardSemiBold24()
@@ -62,6 +62,7 @@ struct BubbleGumMainView: View {
     private func startGame() {
         isShowingStartTitle = true
         scale += 0.8
+        backgroundOffset += -offsetValue * 2 - 20
     }
 }
 
