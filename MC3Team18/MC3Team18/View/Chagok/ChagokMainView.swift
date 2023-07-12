@@ -36,6 +36,8 @@ struct ChagokMainView: View {
 
 struct ChagokMainView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokMainView(gameSelection: .constant(.chagok))
+        MultiPreview {
+            ChagokMainView(gameSelection: .constant(.chagok))
+        }
     }
 }
