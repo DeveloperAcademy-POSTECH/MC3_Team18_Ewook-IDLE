@@ -33,6 +33,7 @@ struct HomeView: View {
                 }
                 .padding()
             }
+            .statusBarHidden()
             .ignoresSafeArea()
         case .bubbleGum:
             BubbleGumMainView()

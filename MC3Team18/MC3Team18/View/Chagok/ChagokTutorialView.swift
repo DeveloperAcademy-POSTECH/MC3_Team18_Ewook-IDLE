@@ -58,6 +58,7 @@ struct ChagokTutorialView: View {
             .ignoresSafeArea()
             
         }
+        .statusBarHidden()
     }
 }
 
