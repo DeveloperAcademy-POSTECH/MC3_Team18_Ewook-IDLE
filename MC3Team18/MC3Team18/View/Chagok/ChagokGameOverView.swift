@@ -21,9 +21,10 @@ struct ChagokGameOverView: View {
                 HStack {
                     Text("Best Score")
                         .pretendardRegular24()
+                        .foregroundColor(.LightGray)
                     Text("140")
                         .pretendardSemiBold24()
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.Yellow)
                 }
                 Spacer()
                 HStack(spacing: 60) {
