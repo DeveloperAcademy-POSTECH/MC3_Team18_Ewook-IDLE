@@ -31,12 +31,13 @@ class ChagokSKScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        self.backgroundColor = .clear
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-        backgroundColor = .clear
         if let skView = view as? SKView {
             skView.allowsTransparency = true
             skView.isOpaque = false
-            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

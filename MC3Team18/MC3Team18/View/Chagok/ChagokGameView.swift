@@ -28,7 +28,7 @@ struct ChagokGameView: View {
     
     var scene: SKScene {
         let scene = ChagokSKScene()
-        scene.size = CGSize(width: 300, height: 400)
+        scene.size = CGSize(width: 150, height: 300)
         scene.scaleMode = .aspectFit
         scene.statusChanged = isJawOpen
         return scene
@@ -92,7 +92,7 @@ struct ChagokGameView: View {
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
-                            SpriteView(scene: scene)
+                            SpriteView(scene: scene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
                         }
                 }
