@@ -8,31 +8,43 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @Binding var gameSelected: GameSelection
+    
     var body: some View {
-        ZStack{
-            Image("BackgroundHomeVIew")
-            VStack(){
-                Image("ButtonBalloon")
-                    .border(Color.red)
-                    .onTapGesture {
-                        EmptyView()
-                        print("BalloonButtonImage Clicked")
+        
+        switch gameSelected {
+        case .none:
+            ZStack{
+                Image("BackgroundHomeVIew")
+                VStack {
+                    Button {
+                        print("bubble")
+                        gameSelected = .bubbleGum
+                    } label: {
+                        Image("ButtonBalloon")
                     }
-                Image("ButtonCupStack")
-                    .onTapGesture {
-                        EmptyView()
-                        print("CupStackButtonImage Clicked")
+                    Button {
+                        print("chagok")
+                        gameSelected = .chagok
+                    } label: {
+                        Image("ButtonCupStack")
                     }
-                   }
-                   .padding()
+                }
+                .padding()
+            }
+            .ignoresSafeArea()
+        case .bubbleGum:
+            BubbleGumMainView()
+        case .chagok:
+            ChagokView()
         }
-        .ignoresSafeArea()
-
+        
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(gameSelected: .constant(.none))
     }
 }

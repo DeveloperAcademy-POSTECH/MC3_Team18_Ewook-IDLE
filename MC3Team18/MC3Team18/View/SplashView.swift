@@ -12,28 +12,28 @@ import SwiftUI
 struct SplashView: View {
     
     @State var isActive : Bool = false
+    @State var gameSelected: GameSelection = .none
     
     var body: some View {
         ZStack{
             if self.isActive{
-                HomeView()
+                HomeView(gameSelected: $gameSelected)
             }else{
                 VStack(){
                     Image("BackgroundSplashView")
                         .overlay(
-                        Image("SplashLogo")
+                            Image("SplashLogo")
                         )
                 }
                 .ignoresSafeArea()
             }
-            
         }
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            withAnimation {
-                                self.isActive = true
-                            }
-                        }
+                withAnimation {
+                    self.isActive = true
+                }
+            }
         }
     }
 }
