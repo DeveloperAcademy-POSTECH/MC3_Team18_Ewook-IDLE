@@ -91,6 +91,14 @@
 			path = BubbleGum;
 			sourceTree = "<group>";
 		};
+		78777F082A5E8E36008826DA /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				784A209C2A5E8C9B0091B59F /* GameSelection.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		78BE77C92A5D4E8B0028A446 /* Chagok */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +151,7 @@
 		78DD4FC52A5BB0140007251D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				78777F082A5E8E36008826DA /* Enum */,
 				78DD4FC82A5BB0310007251D /* Extension */,
 				78DD4FC72A5BB0240007251D /* Components */,
 				78DD4FC62A5BB01F0007251D /* Modifier */,
@@ -202,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				78BE77C72A5D4E850028A446 /* Sample.swift */,
-				784A209C2A5E8C9B0091B59F /* GameSelection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
