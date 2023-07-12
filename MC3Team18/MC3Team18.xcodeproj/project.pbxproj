@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
+		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
 		7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokView.swift */; };
 		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
+		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
 		7872CA682A5CFB8C00FC8444 /* ChagokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokView.swift; sourceTree = "<group>"; };
 		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				7872CA682A5CFB8C00FC8444 /* ChagokView.swift */,
 				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
 				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
+				2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */,
+				2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */,
 			);
 			path = Chagok;
 			sourceTree = "<group>";
@@ -269,6 +275,8 @@
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
+				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
+				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				78DD4FD42A5BB0B00007251D /* 4.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
 				7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */,
@@ -407,9 +415,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = UG6UT639QH;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,9 +445,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = UG6UT639QH;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
