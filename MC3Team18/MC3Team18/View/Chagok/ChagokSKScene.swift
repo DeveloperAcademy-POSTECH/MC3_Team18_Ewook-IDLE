@@ -32,6 +32,11 @@ class ChagokSKScene: SKScene {
     
     override func didMove(to view: SKView) {
         physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        backgroundColor = .clear
+        if let skView = view as? SKView {
+            skView.allowsTransparency = true
+            skView.isOpaque = false
+            }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,8 +54,5 @@ class ChagokSKScene: SKScene {
         box.physicsBody?.allowsRotation = false
         box.physicsBody?.restitution = 0
         addChild(box)
-        
-        print("Drop x \(size.width / 2), y : \(size.height / 2)")
-
     }
 }

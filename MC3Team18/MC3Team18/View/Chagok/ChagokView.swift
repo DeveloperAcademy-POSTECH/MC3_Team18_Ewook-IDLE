@@ -86,6 +86,10 @@ struct ChagokView: View {
                 HStack {
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
+                        .overlay {
+                            SpriteView(scene: scene)
+                                .frame(width: 150, height: 300)
+                        }
                 }
                 .foregroundColor(.white.opacity(0.4))
                 Spacer()
@@ -97,6 +101,11 @@ struct ChagokView: View {
                 Spacer()
                 Color.white.frame(height: 367)
                     .offset(y: 30)
+                
+                ChagokARViewContainer(jawOpen: $isJawOpen, isMouthLeftAndRight: $isMouthLeftAndRight, mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
+                    .frame(width: 0, height: 0)
+                    .cornerRadius(20)
+                    .shadow(radius: 3)
             }
         }
         .ignoresSafeArea()
