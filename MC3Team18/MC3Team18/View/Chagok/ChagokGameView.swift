@@ -16,7 +16,7 @@ public var jawDrop : Bool = false
 public var publicMouthLeftAndRight : Double = 0
 public var mouthLeftAndRightDrop : Bool = false
 
-struct ChagokView: View {
+struct ChagokGameView: View {
     
     //얼굴 표정 인식 변수
     @State var isJawOpen: Bool = false
@@ -117,8 +117,8 @@ struct ChagokView: View {
     }
 }
 
-struct ChagokView_Previews: PreviewProvider {
+struct ChagokGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokView(chagokStatus: .constant(.game))
+        ChagokGameView(chagokStatus: .constant(.game))
     }
 }

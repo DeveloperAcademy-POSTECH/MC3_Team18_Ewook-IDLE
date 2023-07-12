@@ -13,7 +13,7 @@ struct ChagokTutorialView: View {
     
     var body: some View {
         ZStack {
-            ChagokView(chagokStatus: .constant(.game))
+            ChagokGameView(chagokStatus: .constant(.game))
             Color.black.opacity(0.5)
                 .ignoresSafeArea()
             VStack {

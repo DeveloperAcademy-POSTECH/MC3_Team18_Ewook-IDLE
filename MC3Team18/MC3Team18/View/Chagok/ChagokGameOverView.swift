@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ChagokGameOverView: View {
+    
+    @Binding var gameSelection: GameSelection
+    @Binding var chagokStatus: ChagokStatus
+    
     var body: some View {
         ZStack {
-            ChagokView(chagokStatus: .constant(.game))
+            ChagokGameView(chagokStatus: .constant(.game))
             Color.black.opacity(0.5).ignoresSafeArea()
             VStack(spacing: 13) {
                 Spacer().frame(height: 157)
@@ -29,7 +33,7 @@ struct ChagokGameOverView: View {
                 Spacer()
                 HStack(spacing: 60) {
                     Button {
-                        
+                        gameSelection = .none
                     } label: {
                         Image("ButtonGameOver")
                             .overlay {
@@ -44,7 +48,7 @@ struct ChagokGameOverView: View {
                             }
                     }
                     Button {
-                        
+                        chagokStatus = .game
                     } label: {
                         Image("ButtonGameOver")
                             .overlay {
@@ -69,6 +73,6 @@ struct ChagokGameOverView: View {
 
 struct ChagokGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokGameOverView()
+        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover))
     }
 }
