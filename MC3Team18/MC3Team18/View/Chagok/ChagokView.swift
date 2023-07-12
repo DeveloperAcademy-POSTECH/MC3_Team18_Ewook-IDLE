@@ -11,7 +11,7 @@ struct ChagokView: View {
     var body: some View {
         ZStack {
             Color.clear.overlay {
-                Image("ChagokBackground")
+                Image("BackgroundChagok")
                     .resizable()
                     .scaledToFill()
             }

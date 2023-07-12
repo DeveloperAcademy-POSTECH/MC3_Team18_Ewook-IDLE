@@ -27,6 +27,7 @@
 		78DD4FD42A5BB0B00007251D /* 4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FD32A5BB0B00007251D /* 4.swift */; };
 		E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA192A5D3E7000BE59B9 /* HomeView.swift */; };
 		E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */; };
+		E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		78DD4FD32A5BB0B00007251D /* 4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4.swift; sourceTree = "<group>"; };
 		E53CEA192A5D3E7000BE59B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				78BE77DA2A5D6A160028A446 /* FontExtension.swift */,
 				78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */,
+				E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				78DD4FD42A5BB0B00007251D /* 4.swift in Sources */,
+				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
 				7872CA692A5CFB8C00FC8444 /* ChagokView.swift in Sources */,
 				78DD4FBA2A5BAFC10007251D /* ContentView.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,

@@ -19,9 +19,9 @@ struct SplashView: View {
                 HomeView()
             }else{
                 VStack(){
-                    Image("SplashViewBackground")
+                    Image("BackgroundSplashView")
                         .overlay(
-                        Image("SplashLogoImage")
+                        Image("SplashLogo")
                         )
                 }
                 .ignoresSafeArea()
