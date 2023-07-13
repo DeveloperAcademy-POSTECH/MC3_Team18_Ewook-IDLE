@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct BubbleGumTutorialView: View {
-    @Binding var isShowingTutorial: Bool
+    
+    @Binding var bubbleGumStatus: BubbleGumStatus
     @State var isNeverShowingTutorial: Bool = false
     
     var body: some View {
@@ -18,7 +19,7 @@ struct BubbleGumTutorialView: View {
             
             VStack(){
                 Button {
-                    isShowingTutorial = false
+                    bubbleGumStatus = .waiting
                 } label: {
                     Image(systemName:  "x.circle")
                         .resizable()
@@ -62,13 +63,12 @@ struct BubbleGumTutorialView: View {
             }
             .padding(.top, 30)
             .padding(.bottom, 41)
-           
         }.edgesIgnoringSafeArea(.all)
     }
 }
 
 struct BubbleGumTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumTutorialView(isShowingTutorial: .constant(true))
+        BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isNeverShowingTutorial: true)
     }
 }
