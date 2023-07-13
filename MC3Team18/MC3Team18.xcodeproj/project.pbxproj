@@ -13,6 +13,7 @@
 		6080598A2A5E71DC007A716D /* BubbleGumEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumEndView.swift */; };
 		6080598B2A5E71DC007A716D /* BubbleGumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059872A5E71DC007A716D /* BubbleGumMainView.swift */; };
 		6080598C2A5E71DC007A716D /* BubbleGumPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059882A5E71DC007A716D /* BubbleGumPauseView.swift */; };
+		608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059942A5FF0EA007A716D /* BubbleGumStatus.swift */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
 		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
@@ -46,6 +47,7 @@
 		608059862A5E71DC007A716D /* BubbleGumEndView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumEndView.swift; sourceTree = "<group>"; };
 		608059872A5E71DC007A716D /* BubbleGumMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumMainView.swift; sourceTree = "<group>"; };
 		608059882A5E71DC007A716D /* BubbleGumPauseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumPauseView.swift; sourceTree = "<group>"; };
+		608059942A5FF0EA007A716D /* BubbleGumStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumStatus.swift; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
 		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				784A209C2A5E8C9B0091B59F /* GameSelection.swift */,
 				78777F0B2A5E9594008826DA /* ChagokStatus.swift */,
+				608059942A5FF0EA007A716D /* BubbleGumStatus.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				6080598A2A5E71DC007A716D /* BubbleGumEndView.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
 				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
+				608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */,
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
