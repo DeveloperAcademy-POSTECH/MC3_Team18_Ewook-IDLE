@@ -112,8 +112,20 @@ struct ChagokGameView: View {
                 Image(ChagokFace.faceActive.rawValue)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 285)
+                    .frame(height: 300)
                     .offset(y: 20)
+                    .overlay {
+                        VStack(alignment: .center, spacing: 10) {
+                            Image("ChagokEyes")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 74)
+                            Image("ChagokMouth")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35)
+                        }
+                    }
                 
                 ChagokARViewContainer(jawOpen: $isJawOpen, isMouthLeftAndRight: $isMouthLeftAndRight, mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
                     .frame(width: 0, height: 0)
