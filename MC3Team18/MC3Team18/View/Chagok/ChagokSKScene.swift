@@ -17,24 +17,54 @@ enum CupName: String, CaseIterable {
     case YellowCup = "YellowCup"
 }
 
+enum MouthState{
+    case none
+    case a
+    case e
+    case i
+    case o
+    case u
+}
 
 class ChagokSKScene: SKScene {
     
     var statusChanged: Bool = false
+    var mouthState : MouthState = MouthState.none
     
     override func update(_ currentTime: TimeInterval){
-        if mouthA > 0.5 && mouthE < 0.5{
-            if isMouthA == false{
-                dropbox(cupname: CupName.BlueCup)
-                isMouthA = true
-                isMouthI = false
+        
+        if mouthA > 0.5 && mouthI > 0.65{
+            if mouthState != MouthState.a{
+                dropbox(cupname: CupName.RedCup)
+                mouthState = MouthState.a
             }
         }
-        if mouthE > 0.5 && mouthA < 0.5{
-            if isMouthI == false{
+        
+        if mouthA > 0.2 && mouthA < 0.4 && mouthI > 0.5{
+            if mouthState != MouthState.e{
+                dropbox(cupname: CupName.YellowCup)
+                mouthState = MouthState.e
+            }
+        }
+        
+        if mouthI > 0.5 && mouthA < 0.15{
+            if mouthState != MouthState.i{
                 dropbox(cupname: CupName.GreenCup)
-                isMouthI = true
-                isMouthA = false
+                mouthState = MouthState.i
+            }
+        }
+        
+        if mouthA > 0.5 && mouthI < 0.15{
+            if mouthState != MouthState.o{
+                dropbox(cupname: CupName.BlueCup)
+                mouthState = MouthState.o
+            }
+        }
+        
+        if mouthU > 0.65 && mouthI < 0.5 && mouthA < 0.25{
+            if mouthState != MouthState.u{
+                dropbox(cupname: CupName.PinkCup)
+                mouthState = MouthState.u
             }
         }
     }

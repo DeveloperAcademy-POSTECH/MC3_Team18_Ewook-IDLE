@@ -39,7 +39,6 @@ struct ChagokGameView: View {
         let scene = ChagokSKScene()
         scene.size = CGSize(width: 150, height: 300)
         scene.scaleMode = .aspectFit
-        scene.statusChanged = isJawOpen
         return scene
     }
     
