@@ -167,6 +167,14 @@ struct ChagokGameView: View {
             }
             
             leftCupStack = CupName.allCases.shuffled()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                chagokStatus = .gameover
+            }
+        }
+        .onChange(of: chagokStatus) { newValue in
+            if newValue == .pause || newValue == .gameover {
+                // 게임을 일시정지 하는 코드를 만듭니다.
+            }
         }
     }
 }

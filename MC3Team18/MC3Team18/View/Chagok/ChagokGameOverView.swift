@@ -48,6 +48,7 @@ struct ChagokGameOverView: View {
                             }
                     }
                     Button {
+                        // 게임 상태 초기화 만들기
                         chagokStatus = .game
                     } label: {
                         Image("ButtonGameOver")
