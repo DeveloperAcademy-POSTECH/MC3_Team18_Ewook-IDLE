@@ -20,7 +20,6 @@
 		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
 		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
-		78777F0A2A5E951C008826DA /* ChagokMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F092A5E951C008826DA /* ChagokMainView.swift */; };
 		78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0B2A5E9594008826DA /* ChagokStatus.swift */; };
 		78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0D2A5E9630008826DA /* ChagokPauseView.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
@@ -55,7 +54,6 @@
 		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
 		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
-		78777F092A5E951C008826DA /* ChagokMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokMainView.swift; sourceTree = "<group>"; };
 		78777F0B2A5E9594008826DA /* ChagokStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokStatus.swift; sourceTree = "<group>"; };
 		78777F0D2A5E9630008826DA /* ChagokPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokPauseView.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 		78BE77C92A5D4E8B0028A446 /* Chagok */ = {
 			isa = PBXGroup;
 			children = (
-				78777F092A5E951C008826DA /* ChagokMainView.swift */,
 				7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */,
 				7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */,
 				7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */,
@@ -315,7 +312,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6080599B2A5FF5C6007A716D /* BubbleGumWaitingView.swift in Sources */,
-				78777F0A2A5E951C008826DA /* ChagokMainView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
@@ -467,7 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = VJUK3HBJ2M;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
@@ -497,7 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = VJUK3HBJ2M;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";

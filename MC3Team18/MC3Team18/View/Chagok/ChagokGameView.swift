@@ -11,10 +11,17 @@ import SpriteKit
 import SwiftUI
 
 //전역변수 : SKScene과 값을 공유해야 하는 변수들
-public var publicJawValue : Double = 0
-public var jawDrop : Bool = false
-public var publicMouthLeftAndRight : Double = 0
-public var mouthLeftAndRightDrop : Bool = false
+public var mouthA : Double = 0 //입모양 "아"
+public var mouthE : Double = 0 //입모양 "에"
+public var mouthI : Double = 0 //입모양 "이"
+public var mouthO : Double = 0 //입모양 "오"
+public var mouthU : Double = 0 //입모양 "우"
+
+public var isMouthA : Bool = false
+public var isMouthE : Bool = false
+public var isMouthI : Bool = false
+public var isMouthO : Bool = false
+public var isMouthU : Bool = false
 
 struct ChagokGameView: View {
     
@@ -23,8 +30,8 @@ struct ChagokGameView: View {
     @State var isMouthLeftAndRight: Bool = false
     @State var mouthWidth: Double = 0
     @State var mouthHeight: Double = 0
-    
-    @Binding var chagokStatus: ChagokStatus
+    @State var chagokStatus: ChagokStatus = .tutorial
+    @Binding var gameSelection: GameSelection
     
     @State var leftCupStack: [CupName] = []
     
@@ -32,7 +39,6 @@ struct ChagokGameView: View {
         let scene = ChagokSKScene()
         scene.size = CGSize(width: 150, height: 300)
         scene.scaleMode = .aspectFit
-        scene.statusChanged = isJawOpen
         return scene
     }
     
@@ -145,17 +151,41 @@ struct ChagokGameView: View {
                     .shadow(radius: 3)
             }
             
+            switch chagokStatus {
+                
+            case .tutorial:
+                ChagokTutorialView(chagokStatus: $chagokStatus)
+            case .game:
+                EmptyView()
+            case .pause:
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+            case .gameover:
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+            }
         }
         .statusBarHidden()
         .ignoresSafeArea()
         .onAppear {
+            // 다시보지 않기가 설정이 되었다면 게임으로 바로 
+            if false {
+                chagokStatus = .game
+            }
+            
             leftCupStack = CupName.allCases.shuffled()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                chagokStatus = .gameover
+            }
+        }
+        .onChange(of: chagokStatus) { newValue in
+            if newValue == .pause || newValue == .gameover {
+                // 게임을 일시정지 하는 코드를 만듭니다.
+            }
         }
     }
 }
 
 struct ChagokGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokGameView(chagokStatus: .constant(.game))
+        ChagokGameView(chagokStatus: .game, gameSelection: .constant(.chagok))
     }
 }

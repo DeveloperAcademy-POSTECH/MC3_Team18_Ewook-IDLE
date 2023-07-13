@@ -14,7 +14,7 @@ struct ChagokGameOverView: View {
     
     var body: some View {
         ZStack {
-            ChagokGameView(chagokStatus: .constant(.game))
+            
             Color.black.opacity(0.5).ignoresSafeArea()
             VStack(spacing: 13) {
                 Spacer().frame(height: 157)
@@ -48,6 +48,7 @@ struct ChagokGameOverView: View {
                             }
                     }
                     Button {
+                        // 게임 상태 초기화 만들기
                         chagokStatus = .game
                     } label: {
                         Image("ButtonGameOver")
