@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CupStackButtonImage.png",
+      "filename" : "ButtonCupStack.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ButtonCupStack@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ButtonCupStack@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

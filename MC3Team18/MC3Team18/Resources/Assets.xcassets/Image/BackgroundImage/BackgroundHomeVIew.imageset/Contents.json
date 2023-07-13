@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "HomeViewBackground.png",
+      "filename" : "BackgroundHomeVIew.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "BackgroundHomeVIew@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "BackgroundHomeVIew@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
