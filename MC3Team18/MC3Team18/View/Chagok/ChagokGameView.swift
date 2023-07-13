@@ -26,6 +26,8 @@ struct ChagokGameView: View {
     
     @Binding var chagokStatus: ChagokStatus
     
+    @State var leftCupStack: [CupName] = []
+    
     var scene: SKScene {
         let scene = ChagokSKScene()
         scene.size = CGSize(width: 150, height: 300)
@@ -95,6 +97,16 @@ struct ChagokGameView: View {
                 .padding(.bottom, 17)
                 HStack {
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
+                        .overlay {
+                            VStack(alignment: .center, spacing: 0) {
+                                ForEach(leftCupStack, id: \.rawValue) { cup in
+                                    Image(cup.rawValue)
+                                        .resizable()
+                                        .frame(width: 92, height: 56)
+                                }
+                            }
+                            .frame(width: 150, height: 300)
+                        }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
                             SpriteView(scene: scene, options: [.allowsTransparency])
@@ -136,6 +148,9 @@ struct ChagokGameView: View {
         }
         .statusBarHidden()
         .ignoresSafeArea()
+        .onAppear {
+            leftCupStack = CupName.allCases.shuffled()
+        }
     }
 }
 
