@@ -34,6 +34,11 @@ struct ChagokGameView: View {
         return scene
     }
     
+    enum ChagokFace: String {
+        case faceActive = "ChagokCharacterActive"
+        case faceInactive = "ChagokCharacterInActive"
+    }
+    
     var body: some View {
         ZStack {
             Color.clear.overlay {
@@ -104,14 +109,18 @@ struct ChagokGameView: View {
             
             VStack {
                 Spacer()
-                Color.white.frame(height: 367)
-                    .offset(y: 30)
+                Image(ChagokFace.faceActive.rawValue)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 285)
+                    .offset(y: 20)
                 
                 ChagokARViewContainer(jawOpen: $isJawOpen, isMouthLeftAndRight: $isMouthLeftAndRight, mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)
             }
+            
         }
         .statusBarHidden()
         .ignoresSafeArea()
