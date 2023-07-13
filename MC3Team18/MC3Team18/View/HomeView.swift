@@ -17,6 +17,9 @@ struct HomeView: View {
         case .none:
             ZStack{
                 Image("BackgroundHomeVIew")
+                    .resizable()
+                    .scaledToFill()
+                
                 VStack {
                     Button {
                         print("bubble")
@@ -38,7 +41,7 @@ struct HomeView: View {
         case .bubbleGum:
             BubbleGumMainView()
         case .chagok:
-            ChagokMainView(gameSelection: $gameSelected)
+            ChagokGameView(gameSelection: $gameSelected)
         }
         
     }
@@ -46,6 +49,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(gameSelected: .constant(.none))
+        MultiPreview {
+            HomeView(gameSelected: .constant(.none))
+        }
     }
 }

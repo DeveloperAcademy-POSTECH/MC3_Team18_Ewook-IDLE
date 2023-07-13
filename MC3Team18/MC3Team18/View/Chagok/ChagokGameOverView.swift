@@ -14,7 +14,7 @@ struct ChagokGameOverView: View {
     
     var body: some View {
         ZStack {
-            ChagokGameView(chagokStatus: .constant(.game))
+            
             Color.black.opacity(0.5).ignoresSafeArea()
             VStack(spacing: 13) {
                 Spacer().frame(height: 157)

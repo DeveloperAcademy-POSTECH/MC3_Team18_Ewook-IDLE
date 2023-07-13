@@ -24,7 +24,8 @@ struct ChagokGameView: View {
     @State var mouthWidth: Double = 0
     @State var mouthHeight: Double = 0
     
-    @Binding var chagokStatus: ChagokStatus
+    @State var chagokStatus: ChagokStatus = .tutorial
+    @Binding var gameSelection: GameSelection
     
     @State var leftCupStack: [CupName] = []
     
@@ -145,10 +146,26 @@ struct ChagokGameView: View {
                     .shadow(radius: 3)
             }
             
+            switch chagokStatus {
+                
+            case .tutorial:
+                ChagokTutorialView(chagokStatus: $chagokStatus)
+            case .game:
+                EmptyView()
+            case .pause:
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+            case .gameover:
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+            }
         }
         .statusBarHidden()
         .ignoresSafeArea()
         .onAppear {
+            // 다시보지 않기가 설정이 되었다면 게임으로 바로 
+            if false {
+                chagokStatus = .game
+            }
+            
             leftCupStack = CupName.allCases.shuffled()
         }
     }
@@ -156,6 +173,6 @@ struct ChagokGameView: View {
 
 struct ChagokGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokGameView(chagokStatus: .constant(.game))
+        ChagokGameView(chagokStatus: .game, gameSelection: .constant(.chagok))
     }
 }
