@@ -9,7 +9,7 @@ import ARKit
 import RealityKit
 import SpriteKit
 
-enum CupName: String {
+enum CupName: String, CaseIterable {
     case BlueCup = "BlueCup"
     case GreenCup = "GreenCup"
     case PinkCup = "PinkCup"
