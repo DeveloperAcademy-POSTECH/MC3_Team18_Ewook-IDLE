@@ -9,21 +9,30 @@ import ARKit
 import RealityKit
 import SpriteKit
 
+enum CupName: String {
+    case BlueCup = "BlueCup"
+    case GreenCup = "GreenCup"
+    case PinkCup = "PinkCup"
+    case RedCup = "RedCup"
+    case YellowCup = "YellowCup"
+}
+
+
 class ChagokSKScene: SKScene {
     
     var statusChanged: Bool = false
     
     override func update(_ currentTime: TimeInterval){
-        if publicJawValue > 0.5{
+        if publicJawValue > 0.5 && publicMouthLeftAndRight < 0.5{
             if jawDrop == false{
-                dropbox()
+                dropbox(cupname: CupName.BlueCup)
                 jawDrop = true
                 mouthLeftAndRightDrop = false
             }
         }
-        if publicMouthLeftAndRight > 0.5{
+        if publicMouthLeftAndRight > 0.5 && publicJawValue < 0.5{
             if mouthLeftAndRightDrop == false{
-                dropbox()
+                dropbox(cupname: CupName.GreenCup)
                 mouthLeftAndRightDrop = true
                 jawDrop = false
             }
@@ -45,15 +54,16 @@ class ChagokSKScene: SKScene {
         jawDrop = false
     }
     
-    func dropbox() {
+    func dropbox(cupname : CupName) {
         
         print("Drop dropbox()")
         
-        let box = SKSpriteNode(color: .red, size: CGSize(width: 50, height: 50))
-        box.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
-        box.physicsBody?.allowsRotation = false
-        box.physicsBody?.restitution = 0
-        addChild(box)
+        let cupNode = SKSpriteNode(imageNamed: cupname.rawValue)
+        cupNode.position = CGPoint(x: size.width / 2, y: size.height - 20)
+        cupNode.size = CGSize(width: 92, height: 56)
+        cupNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 92, height: 56))
+        cupNode.physicsBody?.allowsRotation = false
+        cupNode.physicsBody?.restitution = 0
+        addChild(cupNode)
     }
 }
