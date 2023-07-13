@@ -9,6 +9,7 @@ import Foundation
 
 enum BubbleGumStatus {
     case tutorial
+    case waiting
     case game
     case gameover
 }
