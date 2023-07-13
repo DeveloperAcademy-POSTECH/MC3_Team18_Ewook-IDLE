@@ -1,5 +1,5 @@
 //
-//  BubbleGumEndView.swift
+//  BubbleGumGameOverView.swift
 //  MC3Team18
 //
 //  Created by Minkyung Kim on 2023/07/11.
@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct BubbleGumEndView: View {
+struct BubbleGumGameOverView: View {
+    @Binding var bubbleGumStatus: BubbleGumStatus
+    @Binding var gameSelection: GameSelection
+    @Binding var score: String
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -17,7 +21,7 @@ struct BubbleGumEndView: View {
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
-                    Text("24")
+                    Text(score)
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     
@@ -33,7 +37,7 @@ struct BubbleGumEndView: View {
                 
                 HStack(){
                     Button {
-                        
+                        gameSelection = .none
                     } label: {
                         VStack(spacing: 12){
                             Image(systemName: "house")
@@ -48,7 +52,8 @@ struct BubbleGumEndView: View {
                     Spacer()
                     
                     Button {
-                        
+                        //TODO: 튜토리얼 변수 따라 튜토리얼로 넘어가는 케이스 추가
+                        bubbleGumStatus = .waiting
                     } label: {
                         VStack(spacing: 12){
                             Image(systemName: "arrow.clockwise")
@@ -59,8 +64,7 @@ struct BubbleGumEndView: View {
                                 .pretendardBold24()
                         }
                     }
-                }
-                .padding(.horizontal, 62)
+                }.padding(.horizontal, 62)
             }
         }
     }
@@ -68,6 +72,6 @@ struct BubbleGumEndView: View {
 
 struct BubbleGumEndView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumEndView()
+        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"))
     }
 }

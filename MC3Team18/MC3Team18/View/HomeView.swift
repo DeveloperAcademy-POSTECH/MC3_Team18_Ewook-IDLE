@@ -39,7 +39,7 @@ struct HomeView: View {
             .statusBarHidden()
             .ignoresSafeArea()
         case .bubbleGum:
-            BubbleGumMainView()
+            BubbleGumStatusView(gameSelection: $gameSelected)
         case .chagok:
             ChagokGameView(gameSelection: $gameSelected)
         }
