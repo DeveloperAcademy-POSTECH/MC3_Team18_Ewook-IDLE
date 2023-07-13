@@ -23,18 +23,18 @@ class ChagokSKScene: SKScene {
     var statusChanged: Bool = false
     
     override func update(_ currentTime: TimeInterval){
-        if publicJawValue > 0.5 && publicMouthLeftAndRight < 0.5{
-            if jawDrop == false{
+        if mouthA > 0.5 && mouthE < 0.5{
+            if isMouthA == false{
                 dropbox(cupname: CupName.BlueCup)
-                jawDrop = true
-                mouthLeftAndRightDrop = false
+                isMouthA = true
+                isMouthI = false
             }
         }
-        if publicMouthLeftAndRight > 0.5 && publicJawValue < 0.5{
-            if mouthLeftAndRightDrop == false{
+        if mouthE > 0.5 && mouthA < 0.5{
+            if isMouthI == false{
                 dropbox(cupname: CupName.GreenCup)
-                mouthLeftAndRightDrop = true
-                jawDrop = false
+                isMouthI = true
+                isMouthA = false
             }
         }
     }
@@ -51,7 +51,7 @@ class ChagokSKScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         removeAllChildren()
-        jawDrop = false
+        isMouthA = false
     }
     
     func dropbox(cupname : CupName) {

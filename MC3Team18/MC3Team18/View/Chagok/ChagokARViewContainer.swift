@@ -70,16 +70,15 @@ extension ChagokARViewContainer {
             mouthLeft = faceAnchor.blendShapes[.mouthSmileLeft]!.doubleValue
             mouthRight = faceAnchor.blendShapes[.mouthSmileRight]!.doubleValue
 
+//            parent?.mouthHeight = jawOpen
+//            parent?.mouthWidth = mouthLeft + mouthRight / 2
 
-            parent?.mouthHeight = jawOpen
-            parent?.mouthWidth = mouthLeft + mouthRight / 2
-
-            parent?.jawOpen = jawOpen > 0.2
-            publicJawValue = jawOpen
-            print("jawOpen : \(jawOpen)")
-
-            parent?.isMouthLeftAndRight = mouthLeft > 0.2 && mouthRight > 0.2
-            publicMouthLeftAndRight = (mouthLeft + mouthRight) / 2
+//            parent?.jawOpen = jawOpen > 0.2
+//            print("jawOpen : \(jawOpen)")
+//            parent?.isMouthLeftAndRight = mouthLeft > 0.2 && mouthRight > 0.2
+            
+            mouthA = jawOpen
+            mouthE = (mouthLeft + mouthRight) / 2
             print("mouthLeft: \(mouthLeft)")
             print("mouthRight: \(mouthRight)")
         }
