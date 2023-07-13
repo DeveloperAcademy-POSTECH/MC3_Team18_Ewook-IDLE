@@ -14,7 +14,6 @@ struct ChagokPauseView: View {
     
     var body: some View {
         ZStack {
-            ChagokGameView(chagokStatus: .constant(.game))
             Color.black.opacity(0.4).ignoresSafeArea()
             VStack {
                 Button {
@@ -43,7 +42,8 @@ struct ChagokPauseView: View {
                 
                 Spacer()
                 Button {
-                    chagokStatus = .tutorial
+                    // 게임 상황 리셋하는 코드 만들기
+                    chagokStatus = .game
                 } label: {
                     VStack(spacing:9){
                         Image(systemName: "arrow.clockwise")
