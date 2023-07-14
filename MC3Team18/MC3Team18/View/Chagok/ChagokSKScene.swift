@@ -72,12 +72,13 @@ class ChagokSKScene: SKScene, ObservableObject {
             }
         }
         
-        if boxCount % 5 == 0 && boxCount > 0 {
+        if boxCount == 5 {
             
+            self.leftCupStack.shuffle()
+            self.boxCount = 0
             // 애니메이션 이펙트 상의해보기
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.removeAllChildren()
-                self.leftCupStack.shuffle()
             }
         }
     }
