@@ -81,10 +81,13 @@ class ChagokSKScene: SKScene, ObservableObject {
         }
         
         if boxCount == 5 {
-//            var tempArray = self.rightCupStack.reversed()
-//            if tempArray.elementsEqual(self.leftCupStack) {
-//                print("StackTest")
-//            }
+            
+            var tempArray = self.rightCupStack.reversed()
+            if tempArray.elementsEqual(self.leftCupStack) {
+                // 추가 점수를 낸다.
+                // 이 부분에 스택 완성 시 추가 스코어 로직 작성하시면 될 듯 합니다.
+                print("Add Bonus Score")
+            }
             
             self.leftCupStack.shuffle()
             self.boxCount = 0
@@ -124,5 +127,8 @@ class ChagokSKScene: SKScene, ObservableObject {
         addChild(cupNode)
         rightCupStack.append(cupname)
         boxCount += 1
+        // 박스가 떨어질때 마다 스코어가 추가되어야 합니다.
+        print("Add Score")
+        
     }
 }
