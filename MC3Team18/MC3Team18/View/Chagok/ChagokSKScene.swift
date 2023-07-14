@@ -31,6 +31,10 @@ class ChagokSKScene: SKScene, ObservableObject {
     var statusChanged: Bool = false
     var mouthState : MouthState = MouthState.none
     
+    @Published var boxCount: Int = 0
+    @Published var leftCupStack: [CupName] = []
+    var isShuffleing = false
+    
     override func update(_ currentTime: TimeInterval){
         
         if mouthA > 0.5 && mouthI > 0.65{
@@ -67,6 +71,15 @@ class ChagokSKScene: SKScene, ObservableObject {
                 mouthState = MouthState.u
             }
         }
+        
+        if boxCount % 5 == 0 && boxCount > 0 {
+            
+            // 애니메이션 이펙트 상의해보기
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.removeAllChildren()
+                self.leftCupStack.shuffle()
+            }
+        }
     }
     
     override func didMove(to view: SKView) {
@@ -95,5 +108,6 @@ class ChagokSKScene: SKScene, ObservableObject {
         cupNode.physicsBody?.allowsRotation = false
         cupNode.physicsBody?.restitution = 0
         addChild(cupNode)
+        boxCount += 1
     }
 }
