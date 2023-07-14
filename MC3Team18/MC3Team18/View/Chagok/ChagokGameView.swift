@@ -35,12 +35,7 @@ struct ChagokGameView: View {
     
     @State var leftCupStack: [CupName] = []
     
-    var scene: SKScene {
-        let scene = ChagokSKScene()
-        scene.size = CGSize(width: 150, height: 300)
-        scene.scaleMode = .aspectFit
-        return scene
-    }
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -115,7 +110,7 @@ struct ChagokGameView: View {
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
-                            SpriteView(scene: scene, options: [.allowsTransparency])
+                            SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
                         }
                 }

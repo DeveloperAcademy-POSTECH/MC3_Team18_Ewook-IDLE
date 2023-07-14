@@ -26,7 +26,7 @@ enum MouthState{
     case u
 }
 
-class ChagokSKScene: SKScene {
+class ChagokSKScene: SKScene, ObservableObject {
     
     var statusChanged: Bool = false
     var mouthState : MouthState = MouthState.none
