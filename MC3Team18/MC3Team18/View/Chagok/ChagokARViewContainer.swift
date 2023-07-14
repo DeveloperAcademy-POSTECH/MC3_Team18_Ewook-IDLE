@@ -13,8 +13,6 @@ import SwiftUI
 
 struct ChagokARViewContainer: UIViewRepresentable {
     
-    @Binding var jawOpen: Bool
-    @Binding var isMouthLeftAndRight: Bool
     @Binding var mouthHeight: Double
     @Binding var mouthWidth: Double
     
@@ -72,12 +70,9 @@ extension ChagokARViewContainer {
             mouthRight = faceAnchor.blendShapes[.mouthSmileRight]!.doubleValue
             mouthPucker = faceAnchor.blendShapes[.mouthPucker]!.doubleValue
 
-//            parent?.mouthHeight = jawOpen
-//            parent?.mouthWidth = mouthLeft + mouthRight / 2
-
-//            parent?.jawOpen = jawOpen > 0.2
-//            print("jawOpen : \(jawOpen)")
-//            parent?.isMouthLeftAndRight = mouthLeft > 0.2 && mouthRight > 0.2
+            parent?.mouthHeight = jawOpen
+            parent?.mouthWidth = mouthLeft + mouthRight / 2
+            print("jawOpen : \(jawOpen)")
             
             mouthA = jawOpen
             mouthI = (mouthLeft + mouthRight) / 2

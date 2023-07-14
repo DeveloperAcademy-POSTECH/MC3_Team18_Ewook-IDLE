@@ -133,12 +133,12 @@ struct ChagokGameView: View {
                                 .frame(width: 74)
                             Image("ChagokMouth")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 35)
+                                
+                                .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
                         }
                     }
                 
-                ChagokARViewContainer(jawOpen: $isJawOpen, isMouthLeftAndRight: $isMouthLeftAndRight, mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
+                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)
@@ -163,11 +163,7 @@ struct ChagokGameView: View {
             if false {
                 chagokStatus = .game
             }
-            
             chagokScene.leftCupStack = CupName.allCases.shuffled()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                chagokStatus = .gameover
-            }
         }
         .onChange(of: chagokStatus) { newValue in
             if newValue == .pause || newValue == .gameover {
