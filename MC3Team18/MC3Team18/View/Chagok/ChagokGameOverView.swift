@@ -35,33 +35,13 @@ struct ChagokGameOverView: View {
                     Button {
                         gameSelection = .none
                     } label: {
-                        Image("ButtonGameOver")
-                            .overlay {
-                                VStack(spacing: 9) {
-                                    Image(systemName: "house")
-                                        .resizable()
-                                        .pretendardSemiBold20()
-                                        .frame(width: 29, height: 25)
-                                    Text("Home")
-                                        .pretendardBold24()
-                                }
-                            }
+                        chagokGameOverButton(systemName: "house", text: "Home")
                     }
                     Button {
                         // 게임 상태 초기화 만들기
                         chagokStatus = .game
                     } label: {
-                        Image("ButtonGameOver")
-                            .overlay {
-                                VStack(spacing: 9) {
-                                    Image(systemName: "arrow.clockwise")
-                                        .resizable()
-                                        .pretendardSemiBold20()
-                                        .frame(width: 21, height: 26)
-                                    Text("Retry")
-                                        .pretendardBold24()
-                                }
-                            }
+                        chagokGameOverButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }
                 .padding(.bottom, 160)
@@ -76,5 +56,40 @@ struct ChagokGameOverView: View {
 struct ChagokGameOverView_Previews: PreviewProvider {
     static var previews: some View {
         ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover))
+    }
+}
+
+extension ChagokGameOverView {
+    
+    func chagokGameOverButton(systemName: String, text: String) -> some View {
+        
+        return GlassMorphicCard()
+            .overlay {
+                Image("ButtonGameOverBorder")
+                VStack(spacing:9){
+                    Image(systemName: systemName)
+                        .foregroundColor(.white)
+                        .pretendardSemiBold20()
+                        .frame(width: 21, height: 26)
+                    Text(text)
+                        .foregroundColor(.white)
+                        .pretendardBold24()
+                    
+                }
+            }
+    }
+    
+    @ViewBuilder
+    func GlassMorphicCard() -> some View {
+        ZStack {
+            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
+                view.gaussianBlurRadius = 4.5
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
+        .frame(width: 104, height: 137)
+        .shadow(
+            color: Color(.white).opacity(0.4), radius: 16
+        )
     }
 }
