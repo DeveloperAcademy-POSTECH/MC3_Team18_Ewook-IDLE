@@ -30,7 +30,7 @@ struct BubbleGumStatusView: View {
                     .padding(.top, -offsetValue)
                     .padding(.bottom, -offsetValue)
             case .waiting:
-                BubbleGumWaitingView(bubbleGumStatus: $bubbleGumStatus)
+                BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus)
             case .game:
                 BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score)
            

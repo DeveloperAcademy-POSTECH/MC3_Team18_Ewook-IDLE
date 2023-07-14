@@ -70,7 +70,7 @@ struct BubbleGumGameOverView: View {
     }
 }
 
-struct BubbleGumEndView_Previews: PreviewProvider {
+struct BubbleGumGameOverView_Previews: PreviewProvider {
     static var previews: some View {
         BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"))
     }
