@@ -12,7 +12,6 @@ struct ChagokPauseView: View {
     @State var blurView: UIVisualEffectView = .init()
     @State var defaultBlurRadius: CGFloat = 0
     @State var defaultSaturationAmount: CGFloat = 0
-    @State var progress = 0.0
     
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
@@ -58,7 +57,6 @@ struct SwiftUIView_Previews: PreviewProvider {
 extension ChagokPauseView {
     
     func chagokPauseButton(systemName: String, text: String) -> some View {
-        
         
         return GlassMorphicCard()
             .overlay {
