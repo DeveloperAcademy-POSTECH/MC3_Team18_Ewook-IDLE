@@ -76,5 +76,8 @@ extension ChagokPauseView {
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
         .frame(width: 170, height: 137)
+        .shadow(
+            color: Color(.white).opacity(0.4), radius: 16
+        )
     }
 }
