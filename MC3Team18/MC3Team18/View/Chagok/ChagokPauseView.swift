@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ChagokPauseView: View {
     
+    @State var blurView: UIVisualEffectView = .init()
+    @State var defaultBlurRadius: CGFloat = 0
+    @State var defaultSaturationAmount: CGFloat = 0
+    @State var progress = 0.0
+    
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
     
@@ -19,25 +24,13 @@ struct ChagokPauseView: View {
                 Button {
                     chagokStatus = .game
                 } label: {
-                    VStack(spacing:9){
-                        Image(systemName: "play")
-                            .foregroundColor(.white)
-                        Text("Continue")
-                            .foregroundColor(.white)
-                    }
+                    chagokPauseButton(systemName: "play", text: "Continue")
                 }
                 Spacer()
                 Button {
                     gameSelection = .none
                 } label: {
-                    VStack(spacing:9){
-                        
-                        Image(systemName: "house")
-                            .foregroundColor(.white)
-                        Text("Home")
-                            .foregroundColor(.white)
-                        
-                    }
+                    chagokPauseButton(systemName: "house", text: "Home")
                 }
                 
                 Spacer()
@@ -45,13 +38,7 @@ struct ChagokPauseView: View {
                     // 게임 상황 리셋하는 코드 만들기
                     chagokStatus = .game
                 } label: {
-                    VStack(spacing:9){
-                        Image(systemName: "arrow.clockwise")
-                            .foregroundColor(.white)
-                        Text("Retry")
-                            .foregroundColor(.white)
-                        
-                    }
+                    chagokPauseButton(systemName: "arrow.clockwise", text: "Retry")
                 }
             }
             .pretendardSemiBold24()
@@ -65,5 +52,42 @@ struct ChagokPauseView: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause))
+    }
+}
+
+extension ChagokPauseView {
+    
+    func chagokPauseButton(systemName: String, text: String) -> some View {
+        
+        
+        return GlassMorphicCard()
+            .overlay {
+                Image("ButtonPauseBorder")
+                VStack(spacing:9){
+                    Image(systemName: systemName)
+                        .foregroundColor(.white)
+                    Text(text)
+                        .foregroundColor(.white)
+                    
+                }
+            }
+    }
+    
+    @ViewBuilder
+    func GlassMorphicCard() -> some View {
+        ZStack {
+            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
+                blurView = view
+                if defaultBlurRadius == 0 {
+                    defaultBlurRadius = view.gaussianBlurRadius
+                }
+                if defaultSaturationAmount == 0 {
+                    defaultSaturationAmount = view.saturationAmout
+                }
+                view.gaussianBlurRadius = 4.5
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
+        .frame(width: 170, height: 137)
     }
 }

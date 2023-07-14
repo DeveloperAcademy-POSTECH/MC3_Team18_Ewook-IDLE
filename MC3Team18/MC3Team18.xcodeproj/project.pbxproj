@@ -22,6 +22,10 @@
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
 		78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0B2A5E9594008826DA /* ChagokStatus.swift */; };
 		78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78777F0D2A5E9630008826DA /* ChagokPauseView.swift */; };
+		787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDEA2A612046007FC5EB /* CustomBlurView.swift */; };
+		787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */; };
+		787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF02A612276007FC5EB /* UIViewExtension.swift */; };
+		787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
 		78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */; };
@@ -56,6 +60,10 @@
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
 		78777F0B2A5E9594008826DA /* ChagokStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokStatus.swift; sourceTree = "<group>"; };
 		78777F0D2A5E9630008826DA /* ChagokPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokPauseView.swift; sourceTree = "<group>"; };
+		787AEDEA2A612046007FC5EB /* CustomBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBlurView.swift; sourceTree = "<group>"; };
+		787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtension.swift; sourceTree = "<group>"; };
+		787AEDF02A612276007FC5EB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */,
+				787AEDEA2A612046007FC5EB /* CustomBlurView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -192,6 +201,9 @@
 				78BE77DA2A5D6A160028A446 /* FontExtension.swift */,
 				78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */,
 				E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */,
+				787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */,
+				787AEDF02A612276007FC5EB /* UIViewExtension.swift */,
+				787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -319,14 +331,18 @@
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
+				787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
 				6080598B2A5E71DC007A716D /* BubbleGumStatusView.swift in Sources */,
 				7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */,
 				6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */,
+				787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
+				787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */,
 				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
+				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
 				608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */,
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
