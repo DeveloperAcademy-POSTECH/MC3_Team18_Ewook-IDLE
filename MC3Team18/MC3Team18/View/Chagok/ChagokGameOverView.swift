@@ -9,10 +9,6 @@ import SwiftUI
 
 struct ChagokGameOverView: View {
     
-    @State var blurView: UIVisualEffectView = .init()
-    @State var defaultBlurRadius: CGFloat = 0
-    @State var defaultSaturationAmount: CGFloat = 0
-    
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
     
@@ -87,13 +83,6 @@ extension ChagokGameOverView {
     func GlassMorphicCard() -> some View {
         ZStack {
             CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
-                blurView = view
-                if defaultBlurRadius == 0 {
-                    defaultBlurRadius = view.gaussianBlurRadius
-                }
-                if defaultSaturationAmount == 0 {
-                    defaultSaturationAmount = view.saturationAmout
-                }
                 view.gaussianBlurRadius = 4.5
             }
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
