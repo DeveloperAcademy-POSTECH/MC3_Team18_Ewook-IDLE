@@ -33,14 +33,7 @@ struct ChagokGameView: View {
     @State var chagokStatus: ChagokStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
-    @State var leftCupStack: [CupName] = []
-    
-    var scene: SKScene {
-        let scene = ChagokSKScene()
-        scene.size = CGSize(width: 150, height: 300)
-        scene.scaleMode = .aspectFit
-        return scene
-    }
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -105,7 +98,7 @@ struct ChagokGameView: View {
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
                             VStack(alignment: .center, spacing: 0) {
-                                ForEach(leftCupStack, id: \.rawValue) { cup in
+                                ForEach(chagokScene.leftCupStack, id: \.rawValue) { cup in
                                     Image(cup.rawValue)
                                         .resizable()
                                         .frame(width: 92, height: 56)
@@ -115,7 +108,7 @@ struct ChagokGameView: View {
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
-                            SpriteView(scene: scene, options: [.allowsTransparency])
+                            SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
                         }
                 }
@@ -171,7 +164,7 @@ struct ChagokGameView: View {
                 chagokStatus = .game
             }
             
-            leftCupStack = CupName.allCases.shuffled()
+            chagokScene.leftCupStack = CupName.allCases.shuffled()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 chagokStatus = .gameover
             }
