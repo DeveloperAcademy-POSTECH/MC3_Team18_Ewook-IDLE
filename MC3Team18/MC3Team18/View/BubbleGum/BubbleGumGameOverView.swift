@@ -11,7 +11,7 @@ struct BubbleGumGameOverView: View {
     @Binding var bubbleGumStatus: BubbleGumStatus
     @Binding var gameSelection: GameSelection
     @Binding var score: String
-
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -39,15 +39,8 @@ struct BubbleGumGameOverView: View {
                     Button {
                         gameSelection = .none
                     } label: {
-                        VStack(spacing: 12){
-                            Image(systemName: "house")
-                                .foregroundColor(.white)
-                                .pretendardBold24()
-                            Text("Home")
-                                .foregroundColor(.white)
-                                .pretendardBold24()
-                        }
-                    }
+                    bubbleGumGameOverViewButton(systemName: "house", text: "Home")
+                }
                     
                     Spacer()
                     
@@ -55,14 +48,7 @@ struct BubbleGumGameOverView: View {
                         //TODO: 튜토리얼 변수 따라 튜토리얼로 넘어가는 케이스 추가
                         bubbleGumStatus = .waiting
                     } label: {
-                        VStack(spacing: 12){
-                            Image(systemName: "arrow.clockwise")
-                                .foregroundColor(.white)
-                                .pretendardBold24()
-                            Text("Retry")
-                                .foregroundColor(.white)
-                                .pretendardBold24()
-                        }
+                        bubbleGumGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }.padding(.horizontal, 62)
             }
@@ -73,5 +59,38 @@ struct BubbleGumGameOverView: View {
 struct BubbleGumGameOverView_Previews: PreviewProvider {
     static var previews: some View {
         BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"))
+    }
+}
+
+extension BubbleGumGameOverView {
+    func bubbleGumGameOverViewButton(systemName: String, text: String) -> some View {
+        return GlassMorphicCard()
+            .overlay {
+                Image("ButtonGameOverBorder")
+                VStack(spacing:9){
+                    Image(systemName: systemName)
+                        .foregroundColor(.white)
+                        .pretendardSemiBold20()
+                        .frame(width: 21, height: 26)
+                    Text(text)
+                        .foregroundColor(.white)
+                        .pretendardBold24()
+                    
+                }
+            }
+    }
+    
+    @ViewBuilder
+    func GlassMorphicCard() -> some View {
+        ZStack {
+            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
+                view.gaussianBlurRadius = 4.5
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
+        .frame(width: 104, height: 137)
+        .shadow(
+            color: Color(.white).opacity(0.4), radius: 16
+        )
     }
 }
