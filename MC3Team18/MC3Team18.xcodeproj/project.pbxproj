@@ -15,6 +15,7 @@
 		608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059942A5FF0EA007A716D /* BubbleGumStatus.swift */; };
 		6080599B2A5FF5C6007A716D /* BubbleGumWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080599A2A5FF5C6007A716D /* BubbleGumWaitingView.swift */; };
 		6080599D2A60272E007A716D /* BubbleGumGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080599C2A60272E007A716D /* BubbleGumGameView.swift */; };
+		608059A02A62B27A007A716D /* MySoundClassifier0715.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6080599F2A62B27A007A716D /* MySoundClassifier0715.mlmodel */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
 		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
@@ -53,6 +54,7 @@
 		608059942A5FF0EA007A716D /* BubbleGumStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumStatus.swift; sourceTree = "<group>"; };
 		6080599A2A5FF5C6007A716D /* BubbleGumWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumWaitingView.swift; sourceTree = "<group>"; };
 		6080599C2A60272E007A716D /* BubbleGumGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumGameView.swift; sourceTree = "<group>"; };
+		6080599F2A62B27A007A716D /* MySoundClassifier0715.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MySoundClassifier0715.mlmodel; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
 		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		78DD4FCB2A5BB04A0007251D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6080599F2A62B27A007A716D /* MySoundClassifier0715.mlmodel */,
 				78BE77C72A5D4E850028A446 /* Sample.swift */,
 			);
 			path = Model;
@@ -332,6 +335,7 @@
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
 				787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */,
+				608059A02A62B27A007A716D /* MySoundClassifier0715.mlmodel in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
