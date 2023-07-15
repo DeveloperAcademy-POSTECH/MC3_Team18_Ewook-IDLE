@@ -18,15 +18,18 @@ struct BubbleGumTutorialView: View {
             Color(.black).opacity(0.5)
             
             VStack(){
-                Button {
-                    bubbleGumStatus = .waiting
-                } label: {
-                    Image(systemName:  "x.circle")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .frame(width: 30, height: 30)
-                        .frame(alignment: .trailing)
-                }.offset(x: 140)
+                HStack {
+                    Spacer()
+                    Button {
+                        bubbleGumStatus = .waiting
+                    } label: {
+                        Image(systemName:  "x.circle")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 30, height: 30)
+                            .frame(alignment: .trailing)
+                    }
+                }.padding(.trailing, 16)
                 
                 Spacer().frame(height: 35)
                 

@@ -39,8 +39,8 @@ struct BubbleGumGameOverView: View {
                     Button {
                         gameSelection = .none
                     } label: {
-                    bubbleGumGameOverViewButton(systemName: "house", text: "Home")
-                }
+                        bubbleGumGameOverViewButton(systemName: "house", text: "Home")
+                    }
                     
                     Spacer()
                     
