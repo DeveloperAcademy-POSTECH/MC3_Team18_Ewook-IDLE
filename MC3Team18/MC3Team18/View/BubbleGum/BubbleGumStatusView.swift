@@ -22,7 +22,7 @@ struct BubbleGumStatusView: View {
     @State var score: String = "0"
     var body: some View {
         ZStack {
-            BubbleGumMainView(currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex)
+            BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex)
             
             switch bubbleGumStatus {
             case .tutorial:
@@ -42,6 +42,8 @@ struct BubbleGumStatusView: View {
 }
 
 struct BubbleGumMainView: View {
+    @Binding var bubbleGumStatus: BubbleGumStatus
+    
     @Binding var currentExpressionIndex: Int
     @Binding var backgroundOffset: CGFloat
     @Binding var scale: CGFloat
@@ -63,7 +65,7 @@ struct BubbleGumMainView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .offset(y: backgroundOffset)
-                .animation(.linear(duration: animationBackgroundMaxDuration), value: backgroundOffset)
+                .animation(bubbleGumStatus == .game ? .linear(duration: animationBackgroundMaxDuration): .default, value: backgroundOffset)
             
             // MARK: 캐릭터 바디
             Image("MainCharacterBody")
@@ -85,7 +87,7 @@ struct BubbleGumMainView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaleEffect(scale, anchor: .top)
-                .animation(.easeInOut(duration: animationGumSizeMaxDuration), value: [scale])
+                .animation(bubbleGumStatus == .game ? .easeInOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
                 .offset(y: 168)
         }
     }

@@ -56,7 +56,6 @@ struct BubbleGumGameView: View {
     }
     
     private func endGame() {
-        //TODO: 다음 화면에 기록 뿌리기
         self.stopTimer()
         isTimerRunning = false
         score = timerString
