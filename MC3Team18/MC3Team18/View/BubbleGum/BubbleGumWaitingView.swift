@@ -11,7 +11,6 @@ struct BubbleGumWaitingView: View {
     @Binding var gamsSelection: GameSelection
     @Binding var bubbleGumStatus: BubbleGumStatus
     
-
     var body: some View {
         VStack {
             HStack(){
@@ -25,9 +24,10 @@ struct BubbleGumWaitingView: View {
                     .frame(width: 24, height: 24)
                     .foregroundColor(.white)
                 Spacer()
-            }.padding(.top, 45)
-                .padding(.leading, 14)
-                .padding(.bottom, 92)
+            }
+            .padding(.top, 45)
+            .padding(.leading, 14)
+            .padding(.bottom, 92)
             
             .onTapGesture {
                 gamsSelection = .none
@@ -39,11 +39,10 @@ struct BubbleGumWaitingView: View {
                 .onTapGesture {
                     bubbleGumStatus = .game
                 }
-//
-           // Spacer()
-        } .offset(y:-340)
+            // Spacer()
+        }
+        .offset(y:-340)
         .ignoresSafeArea(.all)
-            
     }
 }
 
