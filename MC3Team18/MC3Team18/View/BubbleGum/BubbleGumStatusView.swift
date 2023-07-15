@@ -20,6 +20,18 @@ struct BubbleGumStatusView: View {
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
     @State var score: String = "0"
+    
+    @ObservedObject var observer: AudioStreamObserver
+    @State var text: String = ""
+    var streamManager: AudioStreamManager
+    
+    init(gameSelection: Binding<GameSelection>) {
+        _gameSelection = gameSelection
+        observer = AudioStreamObserver()
+        streamManager = AudioStreamManager()
+        streamManager.resultObservation(with: observer)
+    }
+    
     var body: some View {
         ZStack {
             BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex)
@@ -30,10 +42,9 @@ struct BubbleGumStatusView: View {
                     .padding(.top, -offsetValue)
                     .padding(.bottom, -offsetValue)
             case .waiting:
-                BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus)
+                BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
-                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score)
-           
+                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score)
             case .gameover:
                 BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score)
             }

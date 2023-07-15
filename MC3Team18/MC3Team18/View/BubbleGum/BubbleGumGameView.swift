@@ -10,11 +10,14 @@ import SwiftUI
 struct BubbleGumGameView: View {
     @Binding var bubbleGumStatus: BubbleGumStatus
 
+    @ObservedObject var observer: AudioStreamObserver
+    var streamManager: AudioStreamManager
+    
     @State var isTimerRunning = false
     @State var startTime = Date()
-    @State var timerString = "0"
+    @State var timerString = "1"
     @State var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-      
+    
     @Binding var currentExpressionIndex: Int
     @Binding var backgroundOffset: CGFloat
     @Binding var scale: CGFloat
@@ -36,17 +39,19 @@ struct BubbleGumGameView: View {
                     }
                     .onAppear{
                         self.stopTimer()
-                        startGame()
+                        self.startGame()
                     }
-                    .onTapGesture {
-                        self.endGame()
-                        bubbleGumStatus = .gameover
+                    .onChange(of: observer.currentSound) { _ in
+                        //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
+                        if observer.currentSound == "Background" {
+                            self.endGame()
+                        }
                     }
             }
             .padding(.bottom, 440)
         }
     }
-
+    
     private func startGame() {
         self.startTimer()
         isTimerRunning = true
@@ -56,6 +61,9 @@ struct BubbleGumGameView: View {
     }
     
     private func endGame() {
+        streamManager.removeTap()
+        bubbleGumStatus = .gameover
+        
         self.stopTimer()
         isTimerRunning = false
         score = timerString
