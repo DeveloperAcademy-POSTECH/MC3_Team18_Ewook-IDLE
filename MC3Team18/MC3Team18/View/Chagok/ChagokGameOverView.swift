@@ -11,6 +11,7 @@ struct ChagokGameOverView: View {
     
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     
     var body: some View {
         ZStack {
@@ -20,13 +21,14 @@ struct ChagokGameOverView: View {
                 Spacer().frame(height: 157)
                 Text("Your Score")
                     .pretendardLight32()
-                Text("140")
+                Text("\(chagokScene.chagokScore)")
                     .postNoBillsJaffnaRegular64()
                 HStack {
                     Text("Best Score")
                         .pretendardRegular24()
                         .foregroundColor(.LightGray)
-                    Text("140")
+                    // 최고 점수로 교체하기
+                    Text("\(chagokScene.chagokScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                 }
@@ -39,6 +41,8 @@ struct ChagokGameOverView: View {
                     }
                     Button {
                         // 게임 상태 초기화 만들기
+                        chagokScene.isPaused = false
+                        chagokScene.chagokScore = 0
                         chagokStatus = .game
                     } label: {
                         chagokGameOverButton(systemName: "arrow.clockwise", text: "Retry")
@@ -50,6 +54,9 @@ struct ChagokGameOverView: View {
             .foregroundColor(.white)
         }
         .statusBarHidden()
+        .onAppear {
+            chagokScene.isPaused = true
+        }
     }
 }
 

@@ -30,10 +30,12 @@ struct ChagokGameView: View {
     @State var isMouthLeftAndRight: Bool = false
     @State var mouthWidth: Double = 0
     @State var mouthHeight: Double = 0
+    
     @State var chagokStatus: ChagokStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @State var secondsx4 = 120
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -82,13 +84,25 @@ struct ChagokGameView: View {
                         .frame(height: 16)
                         .foregroundColor(.white).opacity(0.4)
                         .overlay {
-                            HStack {
-                                Capsule()
-                                    .frame(height: 10)
-                                    .frame(width: 30)
-                                    .foregroundColor(.white.opacity(0.9))
-                                    .padding(5)
-                                Spacer()
+                            
+                            GeometryReader { geo in
+                                
+                                HStack {
+                                    Capsule()
+                                        .frame(height: 10)
+                                        .frame(width: (geo.size.width - 10) * (CGFloat(secondsx4) / 120))
+                                        .offset(y: -1.5)
+                                        .foregroundColor(.white.opacity(0.9))
+                                        .padding(5)
+                                        
+                                    Spacer()
+                                }
+                                
+                                .onAppear {
+                                    print("geo : \(geo.size.width)")
+                                }
+                                
+                                
                             }
                         }
                 }
@@ -133,7 +147,7 @@ struct ChagokGameView: View {
                                 .frame(width: 74)
                             Image("ChagokMouth")
                                 .resizable()
-                                
+                            
                                 .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
                         }
                     }
@@ -151,19 +165,35 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScore: $chagokScene.chagokScore)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene, secondsx4: $secondsx4)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
             }
         }
         .statusBarHidden()
         .ignoresSafeArea()
         .onAppear {
-            // 다시보지 않기가 설정이 되었다면 게임으로 바로 
+            // 다시보지 않기가 설정이 되었다면 게임으로 바로
             if false {
                 chagokStatus = .game
             }
             chagokScene.leftCupStack = CupName.allCases.shuffled()
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
+                if self.secondsx4 > 0 {
+                    if !chagokScene.isPaused {
+                        withAnimation {
+                            self.secondsx4 -= 1
+                        }
+                    }
+                } else {
+                    withAnimation(.easeOut(duration: 1)) {
+                        chagokStatus = .gameover
+                        self.secondsx4 = 120
+                    }
+                }
+            }
+            RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: chagokStatus) { newValue in
             if newValue == .pause || newValue == .gameover {
