@@ -151,7 +151,7 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScore: $chagokScene.chagokScore)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScore: $chagokScene.chagokScore, chagokScene: chagokScene)
             case .gameover:
                 ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
             }

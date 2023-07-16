@@ -11,7 +11,8 @@ struct ChagokPauseView: View {
     
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
-    @Binding var chagokScore: Int 
+    @Binding var chagokScore: Int
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     
     var body: some View {
         ZStack {
@@ -19,6 +20,7 @@ struct ChagokPauseView: View {
             VStack {
                 Button {
                     chagokStatus = .game
+                    chagokScene.isPaused = false
                 } label: {
                     chagokPauseButton(systemName: "play", text: "Continue")
                 }
@@ -26,6 +28,7 @@ struct ChagokPauseView: View {
                 Button {
                     // 게임 상황 리셋하는 코드 만들기 (점수 초기화 구현 상태, 스택 초기화, 타이머 초기화 구현되어야함)
                     chagokScore = 0
+                    chagokScene.isPaused = false
                     gameSelection = .none
                 } label: {
                     chagokPauseButton(systemName: "house", text: "Home")
@@ -35,6 +38,7 @@ struct ChagokPauseView: View {
                 Button {
                     // 게임 상황 리셋하는 코드 만들기 (점수 초기화 구현 상태, 스택 초기화, 타이머 초기화 구현되어야함)
                     chagokScore = 0
+                    chagokScene.isPaused = false
                     chagokStatus = .game
                 } label: {
                     chagokPauseButton(systemName: "arrow.clockwise", text: "Retry")
@@ -45,14 +49,17 @@ struct ChagokPauseView: View {
             .padding(.vertical, 160)
         }
         .statusBarHidden()
+        .onAppear {
+            chagokScene.isPaused = true
+        }
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause), chagokScore: .constant(0))
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause), chagokScore: .constant(0))
+//    }
+//}
 
 extension ChagokPauseView {
     
