@@ -35,7 +35,7 @@ struct ChagokGameView: View {
     @Binding var gameSelection: GameSelection
     
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
-    @State private var seconds = 5
+    @State private var secondsx4 = 120
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -84,13 +84,25 @@ struct ChagokGameView: View {
                         .frame(height: 16)
                         .foregroundColor(.white).opacity(0.4)
                         .overlay {
-                            HStack {
-                                Capsule()
-                                    .frame(height: 10)
-                                    .frame(width: 30)
-                                    .foregroundColor(.white.opacity(0.9))
-                                    .padding(5)
-                                Spacer()
+                            
+                            GeometryReader { geo in
+                                
+                                HStack {
+                                    Capsule()
+                                        .frame(height: 10)
+                                        .frame(width: (geo.size.width - 10) * (CGFloat(secondsx4) / 120))
+                                        .offset(y: -1.5)
+                                        .foregroundColor(.white.opacity(0.9))
+                                        .padding(5)
+                                        
+                                    Spacer()
+                                }
+                                
+                                .onAppear {
+                                    print("geo : \(geo.size.width)")
+                                }
+                                
+                                
                             }
                         }
                 }
@@ -167,15 +179,17 @@ struct ChagokGameView: View {
             }
             chagokScene.leftCupStack = CupName.allCases.shuffled()
             
-            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                if self.seconds > 0 {
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
+                if self.secondsx4 > 0 {
                     if !chagokScene.isPaused {
-                        self.seconds -= 1
+                        withAnimation {
+                            self.secondsx4 -= 1
+                        }
                     }
                 } else {
                     withAnimation(.easeOut(duration: 1)) {
                         chagokStatus = .gameover
-                        self.seconds = 5
+                        self.secondsx4 = 120
                     }
                 }
             }
