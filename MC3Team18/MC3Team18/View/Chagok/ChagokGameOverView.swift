@@ -28,7 +28,7 @@ struct ChagokGameOverView: View {
                         .pretendardRegular24()
                         .foregroundColor(.LightGray)
                     // 최고 점수로 교체하기
-                    Text("\(chagokScene.chagokScore)")
+                    Text("\(UserDefaults.standard.integer(forKey: "chagokScore"))")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                 }

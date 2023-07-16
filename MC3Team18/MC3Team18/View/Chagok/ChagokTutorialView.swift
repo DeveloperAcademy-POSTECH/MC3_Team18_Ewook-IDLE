@@ -10,7 +10,8 @@ import SwiftUI
 struct ChagokTutorialView: View {
     
     @Binding var chagokStatus: ChagokStatus
-    
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+
     var body: some View {
         ZStack {
             
@@ -42,13 +43,17 @@ struct ChagokTutorialView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    Image(systemName: "checkmark.square")
-                        .resizable()
-                        .pretendardSemiBold20()
-                        .frame(width: 29, height: 29)
-                    Text("다시 보지 않기")
-                        .pretendardRegular20()
-                        
+                    Button(action: {
+                        UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
+                        chagokStatus = .game
+                    }, label: {
+                        Image(systemName: "checkmark.square")
+                            .resizable()
+                            .pretendardSemiBold20()
+                            .frame(width: 29, height: 29)
+                        Text("다시 보지 않기")
+                            .pretendardRegular20()
+                    })
                 }
                 .padding(.bottom, 36)
                 
@@ -59,6 +64,9 @@ struct ChagokTutorialView: View {
             
         }
         .statusBarHidden()
+        .onAppear {
+            chagokScene.isPaused = true
+        }
     }
 }
 
