@@ -10,7 +10,7 @@ import SwiftUI
 struct ChagokTutorialView: View {
     
     @Binding var chagokStatus: ChagokStatus
-    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @EnvironmentObject var chagokScene: ChagokSKScene
 
     var body: some View {
         ZStack {
@@ -21,6 +21,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
+                        chagokScene.isTutorial = false
                         chagokStatus = .game
                     } label: {
                         Image(systemName: "x.circle")
@@ -45,6 +46,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Button(action: {
                         UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
+                        chagokScene.isTutorial = false
                         chagokStatus = .game
                     }, label: {
                         Image(systemName: "checkmark.square")
@@ -65,7 +67,7 @@ struct ChagokTutorialView: View {
         }
         .statusBarHidden()
         .onAppear {
-            chagokScene.isPaused = true
+            chagokScene.isTutorial = true
         }
     }
 }
