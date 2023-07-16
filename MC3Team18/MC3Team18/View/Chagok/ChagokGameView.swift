@@ -35,7 +35,7 @@ struct ChagokGameView: View {
     @Binding var gameSelection: GameSelection
     
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
-    @State private var secondsx4 = 120
+    @State var secondsx4 = 120
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -165,7 +165,7 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene, secondsx4: $secondsx4)
             case .gameover:
                 ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
             }
