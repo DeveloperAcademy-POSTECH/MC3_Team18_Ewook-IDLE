@@ -11,6 +11,7 @@ struct ChagokPauseView: View {
     
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
+    @Binding var chagokScore: Int 
     
     var body: some View {
         ZStack {
@@ -30,7 +31,8 @@ struct ChagokPauseView: View {
                 
                 Spacer()
                 Button {
-                    // 게임 상황 리셋하는 코드 만들기
+                    // 게임 상황 리셋하는 코드 만들기 (점수 초기화 구현 상태, 스택 초기화, 타이머 초기화 구현되어야함)
+                    chagokScore = 0
                     chagokStatus = .game
                 } label: {
                     chagokPauseButton(systemName: "arrow.clockwise", text: "Retry")
@@ -46,7 +48,7 @@ struct ChagokPauseView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause))
+        ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause), chagokScore: .constant(0))
     }
 }
 
