@@ -30,10 +30,12 @@ struct ChagokGameView: View {
     @State var isMouthLeftAndRight: Bool = false
     @State var mouthWidth: Double = 0
     @State var mouthHeight: Double = 0
+    
     @State var chagokStatus: ChagokStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @State private var seconds = 5
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -133,7 +135,7 @@ struct ChagokGameView: View {
                                 .frame(width: 74)
                             Image("ChagokMouth")
                                 .resizable()
-                                
+                            
                                 .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
                         }
                     }
@@ -153,17 +155,31 @@ struct ChagokGameView: View {
             case .pause:
                 ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
             }
         }
         .statusBarHidden()
         .ignoresSafeArea()
         .onAppear {
-            // 다시보지 않기가 설정이 되었다면 게임으로 바로 
+            // 다시보지 않기가 설정이 되었다면 게임으로 바로
             if false {
                 chagokStatus = .game
             }
             chagokScene.leftCupStack = CupName.allCases.shuffled()
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.seconds > 0 {
+                    if !chagokScene.isPaused {
+                        self.seconds -= 1
+                    }
+                } else {
+                    withAnimation(.easeOut(duration: 1)) {
+                        chagokStatus = .gameover
+                        self.seconds = 5
+                    }
+                }
+            }
+            RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: chagokStatus) { newValue in
             if newValue == .pause || newValue == .gameover {
