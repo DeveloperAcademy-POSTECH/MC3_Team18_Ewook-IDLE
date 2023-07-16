@@ -11,7 +11,7 @@ struct ChagokPauseView: View {
     
     @Binding var gameSelection: GameSelection
     @Binding var chagokStatus: ChagokStatus
-    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @EnvironmentObject var chagokScene: ChagokSKScene
     @Binding var secondsx4: Int
     
     var body: some View {

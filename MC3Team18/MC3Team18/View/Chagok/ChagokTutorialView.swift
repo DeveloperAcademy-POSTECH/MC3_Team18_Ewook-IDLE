@@ -10,7 +10,7 @@ import SwiftUI
 struct ChagokTutorialView: View {
     
     @Binding var chagokStatus: ChagokStatus
-    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @EnvironmentObject var chagokScene: ChagokSKScene
 
     var body: some View {
         ZStack {

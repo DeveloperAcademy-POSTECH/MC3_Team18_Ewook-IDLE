@@ -162,14 +162,17 @@ struct ChagokGameView: View {
                 
             case .tutorial:
                 if(!UserDefaults.standard.bool(forKey: "isTutorialDisabled")){
-                    ChagokTutorialView(chagokStatus: $chagokStatus, chagokScene: chagokScene)
+                    ChagokTutorialView(chagokStatus: $chagokStatus)
+                        .environmentObject(chagokScene)
                 }
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene, secondsx4: $secondsx4)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4)
+                    .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScene: chagokScene)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+                    .environmentObject(chagokScene)
             }
         }
         .statusBarHidden()
