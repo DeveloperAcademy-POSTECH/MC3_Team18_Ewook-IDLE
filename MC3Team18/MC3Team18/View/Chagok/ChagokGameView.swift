@@ -54,7 +54,7 @@ struct ChagokGameView: View {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("0")
+                    Text("\(chagokScene.chagokScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                     Spacer()
