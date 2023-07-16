@@ -54,7 +54,7 @@ struct ChagokGameView: View {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("0")
+                    Text("\(chagokScene.chagokScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                     Spacer()
@@ -151,7 +151,7 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, chagokScore: $chagokScene.chagokScore)
             case .gameover:
                 ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
             }
