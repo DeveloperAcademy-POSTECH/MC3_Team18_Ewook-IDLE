@@ -38,11 +38,15 @@ class ChagokSKScene: SKScene, ObservableObject {
     @Published var chagokScore: Int = 0
     
     @Published var isLoading = false
+    @Published var isTutorial = false
     
     var isShuffleing = false
     var currentIndex = 4
     
-    override func update(_ currentTime: TimeInterval){
+    override func update(_ currentTime: TimeInterval) {
+        if isTutorial {
+            return
+        }
         
         if mouthA > 0.5 && mouthI > 0.65 {
             if mouthState != MouthState.a && leftCupStack[self.currentIndex] == CupName.RedCup {

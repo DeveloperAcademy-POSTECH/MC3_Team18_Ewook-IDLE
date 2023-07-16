@@ -183,7 +183,7 @@ struct ChagokGameView: View {
             
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !chagokScene.isPaused {
+                    if !chagokScene.isPaused && !chagokScene.isTutorial {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
