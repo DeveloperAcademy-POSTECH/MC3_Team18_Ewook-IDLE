@@ -161,7 +161,9 @@ struct ChagokGameView: View {
             switch chagokStatus {
                 
             case .tutorial:
-                ChagokTutorialView(chagokStatus: $chagokStatus)
+                if(!UserDefaults.standard.bool(forKey: "isTutorialDisabled")){
+                    ChagokTutorialView(chagokStatus: $chagokStatus, chagokScene: chagokScene)
+                }
             case .game:
                 EmptyView()
             case .pause:
@@ -174,7 +176,7 @@ struct ChagokGameView: View {
         .ignoresSafeArea()
         .onAppear {
             // 다시보지 않기가 설정이 되었다면 게임으로 바로
-            if false {
+            if UserDefaults.standard.bool(forKey: "isTutorialDisabled") {
                 chagokStatus = .game
             }
             chagokScene.leftCupStack = CupName.allCases.shuffled()
@@ -190,6 +192,9 @@ struct ChagokGameView: View {
                     withAnimation(.easeOut(duration: 1)) {
                         chagokStatus = .gameover
                         self.secondsx4 = 120
+                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
+                                UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
+                            }
                     }
                 }
             }
