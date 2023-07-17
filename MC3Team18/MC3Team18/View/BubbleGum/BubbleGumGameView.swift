@@ -30,10 +30,23 @@ struct BubbleGumGameView: View {
     
     var body: some View {
         ZStack {
-            VStack(){
+            VStack(spacing: 45){
+                HStack{
+                    Text("Best Score")
+                        .pretendardRegular24()
+                        .foregroundColor(.LightGray)
+                    
+                    Text("120.0")
+                        .pretendardSemiBold24()
+                        .foregroundColor(.Yellow)
+                }
+                .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
+                
+                
                 Text(isTimerRunning ? self.timerString : "")
                     .postNoBillsJaffnaRegular64()
                     .foregroundColor(.White)
+                    .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
                     .onReceive(timer) { _ in
                         if self.isTimerRunning {
                             timerString = String(format: "%.1f", (Date().timeIntervalSince(self.startTime)))
@@ -51,7 +64,8 @@ struct BubbleGumGameView: View {
                         }
                     }
             }
-            .padding(.bottom, 440)
+            .padding(.bottom, 560)
+            .edgesIgnoringSafeArea(.all)
         }
     }
     
@@ -79,7 +93,7 @@ struct BubbleGumGameView: View {
         self.stopTimer()
         isTimerRunning = false
         score = timerString
-        timerString = "0"
+        timerString = "0.0"
         scale = 0.02
         startTime = Date()
         backgroundOffset = -740

@@ -26,8 +26,8 @@ struct BubbleGumTutorialView: View {
                         Image(systemName:  "xmark")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 24, height: 24)
-                    }
+                            .frame(width: 15, height: 15)
+                    }.padding(.all, 4.5)
                 }
                 
                 Spacer().frame(height: 79)
