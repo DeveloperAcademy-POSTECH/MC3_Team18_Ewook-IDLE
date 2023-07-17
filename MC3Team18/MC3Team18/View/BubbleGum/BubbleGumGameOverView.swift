@@ -34,7 +34,7 @@ struct BubbleGumGameOverView: View {
                             .foregroundColor(.Yellow)
                     }
                 }
-                .shadow(color: .black.opacity(25), radius: 12, x: 1, y: 2)
+                .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                 
                 HStack(){
                     Button {
