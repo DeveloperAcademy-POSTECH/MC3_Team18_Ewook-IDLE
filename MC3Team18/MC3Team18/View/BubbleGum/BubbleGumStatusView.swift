@@ -25,6 +25,9 @@ struct BubbleGumStatusView: View {
     @State var text: String = ""
     var streamManager: AudioStreamManager
     
+    @State var offsetX: CGFloat = 0
+    @State var offsetY: CGFloat = 0
+    
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         observer = AudioStreamObserver()
@@ -34,7 +37,7 @@ struct BubbleGumStatusView: View {
     
     var body: some View {
         ZStack {
-            BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex)
+            BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)
             
             switch bubbleGumStatus {
             case .tutorial:
@@ -44,7 +47,7 @@ struct BubbleGumStatusView: View {
             case .waiting:
                 BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
-                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score)
+                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, offsetX: $offsetX, offsetY: $offsetY)
             case .gameover:
                 BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score)
             }
@@ -59,6 +62,9 @@ struct BubbleGumMainView: View {
     @Binding var backgroundOffset: CGFloat
     @Binding var scale: CGFloat
     @Binding var currentBubbleImageIndex: Int
+    
+    @Binding var offsetX: CGFloat
+    @Binding var offsetY: CGFloat
     
     let expressionImagesYOffset = [-4.0, 0.0, -8.0]
     let expressionImages = ["ExpressionDefault", "ExpressionSleepy", "ExpressionTired",  "ExpressionGameover"]
@@ -98,7 +104,7 @@ struct BubbleGumMainView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaleEffect(scale, anchor: .top)
-                .animation(bubbleGumStatus == .game ? .easeInOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+                .offset(x: offsetX, y: offsetY)
                 .offset(y: 168)
         }
     }

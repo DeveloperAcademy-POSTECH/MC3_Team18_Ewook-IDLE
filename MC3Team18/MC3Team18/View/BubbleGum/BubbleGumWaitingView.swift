@@ -50,6 +50,9 @@ struct BubbleGumWaitingView: View {
                         bubbleGumStatus = .game
                     }
                 }
+                .onTapGesture {
+                    bubbleGumStatus = .game
+                }
         }
         .offset(y:-340)
         .ignoresSafeArea(.all)

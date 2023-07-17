@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BubbleGumGameView: View {
     @Binding var bubbleGumStatus: BubbleGumStatus
-
+    
     @ObservedObject var observer: AudioStreamObserver
     var streamManager: AudioStreamManager
     
@@ -21,10 +21,13 @@ struct BubbleGumGameView: View {
     @Binding var currentExpressionIndex: Int
     @Binding var backgroundOffset: CGFloat
     @Binding var scale: CGFloat
-
+    
     @Binding var score: String
     var offsetValue: CGFloat = -740.0
 
+    @Binding var offsetX: CGFloat
+    @Binding var offsetY: CGFloat
+    
     var body: some View {
         ZStack {
             VStack(){
@@ -59,6 +62,13 @@ struct BubbleGumGameView: View {
         
         scale += 0.8
         backgroundOffset += -offsetValue * 2 - 20
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            withAnimation(.linear(duration: 0.2)) {
+                offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
+                offsetY = CGFloat.random(in: -2...2)
+            }
+        }
     }
     
     private func endGame() {
