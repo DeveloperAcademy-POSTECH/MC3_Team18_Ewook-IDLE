@@ -25,6 +25,7 @@ struct HomeView: View {
                     VStack {
                         Button {
                             print("bubble")
+                            MusicPlayer.shared.stopBackgroundMusic()
                             gameSelected = .bubbleGum
                         } label: {
                             Image("ButtonBalloon")
