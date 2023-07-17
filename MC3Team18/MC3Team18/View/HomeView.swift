@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct HomeView: View {
     
@@ -13,37 +14,41 @@ struct HomeView: View {
     
     var body: some View {
         
-        switch gameSelected {
-        case .none:
-            ZStack{
-                Image("BackgroundHomeVIew")
-                    .resizable()
-                    .scaledToFill()
-                
-                VStack {
-                    Button {
-                        print("bubble")
-                        gameSelected = .bubbleGum
-                    } label: {
-                        Image("ButtonBalloon")
+        VStack{
+            switch gameSelected {
+            case .none:
+                ZStack{
+                    Image("BackgroundHomeVIew")
+                        .resizable()
+                        .scaledToFill()
+                    
+                    VStack {
+                        Button {
+                            print("bubble")
+                            gameSelected = .bubbleGum
+                        } label: {
+                            Image("ButtonBalloon")
+                        }
+                        Button {
+                            print("chagok")
+                            gameSelected = .chagok
+                        } label: {
+                            Image("ButtonCupStack")
+                        }
                     }
-                    Button {
-                        print("chagok")
-                        gameSelected = .chagok
-                    } label: {
-                        Image("ButtonCupStack")
-                    }
+                    .padding()
                 }
-                .padding()
+                .statusBarHidden()
+                .ignoresSafeArea()
+            case .bubbleGum:
+                BubbleGumStatusView(gameSelection: $gameSelected)
+            case .chagok:
+                ChagokGameView(gameSelection: $gameSelected)
             }
-            .statusBarHidden()
-            .ignoresSafeArea()
-        case .bubbleGum:
-            BubbleGumStatusView(gameSelection: $gameSelected)
-        case .chagok:
-            ChagokGameView(gameSelection: $gameSelected)
         }
-        
+        .onAppear {
+        MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
+        }
     }
 }
 
