@@ -15,7 +15,7 @@ struct BubbleGumGameView: View {
     
     @State var isTimerRunning = false
     @State var startTime = Date()
-    @State var timerString = "1"
+    @State var timerString = "0.0"
     @State var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     @Binding var currentExpressionIndex: Int
@@ -36,8 +36,8 @@ struct BubbleGumGameView: View {
                     .foregroundColor(.White)
                     .onReceive(timer) { _ in
                         if self.isTimerRunning {
-                            timerString = String(format: "%.f", (Date().timeIntervalSince(self.startTime)))
-                            currentExpressionIndex = (Int(timerString)! / 10) % (3)
+                            timerString = String(format: "%.1f", (Date().timeIntervalSince(self.startTime)))
+                            currentExpressionIndex = Int((Double(timerString)! / 6.0)) % (3)
                         }
                     }
                     .onAppear{
@@ -64,7 +64,7 @@ struct BubbleGumGameView: View {
         backgroundOffset += -offsetValue * 2 - 20
         
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            withAnimation(.linear(duration: 0.2)) {
+            withAnimation(.linear(duration: 0.4)) {
                 offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
                 offsetY = CGFloat.random(in: -2...2)
             }
