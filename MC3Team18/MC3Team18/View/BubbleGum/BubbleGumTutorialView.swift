@@ -23,15 +23,14 @@ struct BubbleGumTutorialView: View {
                     Button {
                         bubbleGumStatus = .waiting
                     } label: {
-                        Image(systemName:  "x.circle")
+                        Image(systemName:  "xmark")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 30, height: 30)
-                            .frame(alignment: .trailing)
-                    }
-                }.padding(.trailing, 16)
+                            .frame(width: 15, height: 15)
+                    }.padding(.all, 4.5)
+                }
                 
-                Spacer().frame(height: 35)
+                Spacer().frame(height: 79)
                 
                 VStack(spacing: 24){
                     Text("풍선껌 크게 불기")
@@ -44,6 +43,7 @@ struct BubbleGumTutorialView: View {
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
+                        .lineSpacing(1)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                     Text("• 혀굴리기 :  아rrrr\n• 입술털기 :  푸rrrr")
                         .font(.custom("Pretendard", size: 13))
@@ -56,16 +56,20 @@ struct BubbleGumTutorialView: View {
                 } label: {
                     HStack{
                         Image(systemName: isNeverShowingTutorial ? "checkmark.square.fill" : "square")
-                            .font(.system(size: 20))
+                            .font(.system(size: 22))
+                            .pretendardSemiBold20().bold()
                             .foregroundColor(.white)
-                    }
-                    Text("다시 보지 않기")
-                        .pretendardRegular20()
+                        
+                        Text("다시 보지 않기")
+                            .pretendardRegular20()
                         .foregroundColor(.white)
+                        
+                    }
                 }
             }
-            .padding(.top, 30)
-            .padding(.bottom, 41)
+            .padding(.top, 48)
+            .padding(.bottom, 50)
+            .padding(.horizontal, 26)
         }.edgesIgnoringSafeArea(.all)
     }
 }
