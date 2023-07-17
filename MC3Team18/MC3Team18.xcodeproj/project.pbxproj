@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
 		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
+		2FF0B9E32A64E28C005B11CD /* ChagokMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E02A64E28B005B11CD /* ChagokMusicDummy.mp3 */; };
+		2FF0B9E42A64E28C005B11CD /* MainScreenMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */; };
+		2FF0B9E52A64E28C005B11CD /* BubbleGumMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */; };
+		2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */; };
 		608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */; };
 		6080598B2A5E71DC007A716D /* BubbleGumStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059872A5E71DC007A716D /* BubbleGumStatusView.swift */; };
@@ -50,6 +54,10 @@
 /* Begin PBXFileReference section */
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
+		2FF0B9E02A64E28B005B11CD /* ChagokMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChagokMusicDummy.mp3; sourceTree = "<group>"; };
+		2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainScreenMusicDummy.mp3; sourceTree = "<group>"; };
+		2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BubbleGumMusicDummy.mp3; sourceTree = "<group>"; };
+		2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumGameOverView.swift; sourceTree = "<group>"; };
 		608059872A5E71DC007A716D /* BubbleGumStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumStatusView.swift; sourceTree = "<group>"; };
@@ -100,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FF0B9DF2A64E236005B11CD /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */,
+				2FF0B9E02A64E28B005B11CD /* ChagokMusicDummy.mp3 */,
+				2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		2FF0BA032A64EE8D005B11CD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6080598D2A5E723C007A716D /* BubbleGum */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +203,7 @@
 		78DD4FC52A5BB0140007251D /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				2FF0BA032A64EE8D005B11CD /* Utils */,
 				78777F082A5E8E36008826DA /* Enum */,
 				78DD4FC82A5BB0310007251D /* Extension */,
 				78DD4FC72A5BB0240007251D /* Components */,
@@ -219,6 +246,7 @@
 		78DD4FC92A5BB0370007251D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FF0B9DF2A64E236005B11CD /* Sound */,
 				78DD4FCA2A5BB0430007251D /* Fonts */,
 				78DD4FBB2A5BAFC20007251D /* Assets.xcassets */,
 			);
@@ -315,10 +343,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF0B9E42A64E28C005B11CD /* MainScreenMusicDummy.mp3 in Resources */,
 				78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */,
 				78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */,
 				78BE77D52A5D69440028A446 /* Pretendard-Bold.otf in Resources */,
 				78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */,
+				2FF0B9E52A64E28C005B11CD /* BubbleGumMusicDummy.mp3 in Resources */,
+				2FF0B9E32A64E28C005B11CD /* ChagokMusicDummy.mp3 in Resources */,
 				78BE77D32A5D69440028A446 /* PostNoBillsJaffna-Medium.ttf in Resources */,
 				78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */,
 				78BE77D42A5D69440028A446 /* Pretendard-Light.otf in Resources */,
@@ -358,6 +389,7 @@
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
+				2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */,
 				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
 				6080599D2A60272E007A716D /* BubbleGumGameView.swift in Sources */,
 				78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */,

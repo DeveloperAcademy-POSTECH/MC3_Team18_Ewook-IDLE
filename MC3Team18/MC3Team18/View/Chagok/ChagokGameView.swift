@@ -175,6 +175,8 @@ struct ChagokGameView: View {
         .statusBarHidden()
         .ignoresSafeArea()
         .onAppear {
+            MusicPlayer.shared.stopBackgroundMusic()
+            MusicPlayer.shared.startBackgroundMusic(musicName: "ChagokMusicDummy")
             // 다시보지 않기가 설정이 되었다면 게임으로 바로
             if UserDefaults.standard.bool(forKey: "isTutorialDisabled") {
                 chagokStatus = .game
