@@ -51,6 +51,11 @@ struct BubbleGumGameView: View {
                         if self.isTimerRunning {
                             timerString = String(format: "%.1f", (Date().timeIntervalSince(self.startTime)))
                             currentExpressionIndex = Int((Double(timerString)! / 6.0)) % (3)
+                            
+                            withAnimation(.linear(duration: 0.8)) {
+                                offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
+                                offsetY = CGFloat.random(in: -2...2)
+                            }
                         }
                     }
                     .onAppear{
@@ -64,7 +69,7 @@ struct BubbleGumGameView: View {
                         }
                     }
             }
-            .padding(.bottom, 560)
+            .padding(.bottom, 500)
             .edgesIgnoringSafeArea(.all)
         }
     }
@@ -76,13 +81,6 @@ struct BubbleGumGameView: View {
         
         scale += 0.8
         backgroundOffset += -offsetValue * 2 - 20
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            withAnimation(.linear(duration: 0.4)) {
-                offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
-                offsetY = CGFloat.random(in: -2...2)
-            }
-        }
     }
     
     private func endGame() {
@@ -95,6 +93,8 @@ struct BubbleGumGameView: View {
         score = timerString
         timerString = "0.0"
         scale = 0.02
+        offsetX = 0
+        offsetY = 0
         startTime = Date()
         backgroundOffset = -740
         currentExpressionIndex = 0
