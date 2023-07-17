@@ -106,6 +106,7 @@ struct BubbleGumMainView: View {
                 .scaleEffect(scale, anchor: .top)
                 .offset(x: offsetX, y: offsetY)
                 .offset(y: 168)
+                .animation(bubbleGumStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
         }
     }
 }
