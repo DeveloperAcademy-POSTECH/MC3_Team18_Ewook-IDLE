@@ -29,7 +29,7 @@ struct BubbleGumGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("120")
+                        Text("120.0")
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -75,7 +75,6 @@ extension BubbleGumGameOverView {
                     Text(text)
                         .foregroundColor(.white)
                         .pretendardBold24()
-                    
                 }
             }
     }
