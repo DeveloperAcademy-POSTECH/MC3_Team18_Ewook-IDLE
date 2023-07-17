@@ -89,23 +89,25 @@ struct BubbleGumMainView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 180, height: 201)
+                .padding(.top, 60)
 
             // MARK: 캐릭터 표정
             VStack {
                 Spacer()
                 Image(expressionImages[currentExpressionIndex])
-                    .offset(y: expressionImagesYOffset[currentExpressionIndex])
+                    .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
             }
             .frame(width: 68, height: 52)
             .padding(.bottom, 78)
-            
+            .padding(.top, 60)
+
             // MARK: 버블껌 이미지
             Image(bubbleImages[currentBubbleImageIndex])
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaleEffect(scale, anchor: .top)
+                .offset(y: 198)//.padding(.top, 60)
                 .offset(x: offsetX, y: offsetY)
-                .offset(y: 168)
                 .animation(bubbleGumStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
         }
     }

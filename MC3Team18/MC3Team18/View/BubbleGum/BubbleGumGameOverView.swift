@@ -34,6 +34,7 @@ struct BubbleGumGameOverView: View {
                             .foregroundColor(.Yellow)
                     }
                 }
+                .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                 
                 HStack(){
                     Button {
@@ -71,7 +72,8 @@ extension BubbleGumGameOverView {
                     Image(systemName: systemName)
                         .foregroundColor(.white)
                         .pretendardSemiBold20()
-                        .frame(width: 21, height: 26)
+                        .frame(height: 25).scaledToFit()
+                        .bold()
                     Text(text)
                         .foregroundColor(.white)
                         .pretendardBold24()
