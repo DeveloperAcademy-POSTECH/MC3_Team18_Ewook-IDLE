@@ -69,10 +69,10 @@ struct BubbleGumMainView: View {
     let expressionImagesYOffset = [-4.0, 0.0, -8.0]
     let expressionImages = ["ExpressionDefault", "ExpressionSleepy", "ExpressionTired",  "ExpressionGameover"]
 
-    let animationGumSizeMaxDuration: Double = 30.0
+    let animationGumSizeMaxDuration: Double = 17
     let bubbleImages = ["BubbleGumPink","BubbleGumOrange", "BubbleGumBlue"]
   
-    let animationBackgroundMaxDuration: Double = 60.0
+    let animationBackgroundMaxDuration: Double = 30
     let offsetValue: CGFloat = -740.0
    
     var body: some View {
