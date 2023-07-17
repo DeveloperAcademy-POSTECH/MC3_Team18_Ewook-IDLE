@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
 		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
-
 		2FF0B9E32A64E28C005B11CD /* ChagokMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E02A64E28B005B11CD /* ChagokMusicDummy.mp3 */; };
 		2FF0B9E42A64E28C005B11CD /* MainScreenMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */; };
 		2FF0B9E52A64E28C005B11CD /* BubbleGumMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */; };
 		2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */; };
-
 		604380A72A64DB4100666187 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604380A62A64DB4100666187 /* Haptics.swift */; };
 		608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */; };
@@ -57,14 +55,11 @@
 /* Begin PBXFileReference section */
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
-
 		2FF0B9E02A64E28B005B11CD /* ChagokMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ChagokMusicDummy.mp3; sourceTree = "<group>"; };
 		2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainScreenMusicDummy.mp3; sourceTree = "<group>"; };
 		2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BubbleGumMusicDummy.mp3; sourceTree = "<group>"; };
 		2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
-
 		604380A62A64DB4100666187 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
-
 		608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumGameOverView.swift; sourceTree = "<group>"; };
 		608059872A5E71DC007A716D /* BubbleGumStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumStatusView.swift; sourceTree = "<group>"; };
@@ -532,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = VJUK3HBJ2M;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
@@ -563,7 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = VJUK3HBJ2M;
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
