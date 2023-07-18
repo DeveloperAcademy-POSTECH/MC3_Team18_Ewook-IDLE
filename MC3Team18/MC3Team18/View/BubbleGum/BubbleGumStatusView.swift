@@ -20,6 +20,9 @@ struct BubbleGumStatusView: View {
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
     @State var score: String = "0"
+    @State var isNeverShowingBubbleGumTutorial: Bool = UserDefaults.standard.bool(forKey: "isNeverShowingBubbleGumTutorial") ?? false
+    @State var isShowingBubbleGumTutorial: Bool = true
+
     
     @ObservedObject var observer: AudioStreamObserver
     @State var text: String = ""
@@ -38,15 +41,21 @@ struct BubbleGumStatusView: View {
             
             switch bubbleGumStatus {
             case .tutorial:
-                BubbleGumTutorialView(bubbleGumStatus: $bubbleGumStatus)
-                    .padding(.top, -offsetValue)
-                    .padding(.bottom, -offsetValue)
+                if isNeverShowingBubbleGumTutorial {
+                    BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
+                } else {
+                    BubbleGumTutorialView(bubbleGumStatus: $bubbleGumStatus, isShowingBubbleGumTutorial: $isShowingBubbleGumTutorial, isNeverShowingBubbleGumTutorial: $isNeverShowingBubbleGumTutorial)
+                        .padding(.top, -offsetValue)
+                        .padding(.bottom, -offsetValue)
+                }
             case .waiting:
                 BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
                 BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score)
             case .gameover:
                 BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score)
+//            case .waiting:
+//                EmptyView()
             }
         }
     }
