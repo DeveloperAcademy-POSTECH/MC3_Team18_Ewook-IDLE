@@ -22,7 +22,9 @@ struct ChagokTutorialView: View {
                     Spacer()
                     Button {
                         chagokScene.isNotUpdate = false
-                        chagokStatus = .game
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            chagokStatus = .game
+                        }
                     } label: {
                         Image(systemName: "x.circle")
                             .resizable()
@@ -47,7 +49,9 @@ struct ChagokTutorialView: View {
                     Button(action: {
                         UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
                         chagokScene.isNotUpdate = false
-                        chagokStatus = .game
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            chagokStatus = .game
+                        }
                     }, label: {
                         Image(systemName: "checkmark.square")
                             .resizable()

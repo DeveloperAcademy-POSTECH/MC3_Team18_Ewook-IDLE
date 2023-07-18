@@ -35,7 +35,9 @@ struct ChagokGameOverView: View {
                 Spacer()
                 HStack(spacing: 60) {
                     Button {
-                        gameSelection = .none
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            gameSelection = .none
+                        }
                     } label: {
                         chagokGameOverButton(systemName: "house", text: "Home")
                     }
@@ -43,7 +45,9 @@ struct ChagokGameOverView: View {
                         // 게임 상태 초기화 만들기
                         chagokScene.isPaused = false
                         chagokScene.chagokScore = 0
-                        chagokStatus = .game
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            chagokStatus = .game
+                        }
                     } label: {
                         chagokGameOverButton(systemName: "arrow.clockwise", text: "Retry")
                     }

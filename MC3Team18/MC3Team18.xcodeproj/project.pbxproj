@@ -35,6 +35,7 @@
 		787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */; };
 		787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF02A612276007FC5EB /* UIViewExtension.swift */; };
 		787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */; };
+		78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
 		78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */; };
@@ -82,6 +83,7 @@
 		787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtension.swift; sourceTree = "<group>"; };
 		787AEDF02A612276007FC5EB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionExtension.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		78BE77CD2A5D69440028A446 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				787AEDF02A612276007FC5EB /* UIViewExtension.swift */,
 				787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */,
 				604380A62A64DB4100666187 /* Haptics.swift */,
+				78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
 				608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */,
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
+				78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
 				2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */,
@@ -531,7 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-				DEVELOPMENT_TEAM = D97KNF9M4D;
+				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"얼굴추적\"";
