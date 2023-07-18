@@ -23,6 +23,8 @@ struct BubbleGumGameView: View {
     @Binding var scale: CGFloat
     
     @Binding var score: String
+    @Binding var bubbleHighScore: String
+
     var offsetValue: CGFloat = -740.0
 
     @Binding var offsetX: CGFloat
@@ -36,7 +38,7 @@ struct BubbleGumGameView: View {
                         .pretendardRegular24()
                         .foregroundColor(.LightGray)
                     
-                    Text("120.0")
+                    Text(bubbleHighScore)
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                 }
@@ -91,6 +93,8 @@ struct BubbleGumGameView: View {
         isTimerRunning = false
         score = timerString
         timerString = "0.0"
+        self.saveScore()
+        
         scale = 0.02
         offsetX = 0
         offsetY = 0
@@ -105,6 +109,13 @@ struct BubbleGumGameView: View {
     
     private func startTimer(){
         self.timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    }
+    
+    private func saveScore() {
+        if Float(bubbleHighScore)! < Float(score)! {
+            bubbleHighScore = score
+            UserDefaults.standard.set(score, forKey: "BubbleScore")
+        }
     }
 }
 //

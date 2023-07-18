@@ -11,7 +11,8 @@ struct BubbleGumGameOverView: View {
     @Binding var bubbleGumStatus: BubbleGumStatus
     @Binding var gameSelection: GameSelection
     @Binding var score: String
-    
+    @Binding var bubbleHighScore: String
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -29,7 +30,7 @@ struct BubbleGumGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("120.0")
+                        Text(bubbleHighScore)
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -59,7 +60,7 @@ struct BubbleGumGameOverView: View {
 
 struct BubbleGumGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"))
+        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"), bubbleHighScore: .constant("22.0"))
     }
 }
 
