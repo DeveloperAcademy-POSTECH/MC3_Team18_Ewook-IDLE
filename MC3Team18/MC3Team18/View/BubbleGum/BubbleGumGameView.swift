@@ -76,7 +76,7 @@ struct BubbleGumGameView: View {
     }
     
     private func startGame() {
-        Haptics.success()
+        HapticManager.instance.notification(type: .success)
         self.startTimer()
         isTimerRunning = true
         
@@ -85,7 +85,7 @@ struct BubbleGumGameView: View {
     }
     
     private func endGame() {
-        Haptics.error()
+        HapticManager.instance.notification(type: .error)
         streamManager.removeTap()
         bubbleGumStatus = .gameover
         
