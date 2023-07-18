@@ -13,6 +13,7 @@
 		2FF0B9E42A64E28C005B11CD /* MainScreenMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */; };
 		2FF0B9E52A64E28C005B11CD /* BubbleGumMusicDummy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */; };
 		2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */; };
+		2FF0BA072A66372A005B11CD /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA062A66372A005B11CD /* HapticManager.swift */; };
 		604380A72A64DB4100666187 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604380A62A64DB4100666187 /* Haptics.swift */; };
 		608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */; };
@@ -59,6 +60,7 @@
 		2FF0B9E12A64E28B005B11CD /* MainScreenMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MainScreenMusicDummy.mp3; sourceTree = "<group>"; };
 		2FF0B9E22A64E28C005B11CD /* BubbleGumMusicDummy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BubbleGumMusicDummy.mp3; sourceTree = "<group>"; };
 		2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		2FF0BA062A66372A005B11CD /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		604380A62A64DB4100666187 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumGameOverView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */,
+				2FF0BA062A66372A005B11CD /* HapticManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				6080598B2A5E71DC007A716D /* BubbleGumStatusView.swift in Sources */,
 				7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */,
 				6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */,
+				2FF0BA072A66372A005B11CD /* HapticManager.swift in Sources */,
 				608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */,
 				787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
