@@ -32,6 +32,7 @@ class AudioStreamManager {
             fatalError("Could not retrieve microphone input format")
         }
         
+        setupAudioSession()
         startEngine()
         
         //Initialiting sound stream analyzer with the microphone audio format
@@ -66,6 +67,18 @@ class AudioStreamManager {
             fatalError("Could not instantiate sound classifier")
         }
         classifyRequest = try? SNClassifySoundRequest(mlModel: soundClassifier.model)
+    }
+    
+    ///Instantiate audio session to allow HapticsAndSystemSoundsDuringRecording
+    private func setupAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playAndRecord)
+            try audioSession.setAllowHapticsAndSystemSoundsDuringRecording(true)
+            try audioSession.setActive(true) //false
+        } catch {
+            fatalError("Failed to setup audio session: \(error.localizedDescription)")
+        }
     }
     
     ///Instantiate audio engine and engin start
