@@ -10,7 +10,9 @@ import SwiftUI
 struct BubbleGumTutorialView: View {
     
     @Binding var bubbleGumStatus: BubbleGumStatus
-    @State var isNeverShowingTutorial: Bool = false
+    @Binding var isShowingBubbleGumTutorial: Bool
+    @Binding var isNeverShowingBubbleGumTutorial: Bool 
+    @State var isNeverShowingBubbleGumTutorialToggle : Bool = false
     
     var body: some View {
         
@@ -21,7 +23,11 @@ struct BubbleGumTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
+                        UserDefaults.standard.set(false, forKey: "isShowingBubbleGumTutorial")
+                        UserDefaults.standard.set(isNeverShowingBubbleGumTutorialToggle, forKey: "isNeverShowingBubbleGumTutorial")
                         bubbleGumStatus = .waiting
+
+
                     } label: {
                         Image(systemName:  "xmark")
                             .resizable()
@@ -52,11 +58,14 @@ struct BubbleGumTutorialView: View {
                 }
                 Spacer()
                 Button {
-                    isNeverShowingTutorial.toggle()
+                    isNeverShowingBubbleGumTutorialToggle.toggle()
+                    print("\(isNeverShowingBubbleGumTutorialToggle.description)")
+                   
+                    
                 } label: {
                     HStack{
-                        Image(systemName: isNeverShowingTutorial ? "checkmark.square.fill" : "square")
-                            .font(.system(size: 22))
+                        Image(systemName: isNeverShowingBubbleGumTutorialToggle ? "checkmark.square.fill" : "square")
+                            .font(.system(size: 20))
                             .pretendardSemiBold20().bold()
                             .foregroundColor(.white)
                         
@@ -71,11 +80,19 @@ struct BubbleGumTutorialView: View {
             .padding(.bottom, 50)
             .padding(.horizontal, 26)
         }.edgesIgnoringSafeArea(.all)
+//            .onAppear{
+//                if UserDefaults.standard.bool(forKey: "isNeverShowingBubbleGumTutorial") == true {
+//                    bubbleGumStatus = .waiting
+//                }
+//                else {
+//                    bubbleGumStatus = .tutorial
+//                }
+//            }
     }
 }
 
 struct BubbleGumTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isNeverShowingTutorial: true)
+        BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isShowingBubbleGumTutorial: .constant(true), isNeverShowingBubbleGumTutorial: .constant(false), isNeverShowingBubbleGumTutorialToggle: false)
     }
 }
