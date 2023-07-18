@@ -19,6 +19,8 @@ class AudioStreamManager {
     private var resultObserver = AudioStreamObserver()
     
     init() {
+        bgmStop()
+        
         engine = AVAudioEngine()
         
         //Getting the built-in microphone audio bus and saving its format
@@ -39,6 +41,16 @@ class AudioStreamManager {
         streamAnalyzer = SNAudioStreamAnalyzer(format: micInputFormat)
         
         classifierSetup()
+        
+        bgmStart()
+    }
+    
+    private func bgmStop() {
+        MusicPlayer.shared.stopBackgroundMusic()
+    }
+    
+    private func bgmStart() {
+        MusicPlayer.shared.startBackgroundMusic(musicName: "BubbleGumMusicDummy")
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
