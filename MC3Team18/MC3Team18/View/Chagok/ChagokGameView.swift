@@ -166,6 +166,7 @@ struct ChagokGameView: View {
                 if(!UserDefaults.standard.bool(forKey: "isTutorialDisabled")){
                     ChagokTutorialView(chagokStatus: $chagokStatus)
                         .environmentObject(chagokScene)
+                        .transition(.opacity)
                 }
             case .game:
                 EmptyView()

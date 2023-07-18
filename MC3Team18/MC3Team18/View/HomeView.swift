@@ -47,6 +47,7 @@ struct HomeView: View {
                 }
                 .statusBarHidden()
                 .ignoresSafeArea()
+                .transition(.slide)
             case .bubbleGum:
                 Color.clear.overlay {
                     BubbleGumStatusView(gameSelection: $gameSelected)
