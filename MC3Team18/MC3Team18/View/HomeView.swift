@@ -14,7 +14,11 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack{
+        ZStack {
+            Image("BackgroundHomeVIew")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             switch gameSelected {
             case .none:
                 ZStack{
@@ -32,7 +36,9 @@ struct HomeView: View {
                         }
                         Button {
                             print("chagok")
-                            gameSelected = .chagok
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                gameSelected = .chagok
+                            }
                         } label: {
                             Image("ButtonCupStack")
                         }
@@ -42,13 +48,17 @@ struct HomeView: View {
                 .statusBarHidden()
                 .ignoresSafeArea()
             case .bubbleGum:
-                BubbleGumStatusView(gameSelection: $gameSelected)
+                Color.clear.overlay {
+                    BubbleGumStatusView(gameSelection: $gameSelected)
+                }
+                
             case .chagok:
                 ChagokGameView(gameSelection: $gameSelected)
+                    .transition(.backslide)
             }
         }
         .onAppear {
-        MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
+            MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
         }
     }
 }

@@ -37,6 +37,8 @@ struct ChagokGameView: View {
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     @State var secondsx4 = 120
     
+    @State var isRightCupVisiable: Bool = false
+    
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -97,7 +99,7 @@ struct ChagokGameView: View {
                                         
                                     Spacer()
                                 }
-                                
+                                .opacity(isRightCupVisiable ? 1 : 0)
                                 .onAppear {
                                     print("geo : \(geo.size.width)")
                                 }
@@ -119,6 +121,7 @@ struct ChagokGameView: View {
                                 }
                             }
                             .frame(width: 150, height: 300)
+                            .opacity(isRightCupVisiable ? 1 : 0)
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
@@ -147,7 +150,6 @@ struct ChagokGameView: View {
                                 .frame(width: 74)
                             Image("ChagokMouth")
                                 .resizable()
-                            
                                 .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
                         }
                     }
@@ -204,6 +206,11 @@ struct ChagokGameView: View {
                 }
             }
             RunLoop.current.add(timer, forMode: .common)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation {
+                    isRightCupVisiable = true
+                }
+            }
         }
         .onChange(of: chagokStatus) { newValue in
             if newValue == .pause || newValue == .gameover {
