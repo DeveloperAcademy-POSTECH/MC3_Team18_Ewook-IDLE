@@ -42,7 +42,6 @@ struct BubbleGumGameView: View {
                 }
                 .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
                 
-                
                 Text(isTimerRunning ? self.timerString : "")
                     .postNoBillsJaffnaRegular64()
                     .foregroundColor(.White)
@@ -62,9 +61,9 @@ struct BubbleGumGameView: View {
                         self.stopTimer()
                         self.startGame()
                     }
-                    .onChange(of: observer.currentSound) { _ in
-                        //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
-                        if observer.currentSound == "Background" {
+                    //.onChange(of: observer.currentSound) { _ in
+                    .onChange(of: observer.topResults) { _ in
+                        if observer.currentSound == "Background"  && observer.topResults[1].confidence <= 0.04  {
                             self.endGame()
                         }
                     }
