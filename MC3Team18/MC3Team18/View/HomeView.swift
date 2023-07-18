@@ -48,6 +48,10 @@ struct HomeView: View {
                 .statusBarHidden()
                 .ignoresSafeArea()
                 .transition(.slide)
+                .onAppear {
+                    MusicPlayer.shared.stopBackgroundMusic()
+                    MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
+                }
             case .bubbleGum:
                 Color.clear.overlay {
                     BubbleGumStatusView(gameSelection: $gameSelected)
@@ -57,9 +61,6 @@ struct HomeView: View {
                 ChagokGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
             }
-        }
-        .onAppear {
-            MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
         }
     }
 }
