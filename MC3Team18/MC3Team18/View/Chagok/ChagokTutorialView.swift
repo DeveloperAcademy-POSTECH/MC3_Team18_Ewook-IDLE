@@ -21,7 +21,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        chagokScene.isTutorial = false
+                        chagokScene.isNotUpdate = false
                         chagokStatus = .game
                     } label: {
                         Image(systemName: "x.circle")
@@ -46,7 +46,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Button(action: {
                         UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
-                        chagokScene.isTutorial = false
+                        chagokScene.isNotUpdate = false
                         chagokStatus = .game
                     }, label: {
                         Image(systemName: "checkmark.square")
@@ -67,7 +67,7 @@ struct ChagokTutorialView: View {
         }
         .statusBarHidden()
         .onAppear {
-            chagokScene.isTutorial = true
+            chagokScene.isNotUpdate = true
         }
     }
 }

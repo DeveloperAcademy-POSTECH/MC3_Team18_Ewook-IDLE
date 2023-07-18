@@ -37,14 +37,13 @@ class ChagokSKScene: SKScene, ObservableObject {
     
     @Published var chagokScore: Int = 0
     
-    @Published var isLoading = false
-    @Published var isTutorial = false
+    @Published var isNotUpdate = false
     
     var isShuffleing = false
     var currentIndex = 4
     
     override func update(_ currentTime: TimeInterval) {
-        if isTutorial {
+        if isNotUpdate {
             return
         }
         
@@ -89,7 +88,7 @@ class ChagokSKScene: SKScene, ObservableObject {
         }
         
         if boxCount == 5 {
-            isLoading = true
+            isNotUpdate = true
             var tempArray = self.rightCupStack.reversed()
             if tempArray.elementsEqual(self.leftCupStack) {
                 // 추가 점수를 낸다.
@@ -103,7 +102,7 @@ class ChagokSKScene: SKScene, ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.removeAllChildren()
                 self.mouthState = MouthState.none
-                self.isLoading = false
+                self.isNotUpdate = false
             }
         }
     }
@@ -125,7 +124,7 @@ class ChagokSKScene: SKScene, ObservableObject {
     
     func dropbox(cupname : CupName) {
         
-        if isLoading {
+        if isNotUpdate {
             return
         }
         

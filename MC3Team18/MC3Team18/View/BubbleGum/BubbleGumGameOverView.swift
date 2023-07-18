@@ -11,7 +11,8 @@ struct BubbleGumGameOverView: View {
     @Binding var bubbleGumStatus: BubbleGumStatus
     @Binding var gameSelection: GameSelection
     @Binding var score: String
-    
+    @Binding var bubbleHighScore: String
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.5).ignoresSafeArea()
@@ -29,11 +30,12 @@ struct BubbleGumGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("120")
+                        Text(bubbleHighScore)
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
                 }
+                .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                 
                 HStack(){
                     Button {
@@ -58,7 +60,7 @@ struct BubbleGumGameOverView: View {
 
 struct BubbleGumGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"))
+        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("2"), bubbleHighScore: .constant("22.0"))
     }
 }
 
@@ -71,11 +73,11 @@ extension BubbleGumGameOverView {
                     Image(systemName: systemName)
                         .foregroundColor(.white)
                         .pretendardSemiBold20()
-                        .frame(width: 21, height: 26)
+                        .frame(height: 25).scaledToFit()
+                        .bold()
                     Text(text)
                         .foregroundColor(.white)
                         .pretendardBold24()
-                    
                 }
             }
     }

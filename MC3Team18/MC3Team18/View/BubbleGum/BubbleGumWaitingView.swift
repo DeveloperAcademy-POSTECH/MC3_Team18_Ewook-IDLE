@@ -17,21 +17,17 @@ struct BubbleGumWaitingView: View {
     var body: some View {
         VStack {
             HStack(){
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 17, height: 22)
-                    .foregroundColor(.white)
                 Image(systemName: "house")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
                     .foregroundColor(.white)
+                    .bold()
                 Spacer()
             }
-            .padding(.top, 45)
-            .padding(.leading, 14)
-            .padding(.bottom, 92)
+            .padding(.top, 67)
+            .padding(.leading, 34)
+            .padding(.bottom, 70)
             .onTapGesture {
                 gamsSelection = .none
             }
@@ -43,12 +39,15 @@ struct BubbleGumWaitingView: View {
                 .onAppear {
                     streamManager.installTap()
                 }
-                .onChange(of: observer.currentSound) { _ in
+                .onChange(of: observer.topResults) { _ in
                     print("Start")
                     //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
                     if observer.currentSound == "LipTrill" || observer.currentSound == "TongueTrill" {
                         bubbleGumStatus = .game
                     }
+                }
+                .onTapGesture {
+                    bubbleGumStatus = .game
                 }
         }
         .offset(y:-340)
