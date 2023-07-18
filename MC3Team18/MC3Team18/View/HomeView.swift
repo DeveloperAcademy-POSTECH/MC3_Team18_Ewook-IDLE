@@ -41,15 +41,17 @@ struct HomeView: View {
                 }
                 .statusBarHidden()
                 .ignoresSafeArea()
+                .onAppear {
+                    MusicPlayer.shared.stopBackgroundMusic()
+                    MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
+                }
             case .bubbleGum:
                 BubbleGumStatusView(gameSelection: $gameSelected)
             case .chagok:
                 ChagokGameView(gameSelection: $gameSelected)
             }
         }
-        .onAppear {
-        MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
-        }
+        
     }
 }
 
