@@ -20,7 +20,8 @@ struct BubbleGumStatusView: View {
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
     @State var score: String = "0"
-    
+    @State private var bubbleHighScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0.0"
+
     @ObservedObject var observer: AudioStreamObserver
     @State var text: String = ""
     var streamManager: AudioStreamManager
@@ -47,9 +48,9 @@ struct BubbleGumStatusView: View {
             case .waiting:
                 BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
-                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, offsetX: $offsetX, offsetY: $offsetY)
+                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY)
             case .gameover:
-                BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score)
+                BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore)
             }
         }
     }
