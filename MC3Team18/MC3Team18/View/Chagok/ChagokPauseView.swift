@@ -17,7 +17,7 @@ struct ChagokPauseView: View {
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.4).ignoresSafeArea()
+            Color.black.opacity(0.75).ignoresSafeArea()
             VStack {
                 Button {
                     withAnimation(.easeOut(duration: 0.3)) {
