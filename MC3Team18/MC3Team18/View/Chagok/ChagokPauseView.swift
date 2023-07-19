@@ -13,14 +13,17 @@ struct ChagokPauseView: View {
     @Binding var chagokStatus: ChagokStatus
     @EnvironmentObject var chagokScene: ChagokSKScene
     @Binding var secondsx4: Int
+    @State var pauseOpacity: Double = 0
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.4).ignoresSafeArea()
+            Color.black.opacity(0.75).ignoresSafeArea()
             VStack {
                 Button {
-                    chagokStatus = .game
-                    chagokScene.isPaused = false
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        chagokStatus = .game
+                    }
+                    chagokScene.isNotUpdate = false
                 } label: {
                     chagokPauseButton(systemName: "play", text: "Continue")
                 }
@@ -34,9 +37,11 @@ struct ChagokPauseView: View {
                     chagokScene.removeAllChildren()
                     chagokScene.mouthState = .none
                     secondsx4 = 120
-                    chagokScene.isPaused = false
+                    chagokScene.isNotUpdate = false
                     chagokStatus = .tutorial
-                    gameSelection = .none
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        gameSelection = .none
+                    }
                 } label: {
                     chagokPauseButton(systemName: "house", text: "Home")
                 }
@@ -51,8 +56,13 @@ struct ChagokPauseView: View {
                     chagokScene.removeAllChildren()
                     chagokScene.mouthState = .none
                     secondsx4 = 120
-                    chagokScene.isPaused = false
-                    chagokStatus = .game
+                    chagokScene.isNotUpdate = false
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        pauseOpacity = 0
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        chagokStatus = .game
+                    }
                 } label: {
                     chagokPauseButton(systemName: "arrow.clockwise", text: "Retry")
                 }
@@ -62,8 +72,12 @@ struct ChagokPauseView: View {
             .padding(.vertical, 160)
         }
         .statusBarHidden()
+        .opacity(pauseOpacity)
         .onAppear {
-            chagokScene.isPaused = true
+            chagokScene.isNotUpdate = true
+            withAnimation(.easeOut(duration: 0.3)) {
+                pauseOpacity = 1
+            }
         }
     }
 }

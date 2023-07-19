@@ -103,6 +103,7 @@ class ChagokSKScene: SKScene, ObservableObject {
                 self.removeAllChildren()
                 self.mouthState = MouthState.none
                 self.isNotUpdate = false
+                HapticManager.instance.notification(type: .error)
             }
         }
     }

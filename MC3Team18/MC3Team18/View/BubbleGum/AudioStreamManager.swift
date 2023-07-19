@@ -19,6 +19,8 @@ class AudioStreamManager {
     private var resultObserver = AudioStreamObserver()
     
     init() {
+        bgmStop()
+        
         engine = AVAudioEngine()
         
         //Getting the built-in microphone audio bus and saving its format
@@ -32,12 +34,23 @@ class AudioStreamManager {
             fatalError("Could not retrieve microphone input format")
         }
         
+        setupAudioSession()
         startEngine()
         
         //Initialiting sound stream analyzer with the microphone audio format
         streamAnalyzer = SNAudioStreamAnalyzer(format: micInputFormat)
         
         classifierSetup()
+        
+        bgmStart()
+    }
+    
+    private func bgmStop() {
+        MusicPlayer.shared.stopBackgroundMusic()
+    }
+    
+    private func bgmStart() {
+        MusicPlayer.shared.startBackgroundMusic(musicName: "BubbleGumMusicDummy")
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
@@ -66,6 +79,18 @@ class AudioStreamManager {
             fatalError("Could not instantiate sound classifier")
         }
         classifyRequest = try? SNClassifySoundRequest(mlModel: soundClassifier.model)
+    }
+    
+    ///Instantiate audio session to allow HapticsAndSystemSoundsDuringRecording
+    private func setupAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playAndRecord)
+            try audioSession.setAllowHapticsAndSystemSoundsDuringRecording(true)
+            try audioSession.setActive(true) //false
+        } catch {
+            fatalError("Failed to setup audio session: \(error.localizedDescription)")
+        }
     }
     
     ///Instantiate audio engine and engin start

@@ -37,6 +37,10 @@ struct ChagokGameView: View {
     @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
     @State var secondsx4 = 120
     
+    @State var isRightCupVisiable: Bool = false
+    
+    @State var isBestScore: Bool = false
+    
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -63,10 +67,12 @@ struct ChagokGameView: View {
                     Button {
                         chagokStatus = .pause
                     } label: {
-                        Image(systemName: "pause.circle")
+                        Image(systemName: "pause.fill")
                             .resizable()
                             .pretendardSemiBold20()
-                            .frame(width: 29, height: 29)
+                            .frame(width: 16, height: 16)
+                            .padding(.vertical, 3.5)
+                            .padding(.horizontal, 4)
                     }
                 }
                 .foregroundColor(.white)
@@ -94,10 +100,10 @@ struct ChagokGameView: View {
                                         .offset(y: -1.5)
                                         .foregroundColor(.white.opacity(0.9))
                                         .padding(5)
-                                        
+                                    
                                     Spacer()
                                 }
-                                
+                                .opacity(isRightCupVisiable ? 1 : 0)
                                 .onAppear {
                                     print("geo : \(geo.size.width)")
                                 }
@@ -119,6 +125,7 @@ struct ChagokGameView: View {
                                 }
                             }
                             .frame(width: 150, height: 300)
+                            .opacity(isRightCupVisiable ? 1 : 0)
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
@@ -130,7 +137,7 @@ struct ChagokGameView: View {
                 Spacer()
             }
             .padding(.top, 50)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 34)
             
             VStack {
                 Spacer()
@@ -139,6 +146,7 @@ struct ChagokGameView: View {
                     .scaledToFit()
                     .frame(height: 300)
                     .offset(y: 20)
+                    .padding(2)
                     .overlay {
                         VStack(alignment: .center, spacing: 10) {
                             Image("ChagokEyes")
@@ -147,7 +155,6 @@ struct ChagokGameView: View {
                                 .frame(width: 74)
                             Image("ChagokMouth")
                                 .resizable()
-                            
                                 .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
                         }
                     }
@@ -164,6 +171,7 @@ struct ChagokGameView: View {
                 if(!UserDefaults.standard.bool(forKey: "isTutorialDisabled")){
                     ChagokTutorialView(chagokStatus: $chagokStatus)
                         .environmentObject(chagokScene)
+                        .transition(.opacity)
                 }
             case .game:
                 EmptyView()
@@ -171,7 +179,7 @@ struct ChagokGameView: View {
                 ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4)
                     .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore)
                     .environmentObject(chagokScene)
             }
         }
@@ -198,12 +206,18 @@ struct ChagokGameView: View {
                         chagokStatus = .gameover
                         self.secondsx4 = 120
                         if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
-                                UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
-                            }
+                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
+                            self.isBestScore = true
+                        }
                     }
                 }
             }
             RunLoop.current.add(timer, forMode: .common)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation {
+                    isRightCupVisiable = true
+                }
+            }
         }
         .onChange(of: chagokStatus) { newValue in
             if newValue == .pause || newValue == .gameover {
