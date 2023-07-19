@@ -68,6 +68,11 @@ struct ChagokTutorialView: View {
             .foregroundColor(.white)
             .ignoresSafeArea()
             
+//            LottieView(filename: "lottieAnima_chagok")
+//                .scaledToFit()
+//                .frame(width: 200)
+            
+            
         }
         .statusBarHidden()
         .onAppear {
