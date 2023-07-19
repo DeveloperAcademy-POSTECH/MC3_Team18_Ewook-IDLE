@@ -39,6 +39,8 @@ class ChagokSKScene: SKScene, ObservableObject {
     
     @Published var isNotUpdate = false
     
+    @Published var isScaleEffect: Bool = false
+    
     var isShuffleing = false
     var currentIndex = 4
     
@@ -89,12 +91,8 @@ class ChagokSKScene: SKScene, ObservableObject {
         
         if boxCount == 5 {
             isNotUpdate = true
-            var tempArray = self.rightCupStack.reversed()
-            if tempArray.elementsEqual(self.leftCupStack) {
-                // 추가 점수를 낸다.
-                // 이 부분에 스택 완성 시 추가 스코어 로직 작성하시면 될 듯 합니다.
-                chagokScore += 1000
-            }
+            chagokScore += 1000
+            self.isScaleEffect = true
             
             self.leftCupStack.shuffle()
             self.boxCount = 0
@@ -104,6 +102,7 @@ class ChagokSKScene: SKScene, ObservableObject {
                 self.mouthState = MouthState.none
                 self.isNotUpdate = false
                 HapticManager.instance.notification(type: .error)
+                self.isScaleEffect = false
             }
         }
     }
