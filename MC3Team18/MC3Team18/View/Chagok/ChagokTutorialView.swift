@@ -26,14 +26,14 @@ struct ChagokTutorialView: View {
                             chagokStatus = .game
                         }
                     } label: {
-                        Image(systemName: "x.circle")
+                        Image(systemName: "xmark")
                             .resizable()
-                            .pretendardSemiBold20()
-                            .frame(width: 36, height: 36)
+                            .foregroundColor(.white)
+                            .frame(width: 15, height: 15)
                     }
                 }
-                .padding(.top, 26)
-                .padding(.trailing, 27)
+                .padding(.top, 48)
+                .padding(.trailing, 26)
                 Text("차곡차곡")
                     .pretendardSemiBold32()
                     .foregroundColor(.Yellow)
