@@ -13,6 +13,7 @@ struct ChagokGameOverView: View {
     @Binding var chagokStatus: ChagokStatus
     @EnvironmentObject var chagokScene: ChagokSKScene
     @Binding var isBestScore: Bool
+    @State var gameoverOpacity: Double = 0
     
     var body: some View {
         ZStack {
@@ -54,6 +55,9 @@ struct ChagokGameOverView: View {
                         chagokScene.isPaused = false
                         chagokScene.chagokScore = 0
                         withAnimation(.easeOut(duration: 0.3)) {
+                            gameoverOpacity = 0
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             chagokStatus = .game
                         }
                     } label: {
@@ -66,8 +70,12 @@ struct ChagokGameOverView: View {
             .foregroundColor(.white)
         }
         .statusBarHidden()
+        .opacity(gameoverOpacity)
         .onAppear {
             chagokScene.isPaused = true
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameoverOpacity = 1
+            }
         }
     }
 }

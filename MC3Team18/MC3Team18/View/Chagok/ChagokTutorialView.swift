@@ -45,6 +45,10 @@ struct ChagokTutorialView: View {
                     .pretendardSemiBold20()
                     .lineSpacing(7)
                     .multilineTextAlignment(.center)
+                LottieView(filename: "lottieAnima_chagok")
+                    .scaledToFit()
+                    .frame(width: 235)
+                    .padding(40)
                 Spacer()
                 HStack {
                     Button {
@@ -68,9 +72,7 @@ struct ChagokTutorialView: View {
             .foregroundColor(.white)
             .ignoresSafeArea()
             
-//            LottieView(filename: "lottieAnima_chagok")
-//                .scaledToFit()
-//                .frame(width: 200)
+            
             
             
         }
