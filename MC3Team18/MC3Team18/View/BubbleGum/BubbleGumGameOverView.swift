@@ -23,7 +23,7 @@ struct BubbleGumGameOverView: View {
                     if isBestScore {
                         Text("Best Score!")
                             .pretendardBold20()
-                        .foregroundColor(.Yellow)
+                            .foregroundColor(.Yellow)
                     }
                     Text("Your Score")
                         .pretendardLight32()
@@ -59,6 +59,16 @@ struct BubbleGumGameOverView: View {
                         bubbleGumGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }.padding(.horizontal, 62)
+            }
+        }
+        .overlay {
+            VStack {
+                if isBestScore {
+                    LottieView(filename: "CelebLottieAnima")
+                        .frame(width: 232, height: 66)
+                        .offset(y: -310)
+                }
+                    
             }
         }
     }
