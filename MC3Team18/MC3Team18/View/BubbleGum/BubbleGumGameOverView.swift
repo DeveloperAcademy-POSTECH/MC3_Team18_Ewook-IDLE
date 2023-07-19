@@ -23,7 +23,7 @@ struct BubbleGumGameOverView: View {
                     if isBestScore {
                         Text("Best Score!")
                             .pretendardBold20()
-                        .foregroundColor(.Yellow)
+                            .foregroundColor(.Yellow)
                     }
                     Text("Your Score")
                         .pretendardLight32()
@@ -45,7 +45,9 @@ struct BubbleGumGameOverView: View {
                 
                 HStack(){
                     Button {
-                        gameSelection = .none
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            gameSelection = .none
+                        }
                     } label: {
                         bubbleGumGameOverViewButton(systemName: "house", text: "Home")
                     }

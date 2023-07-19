@@ -47,14 +47,14 @@ struct BubbleGumStatusView: View {
             switch bubbleGumStatus {
             case .tutorial:
                 if isNeverShowingBubbleGumTutorial {
-                    BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
+                    BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
                 } else {
                     BubbleGumTutorialView(bubbleGumStatus: $bubbleGumStatus, isShowingBubbleGumTutorial: $isShowingBubbleGumTutorial, isNeverShowingBubbleGumTutorial: $isNeverShowingBubbleGumTutorial)
                         .padding(.top, -offsetValue)
                         .padding(.bottom, -offsetValue)
                 }
             case .waiting:
-                BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
+                BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
                 BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY, isBestScore: $isBestScore)
             case .gameover:

@@ -29,8 +29,9 @@ struct HomeView: View {
                     VStack {
                         Button {
                             print("bubble")
-                            MusicPlayer.shared.stopBackgroundMusic()
-                            gameSelected = .bubbleGum
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                gameSelected = .bubbleGum
+                            }
                         } label: {
                             Image("ButtonBalloon")
                         }
@@ -56,7 +57,7 @@ struct HomeView: View {
                 Color.clear.overlay {
                     BubbleGumStatusView(gameSelection: $gameSelected)
                 }
-                
+                .transition(.backslide)
             case .chagok:
                 ChagokGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
