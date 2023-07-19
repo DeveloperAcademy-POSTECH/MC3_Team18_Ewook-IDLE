@@ -19,6 +19,9 @@ struct BubbleGumGameOverView: View {
             
             VStack(spacing:209){
                 VStack(spacing: 13){
+                    Text("Best Score")
+                        .pretendardBold20()
+                        .foregroundColor(.Yellow)
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
