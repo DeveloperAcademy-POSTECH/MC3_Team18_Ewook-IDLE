@@ -144,6 +144,7 @@ struct ChagokGameView: View {
                     .scaledToFit()
                     .frame(height: 300)
                     .offset(y: 20)
+                    .padding(2)
                     .overlay {
                         VStack(alignment: .center, spacing: 10) {
                             Image("ChagokEyes")
