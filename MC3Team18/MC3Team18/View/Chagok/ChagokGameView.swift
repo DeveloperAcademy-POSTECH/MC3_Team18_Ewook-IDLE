@@ -41,6 +41,8 @@ struct ChagokGameView: View {
     
     @State var isBestScore: Bool = false
     
+    @State var isFaceTracked = false
+    
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -141,25 +143,41 @@ struct ChagokGameView: View {
             
             VStack {
                 Spacer()
-                Image(ChagokFace.faceActive.rawValue)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 300)
-                    .offset(y: 20)
-                    .padding(2)
-                    .overlay {
-                        VStack(alignment: .center, spacing: 10) {
-                            Image("ChagokEyes")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 74)
-                            Image("ChagokMouth")
-                                .resizable()
-                                .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
+                if isFaceTracked {
+                    Image(ChagokFace.faceActive.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 300)
+                        .offset(y: 20)
+                        .padding(2)
+                        .overlay {
+                            VStack(alignment: .center, spacing: 10) {
+                                Image("ChagokEyes")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 74)
+                                Image("ChagokMouth")
+                                    .resizable()
+                                    .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
+                            }
                         }
-                    }
-                
-                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth)
+                } else {
+                    Image(ChagokFace.faceInactive.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 300)
+                        .offset(y: 20)
+                        .padding(2)
+                        .overlay {
+                            VStack(alignment: .center, spacing: 10) {
+                                Text("얼굴이 인식되면 시작합니다.")
+                                Text("기기를 정면으로 들어주세요.")
+                            }
+                            .pretendardSemiBold20()
+                            .foregroundColor(.white)
+                        }
+                }
+                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)

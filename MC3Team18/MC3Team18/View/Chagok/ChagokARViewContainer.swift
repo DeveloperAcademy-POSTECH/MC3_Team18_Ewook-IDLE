@@ -15,6 +15,7 @@ struct ChagokARViewContainer: UIViewRepresentable {
     
     @Binding var mouthHeight: Double
     @Binding var mouthWidth: Double
+    @Binding var isFaceTracked: Bool
     
     func makeUIView(context: Context) -> some UIView {
         
@@ -45,24 +46,33 @@ struct ChagokARViewContainer: UIViewRepresentable {
 extension ChagokARViewContainer {
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self)
+        Coordinator(parent: self, isFaceTracked: $isFaceTracked)
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
 
         var parent: ChagokARViewContainer?
+        @Binding var isFaceTracked: Bool
         var jawOpen: Double = 0
         var mouthLeft: Double = 0
         var mouthRight: Double = 0
         var mouthPucker: Double = 0
         
-        init(parent: ChagokARViewContainer) {
+//        init(parent: ChagokARViewContainer, isFace) {
+//            self.parent = parent
+//        }
+        init(parent: ChagokARViewContainer, isFaceTracked: Binding<Bool>) {
             self.parent = parent
+            _isFaceTracked = isFaceTracked
         }
 
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor else {
                 return
+            }
+            
+            if faceAnchor.isTracked {
+                isFaceTracked = faceAnchor.isTracked
             }
 
             jawOpen = faceAnchor.blendShapes[.jawOpen]!.doubleValue
