@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BubbleGumWaitingView: View {
-    @Binding var gamsSelection: GameSelection
+    @Binding var gameSelection: GameSelection
     @Binding var bubbleGumStatus: BubbleGumStatus
     
     var streamManager: AudioStreamManager
@@ -29,7 +29,9 @@ struct BubbleGumWaitingView: View {
             .padding(.leading, 34)
             .padding(.bottom, 70)
             .onTapGesture {
-                gamsSelection = .none
+                withAnimation(.easeOut(duration: 0.3)) {
+                    gameSelection = .none
+                }
             }
             
             Text("소리를 내면 시작합니다")
@@ -60,6 +62,6 @@ struct BubbleGumWaitingView_Previews: PreviewProvider {
     static var observer = AudioStreamObserver()
     
     static var previews: some View {
-        BubbleGumWaitingView(gamsSelection: .constant(.bubbleGum), bubbleGumStatus: .constant(.waiting), streamManager: manager, observer: observer).background(.black.opacity(0.5))
+        BubbleGumWaitingView(gameSelection: .constant(.bubbleGum), bubbleGumStatus: .constant(.waiting), streamManager: manager, observer: observer).background(.black.opacity(0.5))
     }
 }
