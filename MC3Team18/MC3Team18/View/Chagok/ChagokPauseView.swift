@@ -57,7 +57,7 @@ struct ChagokPauseView: View {
                     chagokScene.mouthState = .none
                     secondsx4 = 120
                     chagokScene.isPaused = false
-                    withAnimation(.easeOut(duration: 0.3)) {
+                    withAnimation(.easeOut(duration: 1)) {
                         chagokStatus = .game
                     }
                 } label: {
