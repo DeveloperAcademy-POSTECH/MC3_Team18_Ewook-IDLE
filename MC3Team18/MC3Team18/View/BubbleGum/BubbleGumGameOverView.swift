@@ -63,6 +63,16 @@ struct BubbleGumGameOverView: View {
                 }.padding(.horizontal, 62)
             }
         }
+        .overlay {
+            VStack {
+                if isBestScore {
+                    LottieView(filename: "CelebLottieAnima")
+                        .frame(width: 232, height: 66)
+                        .offset(y: -310)
+                }
+                    
+            }
+        }
     }
 }
 

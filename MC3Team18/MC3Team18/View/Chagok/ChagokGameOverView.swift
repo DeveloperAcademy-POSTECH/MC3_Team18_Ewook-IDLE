@@ -68,6 +68,16 @@ struct ChagokGameOverView: View {
             }
             .ignoresSafeArea()
             .foregroundColor(.white)
+            VStack {
+                if isBestScore {
+                    LottieView(filename: "CelebLottieAnima")
+                        .frame(width: 232, height: 66)
+                        .padding(.top, 108)
+//                        .padding(.top, 80)
+                    
+                }
+                Spacer()
+            }
         }
         .statusBarHidden()
         .opacity(gameoverOpacity)
