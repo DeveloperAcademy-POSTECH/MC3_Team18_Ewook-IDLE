@@ -24,12 +24,13 @@ struct BubbleGumGameView: View {
     
     @Binding var score: String
     @Binding var bubbleHighScore: String
-
+    
     var offsetValue: CGFloat = -740.0
-
+    
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
-   
+    
+    @State var shouldEnlargeText = false
     @Binding var isBestScore: Bool
 
     var body: some View {
@@ -50,22 +51,41 @@ struct BubbleGumGameView: View {
                     .postNoBillsJaffnaRegular64()
                     .foregroundColor(.White)
                     .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
+                    .frame(height: 96)
+                    .multilineTextAlignment(.center)
+                    .scaleEffect(shouldEnlargeText ? 1.25 : 1)
                     .onReceive(timer) { _ in
                         if self.isTimerRunning {
-                            timerString = String(format: "%.1f", (Date().timeIntervalSince(self.startTime)))
-                            currentExpressionIndex = Int((Double(timerString)! / 6.0)) % (3)
+                            timerString = String(format: "%.0f", (Date().timeIntervalSince(self.startTime))*1000)
+                            currentExpressionIndex = Int((Double(timerString)! / 3000.0)) % (3)
                             
                             withAnimation(.linear(duration: 0.8)) {
                                 offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
                                 offsetY = CGFloat.random(in: -2...2)
                             }
+//                            if Int(Double(timerString) ?? 0) % 3 == 0 && shouldEnlargeText == false && Int(Double(timerString) ?? 0)
+//                            != 0 {
+//                                // 3초마다 shouldEnlargeText 값을 변경하여 글자 크기 조정
+//                                withAnimation(.easeOut(duration: 0.2)) {
+//                                    shouldEnlargeText = true
+//                                }
+//
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                                    withAnimation(.easeOut(duration: 0.2)) {
+//                                        shouldEnlargeText = false
+//                                    }
+//
+//                                }
+//
+//
+//                            }
                         }
                     }
                     .onAppear{
                         self.stopTimer()
                         self.startGame()
                     }
-                    //.onChange(of: observer.currentSound) { _ in
+                //.onChange(of: observer.currentSound) { _ in
                     .onChange(of: observer.topResults) { _ in
                         if observer.currentSound == "Background"  && observer.topResults[1].confidence <= 0.04  {
                             self.endGame()
