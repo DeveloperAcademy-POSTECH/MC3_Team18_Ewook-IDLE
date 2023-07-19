@@ -16,7 +16,7 @@ struct BubbleGumGameOverView: View {
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.5).ignoresSafeArea()
+            Color.black.opacity(0.75).ignoresSafeArea()
             
             VStack(spacing:209){
                 VStack(spacing: 13){

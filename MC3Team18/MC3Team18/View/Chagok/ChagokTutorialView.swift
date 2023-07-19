@@ -11,11 +11,12 @@ struct ChagokTutorialView: View {
     
     @Binding var chagokStatus: ChagokStatus
     @EnvironmentObject var chagokScene: ChagokSKScene
+    @State var isChecked: Bool = false
 
     var body: some View {
         ZStack {
             
-            Color.black.opacity(0.5)
+            Color.black.opacity(0.75)
                 .ignoresSafeArea()
             VStack {
                 HStack {
@@ -26,14 +27,14 @@ struct ChagokTutorialView: View {
                             chagokStatus = .game
                         }
                     } label: {
-                        Image(systemName: "x.circle")
+                        Image(systemName: "xmark")
                             .resizable()
-                            .pretendardSemiBold20()
-                            .frame(width: 36, height: 36)
+                            .foregroundColor(.white)
+                            .frame(width: 15, height: 15)
                     }
                 }
-                .padding(.top, 26)
-                .padding(.trailing, 27)
+                .padding(.top, 48)
+                .padding(.trailing, 26)
                 Text("차곡차곡")
                     .pretendardSemiBold32()
                     .foregroundColor(.Yellow)
@@ -46,20 +47,19 @@ struct ChagokTutorialView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    Button(action: {
-                        UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
-                        chagokScene.isNotUpdate = false
-                        withAnimation(.easeOut(duration: 0.3)) {
-                            chagokStatus = .game
-                        }
-                    }, label: {
-                        Image(systemName: "checkmark.square")
-                            .resizable()
-                            .pretendardSemiBold20()
-                            .frame(width: 29, height: 29)
+                    Button {
+                        isChecked.toggle()
+                        UserDefaults.standard.set(isChecked, forKey: "isTutorialDisabled")
+
+                    } label: {
+                        Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                            .font(.system(size: 20))
+                            .pretendardSemiBold20().bold()
+                            .foregroundColor(.white)
                         Text("다시 보지 않기")
                             .pretendardRegular20()
-                    })
+                        .foregroundColor(.white)
+                    }
                 }
                 .padding(.bottom, 36)
                 
@@ -67,6 +67,11 @@ struct ChagokTutorialView: View {
             }
             .foregroundColor(.white)
             .ignoresSafeArea()
+            
+//            LottieView(filename: "lottieAnima_chagok")
+//                .scaledToFit()
+//                .frame(width: 200)
+            
             
         }
         .statusBarHidden()
