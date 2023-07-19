@@ -31,6 +31,8 @@ struct BubbleGumStatusView: View {
     @State var offsetX: CGFloat = 0
     @State var offsetY: CGFloat = 0
     
+    @State var isBestScore: Bool = false
+    
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         observer = AudioStreamObserver()
@@ -54,9 +56,9 @@ struct BubbleGumStatusView: View {
             case .waiting:
                 BubbleGumWaitingView(gamsSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
             case .game:
-                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY)
+                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY, isBestScore: $isBestScore)
             case .gameover:
-                BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore)
+                BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore, isBestScore: $isBestScore)
             }
         }
     }
