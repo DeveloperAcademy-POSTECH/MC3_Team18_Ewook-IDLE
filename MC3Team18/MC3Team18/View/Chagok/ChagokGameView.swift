@@ -65,10 +65,12 @@ struct ChagokGameView: View {
                     Button {
                         chagokStatus = .pause
                     } label: {
-                        Image(systemName: "pause.circle")
+                        Image(systemName: "pause.fill")
                             .resizable()
                             .pretendardSemiBold20()
-                            .frame(width: 29, height: 29)
+                            .frame(width: 16, height: 16)
+                            .padding(.vertical, 3.5)
+                            .padding(.horizontal, 4)
                     }
                 }
                 .foregroundColor(.white)
@@ -133,7 +135,7 @@ struct ChagokGameView: View {
                 Spacer()
             }
             .padding(.top, 50)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 34)
             
             VStack {
                 Spacer()
