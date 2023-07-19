@@ -11,6 +11,7 @@ struct ChagokTutorialView: View {
     
     @Binding var chagokStatus: ChagokStatus
     @EnvironmentObject var chagokScene: ChagokSKScene
+    @State var isChecked: Bool = false
 
     var body: some View {
         ZStack {
@@ -46,20 +47,19 @@ struct ChagokTutorialView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 HStack {
-                    Button(action: {
-                        UserDefaults.standard.set(true, forKey: "isTutorialDisabled")
-                        chagokScene.isNotUpdate = false
-                        withAnimation(.easeOut(duration: 0.3)) {
-                            chagokStatus = .game
-                        }
-                    }, label: {
-                        Image(systemName: "checkmark.square")
-                            .resizable()
-                            .pretendardSemiBold20()
-                            .frame(width: 29, height: 29)
+                    Button {
+                        isChecked.toggle()
+                        UserDefaults.standard.set(isChecked, forKey: "isTutorialDisabled")
+
+                    } label: {
+                        Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                            .font(.system(size: 20))
+                            .pretendardSemiBold20().bold()
+                            .foregroundColor(.white)
                         Text("다시 보지 않기")
                             .pretendardRegular20()
-                    })
+                        .foregroundColor(.white)
+                    }
                 }
                 .padding(.bottom, 36)
                 
