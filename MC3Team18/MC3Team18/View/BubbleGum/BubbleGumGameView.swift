@@ -99,6 +99,7 @@ struct BubbleGumGameView: View {
     
     private func startGame() {
         HapticManager.instance.notification(type: .success)
+        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumBlowEffect.rawValue)
         self.startTimer()
         isTimerRunning = true
         isBestScore = false
@@ -110,6 +111,8 @@ struct BubbleGumGameView: View {
         HapticManager.instance.notification(type: .error)
         streamManager.removeTap()
         bubbleGumStatus = .gameover
+        SoundEffectPlayer.shared.stopSoundEffect()
+        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumGameOverEffect.rawValue)
         
         self.stopTimer()
         isTimerRunning = false
