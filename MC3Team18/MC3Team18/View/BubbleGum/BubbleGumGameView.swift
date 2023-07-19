@@ -29,7 +29,9 @@ struct BubbleGumGameView: View {
 
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
-    
+   
+    @Binding var isBestScore: Bool
+
     var body: some View {
         ZStack {
             VStack(spacing: 45){
@@ -79,7 +81,7 @@ struct BubbleGumGameView: View {
         HapticManager.instance.notification(type: .success)
         self.startTimer()
         isTimerRunning = true
-        
+        isBestScore = false
         scale += 0.8
         backgroundOffset += -offsetValue * 2 - 20
     }
@@ -113,6 +115,7 @@ struct BubbleGumGameView: View {
     
     private func saveScore() {
         if Float(bubbleHighScore)! < Float(score)! {
+            isBestScore = true
             bubbleHighScore = score
             UserDefaults.standard.set(score, forKey: "BubbleScore")
         }
