@@ -38,10 +38,9 @@ struct ChagokGameView: View {
     @State var secondsx4 = 120
     
     @State var isRightCupVisiable: Bool = false
-    
     @State var isBestScore: Bool = false
-    
     @State var isFaceTracked = false
+    @State var scoreScale: Double = 1.0
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -65,6 +64,7 @@ struct ChagokGameView: View {
                     Text("\(chagokScene.chagokScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
+                        .scaleEffect(scoreScale)
                     Spacer()
                     Button {
                         chagokStatus = .pause
@@ -237,11 +237,19 @@ struct ChagokGameView: View {
                 }
             }
         }
-        .onChange(of: chagokStatus) { newValue in
-            if newValue == .pause || newValue == .gameover {
-                // 게임을 일시정지 하는 코드를 만듭니다.
+        .onChange(of: chagokScene.isScaleEffect) { newValue in
+            if newValue {
+                withAnimation(.easeOut(duration: 0.3)) {
+                    scoreScale = 1.3
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    withAnimation(.easeIn(duration: 0.3)) {
+                        scoreScale = 1.0
+                    }
+                }
             }
         }
+        
     }
 }
 
