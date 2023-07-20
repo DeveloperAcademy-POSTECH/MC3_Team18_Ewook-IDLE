@@ -47,8 +47,8 @@ struct ChagokTutorialView: View {
                     .multilineTextAlignment(.center)
                 LottieView(filename: "lottieAnima_chagok")
                     .scaledToFit()
-                    .frame(width: 235)
-                    .padding(40)
+                    .frame(width: 325)
+                    .padding(.top, 40)
                 Spacer()
                 HStack {
                     Button {

@@ -14,6 +14,7 @@ struct ChagokGameOverView: View {
     @EnvironmentObject var chagokScene: ChagokSKScene
     @Binding var isBestScore: Bool
     @State var gameoverOpacity: Double = 0
+    @Binding var secondsx4: Int
     
     var body: some View {
         ZStack {
@@ -52,8 +53,15 @@ struct ChagokGameOverView: View {
                     }
                     Button {
                         // 게임 상태 초기화 만들기
-                        chagokScene.isPaused = false
                         chagokScene.chagokScore = 0
+                        chagokScene.leftCupStack.shuffle()
+                        chagokScene.rightCupStack.removeAll()
+                        chagokScene.currentIndex = 4
+                        chagokScene.removeAllChildren()
+                        chagokScene.mouthState = .none
+                        chagokScene.boxCount = 0
+                        secondsx4 = 120
+                        chagokScene.isNotUpdate = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
@@ -82,7 +90,7 @@ struct ChagokGameOverView: View {
         .statusBarHidden()
         .opacity(gameoverOpacity)
         .onAppear {
-            chagokScene.isPaused = true
+            chagokScene.isNotUpdate = true
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
@@ -92,7 +100,7 @@ struct ChagokGameOverView: View {
 
 struct ChagokGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true))
+        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
     }
 }
 
