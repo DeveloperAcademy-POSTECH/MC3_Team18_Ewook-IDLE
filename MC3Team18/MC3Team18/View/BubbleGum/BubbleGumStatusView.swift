@@ -23,7 +23,7 @@ struct BubbleGumStatusView: View {
 
     @State var isNeverShowingBubbleGumTutorial: Bool = UserDefaults.standard.bool(forKey: "isNeverShowingBubbleGumTutorial") ?? false
     @State var isShowingBubbleGumTutorial: Bool = true
-    @State private var bubbleHighScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0.0"
+    @State private var bubbleHighScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0"
     @ObservedObject var observer: AudioStreamObserver
     @State var text: String = ""
     var streamManager: AudioStreamManager
