@@ -45,6 +45,7 @@ struct ChagokGameOverView: View {
                 Spacer()
                 HStack(spacing: 60) {
                     Button {
+                        isBestScore = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameSelection = .none
                         }
@@ -62,6 +63,7 @@ struct ChagokGameOverView: View {
                         chagokScene.boxCount = 0
                         secondsx4 = 120
                         chagokScene.isNotUpdate = false
+                        isBestScore = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }

@@ -128,6 +128,7 @@ struct ChagokGameView: View {
                             }
                             .frame(width: 150, height: 300)
                             .opacity(isRightCupVisiable ? 1 : 0)
+                            .offset(y: 8)
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {

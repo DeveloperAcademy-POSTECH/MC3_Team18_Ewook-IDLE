@@ -112,7 +112,7 @@ struct BubbleGumGameView: View {
         streamManager.removeTap()
         bubbleGumStatus = .gameover
         SoundEffectPlayer.shared.stopSoundEffect()
-        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumGameOverEffect.rawValue)
+//        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumGameOverEffect.rawValue)
         
         self.stopTimer()
         isTimerRunning = false
