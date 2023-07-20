@@ -51,7 +51,7 @@ struct HomeView: View {
                 .transition(.slide)
                 .onAppear {
                     MusicPlayer.shared.stopBackgroundMusic()
-                    MusicPlayer.shared.startBackgroundMusic(musicName: "MainScreenMusicDummy")
+                    MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
                 }
             case .bubbleGum:
                 Color.clear.overlay {

@@ -102,6 +102,7 @@ class ChagokSKScene: SKScene, ObservableObject {
                 self.mouthState = MouthState.none
                 self.isNotUpdate = false
                 HapticManager.instance.notification(type: .error)
+                SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.chagokPungEffect.rawValue)
                 self.isScaleEffect = false
             }
         }

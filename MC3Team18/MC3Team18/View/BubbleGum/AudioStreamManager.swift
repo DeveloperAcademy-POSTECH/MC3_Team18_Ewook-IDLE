@@ -50,7 +50,7 @@ class AudioStreamManager {
     }
     
     private func bgmStart() {
-        MusicPlayer.shared.startBackgroundMusic(musicName: "BubbleGumMusicDummy")
+        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.bubblegumBGM.rawValue)
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
