@@ -73,6 +73,9 @@ struct BubbleGumGameOverView: View {
                     
             }
         }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
     }
 }
 
