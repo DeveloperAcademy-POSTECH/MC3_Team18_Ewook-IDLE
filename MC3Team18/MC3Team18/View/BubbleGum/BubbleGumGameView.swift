@@ -15,7 +15,7 @@ struct BubbleGumGameView: View {
     
     @State var isTimerRunning = false
     @State var startTime = Date()
-    @State var timerString = "0.0"
+    @State var timerString = "0"
     @State var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     @Binding var currentExpressionIndex: Int
@@ -117,7 +117,7 @@ struct BubbleGumGameView: View {
         self.stopTimer()
         isTimerRunning = false
         score = timerString
-        timerString = "0.0"
+        timerString = "0"
         self.saveScore()
         
         scale = 0.02
