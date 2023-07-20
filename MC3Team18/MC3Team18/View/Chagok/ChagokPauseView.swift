@@ -55,6 +55,7 @@ struct ChagokPauseView: View {
                     chagokScene.currentIndex = 4
                     chagokScene.removeAllChildren()
                     chagokScene.mouthState = .none
+                    chagokScene.boxCount = 0
                     secondsx4 = 120
                     chagokScene.isNotUpdate = false
                     withAnimation(.easeOut(duration: 0.3)) {

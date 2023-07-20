@@ -197,7 +197,7 @@ struct ChagokGameView: View {
                 ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4)
                     .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4)
                     .environmentObject(chagokScene)
             }
         }
@@ -214,7 +214,12 @@ struct ChagokGameView: View {
             
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !chagokScene.isPaused && !chagokScene.isNotUpdate {
+//                    if !chagokScene.isPaused && !chagokScene.isNotUpdate {
+//                        withAnimation {
+//                            self.secondsx4 -= 1
+//                        }
+//                    }
+                    if !chagokScene.isNotUpdate {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
