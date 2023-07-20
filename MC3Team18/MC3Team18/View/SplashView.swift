@@ -20,7 +20,7 @@ struct SplashView: View {
                 HomeView(gameSelected: $gameSelected)
             }else{
                 VStack(){
-                    Image("BackgroundSplashView")
+                    Image("BackgroundSplashView").resizable()
                         .overlay(
                             VStack(spacing: 30) {
                                 Spacer().frame(height: 14)
