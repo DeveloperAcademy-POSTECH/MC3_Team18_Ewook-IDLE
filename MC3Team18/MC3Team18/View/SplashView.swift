@@ -22,7 +22,15 @@ struct SplashView: View {
                 VStack(){
                     Image("BackgroundSplashView")
                         .overlay(
-                            Image("SplashLogo")
+                            VStack(spacing: 30) {
+                                Spacer().frame(height: 14)
+                                Image("SplashLogo")
+                                    
+                                Text("발성연습을 쉽고 재미있게")
+                                    .foregroundColor(.white)
+                                    .font(.custom("Pretendard-SemiBold", size: 12))
+                                    .frame(height: 14)
+                            }
                         )
                 }
                 .ignoresSafeArea()
