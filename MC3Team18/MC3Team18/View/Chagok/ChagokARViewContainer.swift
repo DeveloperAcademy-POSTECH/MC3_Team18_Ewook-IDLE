@@ -50,7 +50,7 @@ extension ChagokARViewContainer {
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
-
+        
         var parent: ChagokARViewContainer?
         @Binding var isFaceTracked: Bool
         var jawOpen: Double = 0
@@ -58,23 +58,18 @@ extension ChagokARViewContainer {
         var mouthRight: Double = 0
         var mouthPucker: Double = 0
         
-//        init(parent: ChagokARViewContainer, isFace) {
-//            self.parent = parent
-//        }
         init(parent: ChagokARViewContainer, isFaceTracked: Binding<Bool>) {
             self.parent = parent
             _isFaceTracked = isFaceTracked
         }
-
+        
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor else {
                 return
             }
             
             if faceAnchor.isTracked {
-                isFaceTracked = true
-            } else {
-                isFaceTracked = false
+                isFaceTracked = faceAnchor.isTracked
             }
 
             jawOpen = faceAnchor.blendShapes[.jawOpen]!.doubleValue
