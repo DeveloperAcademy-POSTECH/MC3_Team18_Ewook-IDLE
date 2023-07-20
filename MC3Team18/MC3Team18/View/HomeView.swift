@@ -52,15 +52,22 @@ struct HomeView: View {
                 .onAppear {
                     MusicPlayer.shared.stopBackgroundMusic()
                     MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
+                    UIApplication.shared.isIdleTimerDisabled = false
                 }
             case .bubbleGum:
                 Color.clear.overlay {
                     BubbleGumStatusView(gameSelection: $gameSelected)
                 }
                 .transition(.backslide)
+                .onAppear {
+                    UIApplication.shared.isIdleTimerDisabled = true
+                }
             case .chagok:
                 ChagokGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
+                    .onAppear {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                    }
             }
         }
     }

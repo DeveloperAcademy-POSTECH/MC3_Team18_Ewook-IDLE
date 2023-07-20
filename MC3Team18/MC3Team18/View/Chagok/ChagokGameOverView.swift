@@ -92,6 +92,7 @@ struct ChagokGameOverView: View {
         .statusBarHidden()
         .opacity(gameoverOpacity)
         .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = false
             chagokScene.isNotUpdate = true
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
