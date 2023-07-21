@@ -16,7 +16,7 @@ struct MenuBottomScoresView: View {
                 Spacer()
             }
             .padding(.leading, 34)
-            Spacer().frame(height: 13)
+            Spacer().frame(maxHeight: 13)
             HStack {
                 Color.CobaltBlue.frame(width: 97, height: 156)
                 Color.CobaltBlue.frame(width: 97, height: 156)

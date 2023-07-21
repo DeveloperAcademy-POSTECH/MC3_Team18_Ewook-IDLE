@@ -14,7 +14,8 @@ struct MenuView: View {
             
             Image("MenuGradient")
                 .resizable()
-                .scaledToFit()
+                .frame(minHeight: 250, maxHeight: 400)
+                .scaledToFill()
                 .overlay {
                     VStack {
                         Spacer().frame(maxHeight: 55)
@@ -24,7 +25,6 @@ struct MenuView: View {
                                 .frame(width: 10, height: 18)
                                 .pretendardBold20()
                                 .foregroundColor(.white)
-                            
                             Spacer()
                             Image(systemName: "square.and.arrow.up")
                                 .resizable()
@@ -41,7 +41,7 @@ struct MenuView: View {
                             .lineSpacing(10)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
-                        Spacer().frame(height: 60)
+                        Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
                             MenuHexgagonView(isCompleted: true, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
                             MenuHexgagonView(isCompleted: true, gameName: "풍선껌불기", recordedNumber: 5, unit: "초")
