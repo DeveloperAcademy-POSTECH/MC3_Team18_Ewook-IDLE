@@ -36,11 +36,15 @@ struct MenuView: View {
                         .padding(.trailing, 37)
                         .frame(height: 24)
                         Spacer().frame(maxHeight: 36)
-                        Text("나이스잡! 🎉\n데일리 연습을 완료하셨습니다!")
-                            .pretendardRegular24()
-                            .lineSpacing(10)
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white)
+                        VStack {
+                            Text("나이스잡! 🎉")
+                            Text("데일리 연습을 완료하셨습니다!")
+                        }
+                        .pretendardRegular24()
+                        .lineSpacing(10)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                            
                         Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
                             MenuHexgagonView(isCompleted: true, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
