@@ -72,6 +72,7 @@ struct MenuView: View {
             Spacer()
         }
         .ignoresSafeArea()
+        .statusBarHidden()
     }
 }
 
