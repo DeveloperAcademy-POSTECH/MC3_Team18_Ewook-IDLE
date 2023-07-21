@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct BubbleGumStatusView: View {
+
     @Binding var gameSelection: GameSelection
     @State var bubbleGumStatus: BubbleGumStatus = .tutorial
     
@@ -42,7 +43,7 @@ struct BubbleGumStatusView: View {
     
     var body: some View {
         ZStack {
-            BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)
+            Color.clear.overlay{BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)}
             
             switch bubbleGumStatus {
             case .tutorial:
@@ -50,8 +51,8 @@ struct BubbleGumStatusView: View {
                     BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
                 } else {
                     BubbleGumTutorialView(bubbleGumStatus: $bubbleGumStatus, isShowingBubbleGumTutorial: $isShowingBubbleGumTutorial, isNeverShowingBubbleGumTutorial: $isNeverShowingBubbleGumTutorial)
-                        .padding(.top, -offsetValue)
-                        .padding(.bottom, -offsetValue)
+                        //.padding(.top, -offsetValue)
+                        //.padding(.bottom, -offsetValue)
                 }
             case .waiting:
                 BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
@@ -60,6 +61,7 @@ struct BubbleGumStatusView: View {
             case .gameover:
                 BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore, isBestScore: $isBestScore)
             }
+            
         }
     }
 }
