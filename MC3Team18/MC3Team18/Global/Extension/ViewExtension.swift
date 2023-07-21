@@ -49,7 +49,21 @@ extension View {
         modifier(PretendardTextRegular20())
     }
     
+    func pretendardRegular11() -> some View {
+        modifier(PretendardTextRegular11())
+    }
+    
+    func pretendardMedium12() -> some View {
+        modifier(PretendardTextMedium12())
+    }
+    
+    func pretendardMedium28() -> some View {
+        modifier(PretendardTextMedium28())
+    }
+    
     func postNoBillsJaffnaRegular64() -> some View {
         modifier(PostNoBillsJaffnaRegular64())
     }
+    
+    
 }

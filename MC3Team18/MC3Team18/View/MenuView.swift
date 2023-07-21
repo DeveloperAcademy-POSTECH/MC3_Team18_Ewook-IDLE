@@ -41,60 +41,9 @@ struct MenuView: View {
                             .foregroundColor(.white)
                         Spacer().frame(height: 60)
                         HStack(spacing: 19) {
-                            Image("MenuHexagon")
-                                .frame(width: 100, height: 100)
-                                .overlay {
-                                    ZStack {
-                                        VStack {
-                                            Spacer()
-                                            HStack {
-                                                Spacer()
-                                                Image(systemName: "checkmark.circle.fill")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30)
-                                                    .padding(.bottom, 3)
-                                                    .padding(.trailing, 5)
-                                                    .foregroundColor(.CobaltBlue)
-                                            }
-                                        }
-                                    }
-                                }
-                            Image("MenuHexagon")
-                                .frame(width: 100, height: 100)
-                                .overlay {
-                                    ZStack {
-                                        VStack {
-                                            Spacer()
-                                            HStack {
-                                                Spacer()
-                                                Image(systemName: "checkmark.circle.fill")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30)
-                                                    .padding(.bottom, 3)
-                                                    .padding(.trailing, 5)
-                                                    .foregroundColor(.CobaltBlue)
-                                            }
-                                        }
-                                    }
-                                }
-                            Image("MenuHexagon")
-                                .frame(width: 100, height: 100)
-                                .overlay {
-                                    ZStack {
-                                        VStack {
-                                            Spacer()
-                                            HStack {
-                                                Spacer()
-                                                Image(systemName: "checkmark.circle.fill")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30)
-                                                    .padding(.bottom, 3)
-                                                    .padding(.trailing, 5)
-                                                    .foregroundColor(.CobaltBlue)
-                                            }
-                                        }
-                                    }
-                                }
+                            MenuHexgagonView(isCompleted: true, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
+                            MenuHexgagonView(isCompleted: true, gameName: "풍선껌불기", recordedNumber: 5, unit: "초")
+                            MenuHexgagonView(isCompleted: true, gameName: "별 따먹기", recordedNumber: 10, unit: "개")
                         }
                         Spacer()
                     }
@@ -102,9 +51,6 @@ struct MenuView: View {
             Spacer()
         }
         .ignoresSafeArea()
-        
-        
-        
     }
 }
 

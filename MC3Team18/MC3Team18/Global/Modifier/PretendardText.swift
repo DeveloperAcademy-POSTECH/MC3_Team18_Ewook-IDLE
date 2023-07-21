@@ -77,9 +77,26 @@ struct PretendardTextRegular20: ViewModifier {
     }
 }
 
+struct PretendardTextRegular11: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Regular", size: 11))
+    }
+}
 
+struct PretendardTextMedium12: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Regular", size: 12))
+    }
+}
 
-
+struct PretendardTextMedium28: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Regular", size: 28))
+    }
+}
 
 
 
