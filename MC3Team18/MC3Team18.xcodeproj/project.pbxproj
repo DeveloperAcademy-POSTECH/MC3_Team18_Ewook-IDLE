@@ -45,6 +45,8 @@
 		788C20D62A6A4DCD00953579 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D52A6A4DCD00953579 /* MenuView.swift */; };
 		788C20DA2A6A5B5C00953579 /* MenuHexgagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */; };
 		788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */; };
+		788C20DE2A6A665500953579 /* MenuMyRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */; };
+		788C20E02A6A6D0C00953579 /* MenuBottomScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */; };
 		78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
@@ -105,6 +107,8 @@
 		788C20D52A6A4DCD00953579 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHexgagonView.swift; sourceTree = "<group>"; };
 		788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMyRecordsView.swift; sourceTree = "<group>"; };
+		788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomScoresView.swift; sourceTree = "<group>"; };
 		78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionExtension.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */,
+				788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */,
+				788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -458,6 +464,7 @@
 				2FF0BA072A66372A005B11CD /* HapticManager.swift in Sources */,
 				608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */,
 				787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */,
+				788C20E02A6A6D0C00953579 /* MenuBottomScoresView.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
 				787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */,
 				604380A72A64DB4100666187 /* Haptics.swift in Sources */,
@@ -475,6 +482,7 @@
 				78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */,
 				608059A22A62B33D007A716D /* AudioStreamObserver.swift in Sources */,
 				78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */,
+				788C20DE2A6A665500953579 /* MenuMyRecordsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

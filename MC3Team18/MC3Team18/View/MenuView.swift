@@ -10,6 +10,8 @@ import SwiftUI
 struct MenuView: View {
     var body: some View {
         VStack {
+            
+            
             Image("MenuGradient")
                 .resizable()
                 .scaledToFit()
@@ -33,7 +35,7 @@ struct MenuView: View {
                         .padding(.leading, 16)
                         .padding(.trailing, 37)
                         .frame(height: 24)
-                        Spacer().frame(height: 36)
+                        Spacer().frame(maxHeight: 36)
                         Text("나이스잡! 🎉\n데일리 연습을 완료하셨습니다!")
                             .pretendardRegular24()
                             .lineSpacing(10)
@@ -48,6 +50,21 @@ struct MenuView: View {
                         Spacer()
                     }
                 }
+            Spacer().frame(maxHeight: 34)
+            HStack {
+                Text("My Records")
+                    .pretendardMedium20()
+                Spacer()
+            }
+            .padding(.leading, 34)
+            
+            MenuMyRecordsView(backToBackDays: 5, thisMonthDays: 5, totalDays: 23)
+                .padding(.leading, 20)
+                .frame(maxWidth: .infinity)
+            Spacer().frame(maxHeight: 37)
+            Divider()
+            Spacer().frame(maxHeight: 19)
+            MenuBottomScoresView()
             Spacer()
         }
         .ignoresSafeArea()

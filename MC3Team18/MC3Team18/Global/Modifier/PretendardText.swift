@@ -91,6 +91,13 @@ struct PretendardTextMedium12: ViewModifier {
     }
 }
 
+struct PretendardTextMedium20: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Regular", size: 20))
+    }
+}
+
 struct PretendardTextMedium28: ViewModifier {
     
     func body(content: Content) -> some View {

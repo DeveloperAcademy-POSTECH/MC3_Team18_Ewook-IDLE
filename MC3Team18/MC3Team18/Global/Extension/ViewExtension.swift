@@ -57,6 +57,10 @@ extension View {
         modifier(PretendardTextMedium12())
     }
     
+    func pretendardMedium20() -> some View {
+        modifier(PretendardTextMedium20())
+    }
+    
     func pretendardMedium28() -> some View {
         modifier(PretendardTextMedium28())
     }
