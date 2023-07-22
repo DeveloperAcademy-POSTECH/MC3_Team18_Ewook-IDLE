@@ -11,6 +11,13 @@ struct MenuBottomScoresView: View {
     
     //TODO: Star 게임 만들어지면 바꿀 것
     var bestScoreArray : [String] = [ String(UserDefaults.standard.integer(forKey: "chagokScore")), UserDefaults.standard.string(forKey: "BubbleScore")!, "12500"]
+    var bestRecordArray : [Int] = [
+        UserDefaults.standard.integer(forKey: "chagokScore") / 1500, Int(UserDefaults.standard.string(forKey: "BubbleScore")!)! / 1000, 15
+    ]
+    var bestUnitArray : [String] = ["줄", "초", "개"]
+    var bestNameArray : [String] = ["차곡차곡", "풍선껌불기", "별따먹기"]
+    
+    
     
     var body: some View {
         VStack {
@@ -32,7 +39,7 @@ struct MenuBottomScoresView: View {
                                 Spacer().frame(maxWidth: 24)
                                 VStack(spacing: 0) {
                                     Spacer().frame(maxHeight: 77)
-                                    Text("dddd")
+                                    Text("\(bestNameArray[index])")
                                         .pretendardBold14()
                                         .padding(.bottom, 10)
                                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -42,9 +49,9 @@ struct MenuBottomScoresView: View {
                                         .padding(.bottom, 2)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     HStack(alignment: .bottom, spacing: 2) {
-                                        Text("8")
+                                        Text("\(bestRecordArray[index])")
                                             .pretendardMedium24()
-                                        Text("줄")
+                                        Text("\(bestUnitArray[index])")
                                             .pretendardSemiBold11()
                                             .offset(y: -4)
                                         Spacer()
