@@ -11,4 +11,5 @@ enum GameSelection {
     case none
     case bubbleGum
     case chagok
+    case star
 }

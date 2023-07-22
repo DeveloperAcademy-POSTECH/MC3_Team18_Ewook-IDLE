@@ -13,10 +13,7 @@ struct MenuView: View {
             
             Image("MenuGradient")
                 .resizable()
-                .scaledToFill()
-                .frame(height: 350)
-                .frame(minHeight: 250, maxHeight: 400)
-                
+                .frame(minHeight: 250, maxHeight: .infinity)
                 .overlay {
                     VStack {
                         Spacer().frame(maxHeight: 55)

@@ -22,11 +22,12 @@ struct HomeView: View {
             switch gameSelected {
             case .none:
                 ZStack{
-                    Image("BackgroundHomeVIew")
-                        .resizable()
-                        .scaledToFill()
-                    
-                    VStack {
+                    Color.clear.overlay {
+                        Image("BackgroundHomeVIew")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    VStack(spacing: 20) {
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {
@@ -43,8 +44,15 @@ struct HomeView: View {
                         } label: {
                             Image("ButtonCupStack")
                         }
+                        Button {
+                            print("chagok")
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                gameSelected = .star
+                            }
+                        } label: {
+                            Image("ButtonStar")
+                        }
                     }
-                    .padding()
                 }
                 .statusBarHidden()
                 .ignoresSafeArea()
@@ -64,6 +72,12 @@ struct HomeView: View {
                 }
             case .chagok:
                 ChagokGameView(gameSelection: $gameSelected)
+                    .transition(.backslide)
+                    .onAppear {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                    }
+            case .star:
+                Text("star game")
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
