@@ -17,11 +17,46 @@ struct MenuBottomScoresView: View {
             }
             .padding(.leading, 34)
             Spacer().frame(maxHeight: 13)
-            HStack {
-                Color.CobaltBlue.frame(width: 97, height: 156)
-                Color.CobaltBlue.frame(width: 97, height: 156)
-                Color.CobaltBlue.frame(width: 97, height: 156)
+            HStack(spacing: -3) {
+                
+                ForEach(Array(BestScoreImage.allCases.enumerated()), id: \.element) { index, item in
+                    Image("\(item.rawValue)")
+                        .resizable()
+                        .scaledToFit()
+                        .overlay {
+                            HStack {
+                                Spacer().frame(maxWidth: 24)
+                                VStack(spacing: 0) {
+                                    Spacer().frame(maxHeight: 77)
+                                    Text("dddd")
+                                        .pretendardBold14()
+                                        .padding(.bottom, 10)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                                    Text("feasfeddd")
+                                        .pretendardExtraLight11()
+                                        .padding(.bottom, 2)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    HStack(alignment: .bottom, spacing: 2) {
+                                        Text("8")
+                                            .pretendardMedium24()
+                                        Text("줄")
+                                            .pretendardSemiBold11()
+                                            .offset(y: -4)
+                                        Spacer()
+                                    }
+                                    Spacer().frame(maxHeight: 23)
+                                }
+                                .multilineTextAlignment(.leading)
+                                Spacer()
+                            }
+                            .foregroundColor(.white)
+                        }
+                }
             }
+            .frame(minHeight: 155)
+            .padding(.horizontal, 14)
+            
         }
     }
 }
@@ -29,5 +64,13 @@ struct MenuBottomScoresView: View {
 struct MenuBottomScoresView_Previews: PreviewProvider {
     static var previews: some View {
         MenuBottomScoresView()
+    }
+}
+
+extension MenuBottomScoresView {
+    enum BestScoreImage: String, CaseIterable {
+        case chagok = "ChagokBest"
+        case bubble = "BubbleGumBest"
+        case star = "StarBest"
     }
 }

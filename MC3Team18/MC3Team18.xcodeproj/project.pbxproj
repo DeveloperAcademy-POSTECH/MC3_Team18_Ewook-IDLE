@@ -60,6 +60,7 @@
 		78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */; };
 		78C7EF902A678A1200460E90 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 78C7EF8F2A678A1200460E90 /* Lottie */; };
 		78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7EF912A678A6B00460E90 /* LottieView.swift */; };
+		78D517C32A6BAC37005B4A6C /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
 		78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBB2A5BAFC20007251D /* Assets.xcassets */; };
 		78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoBillsJaffnaText.swift; sourceTree = "<group>"; };
 		78C7EF912A678A6B00460E90 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		78DD4FB42A5BAFC10007251D /* MC3Team18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Team18.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3Team18App.swift; sourceTree = "<group>"; };
 		78DD4FBB2A5BAFC20007251D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		78DD4FCA2A5BB0430007251D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */,
 				788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */,
 				78BE77CE2A5D69440028A446 /* PostNoBillsJaffna-Medium.ttf */,
 				78BE77D02A5D69440028A446 /* Pretendard-Bold.otf */,
@@ -430,6 +433,7 @@
 				78BE77D32A5D69440028A446 /* PostNoBillsJaffna-Medium.ttf in Resources */,
 				78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */,
 				78BE77D42A5D69440028A446 /* Pretendard-Light.otf in Resources */,
+				78D517C32A6BAC37005B4A6C /* Pretendard-ExtraLight.otf in Resources */,
 				784E50A42A67F76C00733796 /* CelebLottieAnima.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
