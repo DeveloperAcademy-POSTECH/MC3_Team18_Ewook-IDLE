@@ -11,8 +11,14 @@ import AVKit
 struct HomeView: View {
     
     @Binding var gameSelected: GameSelection
+    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
+    @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
+    @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
     var body: some View {
+        
+        
         
         ZStack {
             
@@ -94,8 +100,23 @@ struct HomeView: View {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
             }
+        }.onAppear{
+            if DailyRoutineCurrentDate != currentDate{
+                chagokMissionSuccess = false
+                BalloonMissionSuccess = false
+                StarMissionSuccess = false
+                DailyRoutineCurrentDate = currentDate
+            }
         }
     }
+    
+    var currentDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: Date())
+    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
