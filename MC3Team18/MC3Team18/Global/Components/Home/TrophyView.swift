@@ -15,18 +15,27 @@ struct TrophyView: View {
     var body: some View {
         HStack {
             Spacer()
-            Rectangle()
-                .foregroundColor(.white.opacity(0.9))
-                .frame(width: 124, height: 24)
-                .cornerRadius(12)
-                .overlay {
-                    Text("데일리 연습 완성하기!")
-                        .pretendardMedium12()
-                        .foregroundColor(.Blue)
-                }
-                .opacity(isDailyNotFinished ? 1 : 0)
             Button {
-                gameSelected = .record
+                withAnimation(.easeOut(duration: 0.3)) {
+                    gameSelected = .record
+                }
+            } label: {
+                Rectangle()
+                    .foregroundColor(.white.opacity(0.9))
+                    .frame(width: 124, height: 24)
+                    .cornerRadius(12)
+                    .overlay {
+                        Text("데일리 연습 완성하기!")
+                            .pretendardMedium12()
+                            .foregroundColor(.Blue)
+                    }
+                    
+            }
+            .opacity(isDailyNotFinished ? 1 : 0)
+            Button {
+                withAnimation(.easeOut(duration: 0.3)) {
+                    gameSelected = .record
+                }
             } label: {
                 Image(systemName: "trophy")
                     .resizable()

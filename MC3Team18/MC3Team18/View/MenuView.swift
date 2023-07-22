@@ -22,7 +22,10 @@ struct MenuView: View {
                         Spacer().frame(maxHeight: 55)
                         HStack {
                             Button {
-                                gameSelected = .none
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    gameSelected = .none
+                                }
+                                
                             } label: {
                                 Image(systemName: "chevron.left")
                                     .resizable()
@@ -83,6 +86,7 @@ struct MenuView: View {
         }
         .ignoresSafeArea()
         .statusBarHidden()
+        .background(.white)
     }
 }
 

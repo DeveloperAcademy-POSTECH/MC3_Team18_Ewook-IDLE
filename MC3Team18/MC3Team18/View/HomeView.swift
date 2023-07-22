@@ -15,7 +15,11 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
-            Color.clear
+            
+            Image("BackgroundHomeVIew")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             switch gameSelected {
             case .none:
                 ZStack{
@@ -23,7 +27,7 @@ struct HomeView: View {
                         Image("BackgroundHomeVIew")
                             .resizable()
                             .scaledToFill()
-                    }
+                    }.ignoresSafeArea()
                     VStack(spacing: 20) {
                         Spacer()
                         TrophyView(gameSelected: $gameSelected)
