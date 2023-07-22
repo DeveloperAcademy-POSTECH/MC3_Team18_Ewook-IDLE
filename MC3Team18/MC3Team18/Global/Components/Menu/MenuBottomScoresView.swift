@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MenuBottomScoresView: View {
+    
+    //TODO: Star 게임 만들어지면 바꿀 것
+    var bestScoreArray : [String] = [ String(UserDefaults.standard.integer(forKey: "chagokScore")), UserDefaults.standard.string(forKey: "BubbleScore")!, "12500"]
+    
     var body: some View {
         VStack {
             HStack {
@@ -33,7 +37,7 @@ struct MenuBottomScoresView: View {
                                         .padding(.bottom, 10)
                                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                                    Text("feasfeddd")
+                                    Text("\(bestScoreArray[index])")
                                         .pretendardExtraLight11()
                                         .padding(.bottom, 2)
                                         .frame(maxWidth: .infinity, alignment: .leading)
