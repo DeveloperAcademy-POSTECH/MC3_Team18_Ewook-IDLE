@@ -11,11 +11,12 @@ struct MenuView: View {
     var body: some View {
         VStack {
             
-            
             Image("MenuGradient")
                 .resizable()
-                .frame(minHeight: 250, maxHeight: 400)
                 .scaledToFill()
+                .frame(height: 350)
+                .frame(minHeight: 250, maxHeight: 400)
+                
                 .overlay {
                     VStack {
                         Spacer().frame(maxHeight: 55)
@@ -69,7 +70,7 @@ struct MenuView: View {
             Divider()
             Spacer().frame(maxHeight: 19)
             MenuBottomScoresView()
-            Spacer()
+            Spacer().frame(height: 30)
         }
         .ignoresSafeArea()
         .statusBarHidden()

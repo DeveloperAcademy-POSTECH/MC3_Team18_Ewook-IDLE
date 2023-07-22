@@ -15,7 +15,8 @@ struct MenuMyRecordsView: View {
     
     
     var body: some View {
-        HStack(spacing: 18) {
+        HStack(spacing: 0) {
+            Spacer().frame(width: 16)
             VStack(spacing: 6) {
                 Text("연속 연습일")
                     .pretendardMedium12()
@@ -25,6 +26,7 @@ struct MenuMyRecordsView: View {
                     .pretendardMedium28()
                     .foregroundColor(.CobaltBlue)
             }
+            Spacer()
             VStack(spacing: 6) {
                 Text("이번 달 연습일")
                     .tracking(-0.5)
@@ -34,6 +36,7 @@ struct MenuMyRecordsView: View {
                     .pretendardMedium28()
                     .foregroundColor(.CobaltBlue)
             }
+            Spacer()
             VStack(spacing: 6) {
                 Text("누적 연습일")
                     .tracking(-0.5)
@@ -43,11 +46,13 @@ struct MenuMyRecordsView: View {
                     .pretendardMedium28()
                     .foregroundColor(.CobaltBlue)
             }
+            Spacer()
             Image("MainCharacter")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 72)
                 .padding(.leading, 21)
+            Spacer()
         }
         .ignoresSafeArea()
     }
