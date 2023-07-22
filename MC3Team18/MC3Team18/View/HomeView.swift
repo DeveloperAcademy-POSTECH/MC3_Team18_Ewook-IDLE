@@ -15,6 +15,7 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
+            
             Image("BackgroundHomeVIew")
                 .resizable()
                 .scaledToFill()
@@ -22,11 +23,15 @@ struct HomeView: View {
             switch gameSelected {
             case .none:
                 ZStack{
-                    Image("BackgroundHomeVIew")
-                        .resizable()
-                        .scaledToFill()
-                    
-                    VStack {
+                    Color.clear.overlay {
+                        Image("BackgroundHomeVIew")
+                            .resizable()
+                            .scaledToFill()
+                    }.ignoresSafeArea()
+                    VStack(spacing: 20) {
+                        Spacer()
+                        TrophyView(gameSelected: $gameSelected)
+                        Spacer()
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {
@@ -43,8 +48,16 @@ struct HomeView: View {
                         } label: {
                             Image("ButtonCupStack")
                         }
+                        Button {
+                            print("chagok")
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                gameSelected = .star
+                            }
+                        } label: {
+                            Image("ButtonStar")
+                        }
+                        Spacer()
                     }
-                    .padding()
                 }
                 .statusBarHidden()
                 .ignoresSafeArea()
@@ -68,6 +81,18 @@ struct HomeView: View {
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
+            case .star:
+                Text("star game")
+                    .transition(.backslide)
+                    .onAppear {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                    }
+            case .record:
+                MenuView(gameSelected: $gameSelected)
+                    .transition(.backslide)
+                    .onAppear {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                    }
             }
         }
     }
@@ -75,8 +100,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
+        HomeView(gameSelected: .constant(.none))
         MultiPreview {
             HomeView(gameSelected: .constant(.none))
         }
+        
     }
 }

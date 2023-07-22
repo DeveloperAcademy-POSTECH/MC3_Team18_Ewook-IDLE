@@ -8,30 +8,42 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @Binding var gameSelected: GameSelection
+    
     var body: some View {
         VStack {
             
             Image("MenuGradient")
                 .resizable()
-                .scaledToFill()
-                .frame(height: 350)
-                .frame(minHeight: 250, maxHeight: 400)
-                
+                .frame(minHeight: 250, maxHeight: .infinity)
                 .overlay {
                     VStack {
                         Spacer().frame(maxHeight: 55)
                         HStack {
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .frame(width: 10, height: 18)
-                                .pretendardBold20()
-                                .foregroundColor(.white)
+                            Button {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    gameSelected = .none
+                                }
+                                
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .resizable()
+                                    .frame(width: 10, height: 18)
+                                    .pretendardBold20()
+                                    .foregroundColor(.white)
+                            }
+                           
                             Spacer()
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .frame(width: 18, height: 23)
-                                .pretendardBold20()
-                                .foregroundColor(.white)
+                            Button {
+                                print("공유공유")
+                            } label: {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .frame(width: 18, height: 23)
+                                    .pretendardBold20()
+                                    .foregroundColor(.white)
+                            }
                         }
                         .padding(.leading, 16)
                         .padding(.trailing, 37)
@@ -74,16 +86,15 @@ struct MenuView: View {
         }
         .ignoresSafeArea()
         .statusBarHidden()
+        .background(.white)
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(gameSelected: .constant(.record))
         MultiPreview {
-            MenuView()
+            MenuView(gameSelected: .constant(.record))
         }
-        
-        
     }
 }
