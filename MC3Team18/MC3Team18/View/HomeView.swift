@@ -15,10 +15,7 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
-            Image("BackgroundHomeVIew")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            Color.clear
             switch gameSelected {
             case .none:
                 ZStack{
@@ -28,6 +25,9 @@ struct HomeView: View {
                             .scaledToFill()
                     }
                     VStack(spacing: 20) {
+                        Spacer()
+                        TrophyView(gameSelected: $gameSelected)
+                        Spacer()
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {
@@ -52,6 +52,7 @@ struct HomeView: View {
                         } label: {
                             Image("ButtonStar")
                         }
+                        Spacer()
                     }
                 }
                 .statusBarHidden()
@@ -82,6 +83,12 @@ struct HomeView: View {
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
+            case .record:
+                MenuView(gameSelected: $gameSelected)
+                    .transition(.backslide)
+                    .onAppear {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                    }
             }
         }
     }
@@ -89,8 +96,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
+        HomeView(gameSelected: .constant(.none))
         MultiPreview {
             HomeView(gameSelected: .constant(.none))
         }
+        
     }
 }

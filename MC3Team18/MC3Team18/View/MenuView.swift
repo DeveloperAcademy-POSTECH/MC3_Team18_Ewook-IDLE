@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @Binding var gameSelected: GameSelection
+    
     var body: some View {
         VStack {
             
@@ -18,17 +21,26 @@ struct MenuView: View {
                     VStack {
                         Spacer().frame(maxHeight: 55)
                         HStack {
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .frame(width: 10, height: 18)
-                                .pretendardBold20()
-                                .foregroundColor(.white)
+                            Button {
+                                gameSelected = .none
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .resizable()
+                                    .frame(width: 10, height: 18)
+                                    .pretendardBold20()
+                                    .foregroundColor(.white)
+                            }
+                           
                             Spacer()
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .frame(width: 18, height: 23)
-                                .pretendardBold20()
-                                .foregroundColor(.white)
+                            Button {
+                                print("공유공유")
+                            } label: {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .frame(width: 18, height: 23)
+                                    .pretendardBold20()
+                                    .foregroundColor(.white)
+                            }
                         }
                         .padding(.leading, 16)
                         .padding(.trailing, 37)
@@ -76,11 +88,9 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(gameSelected: .constant(.record))
         MultiPreview {
-            MenuView()
+            MenuView(gameSelected: .constant(.record))
         }
-        
-        
     }
 }
