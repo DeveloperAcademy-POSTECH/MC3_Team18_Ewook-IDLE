@@ -189,10 +189,10 @@
 		600264222A6D064F0035A0E1 /* Star */ = {
 			isa = PBXGroup;
 			children = (
+				600264272A6D163E0035A0E1 /* StarTutorialView.swift */,
 				600264202A6D06460035A0E1 /* StarGameView.swift */,
 				600264232A6D0C800035A0E1 /* StarPauseView.swift */,
 				600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */,
-				600264272A6D163E0035A0E1 /* StarTutorialView.swift */,
 			);
 			path = Star;
 			sourceTree = "<group>";

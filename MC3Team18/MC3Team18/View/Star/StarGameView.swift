@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct StarGameView: View {
+    @State var starStatus: StarStatus = .tutorial
+    @Binding var gameSelection: GameSelection
+    
     @State var starScore: Int = 0
     @State var secondsx4 = 120
     
+    @State var gameOpacity: Double = 0
+
     var body: some View {
         ZStack {
             Color.clear.overlay {
@@ -32,6 +37,7 @@ struct StarGameView: View {
                     Spacer()
                     Button {
                         //TODO: starState = 일시정지
+                        starStatus = .pause
                     } label: {
                         Image(systemName: "pause.fill")
                             .resizable()
@@ -77,18 +83,41 @@ struct StarGameView: View {
                 Image("MainCharacter")
                     .resizable()
                     .frame(width: 180, height: 201)
+                    .onTapGesture {
+                        starStatus = .gameover
+                    }
             }
             .padding(.top, 50)
-            .padding(.bottom, 50)
+            .padding(.bottom, 32)
             .padding(.horizontal, 34)
+            
+            
+            switch starStatus {
+            case .tutorial:
+               // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
+                    StarTutorialView(starStatus: $starStatus)
+                        .transition(.opacity)
+            case .game:
+                EmptyView()
+            case .pause:
+                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection)
+            case .gameover:
+                StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection)
+            }
         }
         .statusBarHidden()
         .ignoresSafeArea()
+        .opacity(gameOpacity)
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameOpacity = 1
+            }
+        }
     }
 }
 
 struct StarGameView_Previews: PreviewProvider {
     static var previews: some View {
-        StarGameView()
+        StarGameView(gameSelection: .constant(.star))
     }
 }
