@@ -22,6 +22,7 @@
 		600264212A6D06460035A0E1 /* StarGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264202A6D06460035A0E1 /* StarGameView.swift */; };
 		600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264232A6D0C800035A0E1 /* StarPauseView.swift */; };
 		600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */; };
+		600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264272A6D163E0035A0E1 /* StarTutorialView.swift */; };
 		604380A72A64DB4100666187 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604380A62A64DB4100666187 /* Haptics.swift */; };
 		608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */; };
@@ -91,6 +92,7 @@
 		600264202A6D06460035A0E1 /* StarGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameView.swift; sourceTree = "<group>"; };
 		600264232A6D0C800035A0E1 /* StarPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPauseView.swift; sourceTree = "<group>"; };
 		600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameOverView.swift; sourceTree = "<group>"; };
+		600264272A6D163E0035A0E1 /* StarTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTutorialView.swift; sourceTree = "<group>"; };
 		604380A62A64DB4100666187 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumGameOverView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				600264202A6D06460035A0E1 /* StarGameView.swift */,
 				600264232A6D0C800035A0E1 /* StarPauseView.swift */,
 				600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */,
+				600264272A6D163E0035A0E1 /* StarTutorialView.swift */,
 			);
 			path = Star;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			files = (
 				6080599B2A5FF5C6007A716D /* BubbleGumWaitingView.swift in Sources */,
 				2FF0BA232A682A49005B11CD /* SoundEffectPlayer.swift in Sources */,
+				600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
