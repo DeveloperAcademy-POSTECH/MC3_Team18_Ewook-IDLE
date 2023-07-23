@@ -21,7 +21,7 @@ class AudioStreamObserver: NSObject, SNResultsObserving, ObservableObject {
         
         DispatchQueue.main.async {
             self.currentSound = classification.identifier
-            self.topResults = Array(result.classifications[0...2])
+            self.topResults = Array(result.classifications[0...1])
             print(self.topResults)
         }
     }

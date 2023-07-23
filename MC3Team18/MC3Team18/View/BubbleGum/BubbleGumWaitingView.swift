@@ -44,7 +44,7 @@ struct BubbleGumWaitingView: View {
                 .onChange(of: observer.topResults) { _ in
                     print("Start")
                     //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
-                    if observer.currentSound == "LipTrill" || observer.currentSound == "TongueTrill" {
+                    if observer.currentSound == "Voice" {
                         bubbleGumStatus = .game
                     }
                 }
