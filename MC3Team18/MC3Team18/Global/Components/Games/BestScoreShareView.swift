@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct BestScoreShareView: View {
+    /*
+     UserDefaults.standard.string(forKey: "BubbleScore") ?? "0"
+     String(UserDefaults.standard.integer(forKey: "chagokScore"))
+     */
     
     @State var bestScore = "0"
     var gameSelected: GameSelection = .chagok
@@ -40,20 +44,6 @@ struct BestScoreShareView: View {
             .frame(width: 393, height: 393)
         }
         .frame(width: 393, height: 393)
-        .onAppear {
-            switch gameSelected {
-            case .none:
-                bestScore = "0"
-            case .bubbleGum:
-                bestScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0"
-            case .chagok:
-                bestScore = String(UserDefaults.standard.integer(forKey: "chagokScore"))
-            case .star:
-                bestScore = "0"
-            case .record:
-                bestScore = "0"
-            }
-        }
     }
 }
 
