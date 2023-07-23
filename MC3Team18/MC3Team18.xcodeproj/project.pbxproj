@@ -19,6 +19,10 @@
 		2FF0BA212A682789005B11CD /* bubblegumBlowEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0BA1B2A682789005B11CD /* bubblegumBlowEffect.mp3 */; };
 		2FF0BA232A682A49005B11CD /* SoundEffectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA222A682A49005B11CD /* SoundEffectPlayer.swift */; };
 		2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA242A682D98005B11CD /* SoundNames.swift */; };
+		600264212A6D06460035A0E1 /* StarGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264202A6D06460035A0E1 /* StarGameView.swift */; };
+		600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264232A6D0C800035A0E1 /* StarPauseView.swift */; };
+		600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */; };
+		600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264272A6D163E0035A0E1 /* StarTutorialView.swift */; };
 		604380A72A64DB4100666187 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604380A62A64DB4100666187 /* Haptics.swift */; };
 		608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGumGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */; };
@@ -86,6 +90,10 @@
 		2FF0BA1B2A682789005B11CD /* bubblegumBlowEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bubblegumBlowEffect.mp3; sourceTree = "<group>"; };
 		2FF0BA222A682A49005B11CD /* SoundEffectPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectPlayer.swift; sourceTree = "<group>"; };
 		2FF0BA242A682D98005B11CD /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
+		600264202A6D06460035A0E1 /* StarGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameView.swift; sourceTree = "<group>"; };
+		600264232A6D0C800035A0E1 /* StarPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPauseView.swift; sourceTree = "<group>"; };
+		600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameOverView.swift; sourceTree = "<group>"; };
+		600264272A6D163E0035A0E1 /* StarTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTutorialView.swift; sourceTree = "<group>"; };
 		604380A62A64DB4100666187 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleGumTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGumGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGumGameOverView.swift; sourceTree = "<group>"; };
@@ -174,6 +182,17 @@
 				788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		600264222A6D064F0035A0E1 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				600264202A6D06460035A0E1 /* StarGameView.swift */,
+				600264232A6D0C800035A0E1 /* StarPauseView.swift */,
+				600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */,
+				600264272A6D163E0035A0E1 /* StarTutorialView.swift */,
+			);
+			path = Star;
 			sourceTree = "<group>";
 		};
 		6080598D2A5E723C007A716D /* BubbleGum */ = {
@@ -367,6 +386,7 @@
 			children = (
 				6080598D2A5E723C007A716D /* BubbleGum */,
 				78BE77C92A5D4E8B0028A446 /* Chagok */,
+				600264222A6D064F0035A0E1 /* Star */,
 				E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */,
 				E53CEA192A5D3E7000BE59B9 /* HomeView.swift */,
 				788C20D52A6A4DCD00953579 /* MenuView.swift */,
@@ -475,6 +495,7 @@
 			files = (
 				6080599B2A5FF5C6007A716D /* BubbleGumWaitingView.swift in Sources */,
 				2FF0BA232A682A49005B11CD /* SoundEffectPlayer.swift in Sources */,
+				600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
@@ -482,8 +503,10 @@
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				788C20D62A6A4DCD00953579 /* MenuView.swift in Sources */,
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
+				600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */,
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
 				787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */,
+				600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */,
 				608059A02A62B27A007A716D /* MySoundClassifier0715.mlmodel in Sources */,
 				788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
@@ -512,6 +535,7 @@
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
 				2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */,
+				600264212A6D06460035A0E1 /* StarGameView.swift in Sources */,
 				788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */,
 				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
 				6080599D2A60272E007A716D /* BubbleGumGameView.swift in Sources */,
