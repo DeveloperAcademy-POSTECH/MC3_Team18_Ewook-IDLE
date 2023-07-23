@@ -47,6 +47,8 @@
 		788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */; };
 		788C20DE2A6A665500953579 /* MenuMyRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */; };
 		788C20E02A6A6D0C00953579 /* MenuBottomScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */; };
+		788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */; };
+		788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */; };
 		78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */; };
 		78BE77C82A5D4E850028A446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77C72A5D4E850028A446 /* Sample.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
@@ -111,6 +113,8 @@
 		788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMyRecordsView.swift; sourceTree = "<group>"; };
 		788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomScoresView.swift; sourceTree = "<group>"; };
+		788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyShareView.swift; sourceTree = "<group>"; };
+		788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionExtension.swift; sourceTree = "<group>"; };
 		78BE77C72A5D4E850028A446 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */,
 				2FF0BA062A66372A005B11CD /* HapticManager.swift */,
 				2FF0BA222A682A49005B11CD /* SoundEffectPlayer.swift */,
+				788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */,
 				788C20DD2A6A665500953579 /* MenuMyRecordsView.swift */,
 				788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */,
+				788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
 				787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */,
 				608059A02A62B27A007A716D /* MySoundClassifier0715.mlmodel in Sources */,
+				788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */,
 				78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */,
@@ -493,6 +500,7 @@
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
 				2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */,
+				788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */,
 				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
 				6080599D2A60272E007A716D /* BubbleGumGameView.swift in Sources */,
 				78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     
-
+    
     
     @Binding var gameSelected: GameSelection
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
@@ -42,17 +42,26 @@ struct MenuView: View {
                                     .pretendardBold20()
                                     .foregroundColor(.white)
                             }
-                           
+                            
                             Spacer()
-                            Button {
-                                print("공유공유")
-                            } label: {
-                                Image(systemName: "square.and.arrow.up")
-                                    .resizable()
-                                    .frame(width: 18, height: 23)
-                                    .pretendardBold20()
-                                    .foregroundColor(.white)
-                            }
+                            
+                            
+                            /*
+                             message: 메세지 카톡 등을 보낼때 메세지를 같이 보낼 수 있는 메세지 내용
+                             subject: 메일 등의 공유일 때 제목에 들어감
+                             caption: 공유 창에 뜨는 텍스트
+                             */
+                            
+                            ShareLink(item: photo, subject: Text("subject"), message: Text("message"), preview: SharePreview(
+                                photo.caption,
+                                image: photo.image)) {
+                                    Image(systemName: "square.and.arrow.up")
+                                        .resizable()
+                                        .frame(width: 18, height: 23)
+                                        .pretendardBold20()
+                                        .foregroundColor(.white)
+                                }
+                            
                         }
                         .padding(.leading, 16)
                         .padding(.trailing, 37)
@@ -66,7 +75,7 @@ struct MenuView: View {
                         .lineSpacing(10)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
-                            
+                        
                         Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
                             MenuHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
@@ -122,5 +131,21 @@ struct MenuView_Previews: PreviewProvider {
         MultiPreview {
             MenuView(gameSelected: .constant(.record))
         }
+    }
+}
+
+extension MenuView {
+    
+    @MainActor
+    var photo: TransferableUIImage {
+        return .init(uiimage: dailyShareUIImage, caption: "공유해보세요🚀")
+    }
+    
+    @MainActor
+    var dailyShareUIImage: UIImage {
+        
+        let renderer = ImageRenderer(content: DailyShareView())
+        renderer.scale = 3.0
+        return renderer.uiImage ?? .init()
     }
 }
