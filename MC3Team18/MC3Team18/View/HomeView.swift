@@ -17,11 +17,7 @@ struct HomeView: View {
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
     var body: some View {
-        
-        
-        
         ZStack {
-            
             Image("BackgroundHomeVIew")
                 .resizable()
                 .scaledToFill()
@@ -55,7 +51,7 @@ struct HomeView: View {
                             Image("ButtonCupStack")
                         }
                         Button {
-                            print("chagok")
+                            print("Star")
                             withAnimation(.easeOut(duration: 0.3)) {
                                 gameSelected = .star
                             }
@@ -88,7 +84,7 @@ struct HomeView: View {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
             case .star:
-                Text("star game")
+                StarGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
@@ -116,7 +112,6 @@ struct HomeView: View {
         dateFormatter.timeStyle = .none
         return dateFormatter.string(from: Date())
     }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -124,7 +119,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(gameSelected: .constant(.none))
         MultiPreview {
             HomeView(gameSelected: .constant(.none))
-        }
-        
+        } 
     }
 }

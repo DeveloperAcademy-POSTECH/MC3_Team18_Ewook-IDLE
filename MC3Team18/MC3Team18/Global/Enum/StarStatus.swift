@@ -10,5 +10,6 @@ import Foundation
 enum StarStatus {
     case tutorial
     case game
+    case pause
     case gameover
 }
