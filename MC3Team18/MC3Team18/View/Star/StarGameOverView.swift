@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct StarGameOverView: View {
-    @Binding var starScore: Int
-    @Binding var bubbleHighScore: String
     @State var gameoverOpacity: Double = 0
-    @Binding var isBestScore: Bool
     
-    //@Binding var gameSelection: GameSelection
-    //@Binding var starStatus: StarStatus
+    @Binding var starScore: Int
+    @State var starHighScore: Int = 0
+    @State var isBestScore: Bool = false
+    
+    @Binding var starStatus: StarStatus
+    
+    @Binding var gameSelection: GameSelection
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
@@ -39,7 +41,7 @@ struct StarGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text(bubbleHighScore)
+                        Text("\(starHighScore)")
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -49,7 +51,7 @@ struct StarGameOverView: View {
                 HStack(){
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
-                            // TODO: 화면 이동 gameSelection = .none
+                            gameSelection = .none
                         }
                     } label: {
                         starGameOverViewButton(systemName: "house", text: "Home")
@@ -58,24 +60,36 @@ struct StarGameOverView: View {
                     Spacer()
                     
                     Button {
-                        //TODO: 게임 상태 초기화면으로 변경(home?)
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            gameoverOpacity = 0
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            starStatus = .game
+                        }
                     } label: {
                         starGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }.padding(.horizontal, 62)
             }
         }
+        .opacity(gameoverOpacity)
+        .statusBarHidden()
         .overlay {
             VStack {
                 if isBestScore {
                     LottieView(filename: "CelebLottieAnima")
                         .frame(width: 232, height: 66)
-                        .offset(y: -310)
+                        .padding(.top, 108)
                 }
             }
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameoverOpacity = 1
+            }
+            // chagokScene.isNotUpdate = true
+            
             //TODO: StarMissionSuccess 데이터 연결
             //            if Int(score)! / 1000 >= 5{
             //                StarMissionSuccess = true
@@ -86,7 +100,7 @@ struct StarGameOverView: View {
 
 struct StarGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        StarGameOverView(starScore: .constant(0), bubbleHighScore: .constant("3000"), isBestScore: .constant(true))
+        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
     }
 }
 

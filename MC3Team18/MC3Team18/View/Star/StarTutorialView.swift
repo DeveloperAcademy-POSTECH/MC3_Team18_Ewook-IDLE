@@ -9,7 +9,9 @@ import SwiftUI
 
 struct StarTutorialView: View {
     @State var isNeverShowingStarTutorialToggle: Bool = false
-    
+    @Binding var starStatus: StarStatus
+    @State var tutorialOpacity: Double = 1
+
     var body: some View {
         ZStack(){
             Color(.black).opacity(0.75)
@@ -18,33 +20,34 @@ struct StarTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        //TODO: 튜토리얼 상태 저장, 게임 상태 시작으로 변경
+                        //TODO: 튜토리얼 상태 저장, 게임 업데이트=false
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            tutorialOpacity = 0
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            starStatus = .game
+                        }
                     } label: {
                         Image(systemName:  "xmark")
                             .resizable()
-                            .foregroundColor(.white)
                             .frame(width: 15, height: 15)
                     }.padding(.all, 4.5)
                 }
                 
                 Spacer().frame(height: 79)
                 
-                VStack(spacing: 24){
+                VStack(spacing: 35){
                     Text("은하수 만들기")
                         .pretendardSemiBold32()
                         .foregroundColor(.Yellow)
-                        .fontWeight(.bold)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
-                    Text("혀를 구르거나 입술을 털어\n은하수를 만들어주세요!")
+                    Text("혀를 구르거나 입술을 털어\n소리를 내면 별이 쏟아져 나와요.\n은하수를 만들어보세요!")
                         .pretendardSemiBold20()
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
                         .multilineTextAlignment(.center)
-                        .lineSpacing(1)
+                        .lineSpacing(3)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                     Text("• 혀굴리기 :  아rrrr\n• 입술털기 :  푸rrrr")
                         .font(.custom("Pretendard", size: 13))
-                        .foregroundColor(.white)
                         .fontWeight(.semibold)
                 }
                 
@@ -57,24 +60,25 @@ struct StarTutorialView: View {
                         Image(systemName: isNeverShowingStarTutorialToggle ? "checkmark.square.fill" : "square")
                             .font(.system(size: 20))
                             .pretendardSemiBold20().bold()
-                            .foregroundColor(.white)
                         
                         Text("다시 보지 않기")
                             .pretendardRegular20()
-                            .foregroundColor(.white)
                     }
                 }
             }
+            .foregroundColor(.white)
             .padding(.top, 48)
             .padding(.bottom, 50)
             .padding(.horizontal, 26)
         }
+        .opacity(tutorialOpacity)
+        .statusBarHidden()
         .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct StarTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        StarTutorialView()
+        StarTutorialView(starStatus: .constant(.tutorial))
     }
 }

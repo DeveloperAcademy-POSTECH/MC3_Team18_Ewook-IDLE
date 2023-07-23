@@ -9,24 +9,42 @@ import SwiftUI
 
 struct StarPauseView: View {
     @State var pauseOpacity: Double = 0
+    @Binding var starStatus: StarStatus
+    @Binding var gameSelection: GameSelection
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
             VStack(spacing: 60) {
                 Button {
-                    // TODO: 게임 재생, 화면 이동(애니메이션)
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        pauseOpacity = 0
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        starStatus = .game
+                    }
+                    // TODO: 화면 업데이트 중지 및 재개 기능??
                 } label: {
                     starPauseButton(systemName: "play", text: "Continue")
                 }
                 Button {
                     // TODO: 게임 리셋, 화면 이동(애니메이션)
+                    starStatus = .tutorial
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        gameSelection = .none
+                    }
                 } label: {
                     starPauseButton(systemName: "house", text: "Home")
                 }
                 
                 Button {
-                    // TODO: 게임 리셋, 화면 이동(애니메이션)
+                    // TODO: 게임 리셋
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        pauseOpacity = 0
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        starStatus = .game
+                    }
                 } label: {
                     starPauseButton(systemName: "arrow.clockwise", text: "Retry")
                 }
@@ -45,7 +63,7 @@ struct StarPauseView: View {
 
 struct StarPauseView_Previews: PreviewProvider {
     static var previews: some View {
-        StarPauseView()
+        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
     }
 }
 
