@@ -15,6 +15,7 @@ struct ChagokGameOverView: View {
     @Binding var isBestScore: Bool
     @State var gameoverOpacity: Double = 0
     @Binding var secondsx4: Int
+    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
     
     var body: some View {
         ZStack {
@@ -96,6 +97,9 @@ struct ChagokGameOverView: View {
             chagokScene.isNotUpdate = true
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
+            }
+            if chagokScene.boxLineCount >= 5{
+                chagokMissionSuccess = true
             }
         }
     }

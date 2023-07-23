@@ -13,6 +13,7 @@ struct BubbleGumGameOverView: View {
     @Binding var score: String
     @Binding var bubbleHighScore: String
     @Binding var isBestScore: Bool
+    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
     
     var body: some View {
         ZStack {
@@ -75,6 +76,9 @@ struct BubbleGumGameOverView: View {
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
+            if Int(score)! / 1000 >= 5{
+                BalloonMissionSuccess = true
+            }
         }
     }
 }

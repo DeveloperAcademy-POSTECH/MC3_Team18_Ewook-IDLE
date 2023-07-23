@@ -32,6 +32,7 @@ class ChagokSKScene: SKScene, ObservableObject {
     var mouthState : MouthState = MouthState.none
     
     @Published var boxCount: Int = 0
+    @Published var boxLineCount : Int = 0
     @Published var leftCupStack: [CupName] = []
     @Published var rightCupStack: [CupName] = []
     
@@ -96,6 +97,7 @@ class ChagokSKScene: SKScene, ObservableObject {
             
             self.leftCupStack.shuffle()
             self.boxCount = 0
+            self.boxLineCount += 1
             // 애니메이션 이펙트 상의해보기
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.removeAllChildren()
