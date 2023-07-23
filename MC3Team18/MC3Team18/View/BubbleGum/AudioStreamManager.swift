@@ -73,7 +73,8 @@ class AudioStreamManager {
     ///Setup the custom sound classifier
     private func classifierSetup() {
         let defaultConfig = MLModelConfiguration()
-        let soundClassifier = try? MySoundClassifier0715(configuration: defaultConfig)
+        //let soundClassifier = try? MySoundClassifier0715(configuration: defaultConfig)
+        let soundClassifier = try? Voice_35_05_75(configuration: defaultConfig)
          
         guard let soundClassifier = soundClassifier else {
             fatalError("Could not instantiate sound classifier")
