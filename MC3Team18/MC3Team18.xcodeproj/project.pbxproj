@@ -31,6 +31,7 @@
 		608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059A32A62B352007A716D /* AudioStreamManager.swift */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
+		784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */; };
 		784E50A42A67F76C00733796 /* CelebLottieAnima.json in Resources */ = {isa = PBXBuildFile; fileRef = 784E50A32A67F76C00733796 /* CelebLottieAnima.json */; };
 		784E50A62A67F77A00733796 /* lottieAnima_chagok.json in Resources */ = {isa = PBXBuildFile; fileRef = 784E50A52A67F77A00733796 /* lottieAnima_chagok.json */; };
 		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
@@ -97,6 +98,7 @@
 		608059A32A62B352007A716D /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
+		784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreShareView.swift; sourceTree = "<group>"; };
 		784E50A32A67F76C00733796 /* CelebLottieAnima.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CelebLottieAnima.json; sourceTree = "<group>"; };
 		784E50A52A67F77A00733796 /* lottieAnima_chagok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_chagok.json; sourceTree = "<group>"; };
 		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 				608059A32A62B352007A716D /* AudioStreamManager.swift */,
 			);
 			path = BubbleGum;
+			sourceTree = "<group>";
+		};
+		784CADAB2A6D082700B2CE6C /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */,
+			);
+			path = Games;
 			sourceTree = "<group>";
 		};
 		78777F082A5E8E36008826DA /* Enum */ = {
@@ -293,6 +303,7 @@
 		78DD4FC72A5BB0240007251D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				784CADAB2A6D082700B2CE6C /* Games */,
 				78E7C9DF2A6BC2F500570F4C /* Home */,
 				788C20D82A6A5A3000953579 /* Menu */,
 				7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */,
@@ -477,6 +488,7 @@
 				788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */,
+				784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */,
 				78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */,
 				608059892A5E71DC007A716D /* BubbleGumTutorialView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
