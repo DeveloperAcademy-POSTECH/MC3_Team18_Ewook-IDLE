@@ -115,7 +115,7 @@ struct StarGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection)
+                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
                     .environmentObject(starSKScene)
             case .gameover:
                 StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection)

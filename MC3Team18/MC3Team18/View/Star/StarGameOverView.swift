@@ -70,6 +70,7 @@ struct StarGameOverView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             starStatus = .game
                         }
+                        starSKScene.removeAllChildren()
                     } label: {
                         starGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
