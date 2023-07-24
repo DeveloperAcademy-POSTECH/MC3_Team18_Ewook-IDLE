@@ -11,6 +11,7 @@ struct StarTutorialView: View {
     @State var isNeverShowingStarTutorialToggle: Bool = false
     @Binding var starStatus: StarStatus
     @State var tutorialOpacity: Double = 1
+    @EnvironmentObject var starSKScene: StarSKScene
 
     var body: some View {
         ZStack(){
@@ -77,8 +78,9 @@ struct StarTutorialView: View {
     }
 }
 
-struct StarTutorialView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarTutorialView(starStatus: .constant(.tutorial))
-    }
-}
+//struct StarTutorialView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StarTutorialView(starStatus: .constant(.tutorial))
+//            .
+//    }
+//}

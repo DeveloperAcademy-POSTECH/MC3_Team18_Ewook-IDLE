@@ -9,8 +9,6 @@ import SwiftUI
 
 struct StarGameOverView: View {
     @State var gameoverOpacity: Double = 0
-    
-    @Binding var starScore: Int
     @State var starHighScore: Int = 0
     @State var isBestScore: Bool = false
     
@@ -19,6 +17,9 @@ struct StarGameOverView: View {
     @Binding var gameSelection: GameSelection
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
+    
+    @EnvironmentObject var starSKScene: StarSKScene
+    @Binding var secondsx4: Int
     
     var body: some View {
         ZStack {
@@ -34,7 +35,7 @@ struct StarGameOverView: View {
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
-                    Text("\(starScore)")
+                    Text("\(starSKScene.score)")
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     HStack{
@@ -51,6 +52,12 @@ struct StarGameOverView: View {
                 HStack(){
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
+                            
+                            starSKScene.isPaused = false
+                            starSKScene.removeAllChildren()
+                            starStatus = .tutorial
+                            secondsx4 = 120
+                            starSKScene.score = 0
                             gameSelection = .none
                         }
                     } label: {
@@ -60,12 +67,15 @@ struct StarGameOverView: View {
                     Spacer()
                     
                     Button {
+                        starSKScene.isPaused = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            starSKScene.score = 0
                             starStatus = .game
                         }
+                        starSKScene.removeAllChildren()
                     } label: {
                         starGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
@@ -88,21 +98,21 @@ struct StarGameOverView: View {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            // chagokScene.isNotUpdate = true
             
             //TODO: StarMissionSuccess 데이터 연결
             //            if Int(score)! / 1000 >= 5{
             //                StarMissionSuccess = true
             //            }
+            starSKScene.isPaused = true
         }
     }
 }
 
-struct StarGameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
-    }
-}
+//struct StarGameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
+//    }
+//}
 
 extension StarGameOverView {
     func starGameOverViewButton(systemName: String, text: String) -> some View {

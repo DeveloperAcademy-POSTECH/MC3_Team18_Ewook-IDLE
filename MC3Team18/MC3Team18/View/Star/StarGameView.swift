@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import _SpriteKit_SwiftUI
 
 struct StarGameView: View {
     @State var starStatus: StarStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
-    @State var starScore: Int = 0
     @State var secondsx4 = 120
     
     @State var gameOpacity: Double = 0
-
+    
+    @StateObject var starSKScene: StarSKScene = StarSKScene()
+    
     var body: some View {
         ZStack {
             Color.clear.overlay {
@@ -24,19 +26,30 @@ struct StarGameView: View {
                     .scaledToFill()
             }
             .ignoresSafeArea()
+            VStack {
+                Spacer()
+                
+                Image("MainCharacter")
+                    .resizable()
+                    .frame(width: 180, height: 201)
+            }
             
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("\(starScore)")
+                    Text("\(starSKScene.score)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
+                        .onTapGesture {
+                            starSKScene.isGaming.toggle()
+                        }
                     //TODO: ScaleEffect
                     Spacer()
                     Button {
                         //TODO: starState = 일시정지
+                        starSKScene.isPaused = true
                         starStatus = .pause
                     } label: {
                         Image(systemName: "pause.fill")
@@ -50,7 +63,7 @@ struct StarGameView: View {
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
                 .frame(height: 29)
-                
+                .padding(.horizontal, 34)
                 HStack(spacing: 4) {
                     Image(systemName: "hourglass")
                         .resizable()
@@ -77,41 +90,67 @@ struct StarGameView: View {
                         }
                 }
                 .frame(height: 31)
-                .padding(.bottom, 17)
-                Spacer()
-                
-                Image("MainCharacter")
-                    .resizable()
-                    .frame(width: 180, height: 201)
-                    .onTapGesture {
-                        starStatus = .gameover
+                .padding(.horizontal, 34)
+                VStack {
+                    GeometryReader { geo in
+                        SpriteView(scene: starSKScene, options: [.allowsTransparency])
+                            .frame(width: geo.size.width, height: geo.size.height)
+                            .onAppear {
+                                starSKScene.size = CGSize(width: geo.size.width, height: geo.size.height)
+                            }
                     }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .padding(.top, 50)
             .padding(.bottom, 32)
-            .padding(.horizontal, 34)
-            
             
             switch starStatus {
             case .tutorial:
-               // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
-                    StarTutorialView(starStatus: $starStatus)
-                        .transition(.opacity)
+                // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
+                StarTutorialView(starStatus: $starStatus)
+                    .environmentObject(starSKScene)
+                    .transition(.opacity)
+                    
             case .game:
                 EmptyView()
             case .pause:
-                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection)
+                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                    .environmentObject(starSKScene)
             case .gameover:
-                StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection)
+                StarGameOverView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                    .environmentObject(starSKScene)
             }
         }
         .statusBarHidden()
         .ignoresSafeArea()
         .opacity(gameOpacity)
         .onAppear {
+            starSKScene.isGaming = false
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
             }
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
+                if self.secondsx4 > 0 {
+                    if !starSKScene.isPaused {
+                        withAnimation {
+                            self.secondsx4 -= 1
+                        }
+                    }
+                } else {
+                    withAnimation(.easeOut(duration: 1)) {
+                        starStatus = .gameover
+                        self.secondsx4 = 120
+//                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
+//                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
+//                            self.isBestScore = true
+//                        }
+                    }
+                }
+            }
+            RunLoop.current.add(timer, forMode: .common)
+            
+            
         }
     }
 }

@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct StarPauseView: View {
+    
     @State var pauseOpacity: Double = 0
     @Binding var starStatus: StarStatus
     @Binding var gameSelection: GameSelection
+    @Binding var secondsx4: Int
+    @EnvironmentObject var starSKScene: StarSKScene
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
             VStack(spacing: 60) {
                 Button {
+                    starSKScene.isPaused = false
                     withAnimation(.easeOut(duration: 0.3)) {
                         pauseOpacity = 0
                     }
@@ -29,9 +33,13 @@ struct StarPauseView: View {
                 }
                 Button {
                     // TODO: 게임 리셋, 화면 이동(애니메이션)
-                    starStatus = .tutorial
                     withAnimation(.easeOut(duration: 0.3)) {
+                        starSKScene.isPaused = false
+                        starSKScene.removeAllChildren()
+                        starStatus = .tutorial
+                        secondsx4 = 120
                         gameSelection = .none
+                        starSKScene.score = 0
                     }
                 } label: {
                     starPauseButton(systemName: "house", text: "Home")
@@ -39,10 +47,16 @@ struct StarPauseView: View {
                 
                 Button {
                     // TODO: 게임 리셋
+                    
                     withAnimation(.easeOut(duration: 0.3)) {
+                        starSKScene.isPaused = false
+                        starSKScene.removeAllChildren()
+                        secondsx4 = 120
                         pauseOpacity = 0
+                        
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        starSKScene.score = 0
                         starStatus = .game
                     }
                 } label: {
@@ -61,11 +75,11 @@ struct StarPauseView: View {
     }
 }
 
-struct StarPauseView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
-    }
-}
+//struct StarPauseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
+//    }
+//}
 
 
 
