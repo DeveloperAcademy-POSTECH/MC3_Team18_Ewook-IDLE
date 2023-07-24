@@ -69,7 +69,9 @@ extension ChagokARViewContainer {
             }
             
             if faceAnchor.isTracked {
-                isFaceTracked = faceAnchor.isTracked
+                isFaceTracked = true
+            } else {
+                isFaceTracked = false
             }
 
             jawOpen = faceAnchor.blendShapes[.jawOpen]!.doubleValue
