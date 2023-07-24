@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct StarPauseView: View {
+    
     @State var pauseOpacity: Double = 0
     @Binding var starStatus: StarStatus
     @Binding var gameSelection: GameSelection
+    @EnvironmentObject var starSKScene: StarSKScene
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
             VStack(spacing: 60) {
                 Button {
+                    starSKScene.isPaused = false
                     withAnimation(.easeOut(duration: 0.3)) {
                         pauseOpacity = 0
                     }
@@ -29,6 +32,7 @@ struct StarPauseView: View {
                 }
                 Button {
                     // TODO: 게임 리셋, 화면 이동(애니메이션)
+                    starSKScene.isPaused = false
                     starStatus = .tutorial
                     withAnimation(.easeOut(duration: 0.3)) {
                         gameSelection = .none
@@ -39,6 +43,7 @@ struct StarPauseView: View {
                 
                 Button {
                     // TODO: 게임 리셋
+                    starSKScene.isPaused = false
                     withAnimation(.easeOut(duration: 0.3)) {
                         pauseOpacity = 0
                     }
@@ -61,11 +66,11 @@ struct StarPauseView: View {
     }
 }
 
-struct StarPauseView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
-    }
-}
+//struct StarPauseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
+//    }
+//}
 
 
 

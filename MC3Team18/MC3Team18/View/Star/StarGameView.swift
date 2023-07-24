@@ -20,7 +20,7 @@ struct StarGameView: View {
     @State var isWating: Bool = false
     
     @StateObject var starSKScene: StarSKScene = StarSKScene()
-
+    
     var body: some View {
         ZStack {
             Color.clear.overlay {
@@ -52,6 +52,7 @@ struct StarGameView: View {
                     Spacer()
                     Button {
                         //TODO: starState = 일시정지
+                        starSKScene.isPaused = true
                         starStatus = .pause
                     } label: {
                         Image(systemName: "pause.fill")
@@ -99,8 +100,6 @@ struct StarGameView: View {
                             .frame(width: geo.size.width, height: geo.size.height)
                             .onAppear {
                                 starSKScene.size = CGSize(width: geo.size.width, height: geo.size.height)
-                                starSKScene.maxWidth = geo.size.width
-                                starSKScene.maxHeight = geo.size.height
                             }
                     }
                 }
@@ -109,20 +108,21 @@ struct StarGameView: View {
             .padding(.top, 50)
             .padding(.bottom, 32)
             
-
-            
-            
             switch starStatus {
             case .tutorial:
-               // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
-                    StarTutorialView(starStatus: $starStatus)
-                        .transition(.opacity)
+                // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
+                StarTutorialView(starStatus: $starStatus)
+                    .environmentObject(starSKScene)
+                    .transition(.opacity)
+                    
             case .game:
                 EmptyView()
             case .pause:
                 StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection)
+                    .environmentObject(starSKScene)
             case .gameover:
                 StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection)
+                    .environmentObject(starSKScene)
             }
         }
         .statusBarHidden()

@@ -20,6 +20,8 @@ struct StarGameOverView: View {
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
+    @EnvironmentObject var starSKScene: StarSKScene
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
