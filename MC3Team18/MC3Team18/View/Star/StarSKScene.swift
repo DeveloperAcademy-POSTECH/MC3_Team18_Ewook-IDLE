@@ -8,23 +8,10 @@
 import SwiftUI
 import SpriteKit
 
-struct StarSKScene_SwiftUIPreview: View {
-    
-    @StateObject var starSKScene = StarSKScene(size: CGSize(width: 150, height: 300))
-    
-    var body: some View {
-        VStack {
-            SpriteView(scene: starSKScene, options: [.allowsTransparency])
-                .frame(width: 300, height: 700)
-            Button(action: {starSKScene.isGaming.toggle()}, label: {Text("Press")})
-            Button(action: {starSKScene.gravityEffect += 1}, label: {Text("Press")})
-        }
-    }
-}
-
 class StarSKScene: SKScene, ObservableObject {
     
     @Published var isGaming : Bool = true
+    @Published var isTrill: Bool = false
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
@@ -76,10 +63,4 @@ class StarSKScene: SKScene, ObservableObject {
         
     }
     
-}
-
-struct StarSKScenePreviews: PreviewProvider{
-    static var previews: some View {
-        StarSKScene_SwiftUIPreview()
-    }
 }

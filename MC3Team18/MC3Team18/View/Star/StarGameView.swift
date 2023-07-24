@@ -45,6 +45,9 @@ struct StarGameView: View {
                     Text("\(starScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
+                        .onTapGesture {
+                            starSKScene.isGaming.toggle()
+                        }
                     //TODO: ScaleEffect
                     Spacer()
                     Button {
@@ -126,6 +129,7 @@ struct StarGameView: View {
         .ignoresSafeArea()
         .opacity(gameOpacity)
         .onAppear {
+            starSKScene.isGaming = false
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
             }
@@ -148,6 +152,8 @@ struct StarGameView: View {
                 }
             }
             RunLoop.current.add(timer, forMode: .common)
+            
+            
         }
     }
 }
