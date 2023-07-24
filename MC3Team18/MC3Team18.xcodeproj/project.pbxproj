@@ -71,7 +71,6 @@
 		78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */; };
 		78C7EF902A678A1200460E90 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 78C7EF8F2A678A1200460E90 /* Lottie */; };
 		78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7EF912A678A6B00460E90 /* LottieView.swift */; };
-		78D013962A6E94FC003CE4BA /* StarGameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D013952A6E94FC003CE4BA /* StarGameData.swift */; };
 		78D517C32A6BAC37005B4A6C /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
 		78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBB2A5BAFC20007251D /* Assets.xcassets */; };
@@ -146,7 +145,6 @@
 		78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoBillsJaffnaText.swift; sourceTree = "<group>"; };
 		78C7EF912A678A6B00460E90 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		78D013952A6E94FC003CE4BA /* StarGameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameData.swift; sourceTree = "<group>"; };
 		78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		78DD4FB42A5BAFC10007251D /* MC3Team18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Team18.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC3Team18App.swift; sourceTree = "<group>"; };
@@ -391,7 +389,6 @@
 				600264352A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel */,
 				600264332A6D9C100035A0E1 /* Voice_35_065_75.mlmodel */,
 				78BE77C72A5D4E850028A446 /* Sample.swift */,
-				78D013952A6E94FC003CE4BA /* StarGameData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -513,7 +510,6 @@
 				600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
 				6002642A2A6D1C2B0035A0E1 /* StarStatus.swift in Sources */,
-				78D013962A6E94FC003CE4BA /* StarGameData.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77C82A5D4E850028A446 /* Sample.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,

@@ -10,10 +10,10 @@ import SwiftUI
 struct StarPauseView: View {
     
     @State var pauseOpacity: Double = 0
-    @EnvironmentObject var starSKScene: StarSKScene
-    @EnvironmentObject var starGameData: StarGameData
-    
+    @Binding var starStatus: StarStatus
     @Binding var gameSelection: GameSelection
+    @Binding var secondsx4: Int
+    @EnvironmentObject var starSKScene: StarSKScene
     
     var body: some View {
         ZStack {
@@ -25,7 +25,7 @@ struct StarPauseView: View {
                         pauseOpacity = 0
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        starGameData.gameStatus = .game
+                        starStatus = .game
                     }
                     // TODO: 화면 업데이트 중지 및 재개 기능??
                 } label: {
@@ -36,7 +36,8 @@ struct StarPauseView: View {
                     withAnimation(.easeOut(duration: 0.3)) {
                         starSKScene.isPaused = false
                         starSKScene.removeAllChildren()
-                        starGameData.resetGame()
+                        starStatus = .tutorial
+                        secondsx4 = 120
                         gameSelection = .none
                     }
                 } label: {
@@ -49,10 +50,11 @@ struct StarPauseView: View {
                     withAnimation(.easeOut(duration: 0.3)) {
                         starSKScene.isPaused = false
                         starSKScene.removeAllChildren()
+                        secondsx4 = 120
                         pauseOpacity = 0
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        starGameData.resetGame()
+                        starStatus = .game
                     }
                 } label: {
                     starPauseButton(systemName: "arrow.clockwise", text: "Retry")
