@@ -21,6 +21,7 @@ struct StarGameOverView: View {
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
     @EnvironmentObject var starSKScene: StarSKScene
+    @Binding var secondsx4: Int
     
     var body: some View {
         ZStack {
@@ -107,11 +108,11 @@ struct StarGameOverView: View {
     }
 }
 
-struct StarGameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
-    }
-}
+//struct StarGameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
+//    }
+//}
 
 extension StarGameOverView {
     func starGameOverViewButton(systemName: String, text: String) -> some View {
