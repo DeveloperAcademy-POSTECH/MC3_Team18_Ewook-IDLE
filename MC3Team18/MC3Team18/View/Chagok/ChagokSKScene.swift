@@ -120,11 +120,6 @@ class ChagokSKScene: SKScene, ObservableObject {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        removeAllChildren()
-//        isMouthA = false
-    }
-    
     func dropbox(cupname : CupName) {
         
         if isNotUpdate {
