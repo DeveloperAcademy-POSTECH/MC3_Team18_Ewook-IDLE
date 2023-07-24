@@ -9,8 +9,6 @@ import SwiftUI
 
 struct StarGameOverView: View {
     @State var gameoverOpacity: Double = 0
-    
-    @Binding var starScore: Int
     @State var starHighScore: Int = 0
     @State var isBestScore: Bool = false
     
@@ -37,7 +35,7 @@ struct StarGameOverView: View {
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
-                    Text("\(starScore)")
+                    Text("\(starSKScene.score)")
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     HStack{
@@ -59,6 +57,7 @@ struct StarGameOverView: View {
                             starSKScene.removeAllChildren()
                             starStatus = .tutorial
                             secondsx4 = 120
+                            starSKScene.score = 0
                             gameSelection = .none
                         }
                     } label: {
@@ -73,6 +72,7 @@ struct StarGameOverView: View {
                             gameoverOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            starSKScene.score = 0
                             starStatus = .game
                         }
                         starSKScene.removeAllChildren()

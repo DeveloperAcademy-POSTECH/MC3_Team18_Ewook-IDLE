@@ -12,12 +12,9 @@ struct StarGameView: View {
     @State var starStatus: StarStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
-    @State var starScore: Int = 0
     @State var secondsx4 = 120
     
     @State var gameOpacity: Double = 0
-    
-    @State var isWating: Bool = false
     
     @StateObject var starSKScene: StarSKScene = StarSKScene()
     
@@ -42,7 +39,7 @@ struct StarGameView: View {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("\(starScore)")
+                    Text("\(starSKScene.score)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                         .onTapGesture {
@@ -121,7 +118,7 @@ struct StarGameView: View {
                 StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
                     .environmentObject(starSKScene)
             case .gameover:
-                StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                StarGameOverView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
                     .environmentObject(starSKScene)
             }
         }

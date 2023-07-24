@@ -12,6 +12,7 @@ class StarSKScene: SKScene, ObservableObject {
     
     @Published var isGaming : Bool = true
     @Published var isTrill: Bool = false
+    @Published var score: Int = 0
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
@@ -51,14 +52,12 @@ class StarSKScene: SKScene, ObservableObject {
             y: 80)
         var moveAction = SKAction.move(to: CGPoint(
             x: Double.random(in: 20...size.width - 20),
-            y: Double.random(in: size.height * 0.6 ... size.height)),
-                                       duration: 3)
-        sprite.run(moveAction)
-        
+            y: Double.random(in: size.height * 0.6 ... size.height)),                          duration: 3)
         var sizeAction = SKAction.scale(by: 1.5, duration: 1)
-        
         self.addChild(sprite)
-        sprite.run(moveAction)
+        sprite.run(moveAction) {
+            self.score += 100
+        }
         sprite.run(sizeAction)
         
     }

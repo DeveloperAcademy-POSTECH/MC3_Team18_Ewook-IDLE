@@ -39,6 +39,7 @@ struct StarPauseView: View {
                         starStatus = .tutorial
                         secondsx4 = 120
                         gameSelection = .none
+                        starSKScene.score = 0
                     }
                 } label: {
                     starPauseButton(systemName: "house", text: "Home")
@@ -52,8 +53,10 @@ struct StarPauseView: View {
                         starSKScene.removeAllChildren()
                         secondsx4 = 120
                         pauseOpacity = 0
+                        
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        starSKScene.score = 0
                         starStatus = .game
                     }
                 } label: {
