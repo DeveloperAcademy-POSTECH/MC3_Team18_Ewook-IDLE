@@ -52,8 +52,12 @@ struct StarGameOverView: View {
                 
                 HStack(){
                     Button {
-                        starSKScene.isPaused = false
                         withAnimation(.easeOut(duration: 0.3)) {
+                            
+                            starSKScene.isPaused = false
+                            starSKScene.removeAllChildren()
+                            starStatus = .tutorial
+                            secondsx4 = 120
                             gameSelection = .none
                         }
                     } label: {
@@ -93,7 +97,6 @@ struct StarGameOverView: View {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            // chagokScene.isNotUpdate = true
             
             //TODO: StarMissionSuccess 데이터 연결
             //            if Int(score)! / 1000 >= 5{

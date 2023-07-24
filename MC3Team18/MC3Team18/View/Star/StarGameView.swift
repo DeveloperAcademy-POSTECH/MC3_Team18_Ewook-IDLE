@@ -129,9 +129,6 @@ struct StarGameView: View {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
             }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                starStatus = .gameover
-//            }
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
                     if !starSKScene.isPaused {
