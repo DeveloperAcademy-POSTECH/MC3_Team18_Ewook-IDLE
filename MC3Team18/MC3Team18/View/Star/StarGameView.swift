@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import _SpriteKit_SwiftUI
 
 struct StarGameView: View {
     @State var starStatus: StarStatus = .tutorial
@@ -15,6 +16,10 @@ struct StarGameView: View {
     @State var secondsx4 = 120
     
     @State var gameOpacity: Double = 0
+    
+    @State var isWating: Bool = false
+    
+    @StateObject var starSKScene: StarSKScene = StarSKScene()
 
     var body: some View {
         ZStack {
@@ -24,6 +29,16 @@ struct StarGameView: View {
                     .scaledToFill()
             }
             .ignoresSafeArea()
+            VStack {
+                Spacer()
+                
+                Image("MainCharacter")
+                    .resizable()
+                    .frame(width: 180, height: 201)
+                    .onTapGesture {
+                        starStatus = .gameover
+                    }
+            }
             
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
@@ -50,7 +65,7 @@ struct StarGameView: View {
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
                 .frame(height: 29)
-                
+                .padding(.horizontal, 34)
                 HStack(spacing: 4) {
                     Image(systemName: "hourglass")
                         .resizable()
@@ -77,19 +92,24 @@ struct StarGameView: View {
                         }
                 }
                 .frame(height: 31)
-                .padding(.bottom, 17)
-                Spacer()
-                
-                Image("MainCharacter")
-                    .resizable()
-                    .frame(width: 180, height: 201)
-                    .onTapGesture {
-                        starStatus = .gameover
+                .padding(.horizontal, 34)
+                VStack {
+                    GeometryReader { geo in
+                        SpriteView(scene: starSKScene, options: [.allowsTransparency])
+                            .frame(width: geo.size.width, height: geo.size.height)
+                            .onAppear {
+                                starSKScene.size = CGSize(width: geo.size.width, height: geo.size.height)
+                                starSKScene.maxWidth = geo.size.width
+                                starSKScene.maxHeight = geo.size.height
+                            }
                     }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .padding(.top, 50)
             .padding(.bottom, 32)
-            .padding(.horizontal, 34)
+            
+
             
             
             switch starStatus {

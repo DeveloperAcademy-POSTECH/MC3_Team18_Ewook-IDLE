@@ -24,35 +24,47 @@ struct StarSKScene_SwiftUIPreview: View {
 
 class StarSKScene: SKScene, ObservableObject {
     
-    @Published var isButtonPressed : Bool = false
+    @Published var isButtonPressed : Bool = true
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
     var framerateTime : Int = 0
     var gravityEffect = -1
     
+    var maxWidth: CGFloat = 0
+    var maxHeight: CGFloat = 0
+    
     override func update(_ currentTime: TimeInterval) {
         if isButtonPressed{
             framerateTime += 1
-            if framerateTime == 30{
+            if framerateTime == 60 {
                 framerateTime = 0
                 AddParticle()
             }
         }
     }
     override func didMove(to view: SKView) {
-        
+        self.backgroundColor = .clear
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        if let skView = view as? SKView {
+            skView.allowsTransparency = true
+            skView.isOpaque = false
+        }
     }
     
     func AddParticle() {
         sprite = SKSpriteNode(imageNamed: "PinkCup")
-        sprite.size = CGSize(width: 30, height: 30)
+        sprite.size = CGSize(width: 15, height: 15)
         
         sprite.position = CGPoint(
-            x:CGFloat(Int(size.width/2)+Int.random(in:-3...3)),
-            y: size.height - 250)
+            x: CGFloat(Int(size.width/2)+Int.random(in:-3...3)),
+            y: 80)
                 
-        var moveAction = SKAction.move(to: CGPoint(x: Double.random(in: 0...150), y: Double.random(in: 150...300)), duration: 1)
+        var moveAction = SKAction.move(to: CGPoint(
+            x: Double.random(in: 20...size.width - 20),
+            y: Double.random(in: size.height * 0.6 ... size.height)),
+                                       duration: 3)
+        sprite.run(moveAction)
         
         var sizeAction = SKAction.scale(by: 1.5, duration: 1)
         
@@ -132,11 +144,11 @@ class TestScene: SKScene, ObservableObject {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var moveAction = SKAction.move(to: CGPoint(x: 20, y: 30), duration: 3)
+        var moveAction = SKAction.move(to: CGPoint(
+            x: Double.random(in: 20...size.width - 20),
+            y: Double.random(in: 0 ... size.height)),
+                                       duration: 3)
         cupNode.run(moveAction)
-        moveAction = SKAction.move(to: CGPoint(x: 100, y: 100), duration: 5)
-//        SKAction.sc
-        cupNode2.run(moveAction)
     }
     
     override func update(_ currentTime: TimeInterval) {
