@@ -10,18 +10,17 @@ import SwiftUI
 struct StarGameOverView: View {
     @State var gameoverOpacity: Double = 0
     
-    @Binding var starScore: Int
+    
     @State var starHighScore: Int = 0
     @State var isBestScore: Bool = false
-    
-    @Binding var starStatus: StarStatus
-    
     @Binding var gameSelection: GameSelection
+    
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
     @EnvironmentObject var starSKScene: StarSKScene
-    @Binding var secondsx4: Int
+    @EnvironmentObject var starGameData: StarGameData
+    
     
     var body: some View {
         ZStack {
@@ -37,7 +36,7 @@ struct StarGameOverView: View {
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
-                    Text("\(starScore)")
+                    Text("\(starGameData.score)")
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     HStack{
@@ -57,8 +56,7 @@ struct StarGameOverView: View {
                             
                             starSKScene.isPaused = false
                             starSKScene.removeAllChildren()
-                            starStatus = .tutorial
-                            secondsx4 = 120
+                            starGameData.resetGame()
                             gameSelection = .none
                         }
                     } label: {
@@ -73,7 +71,7 @@ struct StarGameOverView: View {
                             gameoverOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            starStatus = .game
+                            starGameData.resetGame()
                         }
                         starSKScene.removeAllChildren()
                     } label: {

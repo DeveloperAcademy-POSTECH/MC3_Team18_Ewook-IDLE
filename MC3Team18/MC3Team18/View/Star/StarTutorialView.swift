@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct StarTutorialView: View {
+    
     @State var isNeverShowingStarTutorialToggle: Bool = false
-    @Binding var starStatus: StarStatus
     @State var tutorialOpacity: Double = 1
+    
     @EnvironmentObject var starSKScene: StarSKScene
+    @EnvironmentObject var starGameData: StarGameData
 
     var body: some View {
         ZStack(){
@@ -26,7 +28,8 @@ struct StarTutorialView: View {
                             tutorialOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            starStatus = .game
+//                            starStatus = .game
+                            starGameData.gameStatus = .game
                         }
                     } label: {
                         Image(systemName:  "xmark")

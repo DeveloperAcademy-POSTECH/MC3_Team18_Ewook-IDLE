@@ -12,6 +12,7 @@ class StarSKScene: SKScene, ObservableObject {
     
     @Published var isGaming : Bool = true
     @Published var isTrill: Bool = false
+    @Published var starScore: Int = 0
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!

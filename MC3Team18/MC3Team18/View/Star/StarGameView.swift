@@ -9,17 +9,18 @@ import SwiftUI
 import _SpriteKit_SwiftUI
 
 struct StarGameView: View {
-    @State var starStatus: StarStatus = .tutorial
-    @Binding var gameSelection: GameSelection
     
-    @State var starScore: Int = 0
-    @State var secondsx4 = 120
+//    @State var starStatus: StarStatus = .tutorial
+//    @State var starScore: Int = 0
+//    @State var secondsx4 = 120
+    
+    @StateObject var starGameData: StarGameData = .init()
     
     @State var gameOpacity: Double = 0
     
-    @State var isWating: Bool = false
-    
     @StateObject var starSKScene: StarSKScene = StarSKScene()
+    
+    @Binding var gameSelection: GameSelection
     
     var body: some View {
         ZStack {
@@ -42,7 +43,7 @@ struct StarGameView: View {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("\(starScore)")
+                    Text("\(starGameData.score)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                         .onTapGesture {
@@ -53,7 +54,7 @@ struct StarGameView: View {
                     Button {
                         //TODO: starState = 일시정지
                         starSKScene.isPaused = true
-                        starStatus = .pause
+                        starGameData.gameStatus = .pause
                     } label: {
                         Image(systemName: "pause.fill")
                             .resizable()
@@ -83,7 +84,7 @@ struct StarGameView: View {
                                 HStack {
                                     Capsule()
                                         .frame(height: 10)
-                                        .frame(width: (geo.size.width - 10) * (CGFloat(secondsx4) / 120))
+                                        .frame(width: (geo.size.width - 10) * (CGFloat(starGameData.secondx4) / 120))
                                         .offset(y: -1)
                                         .foregroundColor(.white.opacity(0.9))
                                         .padding(4)
@@ -108,21 +109,24 @@ struct StarGameView: View {
             .padding(.top, 50)
             .padding(.bottom, 32)
             
-            switch starStatus {
+            switch starGameData.gameStatus {
             case .tutorial:
                 // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
-                StarTutorialView(starStatus: $starStatus)
+                StarTutorialView()
                     .environmentObject(starSKScene)
+                    .environmentObject(starGameData)
                     .transition(.opacity)
                     
             case .game:
                 EmptyView()
             case .pause:
-                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                StarPauseView(gameSelection: $gameSelection)
                     .environmentObject(starSKScene)
+                    .environmentObject(starGameData)
             case .gameover:
-                StarGameOverView(starScore: $starScore, starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                StarGameOverView(gameSelection: $gameSelection)
                     .environmentObject(starSKScene)
+                    .environmentObject(starGameData)
             }
         }
         .statusBarHidden()
@@ -134,16 +138,16 @@ struct StarGameView: View {
                 gameOpacity = 1
             }
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
-                if self.secondsx4 > 0 {
+                if starGameData.secondx4 > 0 {
                     if !starSKScene.isPaused {
                         withAnimation {
-                            self.secondsx4 -= 1
+                            starGameData.secondx4 -= 1
                         }
                     }
                 } else {
                     withAnimation(.easeOut(duration: 1)) {
-                        starStatus = .gameover
-                        self.secondsx4 = 120
+                        starGameData.gameStatus = .gameover
+                        starGameData.secondx4 = 120
 //                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
 //                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
 //                            self.isBestScore = true
