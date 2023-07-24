@@ -129,9 +129,28 @@ struct StarGameView: View {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                starStatus = .gameover
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                starStatus = .gameover
+//            }
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
+                if self.secondsx4 > 0 {
+                    if !starSKScene.isPaused {
+                        withAnimation {
+                            self.secondsx4 -= 1
+                        }
+                    }
+                } else {
+                    withAnimation(.easeOut(duration: 1)) {
+                        starStatus = .gameover
+                        self.secondsx4 = 120
+//                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
+//                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
+//                            self.isBestScore = true
+//                        }
+                    }
+                }
             }
+            RunLoop.current.add(timer, forMode: .common)
         }
     }
 }
