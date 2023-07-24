@@ -52,6 +52,7 @@ struct StarGameOverView: View {
                 
                 HStack(){
                     Button {
+                        starSKScene.isPaused = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameSelection = .none
                         }
@@ -62,6 +63,7 @@ struct StarGameOverView: View {
                     Spacer()
                     
                     Button {
+                        starSKScene.isPaused = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
@@ -96,6 +98,7 @@ struct StarGameOverView: View {
             //            if Int(score)! / 1000 >= 5{
             //                StarMissionSuccess = true
             //            }
+            starSKScene.isPaused = true
         }
     }
 }

@@ -35,9 +35,6 @@ struct StarGameView: View {
                 Image("MainCharacter")
                     .resizable()
                     .frame(width: 180, height: 201)
-                    .onTapGesture {
-                        starStatus = .gameover
-                    }
             }
             
             VStack(spacing: 0) {
@@ -131,6 +128,9 @@ struct StarGameView: View {
         .onAppear {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                starStatus = .gameover
             }
         }
     }
