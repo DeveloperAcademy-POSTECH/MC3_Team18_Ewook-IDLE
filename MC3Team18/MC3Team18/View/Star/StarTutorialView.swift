@@ -37,11 +37,11 @@ struct StarTutorialView: View {
                 Spacer().frame(height: 79)
                 
                 VStack(spacing: 35){
-                    Text("은하수 만들기")
+                    Text("반짝반짝")
                         .pretendardSemiBold32()
                         .foregroundColor(.Yellow)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
-                    Text("혀를 구르거나 입술을 털어\n소리를 내면 별이 쏟아져 나와요.\n은하수를 만들어보세요!")
+                    Text("혀를 구르거나 입술을 털면 별이 나와요.\n별이 가득한 밤하늘을 만들어 보세요!")
                         .pretendardSemiBold20()
                         .multilineTextAlignment(.center)
                         .lineSpacing(3)

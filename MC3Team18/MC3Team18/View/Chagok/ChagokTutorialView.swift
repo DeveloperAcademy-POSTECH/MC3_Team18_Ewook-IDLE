@@ -41,7 +41,7 @@ struct ChagokTutorialView: View {
                     
                     .padding(.top, 94)
                     .padding(.bottom, 45)
-                Text("컵에 있는 입모양대로\n내 입을 움직여서\n아래에서 부터 차곡차곡 쌓아보세요!")
+                Text("기기를 정면으로 들고\n아래부터 컵의 표정을 따라해보세요!")
                     .pretendardSemiBold20()
                     .lineSpacing(7)
                     .multilineTextAlignment(.center)
