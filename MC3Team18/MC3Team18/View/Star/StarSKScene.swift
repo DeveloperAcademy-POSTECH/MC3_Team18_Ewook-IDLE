@@ -53,7 +53,7 @@ class StarSKScene: SKScene, ObservableObject {
         var sizeAction = SKAction.scale(by: Double.random(in: 1...2), duration: 1)
         self.addChild(sprite)
         sprite.run(moveAction) {
-            self.score += 100
+            self.score += 300
         }
         sprite.run(sizeAction)
         

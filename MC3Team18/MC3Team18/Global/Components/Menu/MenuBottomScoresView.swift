@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MenuBottomScoresView: View {
     //TODO: Star 게임 만들어지면 바꿀 것
-    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", "12500", String(UserDefaults.standard.integer(forKey: "chagokScore"))]
+    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", String(UserDefaults.standard.integer(forKey: "chagokScore")), String(UserDefaults.standard.integer(forKey: "starScore"))]
     var bestRecordArray : [String] = [
         String(format: "%.1f", Double(UserDefaults.standard.string(forKey: "BubbleScore") ?? "0")! / 1000.0), 
-        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), "15"
+        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), String(UserDefaults.standard.integer(forKey: "starScore")/300)
     ]
     var bestUnitArray : [String] = ["초", "줄", "개"]
     var bestNameArray : [String] = ["버블버블", "차곡차곡", "반짝반짝"]
@@ -40,8 +40,7 @@ struct MenuBottomScoresView: View {
                                         .pretendardBold14()
                                         .padding(.bottom, 10)
                                         .frame(maxWidth: .infinity, alignment: .leading)
-                                    
-                                    Text("\(bestScoreArray[index])")
+                                    Text("\(bestScoreArray[index])점")
                                         .pretendardExtraLight12()
                                       //  .padding(.bottom, 2)
                                         .frame(maxWidth: .infinity, alignment: .leading)
