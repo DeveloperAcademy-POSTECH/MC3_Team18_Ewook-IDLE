@@ -30,6 +30,7 @@ struct SplashView: View {
                                     .foregroundColor(.white)
                                     .font(.custom("Pretendard-SemiBold", size: 12))
                                     .frame(height: 14)
+                                    .kerning(4)
                             }
                         )
                 }

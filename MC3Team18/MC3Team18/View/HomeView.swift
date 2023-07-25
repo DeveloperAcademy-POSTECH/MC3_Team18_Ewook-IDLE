@@ -18,6 +18,12 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
+            
+            Color.clear.overlay {
+                Image("BackgroundHomeVIew")
+                    .resizable()
+                    .scaledToFill()
+            }
             Image("BackgroundHomeVIew")
                 .resizable()
                 .scaledToFill()
@@ -31,9 +37,9 @@ struct HomeView: View {
                             .scaledToFill()
                     }.ignoresSafeArea()
                     VStack(spacing: 20) {
-                        Spacer()
+                        Spacer().frame(height: 40)
                         TrophyView(gameSelected: $gameSelected)
-                        Spacer()
+                        Spacer().frame(height: 10)
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {

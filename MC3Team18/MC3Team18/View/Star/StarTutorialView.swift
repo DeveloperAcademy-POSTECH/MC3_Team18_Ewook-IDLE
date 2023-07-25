@@ -35,7 +35,7 @@ struct StarTutorialView: View {
                     }.padding(.all, 4.5)
                 }
                 
-                Spacer().frame(height: 79)
+                Spacer().frame(height: 50)
                 
                 VStack(spacing: 35){
                     Text("반짝반짝")

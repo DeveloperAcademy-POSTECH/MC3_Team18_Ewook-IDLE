@@ -99,9 +99,9 @@ struct MenuView: View {
                 .frame(maxWidth: .infinity)
             Spacer().frame(maxHeight: 37)
             Divider()
-            Spacer().frame(maxHeight: 19)
+            Spacer().frame(height: 31)
             MenuBottomScoresView()
-            Spacer().frame(height: 40)
+            Spacer().frame(height: 60)
         }
         .ignoresSafeArea()
         .statusBarHidden()
