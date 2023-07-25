@@ -20,6 +20,8 @@ struct StarGameView: View {
     @ObservedObject var observer: StarAudioStreamObserver  = StarAudioStreamObserver()
     @ObservedObject var streamManager: StarAudioStreamManager = StarAudioStreamManager()
     
+    @State var banzzakCharacterImage = Image("BanzzakDefault")
+    
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         streamManager.resultObservation(with: observer)
@@ -36,7 +38,7 @@ struct StarGameView: View {
             }
             VStack {
                 Spacer()
-                Image("MainCharacter")
+                banzzakCharacterImage
                     .resizable()
                     .frame(width: 180, height: 201)
             }
@@ -159,8 +161,10 @@ struct StarGameView: View {
         .onChange(of: observer.topResults) { _ in
             if observer.currentSound == "Trill" {
                 starSKScene.isTrill = true
+                banzzakCharacterImage = Image("BanzzakTrill")
             } else {
                 starSKScene.isTrill = false
+                banzzakCharacterImage = Image("BanzzakDefault")
             }
         }
     }
