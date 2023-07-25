@@ -9,14 +9,13 @@ import SwiftUI
 
 struct MenuMyRecordsView: View {
     
-    @State var backToBackDays: Int = 0
-    @State var thisMonthDays: Int = 0
-    @State var totalDays: Int = 0
+    @State var backToBackDays: Int = 1
+    @State var thisMonthDays: Int = 1
+    @State var totalDays: Int = 1
     
     
     var body: some View {
         HStack(spacing: 0) {
-            Spacer().frame(width: 16)
             VStack(spacing: 6) {
                 Text("연속 연습일")
                     .pretendardMedium12()
@@ -25,6 +24,7 @@ struct MenuMyRecordsView: View {
                 Text("\(backToBackDays)")
                     .pretendardMedium28()
                     .foregroundColor(.CobaltBlue)
+                
             }
             Spacer()
             VStack(spacing: 6) {
@@ -46,15 +46,16 @@ struct MenuMyRecordsView: View {
                     .pretendardMedium28()
                     .foregroundColor(.CobaltBlue)
             }
-            Spacer()
             Image("MainCharacter")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 72)
                 .padding(.leading, 21)
-            Spacer()
+       
         }
         .ignoresSafeArea()
+        .padding(.leading, 34)
+        .padding(.trailing, 27)
     }
 }
 

@@ -63,24 +63,25 @@ struct MenuView: View {
                                 }
                             
                         }
-                        .padding(.leading, 16)
+                        .padding(.leading, 34)
                         .padding(.trailing, 37)
                         .frame(height: 24)
                         Spacer().frame(maxHeight: 36)
-                        VStack {
+                        VStack(spacing:10) {
                             Text(firstLineText)
                             Text(secondLineText)
                         }
-                        .pretendardRegular24()
-                        .lineSpacing(10)
+                        .pretendardSemiBold24()
+                        .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
+                        
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         
                         Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
+                            MenuHexgagonView(isCompleted: BalloonMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
                             MenuHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
-                            MenuHexgagonView(isCompleted: BalloonMissionSuccess, gameName: "풍선껌불기", recordedNumber: 5, unit: "초")
-                            MenuHexgagonView(isCompleted: StarMissionSuccess, gameName: "별 따먹기", recordedNumber: 10, unit: "개")
+                            MenuHexgagonView(isCompleted: StarMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                         }
                         Spacer()
                     }
@@ -89,29 +90,33 @@ struct MenuView: View {
             HStack {
                 Text("My Records")
                     .pretendardMedium20()
+                    .foregroundColor(.DarkGray)
                 Spacer()
             }
             .padding(.leading, 34)
             
-            MenuMyRecordsView(backToBackDays: 5, thisMonthDays: 5, totalDays: 23)
-                .padding(.leading, 20)
+            MenuMyRecordsView(backToBackDays: 1, thisMonthDays: 1, totalDays: 1)
                 .frame(maxWidth: .infinity)
             Spacer().frame(maxHeight: 37)
             Divider()
             Spacer().frame(maxHeight: 19)
             MenuBottomScoresView()
-            Spacer().frame(height: 30)
+            Spacer().frame(height: 40)
         }
         .ignoresSafeArea()
         .statusBarHidden()
         .background(.white)
         .onAppear{
             if chagokMissionSuccess == true && BalloonMissionSuccess == true && StarMissionSuccess == true{
-                firstLineText = "나이스잡! 🎉"
-                secondLineText = "데일리 연습을 완료하셨습니다!"
-            } else{
+                firstLineText = "훌륭합니다! 🎉"
+                secondLineText = "오늘의 드릴을 완료했어요!"
+            } else if chagokMissionSuccess == true || BalloonMissionSuccess == true || StarMissionSuccess == true{
                 firstLineText = "잘하고 있어요! 👍"
-                secondLineText = "전부 완성시켜볼까요?"
+                secondLineText = "전부 완료해 볼까요?"
+            }
+            else {
+                firstLineText = " 안녕하세요 😊"
+                secondLineText = "오늘의 SounDrill, 시작해볼까요?"
             }
         }
     }
