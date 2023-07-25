@@ -79,7 +79,7 @@ struct StarGameOverView: View {
                             secondsx4 = 120
                             starSKScene.score = 0
                             gameSelection = .none
-                            streamManager.removeTap()
+                            streamManager.stopAudioStream()
                         }
                     } label: {
                         starGameOverViewButton(systemName: "house", text: "Home")

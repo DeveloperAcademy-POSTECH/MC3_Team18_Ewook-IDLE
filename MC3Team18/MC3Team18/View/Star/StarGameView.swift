@@ -25,7 +25,7 @@ struct StarGameView: View {
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         streamManager.resultObservation(with: observer)
-        streamManager.installTap()
+        streamManager.startAudioStream()
         print("ONONINIT")
     }
     
