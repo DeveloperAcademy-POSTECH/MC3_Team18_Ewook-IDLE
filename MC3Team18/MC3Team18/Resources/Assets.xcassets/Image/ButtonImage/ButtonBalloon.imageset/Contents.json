@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ButtonBalloon.png",
+      "filename" : "ButtonBubble.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ButtonBalloon@2x.png",
+      "filename" : "ButtonBubble@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ButtonBalloon@3x.png",
+      "filename" : "ButtonBubble@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

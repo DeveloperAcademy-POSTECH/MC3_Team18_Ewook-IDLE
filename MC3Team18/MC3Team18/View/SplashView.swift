@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-//Logo가 확정이 안나서 일단 이미지로 대체
-
 struct SplashView: View {
     
     @State var isActive : Bool = false
@@ -23,13 +21,11 @@ struct SplashView: View {
                     Image("BackgroundSplashView").resizable()
                         .overlay(
                             VStack(spacing: 30) {
-                                Spacer().frame(height: 14)
+                                //Spacer().frame(height: 14)
                                 Image("SplashLogo")
-                                    
                                 Text("발성연습을 쉽고 재미있게")
                                     .foregroundColor(.white)
-                                    .font(.custom("Pretendard-SemiBold", size: 12))
-                                    .frame(height: 14)
+                                    .pretendardSemiBold12()
                                     .kerning(4)
                             }
                         )
