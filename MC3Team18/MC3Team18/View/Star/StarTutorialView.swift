@@ -17,7 +17,7 @@ struct StarTutorialView: View {
         ZStack(){
             Color(.black).opacity(0.75)
             
-            VStack(){
+            VStack (spacing: 0){
                 HStack {
                     Spacer()
                     Button {
@@ -32,12 +32,13 @@ struct StarTutorialView: View {
                         Image(systemName:  "xmark")
                             .resizable()
                             .frame(width: 15, height: 15)
-                    }.padding(.all, 4.5)
+                    }
+                    .padding(.horizontal, 8)
                 }
                 
-                Spacer().frame(height: 50)
+                Spacer().frame(height: 31)
                 
-                VStack(spacing: 35){
+                VStack(spacing: 18){
                     Text("반짝반짝")
                         .pretendardSemiBold32()
                         .foregroundColor(.Yellow)
@@ -50,6 +51,12 @@ struct StarTutorialView: View {
                     Text("• 혀굴리기 :  아rrrr\n• 입술털기 :  푸rrrr")
                         .font(.custom("Pretendard", size: 13))
                         .fontWeight(.semibold)
+                        .lineLimit(2)
+                    LottieView(filename: "lottieAnima_shiningStar")
+                        .scaledToFit()
+                        .frame(width: 255, height: 408)
+                        .padding(.top, 44)
+                        .scaleEffect(1.4)
                 }
                 
                 Spacer()
