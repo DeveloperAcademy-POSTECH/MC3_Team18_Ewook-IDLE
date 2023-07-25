@@ -141,7 +141,7 @@ struct StarGameView: View {
             }
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !starSKScene.isPaused {
+                    if !starSKScene.isPaused && starStatus != .tutorial {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
