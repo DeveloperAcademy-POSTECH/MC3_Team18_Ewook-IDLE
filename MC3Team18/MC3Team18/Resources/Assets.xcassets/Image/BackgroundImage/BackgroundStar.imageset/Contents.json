@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "StarBackground.png.png",
+      "filename" : "BackgroundStar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "StarBackground@2x.png",
+      "filename" : "BackgroundStar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "StarBackground@3x.png",
+      "filename" : "BackgroundStar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
