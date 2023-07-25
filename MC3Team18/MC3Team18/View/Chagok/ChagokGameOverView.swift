@@ -19,19 +19,38 @@ struct ChagokGameOverView: View {
     
     var body: some View {
         ZStack {
+            Color.black.opacity(0.75)
             
-            Color.black.opacity(0.75).ignoresSafeArea()
-            VStack(spacing: 13) {
+            VStack {
+                HStack {
+                    if isBestScore {
+                        Spacer()
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 24)
+                            .pretendardBold20()
+                            .foregroundColor(.Yellow)
+                    }
+                }
+                Spacer()
+            }
+            .padding(.top, 60)
+            .padding(.trailing, 26)
+            
+            
+            VStack(spacing: 11) {
                 Spacer().frame(height: 157)
                 
                 if isBestScore {
                     Text("Best Score!")
                         .pretendardBold20()
                         .foregroundColor(.Yellow)
+                } else {
+                    Text("Your Score")
+                        .pretendardLight32()
                 }
                 
-                Text("Your Score")
-                    .pretendardLight32()
                 Text("\(chagokScene.chagokScore)")
                     .postNoBillsJaffnaRegular64()
                 HStack {
@@ -77,7 +96,6 @@ struct ChagokGameOverView: View {
                 }
                 .padding(.bottom, 160)
             }
-            .ignoresSafeArea()
             .foregroundColor(.white)
             VStack {
                 if isBestScore {
@@ -90,6 +108,7 @@ struct ChagokGameOverView: View {
                 Spacer()
             }
         }
+        .ignoresSafeArea()
         .statusBarHidden()
         .opacity(gameoverOpacity)
         .onAppear {
