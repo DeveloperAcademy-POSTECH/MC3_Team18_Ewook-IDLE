@@ -42,7 +42,7 @@ struct StarPauseView: View {
                         secondsx4 = 120
                         gameSelection = .none
                         starSKScene.score = 0
-                        streamManager.removeTap()
+                        streamManager.stopAudioStream()
                     }
                 } label: {
                     starPauseButton(systemName: "house", text: "Home")

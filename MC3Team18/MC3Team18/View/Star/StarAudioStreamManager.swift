@@ -50,7 +50,6 @@ class StarAudioStreamManager: ObservableObject {
     }
     
     private func bgmStart() {
-        //TODO: 스타 bgm 연결
         MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banzzakBGM.rawValue)
     }
     
@@ -75,7 +74,6 @@ class StarAudioStreamManager: ObservableObject {
     private func classifierSetup() {
         let defaultConfig = MLModelConfiguration()
         let soundClassifier = try? Trill_35_05_50(configuration: defaultConfig)
-         
         guard let soundClassifier = soundClassifier else {
             fatalError("Could not instantiate sound classifier")
         }
@@ -107,7 +105,7 @@ class StarAudioStreamManager: ObservableObject {
         }
     }
     
-    public func installTap() {
+    private func installTap() {
         guard let engine = engine else {
             fatalError("Failed to retrieve audio engine")
         }
@@ -121,7 +119,7 @@ class StarAudioStreamManager: ObservableObject {
         engine.inputNode.installTap(onBus: inputBus, bufferSize: 4000, format: micInputFormat, block: analyzeAudio(buffer:at:))
     }
     
-    public func removeTap() {
+    private func removeTap() {
         guard let engine = engine else {
             fatalError("Failed to retrieve audio engine")
         }
@@ -129,6 +127,15 @@ class StarAudioStreamManager: ObservableObject {
             fatalError("Failed to retrieve input bus")
         }
         engine.inputNode.removeTap(onBus: inputBus)
+    }
+    
+    public func startAudioStream() {
+        startEngine()
+        installTap()
+    }
+    public func stopAudioStream() {
+        removeTap()
+        engine?.stop()
     }
     
     public func getStreamPublisher() -> Optional<SNAudioStreamAnalyzer>.Publisher {
