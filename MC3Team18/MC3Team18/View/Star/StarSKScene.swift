@@ -14,6 +14,8 @@ class StarSKScene: SKScene, ObservableObject {
     @Published var isTrill: Bool = false
     @Published var score: Int = 0
     
+    private let starImageNames : [String] = ["WhiteStar","YellowStar"]
+    
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
     var framerateTime : Int = 0
@@ -44,8 +46,8 @@ class StarSKScene: SKScene, ObservableObject {
     }
     
     func AddParticle() {
-        sprite = SKSpriteNode(imageNamed: "PinkCup")
-        sprite.size = CGSize(width: 15, height: 15)
+        sprite = SKSpriteNode(imageNamed: starImageNames[Int.random(in: 0...1)])
+        sprite.size = CGSize(width: 28, height: 27)
         
         sprite.position = CGPoint(
             x: CGFloat(Int(size.width/2)),
@@ -53,7 +55,7 @@ class StarSKScene: SKScene, ObservableObject {
         var moveAction = SKAction.move(to: CGPoint(
             x: Double.random(in: 20...size.width - 20),
             y: Double.random(in: size.height * 0.6 ... size.height)),                          duration: 3)
-        var sizeAction = SKAction.scale(by: 1.5, duration: 1)
+        var sizeAction = SKAction.scale(by: Double.random(in: 1...2), duration: 1)
         self.addChild(sprite)
         sprite.run(moveAction) {
             self.score += 100
