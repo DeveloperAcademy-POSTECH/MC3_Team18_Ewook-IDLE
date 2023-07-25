@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "BanzzakPurpleStar.png",
+      "filename" : "YellowStar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "BanzzakPurpleStar@2x.png",
+      "filename" : "YellowStar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "BanzzakPurpleStar@3x.png",
+      "filename" : "YellowStar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

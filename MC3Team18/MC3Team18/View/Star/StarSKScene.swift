@@ -48,7 +48,7 @@ class StarSKScene: SKScene, ObservableObject {
         sprite.size = CGSize(width: 15, height: 15)
         
         sprite.position = CGPoint(
-            x: CGFloat(Int(size.width/2)+Int.random(in:-3...3)),
+            x: CGFloat(Int(size.width/2)),
             y: 80)
         var moveAction = SKAction.move(to: CGPoint(
             x: Double.random(in: 20...size.width - 20),
