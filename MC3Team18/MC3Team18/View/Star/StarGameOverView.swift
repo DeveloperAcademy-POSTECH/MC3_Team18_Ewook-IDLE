@@ -15,11 +15,13 @@ struct StarGameOverView: View {
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
 
-    //TODO: starMissionSucess 데이터 연결
-    //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
+    //TODO: StarMissionSucess 데이터 연결
+    @AppStorage("StarMissionSuccess") var starMissionSuccess: Bool = false
     
     @EnvironmentObject var starSKScene: StarSKScene
     @EnvironmentObject var streamManager: StarAudioStreamManager
+    
+    let starMissionCount: Int = 10
     
     var body: some View {
         ZStack {
@@ -116,14 +118,14 @@ struct StarGameOverView: View {
             }
         }
         .onAppear {
+            //MARK: StarMissionSuccess 데이터 연결
+            if (starSKScene.score / 300) >= starMissionCount {
+                starMissionSuccess = true
+            }
             UIApplication.shared.isIdleTimerDisabled = false
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            //TODO: StarMissionSuccess 데이터 연결
-            //            if Int(score)! / 1000 >= 5{
-            //                StarMissionSuccess = true
-            //            }
             starSKScene.isPaused = true
         }
     }
