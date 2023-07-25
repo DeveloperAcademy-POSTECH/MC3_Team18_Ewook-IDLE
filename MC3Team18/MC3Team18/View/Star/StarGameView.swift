@@ -40,7 +40,7 @@ struct StarGameView: View {
                 Spacer()
                 banzzakCharacterImage
                     .resizable()
-                    .frame(width: 180, height: 201)
+                    .frame(width: 120, height: 137)
             }
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
