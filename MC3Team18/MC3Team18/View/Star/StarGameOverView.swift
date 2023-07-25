@@ -23,18 +23,36 @@ struct StarGameOverView: View {
     
     var body: some View {
         ZStack {
-            Color.black.opacity(0.75).ignoresSafeArea()
+            Color.black.opacity(0.75)
+            
+            VStack {
+                HStack {
+                    if isBestScore {
+                        Spacer()
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 24)
+                            .pretendardBold20()
+                            .foregroundColor(.Yellow)
+                    }
+                }
+                Spacer()
+            }
+            .padding(.top, 60)
+            .padding(.trailing, 26)
             
             VStack(spacing:209){
-                VStack(spacing: 13){
+                VStack(spacing: 11){
                     if isBestScore {
                         Text("Best Score!")
                             .pretendardBold20()
                             .foregroundColor(.Yellow)
-                    }
-                    Text("Your Score")
-                        .pretendardLight32()
+                    } else {
+                        Text("Your Score")
+                            .pretendardLight32()
                         .foregroundColor(.white)
+                    }
                     Text("\(starSKScene.score)")
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
@@ -85,6 +103,7 @@ struct StarGameOverView: View {
         }
         .opacity(gameoverOpacity)
         .statusBarHidden()
+        .ignoresSafeArea()
         .overlay {
             VStack {
                 if isBestScore {
