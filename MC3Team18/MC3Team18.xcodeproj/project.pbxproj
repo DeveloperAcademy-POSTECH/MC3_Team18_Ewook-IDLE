@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1BF1902A6FB423004D9EBE /* banzzakBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */; };
 		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
 		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
 		2F38EA9B2A6E3DC700889C4B /* StarSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38EA9A2A6E3DC700889C4B /* StarSKScene.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = banzzakBGM.mp3; sourceTree = "<group>"; };
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
 		2F38EA9A2A6E3DC700889C4B /* StarSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSKScene.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		2FF0B9DF2A64E236005B11CD /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */,
 				2FF0BA172A682789005B11CD /* bubblegumBGM.mp3 */,
 				2FF0BA1B2A682789005B11CD /* bubblegumBlowEffect.mp3 */,
 				2FF0BA192A682789005B11CD /* bubblegumGameOverEffect.mp3 */,
@@ -493,6 +496,7 @@
 				2FF0BA1D2A682789005B11CD /* bubblegumBGM.mp3 in Resources */,
 				2FF0BA212A682789005B11CD /* bubblegumBlowEffect.mp3 in Resources */,
 				2FF0BA1C2A682789005B11CD /* homescreenBGM.mp3 in Resources */,
+				2F1BF1902A6FB423004D9EBE /* banzzakBGM.mp3 in Resources */,
 				2FF0BA1E2A682789005B11CD /* chagokBGM.mp3 in Resources */,
 				2FF0BA1F2A682789005B11CD /* bubblegumGameOverEffect.mp3 in Resources */,
 				784E50A62A67F77A00733796 /* lottieAnima_chagok.json in Resources */,
@@ -695,6 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
+
 				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
