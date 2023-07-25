@@ -19,16 +19,38 @@ struct BubbleGumGameOverView: View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
             
-            VStack(spacing:209){
-                VStack(spacing: 13){
+            VStack{
+                HStack {
                     if isBestScore {
-                        Text("Best Score!")
+                        Spacer()
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 24)
                             .pretendardBold20()
                             .foregroundColor(.Yellow)
                     }
+                }
+                .frame(height: 24)
+                .padding(.top, 60)
+                .padding(.bottom, 22)
+                
+                if isBestScore {
+                    LottieView(filename: "CelebLottieAnima")
+                        .frame(width: 232, height: 66).offset(y: 16)
+                    Text("Best Score!")
+                        .pretendardBold20()
+                        .foregroundColor(.Yellow)
+                } else {
                     Text("Your Score")
                         .pretendardLight32()
                         .foregroundColor(.white)
+                }
+                
+                Spacer().frame(height: 11)
+                
+                VStack(spacing: 11){
+                    
                     Text(score)
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
@@ -43,6 +65,8 @@ struct BubbleGumGameOverView: View {
                     }
                 }
                 .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
+                
+                Spacer().frame(minHeight: 224)
                 
                 HStack(){
                     Button {
@@ -61,18 +85,13 @@ struct BubbleGumGameOverView: View {
                     } label: {
                         bubbleGumGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
-                }.padding(.horizontal, 62)
-            }
-        }
-        .overlay {
-            VStack {
-                if isBestScore {
-                    LottieView(filename: "CelebLottieAnima")
-                        .frame(width: 232, height: 66)
-                        .offset(y: -310)
                 }
-                    
+                .padding(.horizontal, 36)
+                
+                Spacer().frame(minHeight: 120)
             }
+            .padding(.horizontal, 26)
+            .padding(.vertical, 60)
         }
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
@@ -97,7 +116,7 @@ extension BubbleGumGameOverView {
                 VStack(spacing:9){
                     Image(systemName: systemName)
                         .foregroundColor(.white)
-                        .pretendardSemiBold20()
+                        .pretendardSemiBold24()
                         .frame(height: 25).scaledToFit()
                         .bold()
                     Text(text)
