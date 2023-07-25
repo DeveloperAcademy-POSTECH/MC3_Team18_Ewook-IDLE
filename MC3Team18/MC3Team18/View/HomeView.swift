@@ -18,6 +18,12 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
+            
+            Color.clear.overlay {
+                Image("BackgroundHomeVIew")
+                    .resizable()
+                    .scaledToFill()
+            }
             Image("BackgroundHomeVIew")
                 .resizable()
                 .scaledToFill()
