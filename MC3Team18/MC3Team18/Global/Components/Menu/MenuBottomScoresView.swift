@@ -9,17 +9,19 @@ import SwiftUI
 
 struct MenuBottomScoresView: View {
     //TODO: Star 게임 만들어지면 바꿀 것
-    var bestScoreArray : [String] = [ String(UserDefaults.standard.integer(forKey: "chagokScore")), UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", "12500"]
+    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", "12500", String(UserDefaults.standard.integer(forKey: "chagokScore"))]
     var bestRecordArray : [String] = [
-        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), String(format: "%.1f", Double(UserDefaults.standard.string(forKey: "BubbleScore") ?? "0")! / 1000.0), "15"
+        String(format: "%.1f", Double(UserDefaults.standard.string(forKey: "BubbleScore") ?? "0")! / 1000.0), 
+        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), "15"
     ]
-    var bestUnitArray : [String] = ["줄", "초", "개"]
-    var bestNameArray : [String] = ["차곡차곡", "풍선껌불기", "별따먹기"]
+    var bestUnitArray : [String] = ["초", "줄", "개"]
+    var bestNameArray : [String] = ["버블버블", "차곡차곡", "반짝반짝"]
     var body: some View {
         VStack {
             HStack {
                 Text("Best Scores")
                     .pretendardMedium20()
+                    .foregroundColor(.DarkGray)
                 Spacer()
             }
             .padding(.leading, 34)
@@ -33,25 +35,25 @@ struct MenuBottomScoresView: View {
                             HStack {
                                 Spacer().frame(maxWidth: 24)
                                 VStack(spacing: 0) {
-                                    Spacer().frame(maxHeight: 77)
+                                    Spacer().frame(maxHeight: 90)
                                     Text("\(bestNameArray[index])")
                                         .pretendardBold14()
                                         .padding(.bottom, 10)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     
                                     Text("\(bestScoreArray[index])")
-                                        .pretendardExtraLight11()
-                                        .padding(.bottom, 2)
+                                        .pretendardExtraLight12()
+                                      //  .padding(.bottom, 2)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     HStack(alignment: .bottom, spacing: 2) {
                                         Text("\(bestRecordArray[index])")
                                             .pretendardMedium24()
                                         Text("\(bestUnitArray[index])")
-                                            .pretendardSemiBold11()
+                                            .pretendardSemiBold12()
                                             .offset(y: -4)
                                         Spacer()
                                     }
-                                    Spacer().frame(maxHeight: 23)
+                                    Spacer().frame(maxHeight: 16)
                                 }
                                 .multilineTextAlignment(.leading)
                                 Spacer()
@@ -74,8 +76,8 @@ struct MenuBottomScoresView_Previews: PreviewProvider {
 
 extension MenuBottomScoresView {
     enum BestScoreImage: String, CaseIterable {
-        case chagok = "ChagokBest"
         case bubble = "BubbleGumBest"
+        case chagok = "ChagokBest"
         case star = "StarBest"
     }
 }

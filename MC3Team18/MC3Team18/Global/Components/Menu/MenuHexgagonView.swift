@@ -30,9 +30,10 @@ struct MenuHexgagonView: View {
                                 .pretendardMedium28()
                                 .foregroundColor(.CobaltBlue)
                             Text(unit)
-                                .pretendardRegular11()
+                                .pretendardMedium12()
                                 .foregroundColor(.CobaltBlue)
                                 .padding(.bottom, 6)
+                            
                         }
                     }
                     
@@ -44,6 +45,7 @@ struct MenuHexgagonView: View {
                                 Image(systemName: "checkmark.circle.fill")
                                     .resizable()
                                     .frame(width: 30, height: 30)
+                                    .background(.white).cornerRadius(15)
                                     .padding(.bottom, 3)
                                     .padding(.trailing, 5)
                                     .foregroundColor(.CobaltBlue)

@@ -41,8 +41,8 @@ extension View {
         modifier(PretendardTextSemiBold20())
     }
     
-    func pretendardSemiBold11() -> some View {
-        modifier(PretendardTextSemiBold11())
+    func pretendardSemiBold12() -> some View {
+        modifier(PretendardTextSemiBold12())
     }
     
     func pretendardLight32() -> some View {
@@ -76,8 +76,8 @@ extension View {
     func pretendardMedium28() -> some View {
         modifier(PretendardTextMedium28())
     }
-    func pretendardExtraLight11() -> some View {
-        modifier(PretendardExtraLight11())
+    func pretendardExtraLight12() -> some View {
+        modifier(PretendardExtraLight12())
     }
     
     func postNoBillsJaffnaRegular64() -> some View {
