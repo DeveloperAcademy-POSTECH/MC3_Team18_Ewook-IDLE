@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "StarBackground.png.png",
+      "filename" : "BanzzakPinkStar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "StarBackground@2x.png",
+      "filename" : "BanzzakPinkStar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "StarBackground@3x.png",
+      "filename" : "Group 66@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
