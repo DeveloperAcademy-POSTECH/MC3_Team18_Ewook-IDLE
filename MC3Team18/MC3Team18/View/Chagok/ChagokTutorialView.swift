@@ -38,16 +38,17 @@ struct ChagokTutorialView: View {
                 Text("차곡차곡")
                     .pretendardSemiBold32()
                     .foregroundColor(.Yellow)
-                    
-                    .padding(.top, 94)
-                    .padding(.bottom, 45)
+                    .padding(.top, 50)
+                    .padding(.bottom, 35)
                 Text("기기를 정면으로 들고\n아래부터 컵의 표정을 따라해보세요!")
                     .pretendardSemiBold20()
                     .lineSpacing(7)
                     .multilineTextAlignment(.center)
+                Spacer().frame(height: 57)
                 LottieView(filename: "lottieAnima_chagok")
                     .scaledToFit()
                     .frame(width: 325)
+                    .scaleEffect(1.3)
                     .padding(.top, 40)
                 Spacer()
                 HStack {
@@ -70,13 +71,10 @@ struct ChagokTutorialView: View {
                 
             }
             .foregroundColor(.white)
-            .ignoresSafeArea()
-            
-            
-            
-            
+
         }
         .statusBarHidden()
+        .ignoresSafeArea()
         .onAppear {
             chagokScene.isNotUpdate = true
         }
