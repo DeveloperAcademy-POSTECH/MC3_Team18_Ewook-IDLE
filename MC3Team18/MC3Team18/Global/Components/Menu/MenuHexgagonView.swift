@@ -42,18 +42,20 @@ struct MenuHexgagonView: View {
                             Spacer()
                             HStack {
                                 Spacer()
-                                Image(systemName: "checkmark.circle.fill")
-                                    .resizable()
+                                Circle()
+                                    .foregroundColor(.white)
                                     .frame(width: 30, height: 30)
-                                    .background(.white).cornerRadius(15)
+                                    .overlay {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                            .foregroundColor(.CobaltBlue)
+                                    }
                                     .padding(.bottom, 3)
                                     .padding(.trailing, 5)
-                                    .foregroundColor(.CobaltBlue)
                             }
                         }
                     }
-                    
-                    
                 }
             }
     }
