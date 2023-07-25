@@ -30,6 +30,7 @@ struct BubbleGumWaitingView: View {
             .padding(.bottom, 70)
             .onTapGesture {
                 withAnimation(.easeOut(duration: 0.3)) {
+                    streamManager.stopAudioStream()
                     gameSelection = .none
                 }
             }
@@ -39,7 +40,7 @@ struct BubbleGumWaitingView: View {
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
                 .onAppear {
-                    streamManager.installTap()
+                    streamManager.startAudioStream()
                 }
                 .onChange(of: observer.topResults) { _ in
                     print("Start")

@@ -109,7 +109,7 @@ struct BubbleGumGameView: View {
     
     private func endGame() {
         HapticManager.instance.notification(type: .error)
-        streamManager.removeTap()
+        streamManager.stopAudioStream()
         bubbleGumStatus = .gameover
         SoundEffectPlayer.shared.stopSoundEffect()
 //        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumGameOverEffect.rawValue)

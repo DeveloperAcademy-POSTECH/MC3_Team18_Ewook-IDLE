@@ -107,7 +107,7 @@ class AudioStreamManager {
         }
     }
     
-    public func installTap() {
+    private func installTap() {
         guard let engine = engine else {
             fatalError("Failed to retrieve audio engine")
         }
@@ -121,7 +121,7 @@ class AudioStreamManager {
         engine.inputNode.installTap(onBus: inputBus, bufferSize: 4000, format: micInputFormat, block: analyzeAudio(buffer:at:))
     }
     
-    public func removeTap() {
+    private func removeTap() {
         guard let engine = engine else {
             fatalError("Failed to retrieve audio engine")
         }
@@ -129,6 +129,15 @@ class AudioStreamManager {
             fatalError("Failed to retrieve input bus")
         }
         engine.inputNode.removeTap(onBus: inputBus)
+    }
+    
+    public func startAudioStream() {
+        startEngine()
+        installTap()
+    }
+    public func stopAudioStream() {
+        removeTap()
+        engine?.stop()
     }
     
     public func getStreamPublisher() -> Optional<SNAudioStreamAnalyzer>.Publisher {

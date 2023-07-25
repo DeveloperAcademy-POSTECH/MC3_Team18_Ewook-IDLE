@@ -14,7 +14,8 @@ struct BubbleGumGameOverView: View {
     @Binding var bubbleHighScore: String
     @Binding var isBestScore: Bool
     @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
-    
+    var streamManager: AudioStreamManager
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
@@ -71,6 +72,7 @@ struct BubbleGumGameOverView: View {
                 HStack(){
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
+                            streamManager.stopAudioStream()
                             gameSelection = .none
                         }
                     } label: {
@@ -104,7 +106,7 @@ struct BubbleGumGameOverView: View {
 
 struct BubbleGumGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("23.0"), bubbleHighScore: .constant("22.0"), isBestScore: .constant(true))
+        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("23.0"), bubbleHighScore: .constant("22.0"), isBestScore: .constant(true), streamManager: AudioStreamManager())
     }
 }
 
