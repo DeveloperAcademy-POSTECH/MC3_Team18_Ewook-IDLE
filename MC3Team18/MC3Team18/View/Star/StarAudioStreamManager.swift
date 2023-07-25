@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 import SoundAnalysis
 
-class StarAudioStreamManager {
+class StarAudioStreamManager: ObservableObject {
     
     private var engine: AVAudioEngine?
     private var inputBus: AVAudioNodeBus?

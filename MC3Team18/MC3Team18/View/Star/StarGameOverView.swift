@@ -13,13 +13,13 @@ struct StarGameOverView: View {
     @State var isBestScore: Bool = false
     
     @Binding var starStatus: StarStatus
-    
+    @Binding var secondsx4: Int
     @Binding var gameSelection: GameSelection
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
     @EnvironmentObject var starSKScene: StarSKScene
-    @Binding var secondsx4: Int
+    @EnvironmentObject var streamManager: StarAudioStreamManager
     
     var body: some View {
         ZStack {
@@ -59,6 +59,7 @@ struct StarGameOverView: View {
                             secondsx4 = 120
                             starSKScene.score = 0
                             gameSelection = .none
+                            streamManager.removeTap()
                         }
                     } label: {
                         starGameOverViewButton(systemName: "house", text: "Home")
@@ -98,13 +99,13 @@ struct StarGameOverView: View {
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            
             //TODO: StarMissionSuccess 데이터 연결
             //            if Int(score)! / 1000 >= 5{
             //                StarMissionSuccess = true
             //            }
             starSKScene.isPaused = true
         }
+        
     }
 }
 

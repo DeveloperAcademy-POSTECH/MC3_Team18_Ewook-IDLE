@@ -13,7 +13,9 @@ struct StarPauseView: View {
     @Binding var starStatus: StarStatus
     @Binding var gameSelection: GameSelection
     @Binding var secondsx4: Int
+    
     @EnvironmentObject var starSKScene: StarSKScene
+    @EnvironmentObject var streamManager: StarAudioStreamManager
     
     var body: some View {
         ZStack {
@@ -40,6 +42,7 @@ struct StarPauseView: View {
                         secondsx4 = 120
                         gameSelection = .none
                         starSKScene.score = 0
+                        streamManager.removeTap()
                     }
                 } label: {
                     starPauseButton(systemName: "house", text: "Home")
