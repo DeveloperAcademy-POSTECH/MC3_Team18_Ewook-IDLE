@@ -51,7 +51,7 @@ class StarAudioStreamManager: ObservableObject {
     
     private func bgmStart() {
         //TODO: 스타 bgm 연결
-        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.bubblegumBGM.rawValue)
+        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banzzakBGM.rawValue)
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
