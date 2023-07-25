@@ -36,7 +36,7 @@ struct BubbleGumTutorialView: View {
                     }.padding(.all, 4.5)
                 }
                 
-                Spacer().frame(height: 79)
+                Spacer().frame(height: 50)
                 
                 VStack(spacing: 24){
                     Text("버블버블")
@@ -51,10 +51,11 @@ struct BubbleGumTutorialView: View {
                         .multilineTextAlignment(.center)
                         .lineSpacing(1)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
-                    Text("• 혀굴리기 :  아rrrr\n• 입술털기 :  푸rrrr")
-                        .font(.custom("Pretendard", size: 13))
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                    LottieView(filename: "lottieAnima_bubble")
+                        .scaledToFit()
+                        .frame(width: 325, height: 520)
+                        .padding(.top, 11)
+                        .scaleEffect(1.4)
                 }
                 Spacer()
                 Button {
@@ -93,6 +94,8 @@ struct BubbleGumTutorialView: View {
 
 struct BubbleGumTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isShowingBubbleGumTutorial: .constant(true), isNeverShowingBubbleGumTutorial: .constant(false), isNeverShowingBubbleGumTutorialToggle: false)
+        MultiPreview {
+            BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isShowingBubbleGumTutorial: .constant(true), isNeverShowingBubbleGumTutorial: .constant(false), isNeverShowingBubbleGumTutorialToggle: false)
+        }
     }
 }
