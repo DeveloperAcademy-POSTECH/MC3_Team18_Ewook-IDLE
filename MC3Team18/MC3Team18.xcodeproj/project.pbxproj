@@ -80,6 +80,7 @@
 		78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */; };
 		78E7C9E12A6BC30100570F4C /* TrophyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E7C9E02A6BC30100570F4C /* TrophyView.swift */; };
 		78F38C912A6FB88400AFF4C1 /* lottieAnima_bubble.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */; };
+		78F38C952A6FE3D100AFF4C1 /* lottieAnima_shiningStar.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C942A6FE3D100AFF4C1 /* lottieAnima_shiningStar.json */; };
 		E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA192A5D3E7000BE59B9 /* HomeView.swift */; };
 		E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */; };
 		E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */; };
@@ -159,6 +160,7 @@
 		78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78E7C9E02A6BC30100570F4C /* TrophyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyView.swift; sourceTree = "<group>"; };
 		78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_bubble.json; sourceTree = "<group>"; };
+		78F38C942A6FE3D100AFF4C1 /* lottieAnima_shiningStar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningStar.json; sourceTree = "<group>"; };
 		E53CEA192A5D3E7000BE59B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				784E50A52A67F77A00733796 /* lottieAnima_chagok.json */,
+				78F38C942A6FE3D100AFF4C1 /* lottieAnima_shiningStar.json */,
 				78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */,
 				784E50A32A67F76C00733796 /* CelebLottieAnima.json */,
 			);
@@ -494,6 +497,7 @@
 				78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */,
 				2FF0BA202A682789005B11CD /* chagokPungEffect.mp3 in Resources */,
 				788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */,
+				78F38C952A6FE3D100AFF4C1 /* lottieAnima_shiningStar.json in Resources */,
 				78BE77D52A5D69440028A446 /* Pretendard-Bold.otf in Resources */,
 				78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */,
 				2FF0BA1D2A682789005B11CD /* bubblegumBGM.mp3 in Resources */,
