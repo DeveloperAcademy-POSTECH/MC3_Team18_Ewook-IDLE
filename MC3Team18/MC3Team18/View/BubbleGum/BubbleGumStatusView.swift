@@ -101,12 +101,14 @@ struct BubbleGumMainView: View {
                 .scaledToFit()
                 .frame(width: 180, height: 201)
                 .padding(.top, 60)
+                .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
 
             // MARK: 캐릭터 표정
             VStack {
                 Spacer()
                 Image(expressionImages[currentExpressionIndex])
                     .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
+                    .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
             }
             .frame(width: 68, height: 52)
             .padding(.bottom, 78)
@@ -120,6 +122,7 @@ struct BubbleGumMainView: View {
                 .offset(y: 198)//.padding(.top, 60)
                 .offset(x: offsetX, y: offsetY)
                 .animation(bubbleGumStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+                .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
         }
     }
 }
