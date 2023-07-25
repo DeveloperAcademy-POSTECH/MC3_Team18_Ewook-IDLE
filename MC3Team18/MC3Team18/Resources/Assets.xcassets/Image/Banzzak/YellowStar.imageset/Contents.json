@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "BackgroundStar.png",
+      "filename" : "YellowStar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "BackgroundStar@2x.png",
+      "filename" : "YellowStar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "BackgroundStar@3x.png",
+      "filename" : "YellowStar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
