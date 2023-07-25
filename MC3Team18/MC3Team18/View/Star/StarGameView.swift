@@ -15,6 +15,8 @@ struct StarGameView: View {
     @State var gameOpacity: Double = 0
     @StateObject var starSKScene: StarSKScene = StarSKScene()
     
+    @State var isBestScore: Bool = false
+    
     @ObservedObject var observer: StarAudioStreamObserver  = StarAudioStreamObserver()
     @ObservedObject var streamManager: StarAudioStreamManager = StarAudioStreamManager()
     
@@ -32,15 +34,12 @@ struct StarGameView: View {
                     .resizable()
                     .scaledToFill()
             }
-            .ignoresSafeArea()
             VStack {
                 Spacer()
-                
                 Image("MainCharacter")
                     .resizable()
                     .frame(width: 180, height: 201)
             }
-            
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text("Score: ")
@@ -71,6 +70,7 @@ struct StarGameView: View {
                 .padding(.bottom, 5)
                 .frame(height: 29)
                 .padding(.horizontal, 34)
+                
                 HStack(spacing: 4) {
                     Image(systemName: "hourglass")
                         .resizable()
@@ -98,6 +98,7 @@ struct StarGameView: View {
                 }
                 .frame(height: 31)
                 .padding(.horizontal, 34)
+                
                 VStack {
                     GeometryReader { geo in
                         SpriteView(scene: starSKScene, options: [.allowsTransparency])
@@ -125,7 +126,7 @@ struct StarGameView: View {
                     .environmentObject(starSKScene)
                     .environmentObject(streamManager)
             case .gameover:
-                StarGameOverView(starStatus: $starStatus, secondsx4: $secondsx4, gameSelection: $gameSelection)
+                StarGameOverView(starStatus: $starStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore)
                     .environmentObject(starSKScene)
                     .environmentObject(streamManager)
                 
@@ -149,10 +150,7 @@ struct StarGameView: View {
                     withAnimation(.easeOut(duration: 1)) {
                         starStatus = StarStatus.gameover
                         self.secondsx4 = 120
-                        //                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
-                        //                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
-                        //                            self.isBestScore = true
-                        //                        }
+                        checkBestScore()
                     }
                 }
             }
@@ -164,6 +162,12 @@ struct StarGameView: View {
             } else {
                 starSKScene.isTrill = false
             }
+        }
+    }
+    func checkBestScore() {
+        if UserDefaults.standard.integer(forKey: "starScore") <= starSKScene.score {
+            UserDefaults.standard.set(starSKScene.score, forKey: "starScore")
+            self.isBestScore = true
         }
     }
 }

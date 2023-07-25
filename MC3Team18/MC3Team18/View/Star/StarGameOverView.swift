@@ -9,12 +9,12 @@ import SwiftUI
 
 struct StarGameOverView: View {
     @State var gameoverOpacity: Double = 0
-    @State var starHighScore: Int = 0
-    @State var isBestScore: Bool = false
-    
+
     @Binding var starStatus: StarStatus
     @Binding var secondsx4: Int
     @Binding var gameSelection: GameSelection
+    @Binding var isBestScore: Bool
+
     //TODO: starMissionSucess 데이터 연결
     //@AppStorage("starMissionSuccess") var starMissionSuccess: Bool = false
     
@@ -60,7 +60,7 @@ struct StarGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("\(starHighScore)")
+                        Text("\(UserDefaults.standard.integer(forKey: "starScore"))")
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -70,7 +70,7 @@ struct StarGameOverView: View {
                 HStack(){
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
-                            
+                            isBestScore = false
                             starSKScene.isPaused = false
                             starSKScene.removeAllChildren()
                             starStatus = .tutorial
@@ -86,6 +86,7 @@ struct StarGameOverView: View {
                     Spacer()
                     
                     Button {
+                        isBestScore = false
                         starSKScene.isPaused = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
@@ -111,6 +112,7 @@ struct StarGameOverView: View {
                         .frame(width: 232, height: 66)
                         .padding(.top, 108)
                 }
+                Spacer()
             }
         }
         .onAppear {
@@ -124,7 +126,6 @@ struct StarGameOverView: View {
             //            }
             starSKScene.isPaused = true
         }
-        
     }
 }
 
