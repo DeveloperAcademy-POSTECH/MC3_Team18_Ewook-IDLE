@@ -10,7 +10,6 @@ import SpriteKit
 
 class StarSKScene: SKScene, ObservableObject {
     
-    @Published var isGaming : Bool = true
     @Published var isTrill: Bool = false
     @Published var score: Int = 0
     
@@ -21,11 +20,7 @@ class StarSKScene: SKScene, ObservableObject {
     
     override func update(_ currentTime: TimeInterval) {
         
-//        if !isGaming {
-//            return
-//        }
-        
-        if isGaming{
+        if isTrill {
             framerateTime += 1
             if framerateTime == 60 {
                 framerateTime = 0
