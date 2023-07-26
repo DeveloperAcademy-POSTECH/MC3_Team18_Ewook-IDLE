@@ -13,42 +13,52 @@ struct BestScoreShareView: View {
      String(UserDefaults.standard.integer(forKey: "chagokScore"))
      */
     
-    @State var bestScore = "0"
+    var bestScore: String
     var gameSelected: GameSelection = .chagok
     
     var body: some View {
         ZStack {
-            Image("BackgroundBestScoreShare")
+            //Image("BackgroundBestScoreShare")
+            Image("Share_BestScore_\(gameSelected)")
+            //Share_BestScore_Star
                 .resizable()
                 .frame(width: 393, height: 393)
-            VStack {
-                Spacer().frame(height: 79)
-                Group {
-                    Text("제법인걸요! 🎉")
-                    Spacer()
-                    Text("Best Score를 갱신하셨습니다!")
-                }
-                .pretendardSemiBold24()
-                .foregroundColor(.white)
-                Spacer().frame(height: 26)
+            VStack(spacing: 0) {
+                Spacer().frame(height: 48)
+                
                 Text("Best Score!")
                     .pretendardBold20()
                     .foregroundColor(.Yellow)
-                Text(bestScore)
-                    .font(.custom("PostNoBillsJaffna-Medium", size: 80))
+                
+                Spacer().frame(height: 10)
+                
+                Text("     축하합니다 🎉\nBest Score를 달성하셨습니다!")
+                    .pretendardSemiBold24()
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
                 
+                Spacer().frame(height: 20)
                 
-                Spacer().frame(height: 76)
+                VStack(spacing: 12) {
+                    Text(bestScore)
+                        .font(.custom("PostNoBillsJaffna-Medium", size: 72))
+                        .foregroundColor(.white)
+                    
+                    Text(gameSelected.rawValue)
+                        .pretendardRegular20()
+                        .foregroundColor(.white)
+                }
+                .padding(.bottom, 88)
             }
             .frame(width: 393, height: 393)
         }
         .frame(width: 393, height: 393)
     }
 }
-
-struct BestScoreShareView_Previews: PreviewProvider {
-    static var previews: some View {
-        BestScoreShareView()
-    }
-}
+//
+//struct BestScoreShareView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BestScoreShareView()
+//    }
+//}

@@ -63,6 +63,13 @@ struct PretendardTextSemiBold20: ViewModifier {
     }
 }
 
+struct PretendardTextSemiBold18: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-SemiBold", size: 18))
+    }
+}
+
 struct PretendardTextSemiBold12: ViewModifier {
     
     func body(content: Content) -> some View {
