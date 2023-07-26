@@ -9,6 +9,10 @@ import SwiftUI
 
 struct TrophyView: View {
     
+    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
+    @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
+    
     @State var isDailyNotFinished: Bool = false
     @Binding var gameSelected: GameSelection
     
@@ -58,6 +62,11 @@ struct TrophyView: View {
         }
         .frame(height: 26)
         .frame(maxWidth: .infinity)
+        .onAppear{
+            if !chagokMissionSuccess || !BalloonMissionSuccess || !StarMissionSuccess {
+                isDailyNotFinished = true
+            }
+        }
     }
 }
 
