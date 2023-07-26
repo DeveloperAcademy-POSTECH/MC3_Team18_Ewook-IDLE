@@ -17,7 +17,7 @@ struct BubbleGumTutorialView: View {
     var body: some View {
         
         ZStack(){
-            Color(.black).opacity(0.75)
+            Color(.black).opacity(0.85)
             
             VStack(){
                 HStack {
