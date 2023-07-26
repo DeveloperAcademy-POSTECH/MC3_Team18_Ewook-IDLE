@@ -41,6 +41,7 @@ struct StarGameView: View {
                 banzzakCharacterImage
                     .resizable()
                     .frame(width: 120, height: 137)
+                    .offset(y:-49)
             }
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
