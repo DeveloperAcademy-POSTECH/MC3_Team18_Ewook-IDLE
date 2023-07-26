@@ -42,6 +42,8 @@ struct ChagokGameView: View {
     @State var isFaceTracked = false
     @State var scoreScale: Double = 1.0
     
+    @State var isStared: Bool = false
+    
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -144,7 +146,7 @@ struct ChagokGameView: View {
             
             VStack {
                 Spacer()
-                if isFaceTracked {
+                if isFaceTracked && chagokStatus != .tutorial {
                     Image(ChagokFace.faceActive.rawValue)
                         .resizable()
                         .scaledToFit()
@@ -178,7 +180,7 @@ struct ChagokGameView: View {
                             .foregroundColor(.white)
                         }
                 }
-                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked)
+                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStared, chagokStatus: $chagokStatus)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)
@@ -215,7 +217,7 @@ struct ChagokGameView: View {
             
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !chagokScene.isNotUpdate {
+                    if !chagokScene.isNotUpdate && isStared {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
