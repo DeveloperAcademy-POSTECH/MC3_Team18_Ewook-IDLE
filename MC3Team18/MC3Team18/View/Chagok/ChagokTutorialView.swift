@@ -16,7 +16,7 @@ struct ChagokTutorialView: View {
     var body: some View {
         ZStack {
             
-            Color.black.opacity(0.75)
+            Color.black.opacity(0.85)
                 .ignoresSafeArea()
             VStack {
                 HStack {
