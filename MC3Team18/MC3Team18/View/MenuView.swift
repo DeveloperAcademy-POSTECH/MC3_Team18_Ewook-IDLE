@@ -52,7 +52,7 @@ struct MenuView: View {
                              caption: 공유 창에 뜨는 텍스트
                              */
                             
-                            ShareLink(item: photo, subject: Text("subject"), message: Text("message"), preview: SharePreview(
+                            ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
                                 photo.caption,
                                 image: photo.image)) {
                                     Image(systemName: "square.and.arrow.up")

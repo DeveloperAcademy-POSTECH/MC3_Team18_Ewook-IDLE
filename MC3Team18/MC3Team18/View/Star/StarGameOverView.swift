@@ -15,14 +15,14 @@ struct StarGameOverView: View {
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
 
-    //TODO: StarMissionSucess 데이터 연결
     @AppStorage("StarMissionSuccess") var starMissionSuccess: Bool = false
     
     @EnvironmentObject var starSKScene: StarSKScene
     @EnvironmentObject var streamManager: StarAudioStreamManager
     
     let starMissionCount: Int = 10
-    
+    var starHighScore = UserDefaults.standard.integer(forKey: "starScore")
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
@@ -31,12 +31,16 @@ struct StarGameOverView: View {
                 HStack {
                     if isBestScore {
                         Spacer()
-                        Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 24)
-                            .pretendardBold20()
-                            .foregroundColor(.Yellow)
+                        ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
+                            photo.caption,
+                            image: photo.image)) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 24)
+                                    .pretendardBold20()
+                                    .foregroundColor(.Yellow)
+                            }
                     }
                 }
                 Spacer()
@@ -62,7 +66,7 @@ struct StarGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("\(UserDefaults.standard.integer(forKey: "starScore"))")
+                        Text("\(starHighScore)")
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -167,5 +171,20 @@ extension StarGameOverView {
         .shadow(
             color: Color(.white).opacity(0.4), radius: 16
         )
+    }
+}
+
+extension StarGameOverView {
+    
+    @MainActor
+    var photo: TransferableUIImage {
+        return .init(uiimage: dailyShareUIImage, caption: "SounDrill 기록 공유하기")
+    }
+    
+    @MainActor
+    var dailyShareUIImage: UIImage {
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(starHighScore), gameSelected: gameSelection))
+        renderer.scale = 3.0
+        return renderer.uiImage ?? .init()
     }
 }

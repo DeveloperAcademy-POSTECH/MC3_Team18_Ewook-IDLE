@@ -24,12 +24,16 @@ struct BubbleGumGameOverView: View {
                 HStack {
                     if isBestScore {
                         Spacer()
-                        Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 24)
-                            .pretendardBold20()
-                            .foregroundColor(.Yellow)
+                        ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
+                            photo.caption,
+                            image: photo.image)) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 24)
+                                    .pretendardBold20()
+                                    .foregroundColor(.Yellow)
+                            }
                     }
                 }
                 .frame(height: 24)
@@ -140,5 +144,20 @@ extension BubbleGumGameOverView {
         .shadow(
             color: Color(.white).opacity(0.4), radius: 16
         )
+    }
+}
+
+extension BubbleGumGameOverView {
+    
+    @MainActor
+    var photo: TransferableUIImage {
+        return .init(uiimage: dailyShareUIImage, caption: "SounDrill 기록 공유하기")
+    }
+    
+    @MainActor
+    var dailyShareUIImage: UIImage {
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: bubbleHighScore, gameSelected: gameSelection))
+        renderer.scale = 3.0
+        return renderer.uiImage ?? .init()
     }
 }
