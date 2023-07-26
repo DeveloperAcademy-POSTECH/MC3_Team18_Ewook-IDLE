@@ -144,7 +144,7 @@ struct ChagokGameView: View {
             
             VStack {
                 Spacer()
-                if isFaceTracked {
+                if isFaceTracked && chagokStatus != .tutorial {
                     Image(ChagokFace.faceActive.rawValue)
                         .resizable()
                         .scaledToFit()
