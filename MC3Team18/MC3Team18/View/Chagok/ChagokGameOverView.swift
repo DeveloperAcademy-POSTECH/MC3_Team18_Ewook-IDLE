@@ -15,7 +15,10 @@ struct ChagokGameOverView: View {
     @Binding var isBestScore: Bool
     @State var gameoverOpacity: Double = 0
     @Binding var secondsx4: Int
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @Binding var isStarted: Bool
+    @Binding var tapToStartOpacity: Double
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
+    var chagokHighScore = UserDefaults.standard.integer(forKey: "chagokScore")
     
     var body: some View {
         ZStack {
@@ -25,12 +28,16 @@ struct ChagokGameOverView: View {
                 HStack {
                     if isBestScore {
                         Spacer()
-                        Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 24)
-                            .pretendardBold20()
-                            .foregroundColor(.Yellow)
+                        ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
+                            photo.caption,
+                            image: photo.image)) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 24)
+                                    .pretendardBold20()
+                                    .foregroundColor(.Yellow)
+                            }
                     }
                 }
                 Spacer()
@@ -58,7 +65,7 @@ struct ChagokGameOverView: View {
                         .pretendardRegular24()
                         .foregroundColor(.LightGray)
                     // 최고 점수로 교체하기
-                    Text("\(UserDefaults.standard.integer(forKey: "chagokScore"))")
+                    Text("\(chagokHighScore)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                 }
@@ -84,6 +91,10 @@ struct ChagokGameOverView: View {
                         secondsx4 = 120
                         chagokScene.isNotUpdate = false
                         isBestScore = false
+                        
+                        chagokScene.isNotUpdate = true
+                        isStarted = true
+                        tapToStartOpacity = 1
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
@@ -118,17 +129,17 @@ struct ChagokGameOverView: View {
                 gameoverOpacity = 1
             }
             if chagokScene.boxLineCount >= 5{
-                chagokMissionSuccess = true
+                ChagokMissionSuccess = true
             }
         }
     }
 }
 
-struct ChagokGameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
-    }
-}
+//struct ChagokGameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
+//    }
+//}
 
 extension ChagokGameOverView {
     
@@ -162,5 +173,20 @@ extension ChagokGameOverView {
         .shadow(
             color: Color(.white).opacity(0.4), radius: 16
         )
+    }
+}
+
+extension ChagokGameOverView {
+    
+    @MainActor
+    var photo: TransferableUIImage {
+        return .init(uiimage: dailyShareUIImage, caption: "SounDrill 기록 공유하기")
+    }
+    
+    @MainActor
+    var dailyShareUIImage: UIImage {
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(chagokHighScore), gameSelected: gameSelection))
+        renderer.scale = 3.0
+        return renderer.uiImage ?? .init()
     }
 }
