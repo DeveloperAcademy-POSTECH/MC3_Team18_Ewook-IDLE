@@ -14,7 +14,7 @@ struct StarTutorialView: View {
     @EnvironmentObject var starSKScene: StarSKScene
 
     var body: some View {
-        ZStack(){
+        ZStack {
             Color(.black).opacity(0.75)
             
             VStack (spacing: 0){
@@ -22,6 +22,7 @@ struct StarTutorialView: View {
                     Spacer()
                     Button {
                         //TODO: 튜토리얼 상태 저장, 게임 업데이트=false
+                        
                         withAnimation(.easeOut(duration: 0.2)) {
                             tutorialOpacity = 0
                         }
@@ -82,6 +83,9 @@ struct StarTutorialView: View {
         .opacity(tutorialOpacity)
         .statusBarHidden()
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            starSKScene.isStarted = false
+        }
     }
 }
 

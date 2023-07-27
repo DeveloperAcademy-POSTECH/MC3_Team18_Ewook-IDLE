@@ -42,6 +42,7 @@ struct StarGameView: View {
                     .resizable()
                     .frame(width: 120, height: 137)
                     .offset(y:-49)
+                    .opacity(starStatus != .tutorial ? 1 : 0)
             }
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
@@ -68,6 +69,7 @@ struct StarGameView: View {
                             .padding(.vertical, 3.5)
                             .padding(.horizontal, 4)
                     }
+                    .opacity(starStatus != .tutorial ? 1 : 0)
                 }
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
@@ -115,6 +117,16 @@ struct StarGameView: View {
             }
             .padding(.top, 50)
             .padding(.bottom, 32)
+            if !starSKScene.isStarted {
+                VStack {
+                    Spacer().frame(height: 261)
+                    Text("소리를 내면 시작합니다.")
+                        .pretendardSemiBold24()
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .opacity(starStatus != .tutorial ? 1 : 0)
+            }
             
             switch starStatus {
             case .tutorial:
@@ -144,7 +156,7 @@ struct StarGameView: View {
             }
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !starSKScene.isPaused && starStatus != .tutorial {
+                    if !starSKScene.isPaused && starStatus != .tutorial && starSKScene.isStarted {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
@@ -160,8 +172,9 @@ struct StarGameView: View {
             RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: observer.topResults) { _ in
-            if observer.currentSound == "Trill" {
+            if observer.currentSound == "Trill"  && starStatus != .tutorial {
                 starSKScene.isTrill = true
+                starSKScene.isStarted = true
                 banzzakCharacterImage = Image("BanzzakTrill")
             } else {
                 starSKScene.isTrill = false
