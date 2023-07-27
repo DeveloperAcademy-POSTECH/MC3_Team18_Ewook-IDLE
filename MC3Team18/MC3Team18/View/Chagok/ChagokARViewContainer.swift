@@ -61,6 +61,7 @@ extension ChagokARViewContainer {
         var mouthLeft: Double = 0
         var mouthRight: Double = 0
         var mouthPucker: Double = 0
+        var cheekPuff: Double = 0
         
 //        init(parent: ChagokARViewContainer, isFaceTracked: Binding<Bool>, is) {
 //            self.parent = parent
@@ -89,12 +90,14 @@ extension ChagokARViewContainer {
             mouthLeft = faceAnchor.blendShapes[.mouthSmileLeft]!.doubleValue
             mouthRight = faceAnchor.blendShapes[.mouthSmileRight]!.doubleValue
             mouthPucker = faceAnchor.blendShapes[.mouthPucker]!.doubleValue
+            cheekPuff = faceAnchor.blendShapes[.cheekPuff]!.doubleValue
 
             parent?.mouthHeight = jawOpen
             parent?.mouthWidth = mouthLeft + mouthRight / 2
             print("jawOpen : \(jawOpen)")
             
             mouthA = jawOpen
+            mouthE = cheekPuff
             mouthI = (mouthLeft + mouthRight) / 2
             mouthU = mouthPucker
             print("mouthLeft: \(mouthLeft)")
