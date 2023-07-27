@@ -94,6 +94,7 @@ struct StarGameOverView: View {
                     Button {
                         isBestScore = false
                         starSKScene.isPaused = false
+                        starSKScene.isStarted = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }

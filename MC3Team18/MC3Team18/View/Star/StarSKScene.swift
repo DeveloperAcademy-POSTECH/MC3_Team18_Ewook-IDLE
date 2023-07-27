@@ -12,6 +12,7 @@ class StarSKScene: SKScene, ObservableObject {
     
     @Published var isTrill: Bool = false
     @Published var score: Int = 0
+    @Published var isStarted: Bool = false
     
     private let starImageNames : [String] = ["WhiteStar","YellowStar"]
     
@@ -22,7 +23,7 @@ class StarSKScene: SKScene, ObservableObject {
     
     override func update(_ currentTime: TimeInterval) {
         
-        if isTrill {
+        if isTrill && isStarted {
             framerateTime += 1
             if framerateTime == 60 {
                 framerateTime = 0

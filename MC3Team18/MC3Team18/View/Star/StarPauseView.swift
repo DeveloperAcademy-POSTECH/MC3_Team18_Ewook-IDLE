@@ -56,7 +56,7 @@ struct StarPauseView: View {
                         starSKScene.removeAllChildren()
                         secondsx4 = 120
                         pauseOpacity = 0
-                        
+                        starSKScene.isStarted = false
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         starSKScene.score = 0

@@ -115,6 +115,15 @@ struct StarGameView: View {
             }
             .padding(.top, 50)
             .padding(.bottom, 32)
+            if !starSKScene.isStarted {
+                VStack {
+                    Spacer().frame(height: 261)
+                    Text("소리를 내면 시작합니다.")
+                        .pretendardSemiBold24()
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+            }
             
             switch starStatus {
             case .tutorial:
@@ -160,8 +169,9 @@ struct StarGameView: View {
             RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: observer.topResults) { _ in
-            if observer.currentSound == "Trill" {
+            if observer.currentSound == "Trill"  && starStatus != .tutorial {
                 starSKScene.isTrill = true
+                starSKScene.isStarted = true
                 banzzakCharacterImage = Image("BanzzakTrill")
             } else {
                 starSKScene.isTrill = false
