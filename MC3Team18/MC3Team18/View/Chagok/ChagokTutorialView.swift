@@ -33,7 +33,7 @@ struct ChagokTutorialView: View {
                             .frame(width: 15, height: 15)
                     }
                 }
-                .padding(.top, 48)
+                .padding(.top, 60)
                 .padding(.trailing, 34)
                 Text("차곡차곡")
                     .pretendardSemiBold32()
