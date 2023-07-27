@@ -38,7 +38,7 @@ class ChagokSKScene: SKScene, ObservableObject {
     
     @Published var chagokScore: Int = 0
     
-    @Published var isNotUpdate = false
+    @Published var isNotUpdate = true
     
     @Published var isScaleEffect: Bool = false
     

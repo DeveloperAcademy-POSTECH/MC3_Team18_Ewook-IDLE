@@ -42,7 +42,9 @@ struct ChagokGameView: View {
     @State var isFaceTracked = false
     @State var scoreScale: Double = 1.0
     
-    @State var isStared: Bool = false
+    @State var isStarted: Bool = false
+    
+    @State var tapToStartOpacity: Double = 1
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -135,6 +137,7 @@ struct ChagokGameView: View {
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
+                            
                             SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
                         }
@@ -148,6 +151,18 @@ struct ChagokGameView: View {
             VStack {
                 Spacer()
                 if isFaceTracked && chagokStatus != .tutorial {
+                    if isStarted {
+                        Button {
+                            chagokScene.isNotUpdate = false
+                            tapToStartOpacity = 0
+                        } label: {
+                            Text("Tap to start")
+                                .pretendardSemiBold20()
+                                .foregroundColor(.white)
+                        }
+                        .opacity(tapToStartOpacity)
+                    }
+                    
                     Image(ChagokFace.faceActive.rawValue)
                         .resizable()
                         .scaledToFit()
@@ -181,7 +196,7 @@ struct ChagokGameView: View {
                             .foregroundColor(.white)
                         }
                 }
-                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStared, chagokStatus: $chagokStatus)
+                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStarted, chagokStatus: $chagokStatus)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)
@@ -218,7 +233,7 @@ struct ChagokGameView: View {
             
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !chagokScene.isNotUpdate && isStared {
+                    if !chagokScene.isNotUpdate && isStarted {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
