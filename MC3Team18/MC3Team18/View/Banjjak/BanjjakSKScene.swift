@@ -18,15 +18,15 @@ class BanjjakSKScene: SKScene, ObservableObject {
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
-    var framerateTime : Int = 0
+    var framerateTime : Int = 30
     var gravityEffect = -1
     
     override func update(_ currentTime: TimeInterval) {
         
         if isTrill && isStarted {
-            framerateTime += 1
-            if framerateTime == 60 {
-                framerateTime = 0
+            framerateTime -= 1
+            if framerateTime == 0 {
+                framerateTime = 30
                 AddParticle()
             }
         }
@@ -50,8 +50,14 @@ class BanjjakSKScene: SKScene, ObservableObject {
             y: 129)
         var moveAction = SKAction.move(to: CGPoint(
             x: Double.random(in: 20...size.width - 20),
-            y: Double.random(in: size.height * 0.6 ... size.height)),                          duration: 3)
-        var sizeAction = SKAction.scale(by: Double.random(in: 1...2), duration: 1)
+            y: Double.random(in: size.height * 0.6 ... size.height)), duration: 3)
+        var sizeAction = SKAction.scale(by: Double.random(in: 0.7...1.4), duration: 1)
+        
+        /*
+         → 별 최대 크기 : 50% ~ 70% 정도로 수정 (0.5 0.7) 2
+         → 별 최소 크기: 70% 정도로 수정 0.7  0.7
+         */
+        
         self.addChild(sprite)
         sprite.run(moveAction) {
             self.score += 300
