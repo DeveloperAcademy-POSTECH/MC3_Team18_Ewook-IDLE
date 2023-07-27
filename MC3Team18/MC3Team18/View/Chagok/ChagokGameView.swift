@@ -147,7 +147,7 @@ struct ChagokGameView: View {
             .padding(.top, 50)
             .padding(.horizontal, 34)
             
-            VStack {
+            VStack(spacing: 0) {
                 Spacer()
                 if isFaceTracked && chagokStatus != .tutorial {
                     if isStarted {
@@ -160,6 +160,7 @@ struct ChagokGameView: View {
                                 .foregroundColor(.white)
                         }
                         .opacity(tapToStartOpacity)
+                        .padding(.bottom, 20)
                     }
                     
                     Image(ChagokFace.faceActive.rawValue)
