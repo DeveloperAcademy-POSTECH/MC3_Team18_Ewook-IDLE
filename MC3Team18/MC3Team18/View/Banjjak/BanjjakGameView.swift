@@ -144,7 +144,6 @@ struct BanjjakGameView: View {
                 BanjjakGameOverView(banjjakStatus: $banjjakStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore)
                     .environmentObject(banjjakSKScene)
                     .environmentObject(streamManager)
-                
             }
         }
         .statusBarHidden()
@@ -172,7 +171,8 @@ struct BanjjakGameView: View {
             RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: observer.topResults) { _ in
-            if observer.currentSound == "Trill"  && banjjakStatus != .tutorial {
+            banjjakSKScene.framerateTime = 1
+            if observer.currentSound == "Trill" && banjjakStatus != .tutorial {
                 banjjakSKScene.isTrill = true
                 banjjakSKScene.isStarted = true
                 banjjakCharacterImage = Image("BanjjakTrill")
