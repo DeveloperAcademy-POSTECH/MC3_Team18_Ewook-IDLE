@@ -50,7 +50,7 @@ class ChagokSKScene: SKScene, ObservableObject {
             return
         }
         
-        if mouthA > 0.5 && mouthI > 0.65 {
+        if mouthA > 0.4 && mouthI > 0.4 {
             if mouthState != MouthState.a && leftCupStack[self.currentIndex] == CupName.RedCup {
                 dropbox(cupname: CupName.RedCup)
                 mouthState = MouthState.a
@@ -58,7 +58,7 @@ class ChagokSKScene: SKScene, ObservableObject {
             }
         }
         
-        if mouthA > 0.2 && mouthA < 0.4 && mouthI > 0.5{
+        if mouthE > 0.5{
             if mouthState != MouthState.e && leftCupStack[self.currentIndex] == CupName.YellowCup {
                 dropbox(cupname: CupName.YellowCup)
                 mouthState = MouthState.e

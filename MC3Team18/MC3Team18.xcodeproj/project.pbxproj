@@ -707,9 +707,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC3Team18/Preview Content\"";
-
-				DEVELOPMENT_TEAM = UG6UT639QH;
-
+				DEVELOPMENT_TEAM = D97KNF9M4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "”SounDrill”이 얼굴 추적을 통한 게임 진행을 위해 카메라에 접근하도록 허용해주세요.";
