@@ -19,6 +19,7 @@ struct SplashView: View {
             }else{
                 Image("FullScreenSplash")
                     .resizable()
+                    .scaledToFill()
                     .ignoresSafeArea()
             }
         }
@@ -35,6 +36,8 @@ struct SplashView: View {
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashView()
+        MultiPreview{
+            SplashView()
+        }
     }
 }
