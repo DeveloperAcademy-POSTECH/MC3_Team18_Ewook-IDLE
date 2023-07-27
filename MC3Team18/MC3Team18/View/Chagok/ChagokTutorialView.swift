@@ -34,7 +34,7 @@ struct ChagokTutorialView: View {
                     }
                 }
                 .padding(.top, 48)
-                .padding(.trailing, 26)
+                .padding(.trailing, 34)
                 Text("차곡차곡")
                     .pretendardSemiBold32()
                     .foregroundColor(.Yellow)

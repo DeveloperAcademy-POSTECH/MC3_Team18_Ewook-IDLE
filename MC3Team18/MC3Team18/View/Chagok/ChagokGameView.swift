@@ -77,6 +77,7 @@ struct ChagokGameView: View {
                             .frame(width: 16, height: 16)
                             .padding(.vertical, 3.5)
                             .padding(.horizontal, 4)
+                            .opacity(chagokStatus == .tutorial ? 0 : 1)
                     }
                 }
                 .foregroundColor(.white)
