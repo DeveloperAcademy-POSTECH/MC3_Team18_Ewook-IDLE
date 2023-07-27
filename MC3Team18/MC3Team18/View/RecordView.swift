@@ -1,5 +1,5 @@
 //
-//  MenuView.swift
+//  RecordView.swift
 //  MC3Team18
 //
 //  Created by ChoiYujin on 2023/07/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct RecordView: View {
     
     
     
@@ -23,7 +23,7 @@ struct MenuView: View {
     var body: some View {
         VStack {
             
-            Image("MenuGradient")
+            Image("RecordGradient")
                 .resizable()
                 .frame(minHeight: 250, maxHeight: .infinity)
                 .overlay {
@@ -79,9 +79,9 @@ struct MenuView: View {
                         
                         Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
-                            MenuHexgagonView(isCompleted: BalloonMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
-                            MenuHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
-                            MenuHexgagonView(isCompleted: StarMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
+                            RecordHexgagonView(isCompleted: BalloonMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
+                            RecordHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
+                            RecordHexgagonView(isCompleted: StarMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                         }
                         Spacer()
                     }
@@ -89,7 +89,7 @@ struct MenuView: View {
             Spacer().frame(maxHeight: 34)
             Divider()
             Spacer().frame(height: 31)
-            MenuBottomScoresView()
+            RecordBestScoresView()
             Spacer().frame(height: 60)
         }
         .ignoresSafeArea()
@@ -119,16 +119,16 @@ struct MenuView: View {
     
 }
 
-struct MenuView_Previews: PreviewProvider {
+struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(gameSelected: .constant(.record))
+        RecordView(gameSelected: .constant(.record))
         MultiPreview {
-            MenuView(gameSelected: .constant(.record))
+            RecordView(gameSelected: .constant(.record))
         }
     }
 }
 
-extension MenuView {
+extension RecordView {
     
     @MainActor
     var photo: TransferableUIImage {
@@ -138,7 +138,7 @@ extension MenuView {
     @MainActor
     var dailyShareUIImage: UIImage {
         
-        let renderer = ImageRenderer(content: DailyShareView())
+        let renderer = ImageRenderer(content: RecordDailyShareView())
         renderer.scale = 3.0
         return renderer.uiImage ?? .init()
     }

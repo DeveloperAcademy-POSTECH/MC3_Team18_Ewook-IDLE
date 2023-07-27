@@ -52,11 +52,11 @@
 		787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */; };
 		787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF02A612276007FC5EB /* UIViewExtension.swift */; };
 		787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */; };
-		788C20D62A6A4DCD00953579 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D52A6A4DCD00953579 /* MenuView.swift */; };
-		788C20DA2A6A5B5C00953579 /* MenuHexgagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */; };
+		788C20D62A6A4DCD00953579 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D52A6A4DCD00953579 /* RecordView.swift */; };
+		788C20DA2A6A5B5C00953579 /* RecordHexgagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20D92A6A5B5C00953579 /* RecordHexgagonView.swift */; };
 		788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */; };
-		788C20E02A6A6D0C00953579 /* MenuBottomScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */; };
-		788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */; };
+		788C20E02A6A6D0C00953579 /* RecordBestScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DF2A6A6D0C00953579 /* RecordBestScoresView.swift */; };
+		788E4C7C2A6CF8EF00DAE596 /* RecordDailyShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7B2A6CF8EF00DAE596 /* RecordDailyShareView.swift */; };
 		788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */; };
 		78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */; };
 		78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */; };
@@ -128,11 +128,11 @@
 		787AEDEE2A612231007FC5EB /* UIVisualEffectViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtension.swift; sourceTree = "<group>"; };
 		787AEDF02A612276007FC5EB /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		788C20D52A6A4DCD00953579 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHexgagonView.swift; sourceTree = "<group>"; };
+		788C20D52A6A4DCD00953579 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		788C20D92A6A5B5C00953579 /* RecordHexgagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordHexgagonView.swift; sourceTree = "<group>"; };
 		788C20DB2A6A5D1B00953579 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomScoresView.swift; sourceTree = "<group>"; };
-		788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyShareView.swift; sourceTree = "<group>"; };
+		788C20DF2A6A6D0C00953579 /* RecordBestScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBestScoresView.swift; sourceTree = "<group>"; };
+		788E4C7B2A6CF8EF00DAE596 /* RecordDailyShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDailyShareView.swift; sourceTree = "<group>"; };
 		788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
 		78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionExtension.swift; sourceTree = "<group>"; };
 		78BE77CC2A5D69440028A446 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -243,14 +243,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		788C20D82A6A5A3000953579 /* Menu */ = {
+		788C20D82A6A5A3000953579 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				788C20D92A6A5B5C00953579 /* MenuHexgagonView.swift */,
-				788C20DF2A6A6D0C00953579 /* MenuBottomScoresView.swift */,
-				788E4C7B2A6CF8EF00DAE596 /* DailyShareView.swift */,
+				788C20D92A6A5B5C00953579 /* RecordHexgagonView.swift */,
+				788C20DF2A6A6D0C00953579 /* RecordBestScoresView.swift */,
+				788E4C7B2A6CF8EF00DAE596 /* RecordDailyShareView.swift */,
 			);
-			path = Menu;
+			path = Record;
 			sourceTree = "<group>";
 		};
 		78BE77C92A5D4E8B0028A446 /* Chagok */ = {
@@ -340,7 +340,7 @@
 			children = (
 				784CADAB2A6D082700B2CE6C /* Games */,
 				78E7C9DF2A6BC2F500570F4C /* Home */,
-				788C20D82A6A5A3000953579 /* Menu */,
+				788C20D82A6A5A3000953579 /* Record */,
 				7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */,
 				787AEDEA2A612046007FC5EB /* CustomBlurView.swift */,
 				78C7EF912A678A6B00460E90 /* LottieView.swift */,
@@ -404,7 +404,7 @@
 				600264222A6D064F0035A0E1 /* Star */,
 				E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */,
 				E53CEA192A5D3E7000BE59B9 /* HomeView.swift */,
-				788C20D52A6A4DCD00953579 /* MenuView.swift */,
+				788C20D52A6A4DCD00953579 /* RecordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
-				788C20D62A6A4DCD00953579 /* MenuView.swift in Sources */,
+				788C20D62A6A4DCD00953579 /* RecordView.swift in Sources */,
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
 				600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */,
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
@@ -528,7 +528,7 @@
 				600264362A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel in Sources */,
 				600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */,
 				600264322A6D989B0035A0E1 /* Trill_35_05_50.mlmodel in Sources */,
-				788E4C7C2A6CF8EF00DAE596 /* DailyShareView.swift in Sources */,
+				788E4C7C2A6CF8EF00DAE596 /* RecordDailyShareView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */,
 				784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */,
@@ -542,10 +542,10 @@
 				78E7C9E12A6BC30100570F4C /* TrophyView.swift in Sources */,
 				608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */,
 				787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */,
-				788C20E02A6A6D0C00953579 /* MenuBottomScoresView.swift in Sources */,
+				788C20E02A6A6D0C00953579 /* RecordBestScoresView.swift in Sources */,
 				78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */,
 				787AEDF32A6123CB007FC5EB /* NSObjectExtension.swift in Sources */,
-				788C20DA2A6A5B5C00953579 /* MenuHexgagonView.swift in Sources */,
+				788C20DA2A6A5B5C00953579 /* RecordHexgagonView.swift in Sources */,
 				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
 				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
 				608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */,

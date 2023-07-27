@@ -1,5 +1,5 @@
 //
-// MenuBottomScoresView.swift
+// RecordBottomScoresView.swift
 // MC3Team18
 //
 // Created by ChoiYujin on 2023/07/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuBottomScoresView: View {
+struct RecordBestScoresView: View {
     //TODO: Star 게임 만들어지면 바꿀 것
     var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", String(UserDefaults.standard.integer(forKey: "chagokScore")), String(UserDefaults.standard.integer(forKey: "starScore"))]
     var bestRecordArray : [String] = [
@@ -67,13 +67,13 @@ struct MenuBottomScoresView: View {
     }
 }
 
-struct MenuBottomScoresView_Previews: PreviewProvider {
+struct RecordBottomScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuBottomScoresView()
+        RecordBestScoresView()
     }
 }
 
-extension MenuBottomScoresView {
+extension RecordBestScoresView {
     enum BestScoreImage: String, CaseIterable {
         case bubble = "BubbleGumBest"
         case chagok = "ChagokBest"

@@ -1,5 +1,5 @@
 //
-//  MenuHexgagonView.swift
+//  RecordHexgagonView.swift
 //  MC3Team18
 //
 //  Created by ChoiYujin on 2023/07/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuHexgagonView: View {
+struct RecordHexgagonView: View {
     
     @State var isCompleted: Bool = true
     @State var gameName = "차곡차곡"
@@ -17,7 +17,7 @@ struct MenuHexgagonView: View {
     
     
     var body: some View {
-        Image("MenuHexagon")
+        Image("RecordHexagon")
             .frame(width: 100, height: 100)
             .overlay {
                 ZStack {
@@ -61,8 +61,8 @@ struct MenuHexgagonView: View {
     }
 }
 
-struct MenuHexgagonView_Previews: PreviewProvider {
+struct RecordHexgagonView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuHexgagonView()
+        RecordHexgagonView()
     }
 }

@@ -96,7 +96,7 @@ struct HomeView: View {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
             case .record:
-                MenuView(gameSelected: $gameSelected)
+                RecordView(gameSelected: $gameSelected)
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
