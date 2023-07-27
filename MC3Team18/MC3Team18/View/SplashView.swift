@@ -17,20 +17,9 @@ struct SplashView: View {
             if self.isActive{
                 HomeView(gameSelected: $gameSelected)
             }else{
-                VStack(){
-                    Image("BackgroundSplashView").resizable()
-                        .overlay(
-                            VStack(spacing: 30) {
-                                //Spacer().frame(height: 14)
-                                Image("SplashLogo")
-                                Text("발성연습을 쉽고 재미있게")
-                                    .foregroundColor(.white)
-                                    .pretendardSemiBold12()
-                                    .kerning(4)
-                            }
-                        )
-                }
-                .ignoresSafeArea()
+                Image("FullScreenSplash")
+                    .resizable()
+                    .ignoresSafeArea()
             }
         }
         .statusBarHidden()
