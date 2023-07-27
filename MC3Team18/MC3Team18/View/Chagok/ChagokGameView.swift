@@ -42,7 +42,8 @@ struct ChagokGameView: View {
     @State var isFaceTracked = false
     @State var scoreScale: Double = 1.0
     
-    @State var isStared: Bool = false
+    @State var isStarted: Bool = false
+    @State var tapToStartOpacity: Double = 1
     
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
@@ -77,6 +78,7 @@ struct ChagokGameView: View {
                             .frame(width: 16, height: 16)
                             .padding(.vertical, 3.5)
                             .padding(.horizontal, 4)
+                            .opacity(chagokStatus == .tutorial ? 0 : 1)
                     }
                 }
                 .foregroundColor(.white)
@@ -134,6 +136,7 @@ struct ChagokGameView: View {
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
+                            
                             SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
                         }
@@ -144,9 +147,22 @@ struct ChagokGameView: View {
             .padding(.top, 50)
             .padding(.horizontal, 34)
             
-            VStack {
+            VStack(spacing: 0) {
                 Spacer()
                 if isFaceTracked && chagokStatus != .tutorial {
+                    if isStarted {
+                        Button {
+                            chagokScene.isNotUpdate = false
+                            tapToStartOpacity = 0
+                        } label: {
+                            Text("Tap to start")
+                                .pretendardSemiBold20()
+                                .foregroundColor(.white)
+                        }
+                        .opacity(tapToStartOpacity)
+                        .padding(.bottom, 20)
+                    }
+                    
                     Image(ChagokFace.faceActive.rawValue)
                         .resizable()
                         .scaledToFit()
@@ -180,7 +196,7 @@ struct ChagokGameView: View {
                             .foregroundColor(.white)
                         }
                 }
-                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStared, chagokStatus: $chagokStatus)
+                ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStarted, chagokStatus: $chagokStatus)
                     .frame(width: 0, height: 0)
                     .cornerRadius(20)
                     .shadow(radius: 3)
@@ -197,10 +213,10 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
                     .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
                     .environmentObject(chagokScene)
             }
         }
@@ -217,7 +233,7 @@ struct ChagokGameView: View {
             
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !chagokScene.isNotUpdate && isStared {
+                    if !chagokScene.isNotUpdate && isStarted {
                         withAnimation {
                             self.secondsx4 -= 1
                         }

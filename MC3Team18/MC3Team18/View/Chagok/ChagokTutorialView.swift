@@ -22,7 +22,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        chagokScene.isNotUpdate = false
+                        chagokScene.isNotUpdate = true
                         withAnimation(.easeOut(duration: 0.3)) {
                             chagokStatus = .game
                         }
@@ -33,8 +33,8 @@ struct ChagokTutorialView: View {
                             .frame(width: 15, height: 15)
                     }
                 }
-                .padding(.top, 48)
-                .padding(.trailing, 26)
+                .padding(.top, 60)
+                .padding(.trailing, 34)
                 Text("차곡차곡")
                     .pretendardSemiBold32()
                     .foregroundColor(.Yellow)
