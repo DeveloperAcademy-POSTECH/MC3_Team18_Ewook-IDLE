@@ -10,10 +10,10 @@ import SwiftUI
 struct RecordDailyShareView: View {
     
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
-    @AppStorage("BalloonMissionSuccess") var balloonMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var bubbleMissionSuccess: Bool = false
     @AppStorage("StarMissionSuccess") var starMissionSuccess: Bool = false
     var completedNum: Int {
-        [chagokMissionSuccess, balloonMissionSuccess, starMissionSuccess].filter( { (value: Bool) -> Bool in return (value) } ).count
+        [chagokMissionSuccess, bubbleMissionSuccess, starMissionSuccess].filter( { (value: Bool) -> Bool in return (value) } ).count
     }
     
     
@@ -45,7 +45,7 @@ struct RecordDailyShareView: View {
                 }
                 Spacer().frame(height: 33)
                 HStack(spacing: 19) {
-                    RecordHexgagonView(isCompleted: balloonMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "줄")
+                    RecordHexgagonView(isCompleted: bubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "줄")
                     RecordHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "초")
                     RecordHexgagonView(isCompleted: starMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                 }

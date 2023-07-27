@@ -13,7 +13,7 @@ struct BubbleGameOverView: View {
     @Binding var score: String
     @Binding var bubbleHighScore: String
     @Binding var isBestScore: Bool
-    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     var streamManager: AudioStreamManager
 
     var body: some View {
@@ -102,7 +102,7 @@ struct BubbleGameOverView: View {
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
             if Int(score)! / 1000 >= 5{
-                BalloonMissionSuccess = true
+                BubbleMissionSuccess = true
             }
         }
     }

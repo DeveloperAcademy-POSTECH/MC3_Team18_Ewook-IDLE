@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @Binding var gameSelected: GameSelection
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
-    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
@@ -46,7 +46,7 @@ struct HomeView: View {
                                 gameSelected = .bubble
                             }
                         } label: {
-                            Image("ButtonBalloon")
+                            Image("ButtonBubble")
                         }
                         Button {
                             print("chagok")
@@ -105,7 +105,7 @@ struct HomeView: View {
         }.onAppear{
             if DailyRoutineCurrentDate != currentDate{
                 chagokMissionSuccess = false
-                BalloonMissionSuccess = false
+                BubbleMissionSuccess = false
                 StarMissionSuccess = false
                 DailyRoutineCurrentDate = currentDate
             }
