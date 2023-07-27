@@ -17,7 +17,7 @@ struct ChagokGameOverView: View {
     @Binding var secondsx4: Int
     @Binding var isStarted: Bool
     @Binding var tapToStartOpacity: Double
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     var chagokHighScore = UserDefaults.standard.integer(forKey: "chagokScore")
     
     var body: some View {
@@ -129,7 +129,7 @@ struct ChagokGameOverView: View {
                 gameoverOpacity = 1
             }
             if chagokScene.boxLineCount >= 5{
-                chagokMissionSuccess = true
+                ChagokMissionSuccess = true
             }
         }
     }

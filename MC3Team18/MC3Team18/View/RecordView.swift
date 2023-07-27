@@ -12,7 +12,7 @@ struct RecordView: View {
     
     
     @Binding var gameSelected: GameSelection
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
@@ -80,7 +80,7 @@ struct RecordView: View {
                         Spacer().frame(maxHeight: 60)
                         HStack(spacing: 19) {
                             RecordHexgagonView(isCompleted: BubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
-                            RecordHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
+                            RecordHexgagonView(isCompleted: ChagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "줄")
                             RecordHexgagonView(isCompleted: BanjjakMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                         }
                         Spacer()
@@ -96,10 +96,10 @@ struct RecordView: View {
         .statusBarHidden()
         .background(.white)
         .onAppear{
-            if chagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true{
+            if ChagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true{
                 firstLineText = "훌륭합니다! 🎉"
                 secondLineText = "오늘의 드릴을 완료했어요!"
-            } else if chagokMissionSuccess == true || BubbleMissionSuccess == true || BanjjakMissionSuccess == true{
+            } else if ChagokMissionSuccess == true || BubbleMissionSuccess == true || BanjjakMissionSuccess == true{
                 firstLineText = "잘하고 있어요! 👍"
                 secondLineText = "전부 완료해 볼까요?"
             }

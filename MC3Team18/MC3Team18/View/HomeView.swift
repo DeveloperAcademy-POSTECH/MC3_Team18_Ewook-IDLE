@@ -11,7 +11,7 @@ import AVKit
 struct HomeView: View {
     
     @Binding var gameSelected: GameSelection
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
@@ -104,7 +104,7 @@ struct HomeView: View {
             }
         }.onAppear{
             if DailyRoutineCurrentDate != currentDate{
-                chagokMissionSuccess = false
+                ChagokMissionSuccess = false
                 BubbleMissionSuccess = false
                 BanjjakMissionSuccess = false
                 DailyRoutineCurrentDate = currentDate
