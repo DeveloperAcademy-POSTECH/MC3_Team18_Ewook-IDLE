@@ -42,6 +42,7 @@ struct StarGameView: View {
                     .resizable()
                     .frame(width: 120, height: 137)
                     .offset(y:-49)
+                    .opacity(starStatus != .tutorial ? 1 : 0)
             }
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
@@ -68,6 +69,7 @@ struct StarGameView: View {
                             .padding(.vertical, 3.5)
                             .padding(.horizontal, 4)
                     }
+                    .opacity(starStatus != .tutorial ? 1 : 0)
                 }
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
@@ -123,6 +125,7 @@ struct StarGameView: View {
                         .foregroundColor(.white)
                     Spacer()
                 }
+                .opacity(starStatus != .tutorial ? 1 : 0)
             }
             
             switch starStatus {
