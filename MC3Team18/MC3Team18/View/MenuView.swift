@@ -87,17 +87,6 @@ struct MenuView: View {
                     }
                 }
             Spacer().frame(maxHeight: 34)
-            HStack {
-                Text("My Records")
-                    .pretendardMedium20()
-                    .foregroundColor(.DarkGray)
-                Spacer()
-            }
-            .padding(.leading, 34)
-            
-            MenuMyRecordsView(backToBackDays: 1, thisMonthDays: 1, totalDays: 1)
-                .frame(maxWidth: .infinity)
-            Spacer().frame(maxHeight: 37)
             Divider()
             Spacer().frame(height: 31)
             MenuBottomScoresView()
