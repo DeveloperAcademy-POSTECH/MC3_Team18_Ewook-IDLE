@@ -9,8 +9,8 @@ import Foundation
 
 enum GameSelection: String {
     case none
-    case bubbleGum = "버블버블"
+    case bubble = "버블버블"
     case chagok = "차곡차곡"
-    case star = "반짝반짝"
+    case banjjak = "반짝반짝"
     case record
 }

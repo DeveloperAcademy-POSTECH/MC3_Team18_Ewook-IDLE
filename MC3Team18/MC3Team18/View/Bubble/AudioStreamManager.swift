@@ -1,15 +1,15 @@
 //
-//  StarAudioStreamManager.swift
+//  AudioStreamManager.swift
 //  MC3Team18
 //
-//  Created by Lee Jinhee on 2023/07/25.
+//  Created by Lee Jinhee on 2023/07/15.
 //
 
 import Foundation
 import AVFoundation
 import SoundAnalysis
 
-class StarAudioStreamManager: ObservableObject {
+class AudioStreamManager {
     
     private var engine: AVAudioEngine?
     private var inputBus: AVAudioNodeBus?
@@ -50,7 +50,7 @@ class StarAudioStreamManager: ObservableObject {
     }
     
     private func bgmStart() {
-        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banzzakBGM.rawValue)
+        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.bubbleBGM.rawValue)
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
@@ -73,7 +73,9 @@ class StarAudioStreamManager: ObservableObject {
     ///Setup the custom sound classifier
     private func classifierSetup() {
         let defaultConfig = MLModelConfiguration()
-        let soundClassifier = try? Trill_35_05_50(configuration: defaultConfig)
+        //let soundClassifier = try? MySoundClassifier0715(configuration: defaultConfig)
+        let soundClassifier = try? Voice_35_05_75(configuration: defaultConfig)
+         
         guard let soundClassifier = soundClassifier else {
             fatalError("Could not instantiate sound classifier")
         }

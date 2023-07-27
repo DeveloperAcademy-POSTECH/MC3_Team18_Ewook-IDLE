@@ -1,15 +1,15 @@
 //
-//  AudioStreamManager.swift
+//  BanjjakAudioStreamManager.swift
 //  MC3Team18
 //
-//  Created by Lee Jinhee on 2023/07/15.
+//  Created by Lee Jinhee on 2023/07/25.
 //
 
 import Foundation
 import AVFoundation
 import SoundAnalysis
 
-class AudioStreamManager {
+class BanjjakAudioStreamManager: ObservableObject {
     
     private var engine: AVAudioEngine?
     private var inputBus: AVAudioNodeBus?
@@ -50,7 +50,7 @@ class AudioStreamManager {
     }
     
     private func bgmStart() {
-        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.bubblegumBGM.rawValue)
+        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banjjakBGM.rawValue)
     }
     
     public func resultObservation(with observer: SNResultsObserving) {
@@ -73,9 +73,7 @@ class AudioStreamManager {
     ///Setup the custom sound classifier
     private func classifierSetup() {
         let defaultConfig = MLModelConfiguration()
-        //let soundClassifier = try? MySoundClassifier0715(configuration: defaultConfig)
-        let soundClassifier = try? Voice_35_05_75(configuration: defaultConfig)
-         
+        let soundClassifier = try? Trill_35_05_50(configuration: defaultConfig)
         guard let soundClassifier = soundClassifier else {
             fatalError("Could not instantiate sound classifier")
         }

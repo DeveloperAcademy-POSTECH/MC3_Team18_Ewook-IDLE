@@ -1,5 +1,5 @@
 //
-//  StarGameView.swift
+//  BanjjakGameView.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/23.
@@ -8,19 +8,19 @@
 import SwiftUI
 import _SpriteKit_SwiftUI
 
-struct StarGameView: View {
-    @State var starStatus: StarStatus = .tutorial
+struct BanjjakGameView: View {
+    @State var banjjakStatus: BanjjakStatus = .tutorial
     @Binding var gameSelection: GameSelection
     @State var secondsx4: Int = 120
     @State var gameOpacity: Double = 0
-    @StateObject var starSKScene: StarSKScene = StarSKScene()
+    @StateObject var banjjakSKScene: BanjjakSKScene = BanjjakSKScene()
     
     @State var isBestScore: Bool = false
     
-    @ObservedObject var observer: StarAudioStreamObserver  = StarAudioStreamObserver()
-    @ObservedObject var streamManager: StarAudioStreamManager = StarAudioStreamManager()
+    @ObservedObject var observer: BanjjakAudioStreamObserver  = BanjjakAudioStreamObserver()
+    @ObservedObject var streamManager: BanjjakAudioStreamManager = BanjjakAudioStreamManager()
     
-    @State var banzzakCharacterImage = Image("BanzzakDefault")
+    @State var banjjakCharacterImage = Image("BanjjakDefault")
     
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
@@ -32,35 +32,35 @@ struct StarGameView: View {
     var body: some View {
         ZStack {
             Color.clear.overlay {
-                Image("BackgroundStar")
+                Image("BackgroundBanjjak")
                     .resizable()
                     .scaledToFill()
             }
             VStack {
                 Spacer()
-                banzzakCharacterImage
+                banjjakCharacterImage
                     .resizable()
                     .frame(width: 120, height: 137)
                     .offset(y:-49)
-                    .opacity(starStatus != .tutorial ? 1 : 0)
+                    .opacity(banjjakStatus != .tutorial ? 1 : 0)
             }
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("\(starSKScene.score)")
+                    Text("\(banjjakSKScene.score)")
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                         .onTapGesture {
-                            starSKScene.isTrill.toggle()
+                            banjjakSKScene.isTrill.toggle()
                         }
                     //TODO: ScaleEffect
                     Spacer()
                     Button {
-                        //TODO: starState = 일시정지
-                        starSKScene.isPaused = true
-                        starStatus = StarStatus.pause
+                        //TODO: banjjakState = 일시정지
+                        banjjakSKScene.isPaused = true
+                        banjjakStatus = BanjjakStatus.pause
                     } label: {
                         Image(systemName: "pause.fill")
                             .resizable()
@@ -69,7 +69,7 @@ struct StarGameView: View {
                             .padding(.vertical, 3.5)
                             .padding(.horizontal, 4)
                     }
-                    .opacity(starStatus != .tutorial ? 1 : 0)
+                    .opacity(banjjakStatus != .tutorial ? 1 : 0)
                 }
                 .foregroundColor(.white)
                 .padding(.bottom, 5)
@@ -106,10 +106,10 @@ struct StarGameView: View {
                 
                 VStack {
                     GeometryReader { geo in
-                        SpriteView(scene: starSKScene, options: [.allowsTransparency])
+                        SpriteView(scene: banjjakSKScene, options: [.allowsTransparency])
                             .frame(width: CGFloat(geo.size.width), height: CGFloat(geo.size.height))
                             .onAppear {
-                                starSKScene.size = CGSize(width: geo.size.width, height: geo.size.height)
+                                banjjakSKScene.size = CGSize(width: geo.size.width, height: geo.size.height)
                             }
                     }
                 }
@@ -117,7 +117,7 @@ struct StarGameView: View {
             }
             .padding(.top, 50)
             .padding(.bottom, 32)
-            if !starSKScene.isStarted {
+            if !banjjakSKScene.isStarted {
                 VStack {
                     Spacer().frame(height: 261)
                     Text("소리를 내면 시작합니다.")
@@ -125,24 +125,24 @@ struct StarGameView: View {
                         .foregroundColor(.white)
                     Spacer()
                 }
-                .opacity(starStatus != .tutorial ? 1 : 0)
+                .opacity(banjjakStatus != .tutorial ? 1 : 0)
             }
             
-            switch starStatus {
+            switch banjjakStatus {
             case .tutorial:
                 // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
-                StarTutorialView(starStatus: $starStatus)
-                    .environmentObject(starSKScene)
+                BanjjakTutorialView(banjjakStatus: $banjjakStatus)
+                    .environmentObject(banjjakSKScene)
                     .transition(.opacity)
             case .game:
                 EmptyView()
             case .pause:
-                StarPauseView(starStatus: $starStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
-                    .environmentObject(starSKScene)
+                BanjjakPauseView(banjjakStatus: $banjjakStatus, gameSelection: $gameSelection, secondsx4: $secondsx4)
+                    .environmentObject(banjjakSKScene)
                     .environmentObject(streamManager)
             case .gameover:
-                StarGameOverView(starStatus: $starStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore)
-                    .environmentObject(starSKScene)
+                BanjjakGameOverView(banjjakStatus: $banjjakStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore)
+                    .environmentObject(banjjakSKScene)
                     .environmentObject(streamManager)
                 
             }
@@ -156,14 +156,14 @@ struct StarGameView: View {
             }
             let timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
                 if self.secondsx4 > 0 {
-                    if !starSKScene.isPaused && starStatus != .tutorial && starSKScene.isStarted {
+                    if !banjjakSKScene.isPaused && banjjakStatus != .tutorial && banjjakSKScene.isStarted {
                         withAnimation {
                             self.secondsx4 -= 1
                         }
                     }
                 } else {
                     withAnimation(.easeOut(duration: 1)) {
-                        starStatus = StarStatus.gameover
+                        banjjakStatus = BanjjakStatus.gameover
                         self.secondsx4 = 120
                         checkBestScore()
                     }
@@ -172,26 +172,26 @@ struct StarGameView: View {
             RunLoop.current.add(timer, forMode: .common)
         }
         .onChange(of: observer.topResults) { _ in
-            if observer.currentSound == "Trill"  && starStatus != .tutorial {
-                starSKScene.isTrill = true
-                starSKScene.isStarted = true
-                banzzakCharacterImage = Image("BanzzakTrill")
+            if observer.currentSound == "Trill"  && banjjakStatus != .tutorial {
+                banjjakSKScene.isTrill = true
+                banjjakSKScene.isStarted = true
+                banjjakCharacterImage = Image("BanjjakTrill")
             } else {
-                starSKScene.isTrill = false
-                banzzakCharacterImage = Image("BanzzakDefault")
+                banjjakSKScene.isTrill = false
+                banjjakCharacterImage = Image("BanjjakDefault")
             }
         }
     }
     func checkBestScore() {
-        if UserDefaults.standard.integer(forKey: "starScore") <= starSKScene.score {
-            UserDefaults.standard.set(starSKScene.score, forKey: "starScore")
+        if UserDefaults.standard.integer(forKey: "banjjakScore") <= banjjakSKScene.score {
+            UserDefaults.standard.set(banjjakSKScene.score, forKey: "banjjakScore")
             self.isBestScore = true
         }
     }
 }
 
-//struct StarGameView_Previews: PreviewProvider {
+//struct BanjjakGameView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        StarGameView(gameSelection: .constant(.star))
+//        BanjjakGameView(gameSelection: .constant(.banjjak))
 //    }
 //}

@@ -1,5 +1,5 @@
 //
-//  StarTutorialView.swift
+//  BanjjakTutorialView.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/23.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct StarTutorialView: View {
-    @State var isNeverShowingStarTutorialToggle: Bool = false
-    @Binding var starStatus: StarStatus
+struct BanjjakTutorialView: View {
+    @State var isNeverShowingBanjjakTutorialToggle: Bool = false
+    @Binding var banjjakStatus: BanjjakStatus
     @State var tutorialOpacity: Double = 1
-    @EnvironmentObject var starSKScene: StarSKScene
+    @EnvironmentObject var banjjakSKScene: BanjjakSKScene
 
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct StarTutorialView: View {
                             tutorialOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            starStatus = .game
+                            banjjakStatus = .game
                         }
                     } label: {
                         Image(systemName:  "xmark")
@@ -53,7 +53,7 @@ struct StarTutorialView: View {
                         .font(.custom("Pretendard", size: 13))
                         .fontWeight(.semibold)
                         .lineLimit(2)
-                    LottieView(filename: "lottieAnima_shiningStar")
+                    LottieView(filename: "lottieAnima_shiningBanjjak")
                         .scaledToFit()
                         .frame(width: 255, height: 408)
                         .padding(.top, 44)
@@ -63,10 +63,10 @@ struct StarTutorialView: View {
                 Spacer()
                 
                 Button {
-                    isNeverShowingStarTutorialToggle.toggle()
+                    isNeverShowingBanjjakTutorialToggle.toggle()
                 } label: {
                     HStack{
-                        Image(systemName: isNeverShowingStarTutorialToggle ? "checkmark.square.fill" : "square")
+                        Image(systemName: isNeverShowingBanjjakTutorialToggle ? "checkmark.square.fill" : "square")
                             .font(.system(size: 20))
                             .pretendardSemiBold20().bold()
                         
@@ -84,14 +84,14 @@ struct StarTutorialView: View {
         .statusBarHidden()
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            starSKScene.isStarted = false
+            banjjakSKScene.isStarted = false
         }
     }
 }
 
-//struct StarTutorialView_Previews: PreviewProvider {
+//struct BanjjakTutorialView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        StarTutorialView(starStatus: .constant(.tutorial))
+//        BanjjakTutorialView(banjjakStatus: .constant(.tutorial))
 //            .
 //    }
 //}

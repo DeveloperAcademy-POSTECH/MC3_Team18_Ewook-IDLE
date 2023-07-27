@@ -1,5 +1,5 @@
 //
-// MenuBottomScoresView.swift
+// RecordBottomScoresView.swift
 // MC3Team18
 //
 // Created by ChoiYujin on 2023/07/21.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct MenuBottomScoresView: View {
-    //TODO: Star 게임 만들어지면 바꿀 것
-    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", String(UserDefaults.standard.integer(forKey: "chagokScore")), String(UserDefaults.standard.integer(forKey: "starScore"))]
+struct RecordBestScoresView: View {
+    //TODO: Banjjak 게임 만들어지면 바꿀 것
+    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", String(UserDefaults.standard.integer(forKey: "chagokScore")), String(UserDefaults.standard.integer(forKey: "banjjakScore"))]
     var bestRecordArray : [String] = [
         String(format: "%.1f", Double(UserDefaults.standard.string(forKey: "BubbleScore") ?? "0")! / 1000.0), 
-        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), String(UserDefaults.standard.integer(forKey: "starScore")/300)
+        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), String(UserDefaults.standard.integer(forKey: "banjjakScore")/300)
     ]
     var bestUnitArray : [String] = ["초", "줄", "개"]
     var bestNameArray : [String] = ["버블버블", "차곡차곡", "반짝반짝"]
@@ -67,16 +67,16 @@ struct MenuBottomScoresView: View {
     }
 }
 
-struct MenuBottomScoresView_Previews: PreviewProvider {
+struct RecordBottomScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuBottomScoresView()
+        RecordBestScoresView()
     }
 }
 
-extension MenuBottomScoresView {
+extension RecordBestScoresView {
     enum BestScoreImage: String, CaseIterable {
-        case bubble = "BubbleGumBest"
+        case bubble = "BubbleBest"
         case chagok = "ChagokBest"
-        case star = "StarBest"
+        case banjjak = "BanjjakBest"
     }
 }

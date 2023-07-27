@@ -11,9 +11,9 @@ import AVKit
 struct HomeView: View {
     
     @Binding var gameSelected: GameSelection
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
-    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
-    @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
     var body: some View {
@@ -43,10 +43,10 @@ struct HomeView: View {
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .bubbleGum
+                                gameSelected = .bubble
                             }
                         } label: {
-                            Image("ButtonBalloon")
+                            Image("ButtonBubble")
                         }
                         Button {
                             print("chagok")
@@ -57,12 +57,12 @@ struct HomeView: View {
                             Image("ButtonCupStack")
                         }
                         Button {
-                            print("Star")
+                            
                             withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .star
+                                gameSelected = .banjjak
                             }
                         } label: {
-                            Image("ButtonStar")
+                            Image("ButtonBanjjak")
                         }
                         Spacer()
                     }
@@ -75,9 +75,9 @@ struct HomeView: View {
                     MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
                     UIApplication.shared.isIdleTimerDisabled = false
                 }
-            case .bubbleGum:
+            case .bubble:
                 Color.clear.overlay {
-                    BubbleGumStatusView(gameSelection: $gameSelected)
+                    BubbleStatusView(gameSelection: $gameSelected)
                 }
                 .transition(.backslide)
                 .onAppear {
@@ -89,14 +89,14 @@ struct HomeView: View {
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
-            case .star:
-                StarGameView(gameSelection: $gameSelected)
+            case .banjjak:
+                BanjjakGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
             case .record:
-                MenuView(gameSelected: $gameSelected)
+                RecordView(gameSelected: $gameSelected)
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
@@ -104,9 +104,9 @@ struct HomeView: View {
             }
         }.onAppear{
             if DailyRoutineCurrentDate != currentDate{
-                chagokMissionSuccess = false
-                BalloonMissionSuccess = false
-                StarMissionSuccess = false
+                ChagokMissionSuccess = false
+                BubbleMissionSuccess = false
+                BanjjakMissionSuccess = false
                 DailyRoutineCurrentDate = currentDate
             }
         }

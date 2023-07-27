@@ -1,5 +1,5 @@
 //
-//  BubbleGumGameView.swift
+//  BubbleGameView.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/13.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct BubbleGumGameView: View {
-    @Binding var bubbleGumStatus: BubbleGumStatus
+struct BubbleGameView: View {
+    @Binding var bubbleStatus: BubbleStatus
     
     @ObservedObject var observer: AudioStreamObserver
     var streamManager: AudioStreamManager
@@ -99,7 +99,7 @@ struct BubbleGumGameView: View {
     
     private func startGame() {
         HapticManager.instance.notification(type: .success)
-        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumBlowEffect.rawValue)
+        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubbleBlowEffect.rawValue)
         self.startTimer()
         isTimerRunning = true
         isBestScore = false
@@ -110,9 +110,9 @@ struct BubbleGumGameView: View {
     private func endGame() {
         HapticManager.instance.notification(type: .error)
         streamManager.stopAudioStream()
-        bubbleGumStatus = .gameover
+        bubbleStatus = .gameover
         SoundEffectPlayer.shared.stopSoundEffect()
-//        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubblegumGameOverEffect.rawValue)
+//        SoundEffectPlayer.shared.playSoundEffect(soundName: SoundNames.bubbleGameOverEffect.rawValue)
         
         self.stopTimer()
         isTimerRunning = false
@@ -145,8 +145,8 @@ struct BubbleGumGameView: View {
     }
 }
 //
-//struct BubbleGumGameView_Previews: PreviewProvider {
+//struct BubbleGameView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        BubbleGumGameView(bubbleGumStatus: .constant(.game))
+//        BubbleGameView(bubbleStatus: .constant(.game))
 //    }
 //}

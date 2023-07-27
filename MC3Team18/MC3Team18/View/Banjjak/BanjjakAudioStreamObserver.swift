@@ -1,5 +1,5 @@
 //
-//  StarAudioStreamObserver.swift
+//  BanjjakAudioStreamObserver.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/25.
@@ -9,7 +9,7 @@ import Foundation
 import SoundAnalysis
 import Combine
 
-class StarAudioStreamObserver: NSObject, SNResultsObserving, ObservableObject {
+class BanjjakAudioStreamObserver: NSObject, SNResultsObserving, ObservableObject {
     @Published var currentSound: String = ""
     @Published var topResults: [SNClassification] = []
     

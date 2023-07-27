@@ -1,5 +1,5 @@
 //
-//  BubbleGumGameOverView.swift
+//  BubbleGameOverView.swift
 //  MC3Team18
 //
 //  Created by Minkyung Kim on 2023/07/11.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct BubbleGumGameOverView: View {
-    @Binding var bubbleGumStatus: BubbleGumStatus
+struct BubbleGameOverView: View {
+    @Binding var bubbleStatus: BubbleStatus
     @Binding var gameSelection: GameSelection
     @Binding var score: String
     @Binding var bubbleHighScore: String
     @Binding var isBestScore: Bool
-    @AppStorage("BalloonMissionSuccess") var BalloonMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     var streamManager: AudioStreamManager
 
     var body: some View {
@@ -80,16 +80,16 @@ struct BubbleGumGameOverView: View {
                             gameSelection = .none
                         }
                     } label: {
-                        bubbleGumGameOverViewButton(systemName: "house", text: "Home")
+                        bubbleGameOverViewButton(systemName: "house", text: "Home")
                     }
                     
                     Spacer()
                     
                     Button {
                         //TODO: 튜토리얼 변수 따라 튜토리얼로 넘어가는 케이스 추가
-                        bubbleGumStatus = .waiting
+                        bubbleStatus = .waiting
                     } label: {
-                        bubbleGumGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                        bubbleGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }
                 .padding(.horizontal, 36)
@@ -102,20 +102,20 @@ struct BubbleGumGameOverView: View {
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
             if Int(score)! / 1000 >= 5{
-                BalloonMissionSuccess = true
+                BubbleMissionSuccess = true
             }
         }
     }
 }
 
-struct BubbleGumGameOverView_Previews: PreviewProvider {
+struct BubbleGameOverView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleGumGameOverView(bubbleGumStatus: .constant(.gameover), gameSelection: .constant(.bubbleGum), score: .constant("23.0"), bubbleHighScore: .constant("22.0"), isBestScore: .constant(true), streamManager: AudioStreamManager())
+        BubbleGameOverView(bubbleStatus: .constant(.gameover), gameSelection: .constant(.bubble), score: .constant("23.0"), bubbleHighScore: .constant("22.0"), isBestScore: .constant(true), streamManager: AudioStreamManager())
     }
 }
 
-extension BubbleGumGameOverView {
-    func bubbleGumGameOverViewButton(systemName: String, text: String) -> some View {
+extension BubbleGameOverView {
+    func bubbleGameOverViewButton(systemName: String, text: String) -> some View {
         return GlassMorphicCard()
             .overlay {
                 Image("ButtonGameOverBorder")
@@ -147,7 +147,7 @@ extension BubbleGumGameOverView {
     }
 }
 
-extension BubbleGumGameOverView {
+extension BubbleGameOverView {
     
     @MainActor
     var photo: TransferableUIImage {

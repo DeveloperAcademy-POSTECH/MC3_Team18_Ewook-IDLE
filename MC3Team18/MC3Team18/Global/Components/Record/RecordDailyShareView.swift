@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct DailyShareView: View {
+struct RecordDailyShareView: View {
     
-    @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
-    @AppStorage("BalloonMissionSuccess") var balloonMissionSuccess: Bool = false
-    @AppStorage("StarMissionSuccess") var starMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var bubbleMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
     var completedNum: Int {
-        [chagokMissionSuccess, balloonMissionSuccess, starMissionSuccess].filter( { (value: Bool) -> Bool in return (value) } ).count
+        [ChagokMissionSuccess, bubbleMissionSuccess, banjjakMissionSuccess].filter( { (value: Bool) -> Bool in return (value) } ).count
     }
     
     
@@ -45,9 +45,9 @@ struct DailyShareView: View {
                 }
                 Spacer().frame(height: 33)
                 HStack(spacing: 19) {
-                    MenuHexgagonView(isCompleted: balloonMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "줄")
-                    MenuHexgagonView(isCompleted: chagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "초")
-                    MenuHexgagonView(isCompleted: starMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
+                    RecordHexgagonView(isCompleted: bubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "줄")
+                    RecordHexgagonView(isCompleted: ChagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "초")
+                    RecordHexgagonView(isCompleted: banjjakMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                 }
                 Spacer().frame(height: 121)
             }
@@ -59,6 +59,6 @@ struct DailyShareView: View {
 
 struct DailyShareView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyShareView()
+        RecordDailyShareView()
     }
 }
