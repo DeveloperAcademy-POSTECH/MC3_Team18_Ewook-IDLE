@@ -75,7 +75,7 @@ struct RecordBottomScoresView_Previews: PreviewProvider {
 
 extension RecordBestScoresView {
     enum BestScoreImage: String, CaseIterable {
-        case bubble = "BubbleGumBest"
+        case bubble = "BubbleBest"
         case chagok = "ChagokBest"
         case star = "StarBest"
     }

@@ -43,7 +43,7 @@ struct HomeView: View {
                         Button {
                             print("bubble")
                             withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .bubbleGum
+                                gameSelected = .bubble
                             }
                         } label: {
                             Image("ButtonBalloon")
@@ -75,9 +75,9 @@ struct HomeView: View {
                     MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
                     UIApplication.shared.isIdleTimerDisabled = false
                 }
-            case .bubbleGum:
+            case .bubble:
                 Color.clear.overlay {
-                    BubbleGumStatusView(gameSelection: $gameSelected)
+                    BubbleStatusView(gameSelection: $gameSelected)
                 }
                 .transition(.backslide)
                 .onAppear {

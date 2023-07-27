@@ -8,9 +8,9 @@
 import Foundation
 
 enum SoundNames: String, CaseIterable{
-    case bubblegumBGM = "bubblegumBGM"
-    case bubblegumBlowEffect = "bubblegumBlowEffect"
-    case bubblegumGameOverEffect = "bubblegumGameOverEffect"
+    case bubbleBGM = "bubbleBGM"
+    case bubbleBlowEffect = "bubbleBlowEffect"
+    case bubbleGameOverEffect = "bubbleGameOverEffect"
     case chagokBGM = "chagokBGM"
     case chagokPungEffect = "chagokPungEffect"
     case homescreenBGM = "homescreenBGM"

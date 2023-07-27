@@ -1,5 +1,5 @@
 //
-//  BubbleGumTutorialView.swift
+//  BubbleTutorialView.swift
 //  MC3Team18
 //
 //  Created by Minkyung Kim on 2023/07/11.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BubbleGumTutorialView: View {
+struct BubbleTutorialView: View {
     
-    @Binding var bubbleGumStatus: BubbleGumStatus
-    @Binding var isShowingBubbleGumTutorial: Bool
-    @Binding var isNeverShowingBubbleGumTutorial: Bool
-    @State var isNeverShowingBubbleGumTutorialToggle : Bool = false
+    @Binding var bubbleStatus: BubbleStatus
+    @Binding var isShowingBubbleTutorial: Bool
+    @Binding var isNeverShowingBubbleTutorial: Bool
+    @State var isNeverShowingBubbleTutorialToggle : Bool = false
     
     var body: some View {
         
@@ -23,9 +23,9 @@ struct BubbleGumTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        UserDefaults.standard.set(false, forKey: "isShowingBubbleGumTutorial")
-                        UserDefaults.standard.set(isNeverShowingBubbleGumTutorialToggle, forKey: "isNeverShowingBubbleGumTutorial")
-                        bubbleGumStatus = .waiting
+                        UserDefaults.standard.set(false, forKey: "isShowingBubbleTutorial")
+                        UserDefaults.standard.set(isNeverShowingBubbleTutorialToggle, forKey: "isNeverShowingBubbleTutorial")
+                        bubbleStatus = .waiting
 
 
                     } label: {
@@ -57,13 +57,13 @@ struct BubbleGumTutorialView: View {
                     .scaleEffect(1.4)
                 Spacer()
                 Button {
-                    isNeverShowingBubbleGumTutorialToggle.toggle()
-                    print("\(isNeverShowingBubbleGumTutorialToggle.description)")
+                    isNeverShowingBubbleTutorialToggle.toggle()
+                    print("\(isNeverShowingBubbleTutorialToggle.description)")
                    
                     
                 } label: {
                     HStack{
-                        Image(systemName: isNeverShowingBubbleGumTutorialToggle ? "checkmark.square.fill" : "square")
+                        Image(systemName: isNeverShowingBubbleTutorialToggle ? "checkmark.square.fill" : "square")
                             .font(.system(size: 20))
                             .pretendardSemiBold20().bold()
                             .foregroundColor(.white)
@@ -80,20 +80,20 @@ struct BubbleGumTutorialView: View {
             .padding(.horizontal, 34)
         }.edgesIgnoringSafeArea(.all)
 //            .onAppear{
-//                if UserDefaults.standard.bool(forKey: "isNeverShowingBubbleGumTutorial") == true {
-//                    bubbleGumStatus = .waiting
+//                if UserDefaults.standard.bool(forKey: "isNeverShowingBubbleTutorial") == true {
+//                    bubbleStatus = .waiting
 //                }
 //                else {
-//                    bubbleGumStatus = .tutorial
+//                    bubbleStatus = .tutorial
 //                }
 //            }
     }
 }
 
-struct BubbleGumTutorialView_Previews: PreviewProvider {
+struct BubbleTutorialView_Previews: PreviewProvider {
     static var previews: some View {
         MultiPreview {
-            BubbleGumTutorialView(bubbleGumStatus: .constant(.tutorial), isShowingBubbleGumTutorial: .constant(true), isNeverShowingBubbleGumTutorial: .constant(false), isNeverShowingBubbleGumTutorialToggle: false)
+            BubbleTutorialView(bubbleStatus: .constant(.tutorial), isShowingBubbleTutorial: .constant(true), isNeverShowingBubbleTutorial: .constant(false), isNeverShowingBubbleTutorialToggle: false)
         }
     }
 }

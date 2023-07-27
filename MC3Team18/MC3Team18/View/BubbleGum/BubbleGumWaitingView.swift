@@ -1,5 +1,5 @@
 //
-//  BubbleGumWaitingView.swift
+//  BubbleWaitingView.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/13.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct BubbleGumWaitingView: View {
+struct BubbleWaitingView: View {
     @Binding var gameSelection: GameSelection
-    @Binding var bubbleGumStatus: BubbleGumStatus
+    @Binding var bubbleStatus: BubbleStatus
     
     var streamManager: AudioStreamManager
     @ObservedObject var observer: AudioStreamObserver
@@ -46,11 +46,11 @@ struct BubbleGumWaitingView: View {
                     print("Start")
                     //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
                     if observer.currentSound == "Voice" {
-                        bubbleGumStatus = .game
+                        bubbleStatus = .game
                     }
                 }
                 .onTapGesture {
-                    bubbleGumStatus = .game
+                    bubbleStatus = .game
                 }
         }
         .offset(y:-340)
@@ -58,11 +58,11 @@ struct BubbleGumWaitingView: View {
     }
 }
 
-struct BubbleGumWaitingView_Previews: PreviewProvider {
+struct BubbleWaitingView_Previews: PreviewProvider {
     static var manager = AudioStreamManager()
     static var observer = AudioStreamObserver()
     
     static var previews: some View {
-        BubbleGumWaitingView(gameSelection: .constant(.bubbleGum), bubbleGumStatus: .constant(.waiting), streamManager: manager, observer: observer).background(.black.opacity(0.5))
+        BubbleWaitingView(gameSelection: .constant(.bubble), bubbleStatus: .constant(.waiting), streamManager: manager, observer: observer).background(.black.opacity(0.5))
     }
 }

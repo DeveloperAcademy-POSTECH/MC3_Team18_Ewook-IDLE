@@ -1,5 +1,5 @@
 //
-//  BubbleGumMainView.swift
+//  BubbleMainView.swift
 //  MC3Team18
 //
 //  Created by Minkyung Kim on 2023/07/11.
@@ -9,10 +9,10 @@ import SwiftUI
 
 
 
-struct BubbleGumStatusView: View {
+struct BubbleStatusView: View {
 
     @Binding var gameSelection: GameSelection
-    @State var bubbleGumStatus: BubbleGumStatus = .tutorial
+    @State var bubbleStatus: BubbleStatus = .tutorial
     
     var offsetValue: CGFloat = -740.0
         
@@ -22,8 +22,8 @@ struct BubbleGumStatusView: View {
     @State var currentBubbleImageIndex = 0
     @State var score: String = "0"
 
-    @State var isNeverShowingBubbleGumTutorial: Bool = UserDefaults.standard.bool(forKey: "isNeverShowingBubbleGumTutorial") ?? false
-    @State var isShowingBubbleGumTutorial: Bool = true
+    @State var isNeverShowingBubbleTutorial: Bool = UserDefaults.standard.bool(forKey: "isNeverShowingBubbleTutorial") ?? false
+    @State var isShowingBubbleTutorial: Bool = true
     @State private var bubbleHighScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0"
     @ObservedObject var observer: AudioStreamObserver
     @State var text: String = ""
@@ -43,31 +43,31 @@ struct BubbleGumStatusView: View {
     
     var body: some View {
         ZStack {
-            Color.clear.overlay{BubbleGumMainView(bubbleGumStatus: $bubbleGumStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)}
+            Color.clear.overlay{BubbleMainView(bubbleStatus: $bubbleStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)}
             
-            switch bubbleGumStatus {
+            switch bubbleStatus {
             case .tutorial:
-                if isNeverShowingBubbleGumTutorial {
-                    BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
+                if isNeverShowingBubbleTutorial {
+                    BubbleWaitingView(gameSelection: $gameSelection, bubbleStatus: $bubbleStatus, streamManager: streamManager, observer: observer)
                 } else {
-                    BubbleGumTutorialView(bubbleGumStatus: $bubbleGumStatus, isShowingBubbleGumTutorial: $isShowingBubbleGumTutorial, isNeverShowingBubbleGumTutorial: $isNeverShowingBubbleGumTutorial)
+                    BubbleTutorialView(bubbleStatus: $bubbleStatus, isShowingBubbleTutorial: $isShowingBubbleTutorial, isNeverShowingBubbleTutorial: $isNeverShowingBubbleTutorial)
                         //.padding(.top, -offsetValue)
                         //.padding(.bottom, -offsetValue)
                 }
             case .waiting:
-                BubbleGumWaitingView(gameSelection: $gameSelection, bubbleGumStatus: $bubbleGumStatus, streamManager: streamManager, observer: observer)
+                BubbleWaitingView(gameSelection: $gameSelection, bubbleStatus: $bubbleStatus, streamManager: streamManager, observer: observer)
             case .game:
-                BubbleGumGameView(bubbleGumStatus: $bubbleGumStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY, isBestScore: $isBestScore)
+                BubbleGameView(bubbleStatus: $bubbleStatus, observer: observer, streamManager: streamManager, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, score: $score, bubbleHighScore: $bubbleHighScore, offsetX: $offsetX, offsetY: $offsetY, isBestScore: $isBestScore)
             case .gameover:
-                BubbleGumGameOverView(bubbleGumStatus: $bubbleGumStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore, isBestScore: $isBestScore, streamManager: streamManager)
+                BubbleGameOverView(bubbleStatus: $bubbleStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore, isBestScore: $isBestScore, streamManager: streamManager)
             }
             
         }
     }
 }
 
-struct BubbleGumMainView: View {
-    @Binding var bubbleGumStatus: BubbleGumStatus
+struct BubbleMainView: View {
+    @Binding var bubbleStatus: BubbleStatus
     
     @Binding var currentExpressionIndex: Int
     @Binding var backgroundOffset: CGFloat
@@ -81,7 +81,7 @@ struct BubbleGumMainView: View {
     let expressionImages = ["ExpressionDefault", "ExpressionSleepy", "ExpressionTired",  "ExpressionGameover"]
 
     let animationGumSizeMaxDuration: Double = 17
-    let bubbleImages = ["BubbleGumPink","BubbleGumOrange", "BubbleGumBlue"]
+    let bubbleImages = ["BubblePink","BubbleOrange", "BubbleBlue"]
   
     let animationBackgroundMaxDuration: Double = 30
     let offsetValue: CGFloat = -740.0
@@ -89,11 +89,11 @@ struct BubbleGumMainView: View {
     var body: some View {
         ZStack {
             // MARK: 배경 이미지
-            Image("BackgroundBubbleGum")
+            Image("BackgroundBubble")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .offset(y: backgroundOffset)
-                .animation(bubbleGumStatus == .game ? .linear(duration: animationBackgroundMaxDuration): .default, value: backgroundOffset)
+                .animation(bubbleStatus == .game ? .linear(duration: animationBackgroundMaxDuration): .default, value: backgroundOffset)
             
             // MARK: 캐릭터 바디
             Image("MainCharacterBody")
@@ -101,14 +101,14 @@ struct BubbleGumMainView: View {
                 .scaledToFit()
                 .frame(width: 180, height: 201)
                 .padding(.top, 60)
-                .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
+                .opacity(bubbleStatus == .tutorial ? 0 : 1)
 
             // MARK: 캐릭터 표정
             VStack {
                 Spacer()
                 Image(expressionImages[currentExpressionIndex])
                     .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
-                    .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
+                    .opacity(bubbleStatus == .tutorial ? 0 : 1)
             }
             .frame(width: 68, height: 52)
             .padding(.bottom, 78)
@@ -121,14 +121,14 @@ struct BubbleGumMainView: View {
                 .scaleEffect(scale, anchor: .top)
                 .offset(y: 198)//.padding(.top, 60)
                 .offset(x: offsetX, y: offsetY)
-                .animation(bubbleGumStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
-                .opacity(bubbleGumStatus == .tutorial ? 0 : 1)
+                .animation(bubbleStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+                .opacity(bubbleStatus == .tutorial ? 0 : 1)
         }
     }
 }
 
-//struct BubbleGumMainView_Previews: PreviewProvider {
+//struct BubbleMainView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        BubbleGumMainView(backgroundOffset: -740)
+//        BubbleMainView(backgroundOffset: -740)
 //    }
 //}
