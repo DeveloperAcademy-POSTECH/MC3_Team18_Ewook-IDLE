@@ -28,7 +28,6 @@ struct StarTutorialView: View {
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             starStatus = .game
-                            starSKScene.isStarted = true
                         }
                     } label: {
                         Image(systemName:  "xmark")
