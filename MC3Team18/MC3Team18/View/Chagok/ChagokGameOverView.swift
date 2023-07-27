@@ -15,6 +15,8 @@ struct ChagokGameOverView: View {
     @Binding var isBestScore: Bool
     @State var gameoverOpacity: Double = 0
     @Binding var secondsx4: Int
+    @Binding var isStarted: Bool
+    @Binding var tapToStartOpacity: Double
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
     var chagokHighScore = UserDefaults.standard.integer(forKey: "chagokScore")
     
@@ -89,6 +91,10 @@ struct ChagokGameOverView: View {
                         secondsx4 = 120
                         chagokScene.isNotUpdate = false
                         isBestScore = false
+                        
+                        chagokScene.isNotUpdate = true
+                        isStarted = true
+                        tapToStartOpacity = 1
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
@@ -129,11 +135,11 @@ struct ChagokGameOverView: View {
     }
 }
 
-struct ChagokGameOverView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
-    }
-}
+//struct ChagokGameOverView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
+//    }
+//}
 
 extension ChagokGameOverView {
     

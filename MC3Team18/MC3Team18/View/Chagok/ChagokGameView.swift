@@ -43,7 +43,6 @@ struct ChagokGameView: View {
     @State var scoreScale: Double = 1.0
     
     @State var isStarted: Bool = false
-    
     @State var tapToStartOpacity: Double = 1
     
     enum ChagokFace: String {
@@ -213,10 +212,10 @@ struct ChagokGameView: View {
             case .game:
                 EmptyView()
             case .pause:
-                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4)
+                ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
                     .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
                     .environmentObject(chagokScene)
             }
         }

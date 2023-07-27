@@ -22,7 +22,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        chagokScene.isNotUpdate = false
+                        chagokScene.isNotUpdate = true
                         withAnimation(.easeOut(duration: 0.3)) {
                             chagokStatus = .game
                         }

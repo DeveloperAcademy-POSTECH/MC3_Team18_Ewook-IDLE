@@ -15,6 +15,9 @@ struct ChagokPauseView: View {
     @Binding var secondsx4: Int
     @State var pauseOpacity: Double = 0
     
+    @Binding var isStarted: Bool
+    @Binding var tapToStartOpacity: Double
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
@@ -57,7 +60,9 @@ struct ChagokPauseView: View {
                     chagokScene.mouthState = .none
                     chagokScene.boxCount = 0
                     secondsx4 = 120
-                    chagokScene.isNotUpdate = false
+                    chagokScene.isNotUpdate = true
+                    isStarted = true
+                    tapToStartOpacity = 1
                     withAnimation(.easeOut(duration: 0.3)) {
                         pauseOpacity = 0
                     }
