@@ -694,6 +694,7 @@
 				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SounDrill;
 				INFOPLIST_KEY_NSCameraUsageDescription = "”SounDrill”이 얼굴 추적을 통한 게임 진행을 위해 카메라에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "”SounDrill”이 음성 인식을 통한 게임 진행을 위해 마이크에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -729,6 +730,7 @@
 				DEVELOPMENT_TEAM = K4QNQ98D35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SounDrill;
 				INFOPLIST_KEY_NSCameraUsageDescription = "”SounDrill”이 얼굴 추적을 통한 게임 진행을 위해 카메라에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "”SounDrill”이 음성 인식을 통한 게임 진행을 위해 마이크에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
