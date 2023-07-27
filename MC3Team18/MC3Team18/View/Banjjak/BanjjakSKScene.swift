@@ -1,5 +1,5 @@
 //
-//  StarSKScene.swift
+//  BanjjakSKScene.swift
 //  MC3Team18
 //
 //  Created by NemoSquare on 7/24/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SpriteKit
 
-class StarSKScene: SKScene, ObservableObject {
+class BanjjakSKScene: SKScene, ObservableObject {
     
     @Published var isTrill: Bool = false
     @Published var score: Int = 0

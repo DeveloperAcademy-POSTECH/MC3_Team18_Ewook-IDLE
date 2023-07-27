@@ -13,7 +13,7 @@ struct HomeView: View {
     @Binding var gameSelected: GameSelection
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
-    @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
     var body: some View {
@@ -57,12 +57,12 @@ struct HomeView: View {
                             Image("ButtonCupStack")
                         }
                         Button {
-                            print("Star")
+                            
                             withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .star
+                                gameSelected = .banjjak
                             }
                         } label: {
-                            Image("ButtonStar")
+                            Image("ButtonBanjjak")
                         }
                         Spacer()
                     }
@@ -89,8 +89,8 @@ struct HomeView: View {
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
-            case .star:
-                StarGameView(gameSelection: $gameSelected)
+            case .banjjak:
+                BanjjakGameView(gameSelection: $gameSelected)
                     .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
@@ -106,7 +106,7 @@ struct HomeView: View {
             if DailyRoutineCurrentDate != currentDate{
                 chagokMissionSuccess = false
                 BubbleMissionSuccess = false
-                StarMissionSuccess = false
+                BanjjakMissionSuccess = false
                 DailyRoutineCurrentDate = currentDate
             }
         }

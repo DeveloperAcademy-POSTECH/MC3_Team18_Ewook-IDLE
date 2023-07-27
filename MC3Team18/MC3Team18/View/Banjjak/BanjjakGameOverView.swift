@@ -1,5 +1,5 @@
 //
-//  StarGameOverView.swift
+//  BanjjakGameOverView.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/23.
@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct StarGameOverView: View {
+struct BanjjakGameOverView: View {
     @State var gameoverOpacity: Double = 0
 
-    @Binding var starStatus: StarStatus
+    @Binding var banjjakStatus: BanjjakStatus
     @Binding var secondsx4: Int
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
 
-    @AppStorage("StarMissionSuccess") var starMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
     
-    @EnvironmentObject var starSKScene: StarSKScene
-    @EnvironmentObject var streamManager: StarAudioStreamManager
+    @EnvironmentObject var banjjakSKScene: BanjjakSKScene
+    @EnvironmentObject var streamManager: BanjjakAudioStreamManager
     
-    let starMissionCount: Int = 10
-    var starHighScore = UserDefaults.standard.integer(forKey: "starScore")
+    let banjjakMissionCount: Int = 10
+    var banjjakHighScore = UserDefaults.standard.integer(forKey: "banjjakScore")
 
     var body: some View {
         ZStack {
@@ -59,14 +59,14 @@ struct StarGameOverView: View {
                             .pretendardLight32()
                         .foregroundColor(.white)
                     }
-                    Text("\(starSKScene.score)")
+                    Text("\(banjjakSKScene.score)")
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     HStack{
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("\(starHighScore)")
+                        Text("\(banjjakHighScore)")
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -77,34 +77,34 @@ struct StarGameOverView: View {
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             isBestScore = false
-                            starSKScene.isPaused = false
-                            starSKScene.removeAllChildren()
-                            starStatus = .tutorial
+                            banjjakSKScene.isPaused = false
+                            banjjakSKScene.removeAllChildren()
+                            banjjakStatus = .tutorial
                             secondsx4 = 120
-                            starSKScene.score = 0
+                            banjjakSKScene.score = 0
                             gameSelection = .none
                             streamManager.stopAudioStream()
                         }
                     } label: {
-                        starGameOverViewButton(systemName: "house", text: "Home")
+                        banjjakGameOverViewButton(systemName: "house", text: "Home")
                     }
                     
                     Spacer()
                     
                     Button {
                         isBestScore = false
-                        starSKScene.isPaused = false
-                        starSKScene.isStarted = false
+                        banjjakSKScene.isPaused = false
+                        banjjakSKScene.isStarted = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameoverOpacity = 0
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            starSKScene.score = 0
-                            starStatus = .game
+                            banjjakSKScene.score = 0
+                            banjjakStatus = .game
                         }
-                        starSKScene.removeAllChildren()
+                        banjjakSKScene.removeAllChildren()
                     } label: {
-                        starGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                        banjjakGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }.padding(.horizontal, 62)
             }
@@ -123,27 +123,27 @@ struct StarGameOverView: View {
             }
         }
         .onAppear {
-            //MARK: StarMissionSuccess 데이터 연결
-            if (starSKScene.score / 300) >= starMissionCount {
-                starMissionSuccess = true
+            //MARK: BanjjakMissionSuccess 데이터 연결
+            if (banjjakSKScene.score / 300) >= banjjakMissionCount {
+                banjjakMissionSuccess = true
             }
             UIApplication.shared.isIdleTimerDisabled = false
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            starSKScene.isPaused = true
+            banjjakSKScene.isPaused = true
         }
     }
 }
 
-//struct StarGameOverView_Previews: PreviewProvider {
+//struct BanjjakGameOverView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        StarGameOverView(starScore: .constant(0), isBestScore: true, starStatus: .constant(.gameover), gameSelection: .constant(.star))
+//        BanjjakGameOverView(banjjakScore: .constant(0), isBestScore: true, banjjakStatus: .constant(.gameover), gameSelection: .constant(.banjjak))
 //    }
 //}
 
-extension StarGameOverView {
-    func starGameOverViewButton(systemName: String, text: String) -> some View {
+extension BanjjakGameOverView {
+    func banjjakGameOverViewButton(systemName: String, text: String) -> some View {
         return GlassMorphicCard()
             .overlay {
                 Image("ButtonGameOverBorder")
@@ -175,7 +175,7 @@ extension StarGameOverView {
     }
 }
 
-extension StarGameOverView {
+extension BanjjakGameOverView {
     
     @MainActor
     var photo: TransferableUIImage {
@@ -184,7 +184,7 @@ extension StarGameOverView {
     
     @MainActor
     var dailyShareUIImage: UIImage {
-        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(starHighScore), gameSelected: gameSelection))
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(banjjakHighScore), gameSelected: gameSelection))
         renderer.scale = 3.0
         return renderer.uiImage ?? .init()
     }

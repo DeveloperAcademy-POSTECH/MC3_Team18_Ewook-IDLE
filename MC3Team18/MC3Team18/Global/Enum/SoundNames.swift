@@ -14,5 +14,5 @@ enum SoundNames: String, CaseIterable{
     case chagokBGM = "chagokBGM"
     case chagokPungEffect = "chagokPungEffect"
     case homescreenBGM = "homescreenBGM"
-    case banzzakBGM = "banzzakBGM"
+    case banjjakBGM = "banjjakBGM"
 }

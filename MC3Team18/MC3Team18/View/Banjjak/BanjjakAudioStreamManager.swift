@@ -1,5 +1,5 @@
 //
-//  StarAudioStreamManager.swift
+//  BanjjakAudioStreamManager.swift
 //  MC3Team18
 //
 //  Created by Lee Jinhee on 2023/07/25.
@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 import SoundAnalysis
 
-class StarAudioStreamManager: ObservableObject {
+class BanjjakAudioStreamManager: ObservableObject {
     
     private var engine: AVAudioEngine?
     private var inputBus: AVAudioNodeBus?
@@ -50,7 +50,7 @@ class StarAudioStreamManager: ObservableObject {
     }
     
     private func bgmStart() {
-        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banzzakBGM.rawValue)
+        MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.banjjakBGM.rawValue)
     }
     
     public func resultObservation(with observer: SNResultsObserving) {

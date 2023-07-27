@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F1BF1902A6FB423004D9EBE /* banzzakBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */; };
+		2F1BF1902A6FB423004D9EBE /* banjjakBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */; };
 		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
 		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
-		2F38EA9B2A6E3DC700889C4B /* StarSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38EA9A2A6E3DC700889C4B /* StarSKScene.swift */; };
+		2F38EA9B2A6E3DC700889C4B /* BanjjakSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F38EA9A2A6E3DC700889C4B /* BanjjakSKScene.swift */; };
 		2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */; };
 		2FF0BA072A66372A005B11CD /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA062A66372A005B11CD /* HapticManager.swift */; };
 		2FF0BA1C2A682789005B11CD /* homescreenBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0BA162A682789005B11CD /* homescreenBGM.mp3 */; };
@@ -21,23 +21,23 @@
 		2FF0BA212A682789005B11CD /* bubbleBlowEffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF0BA1B2A682789005B11CD /* bubbleBlowEffect.mp3 */; };
 		2FF0BA232A682A49005B11CD /* SoundEffectPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA222A682A49005B11CD /* SoundEffectPlayer.swift */; };
 		2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0BA242A682D98005B11CD /* SoundNames.swift */; };
-		600264212A6D06460035A0E1 /* StarGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264202A6D06460035A0E1 /* StarGameView.swift */; };
-		600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264232A6D0C800035A0E1 /* StarPauseView.swift */; };
-		600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */; };
-		600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264272A6D163E0035A0E1 /* StarTutorialView.swift */; };
-		6002642A2A6D1C2B0035A0E1 /* StarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264292A6D1C2B0035A0E1 /* StarStatus.swift */; };
+		600264212A6D06460035A0E1 /* BanjjakGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264202A6D06460035A0E1 /* BanjjakGameView.swift */; };
+		600264242A6D0C800035A0E1 /* BanjjakPauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264232A6D0C800035A0E1 /* BanjjakPauseView.swift */; };
+		600264262A6D0FCD0035A0E1 /* BanjjakGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264252A6D0FCD0035A0E1 /* BanjjakGameOverView.swift */; };
+		600264282A6D163E0035A0E1 /* BanjjakTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264272A6D163E0035A0E1 /* BanjjakTutorialView.swift */; };
+		6002642A2A6D1C2B0035A0E1 /* BanjjakStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */; };
 		600264322A6D989B0035A0E1 /* Trill_35_05_50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 600264312A6D989B0035A0E1 /* Trill_35_05_50.mlmodel */; };
 		600264362A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 600264352A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel */; };
 		608059892A5E71DC007A716D /* BubbleTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGameOverView.swift */; };
 		6080598B2A5E71DC007A716D /* BubbleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059872A5E71DC007A716D /* BubbleStatusView.swift */; };
-		608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059942A5FF0EA007A716D /* BubbleGumStatus.swift */; };
+		608059952A5FF0EA007A716D /* BubbleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059942A5FF0EA007A716D /* BubbleStatus.swift */; };
 		6080599B2A5FF5C6007A716D /* BubbleWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080599A2A5FF5C6007A716D /* BubbleWaitingView.swift */; };
 		6080599D2A60272E007A716D /* BubbleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080599C2A60272E007A716D /* BubbleGameView.swift */; };
 		608059A22A62B33D007A716D /* AudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059A12A62B33D007A716D /* AudioStreamObserver.swift */; };
 		608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059A32A62B352007A716D /* AudioStreamManager.swift */; };
-		60CC5C512A6F6A5F004E33BF /* StarAudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C502A6F6A5F004E33BF /* StarAudioStreamManager.swift */; };
-		60CC5C532A6F6A95004E33BF /* StarAudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C522A6F6A95004E33BF /* StarAudioStreamObserver.swift */; };
+		60CC5C512A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C502A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift */; };
+		60CC5C532A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
 		784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */; };
@@ -76,17 +76,17 @@
 		78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */; };
 		78E7C9E12A6BC30100570F4C /* TrophyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E7C9E02A6BC30100570F4C /* TrophyView.swift */; };
 		78F38C912A6FB88400AFF4C1 /* lottieAnima_bubble.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */; };
-		78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningStar.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningStar.json */; };
+		78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */; };
 		E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA192A5D3E7000BE59B9 /* HomeView.swift */; };
 		E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */; };
 		E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = banzzakBGM.mp3; sourceTree = "<group>"; };
+		2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = banjjakBGM.mp3; sourceTree = "<group>"; };
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
-		2F38EA9A2A6E3DC700889C4B /* StarSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSKScene.swift; sourceTree = "<group>"; };
+		2F38EA9A2A6E3DC700889C4B /* BanjjakSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakSKScene.swift; sourceTree = "<group>"; };
 		2FF0BA042A64EEA8005B11CD /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		2FF0BA062A66372A005B11CD /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		2FF0BA162A682789005B11CD /* homescreenBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = homescreenBGM.mp3; sourceTree = "<group>"; };
@@ -97,23 +97,23 @@
 		2FF0BA1B2A682789005B11CD /* bubbleBlowEffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bubbleBlowEffect.mp3; sourceTree = "<group>"; };
 		2FF0BA222A682A49005B11CD /* SoundEffectPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectPlayer.swift; sourceTree = "<group>"; };
 		2FF0BA242A682D98005B11CD /* SoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundNames.swift; sourceTree = "<group>"; };
-		600264202A6D06460035A0E1 /* StarGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameView.swift; sourceTree = "<group>"; };
-		600264232A6D0C800035A0E1 /* StarPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPauseView.swift; sourceTree = "<group>"; };
-		600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGameOverView.swift; sourceTree = "<group>"; };
-		600264272A6D163E0035A0E1 /* StarTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarTutorialView.swift; sourceTree = "<group>"; };
-		600264292A6D1C2B0035A0E1 /* StarStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarStatus.swift; sourceTree = "<group>"; };
+		600264202A6D06460035A0E1 /* BanjjakGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakGameView.swift; sourceTree = "<group>"; };
+		600264232A6D0C800035A0E1 /* BanjjakPauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakPauseView.swift; sourceTree = "<group>"; };
+		600264252A6D0FCD0035A0E1 /* BanjjakGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakGameOverView.swift; sourceTree = "<group>"; };
+		600264272A6D163E0035A0E1 /* BanjjakTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakTutorialView.swift; sourceTree = "<group>"; };
+		600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakStatus.swift; sourceTree = "<group>"; };
 		600264312A6D989B0035A0E1 /* Trill_35_05_50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Trill_35_05_50.mlmodel; sourceTree = "<group>"; };
 		600264352A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Voice_35_05_75.mlmodel; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGameOverView.swift; sourceTree = "<group>"; };
 		608059872A5E71DC007A716D /* BubbleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleStatusView.swift; sourceTree = "<group>"; };
-		608059942A5FF0EA007A716D /* BubbleGumStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumStatus.swift; sourceTree = "<group>"; };
+		608059942A5FF0EA007A716D /* BubbleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleStatus.swift; sourceTree = "<group>"; };
 		6080599A2A5FF5C6007A716D /* BubbleWaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleWaitingView.swift; sourceTree = "<group>"; };
 		6080599C2A60272E007A716D /* BubbleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGameView.swift; sourceTree = "<group>"; };
 		608059A12A62B33D007A716D /* AudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamObserver.swift; sourceTree = "<group>"; };
 		608059A32A62B352007A716D /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
-		60CC5C502A6F6A5F004E33BF /* StarAudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAudioStreamManager.swift; sourceTree = "<group>"; };
-		60CC5C522A6F6A95004E33BF /* StarAudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAudioStreamObserver.swift; sourceTree = "<group>"; };
+		60CC5C502A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakAudioStreamManager.swift; sourceTree = "<group>"; };
+		60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakAudioStreamObserver.swift; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
 		784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreShareView.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78E7C9E02A6BC30100570F4C /* TrophyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyView.swift; sourceTree = "<group>"; };
 		78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_bubble.json; sourceTree = "<group>"; };
-		78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningStar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningStar.json; sourceTree = "<group>"; };
+		78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningBanjjack.json; sourceTree = "<group>"; };
 		E53CEA192A5D3E7000BE59B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		2FF0B9DF2A64E236005B11CD /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				2F1BF18F2A6FB423004D9EBE /* banzzakBGM.mp3 */,
+				2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */,
 				2FF0BA172A682789005B11CD /* bubbleBGM.mp3 */,
 				2FF0BA1B2A682789005B11CD /* bubbleBlowEffect.mp3 */,
 				2FF0BA192A682789005B11CD /* bubbleGameOverEffect.mp3 */,
@@ -195,18 +195,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		600264222A6D064F0035A0E1 /* Star */ = {
+		600264222A6D064F0035A0E1 /* Banjjak */ = {
 			isa = PBXGroup;
 			children = (
-				600264272A6D163E0035A0E1 /* StarTutorialView.swift */,
-				600264202A6D06460035A0E1 /* StarGameView.swift */,
-				600264232A6D0C800035A0E1 /* StarPauseView.swift */,
-				600264252A6D0FCD0035A0E1 /* StarGameOverView.swift */,
-				2F38EA9A2A6E3DC700889C4B /* StarSKScene.swift */,
-				60CC5C502A6F6A5F004E33BF /* StarAudioStreamManager.swift */,
-				60CC5C522A6F6A95004E33BF /* StarAudioStreamObserver.swift */,
+				600264272A6D163E0035A0E1 /* BanjjakTutorialView.swift */,
+				600264202A6D06460035A0E1 /* BanjjakGameView.swift */,
+				600264232A6D0C800035A0E1 /* BanjjakPauseView.swift */,
+				600264252A6D0FCD0035A0E1 /* BanjjakGameOverView.swift */,
+				2F38EA9A2A6E3DC700889C4B /* BanjjakSKScene.swift */,
+				60CC5C502A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift */,
+				60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */,
 			);
-			path = Star;
+			path = Banjjak;
 			sourceTree = "<group>";
 		};
 		6080598D2A5E723C007A716D /* Bubble */ = {
@@ -236,9 +236,9 @@
 			children = (
 				784A209C2A5E8C9B0091B59F /* GameSelection.swift */,
 				78777F0B2A5E9594008826DA /* ChagokStatus.swift */,
-				608059942A5FF0EA007A716D /* BubbleGumStatus.swift */,
+				608059942A5FF0EA007A716D /* BubbleStatus.swift */,
 				2FF0BA242A682D98005B11CD /* SoundNames.swift */,
-				600264292A6D1C2B0035A0E1 /* StarStatus.swift */,
+				600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				784E50A52A67F77A00733796 /* lottieAnima_chagok.json */,
-				78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningStar.json */,
+				78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */,
 				78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */,
 				784E50A32A67F76C00733796 /* CelebLottieAnima.json */,
 			);
@@ -401,7 +401,7 @@
 			children = (
 				6080598D2A5E723C007A716D /* Bubble */,
 				78BE77C92A5D4E8B0028A446 /* Chagok */,
-				600264222A6D064F0035A0E1 /* Star */,
+				600264222A6D064F0035A0E1 /* Banjjak */,
 				E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */,
 				E53CEA192A5D3E7000BE59B9 /* HomeView.swift */,
 				788C20D52A6A4DCD00953579 /* RecordView.swift */,
@@ -485,14 +485,14 @@
 				78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */,
 				2FF0BA202A682789005B11CD /* chagokPungEffect.mp3 in Resources */,
 				788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */,
-				78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningStar.json in Resources */,
+				78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json in Resources */,
 				78BE77D52A5D69440028A446 /* Pretendard-Bold.otf in Resources */,
 				78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */,
 				2FF0BA1D2A682789005B11CD /* bubbleBGM.mp3 in Resources */,
 				2FF0BA212A682789005B11CD /* bubbleBlowEffect.mp3 in Resources */,
 				78F38C912A6FB88400AFF4C1 /* lottieAnima_bubble.json in Resources */,
 				2FF0BA1C2A682789005B11CD /* homescreenBGM.mp3 in Resources */,
-				2F1BF1902A6FB423004D9EBE /* banzzakBGM.mp3 in Resources */,
+				2F1BF1902A6FB423004D9EBE /* banjjakBGM.mp3 in Resources */,
 				2FF0BA1E2A682789005B11CD /* chagokBGM.mp3 in Resources */,
 				2FF0BA1F2A682789005B11CD /* bubbleGameOverEffect.mp3 in Resources */,
 				784E50A62A67F77A00733796 /* lottieAnima_chagok.json in Resources */,
@@ -513,20 +513,20 @@
 			files = (
 				6080599B2A5FF5C6007A716D /* BubbleWaitingView.swift in Sources */,
 				2FF0BA232A682A49005B11CD /* SoundEffectPlayer.swift in Sources */,
-				60CC5C532A6F6A95004E33BF /* StarAudioStreamObserver.swift in Sources */,
-				600264282A6D163E0035A0E1 /* StarTutorialView.swift in Sources */,
+				60CC5C532A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift in Sources */,
+				600264282A6D163E0035A0E1 /* BanjjakTutorialView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
-				6002642A2A6D1C2B0035A0E1 /* StarStatus.swift in Sources */,
+				6002642A2A6D1C2B0035A0E1 /* BanjjakStatus.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				788C20D62A6A4DCD00953579 /* RecordView.swift in Sources */,
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
-				600264242A6D0C800035A0E1 /* StarPauseView.swift in Sources */,
+				600264242A6D0C800035A0E1 /* BanjjakPauseView.swift in Sources */,
 				2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */,
 				787AEDEB2A612046007FC5EB /* CustomBlurView.swift in Sources */,
 				600264362A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel in Sources */,
-				600264262A6D0FCD0035A0E1 /* StarGameOverView.swift in Sources */,
+				600264262A6D0FCD0035A0E1 /* BanjjakGameOverView.swift in Sources */,
 				600264322A6D989B0035A0E1 /* Trill_35_05_50.mlmodel in Sources */,
 				788E4C7C2A6CF8EF00DAE596 /* RecordDailyShareView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
@@ -548,18 +548,18 @@
 				788C20DA2A6A5B5C00953579 /* RecordHexgagonView.swift in Sources */,
 				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
 				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
-				608059952A5FF0EA007A716D /* BubbleGumStatus.swift in Sources */,
+				608059952A5FF0EA007A716D /* BubbleStatus.swift in Sources */,
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
 				78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */,
 				E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */,
-				2F38EA9B2A6E3DC700889C4B /* StarSKScene.swift in Sources */,
+				2F38EA9B2A6E3DC700889C4B /* BanjjakSKScene.swift in Sources */,
 				78BE77D92A5D69B80028A446 /* PretendardText.swift in Sources */,
 				2FF0BA052A64EEA8005B11CD /* MusicPlayer.swift in Sources */,
-				600264212A6D06460035A0E1 /* StarGameView.swift in Sources */,
+				600264212A6D06460035A0E1 /* BanjjakGameView.swift in Sources */,
 				788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */,
 				E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */,
 				6080599D2A60272E007A716D /* BubbleGameView.swift in Sources */,
-				60CC5C512A6F6A5F004E33BF /* StarAudioStreamManager.swift in Sources */,
+				60CC5C512A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift in Sources */,
 				78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */,
 				608059A22A62B33D007A716D /* AudioStreamObserver.swift in Sources */,
 				78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */,

@@ -11,7 +11,7 @@ struct TrophyView: View {
     
     @AppStorage("chagokMissionSuccess") var chagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
-    @AppStorage("StarMissionSuccess") var StarMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     
     @State var isDailyNotFinished: Bool = false
     @Binding var gameSelected: GameSelection
@@ -63,7 +63,7 @@ struct TrophyView: View {
         .frame(height: 26)
         .frame(maxWidth: .infinity)
         .onAppear{
-            if !chagokMissionSuccess || !BubbleMissionSuccess || !StarMissionSuccess {
+            if !chagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
                 isDailyNotFinished = true
             }
         }

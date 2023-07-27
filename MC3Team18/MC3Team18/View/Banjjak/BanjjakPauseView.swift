@@ -7,63 +7,63 @@
 
 import SwiftUI
 
-struct StarPauseView: View {
+struct BanjjakPauseView: View {
     
     @State var pauseOpacity: Double = 0
-    @Binding var starStatus: StarStatus
+    @Binding var banjjakStatus: BanjjakStatus
     @Binding var gameSelection: GameSelection
     @Binding var secondsx4: Int
     
-    @EnvironmentObject var starSKScene: StarSKScene
-    @EnvironmentObject var streamManager: StarAudioStreamManager
+    @EnvironmentObject var banjjakSKScene: BanjjakSKScene
+    @EnvironmentObject var streamManager: BanjjakAudioStreamManager
     
     var body: some View {
         ZStack {
             Color.black.opacity(0.75).ignoresSafeArea()
             VStack(spacing: 60) {
                 Button {
-                    starSKScene.isPaused = false
+                    banjjakSKScene.isPaused = false
                     withAnimation(.easeOut(duration: 0.3)) {
                         pauseOpacity = 0
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        starStatus = .game
+                        banjjakStatus = .game
                     }
                     // TODO: 화면 업데이트 중지 및 재개 기능??
                 } label: {
-                    starPauseButton(systemName: "play", text: "Continue")
+                    banjjakPauseButton(systemName: "play", text: "Continue")
                 }
                 Button {
                     // TODO: 게임 리셋, 화면 이동(애니메이션)
                     withAnimation(.easeOut(duration: 0.3)) {
-                        starSKScene.isPaused = false
-                        starSKScene.removeAllChildren()
-                        starStatus = .tutorial
+                        banjjakSKScene.isPaused = false
+                        banjjakSKScene.removeAllChildren()
+                        banjjakStatus = .tutorial
                         secondsx4 = 120
                         gameSelection = .none
-                        starSKScene.score = 0
+                        banjjakSKScene.score = 0
                         streamManager.stopAudioStream()
                     }
                 } label: {
-                    starPauseButton(systemName: "house", text: "Home")
+                    banjjakPauseButton(systemName: "house", text: "Home")
                 }
                 
                 Button {
                     // TODO: 게임 리셋
                     
                     withAnimation(.easeOut(duration: 0.3)) {
-                        starSKScene.isPaused = false
-                        starSKScene.removeAllChildren()
+                        banjjakSKScene.isPaused = false
+                        banjjakSKScene.removeAllChildren()
                         secondsx4 = 120
                         pauseOpacity = 0
-                        starSKScene.isStarted = false
+                        banjjakSKScene.isStarted = false
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        starSKScene.score = 0
-                        starStatus = .game
+                        banjjakSKScene.score = 0
+                        banjjakStatus = .game
                     }
                 } label: {
-                    starPauseButton(systemName: "arrow.clockwise", text: "Retry")
+                    banjjakPauseButton(systemName: "arrow.clockwise", text: "Retry")
                 }
             }
             .pretendardBold20()
@@ -78,17 +78,17 @@ struct StarPauseView: View {
     }
 }
 
-//struct StarPauseView_Previews: PreviewProvider {
+//struct BanjjakPauseView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        StarPauseView(starStatus: .constant(.pause), gameSelection: .constant(.star))
+//        BanjjakPauseView(banjjakStatus: .constant(.pause), gameSelection: .constant(.banjjak))
 //    }
 //}
 
 
 
-extension StarPauseView {
+extension BanjjakPauseView {
     
-    func starPauseButton(systemName: String, text: String) -> some View {
+    func banjjakPauseButton(systemName: String, text: String) -> some View {
         return GlassMorphicCard()
             .overlay {
                 Image("ButtonPauseBorder")
