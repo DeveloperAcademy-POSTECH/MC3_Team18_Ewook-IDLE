@@ -32,6 +32,7 @@ struct BubbleGameView: View {
     
     @State var shouldEnlargeText = false
     @Binding var isBestScore: Bool
+    @State var gameOpacity: Double = 0
 
     var body: some View {
         ZStack {
@@ -74,16 +75,9 @@ struct BubbleGameView: View {
 //                                    withAnimation(.easeOut(duration: 0.2)) {
 //                                        shouldEnlargeText = false
 //                                    }
-//
 //                                }
-//
-//
 //                            }
                         }
-                    }
-                    .onAppear{
-                        self.stopTimer()
-                        self.startGame()
                     }
                 //.onChange(of: observer.currentSound) { _ in
                     .onChange(of: observer.topResults) { _ in
@@ -94,6 +88,14 @@ struct BubbleGameView: View {
             }
             .padding(.bottom, 500)
             .edgesIgnoringSafeArea(.all)
+        }
+        .opacity(gameOpacity)
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameOpacity = 1
+            }
+            self.stopTimer()
+            self.startGame()
         }
     }
     

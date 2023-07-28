@@ -10,7 +10,7 @@ import SwiftUI
 struct BubbleWaitingView: View {
     @Binding var gameSelection: GameSelection
     @Binding var bubbleStatus: BubbleStatus
-    
+    @State var gameWaitingOpacity: Double = 0
     var streamManager: AudioStreamManager
     @ObservedObject var observer: AudioStreamObserver
     
@@ -39,9 +39,6 @@ struct BubbleWaitingView: View {
                 .pretendardSemiBold24()
                 .foregroundColor(.white)
                 .shadow(color: .black.opacity(0.12), radius: 12, x: 1, y: 2)
-                .onAppear {
-                    streamManager.startAudioStream()
-                }
                 .onChange(of: observer.topResults) { _ in
                     print("Start")
                     //print("\(observer.currentSound)" + "\(observer.topResults[0].confidence)")
@@ -55,6 +52,13 @@ struct BubbleWaitingView: View {
         }
         .offset(y:-340)
         .ignoresSafeArea(.all)
+        .opacity(gameWaitingOpacity)
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameWaitingOpacity = 1
+            }
+            streamManager.startAudioStream()
+        }
     }
 }
 
