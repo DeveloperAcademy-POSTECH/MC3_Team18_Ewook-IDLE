@@ -23,11 +23,9 @@ struct BubbleTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        UserDefaults.standard.set(false, forKey: "isShowingBubbleTutorial")
-                        UserDefaults.standard.set(isNeverShowingBubbleTutorialToggle, forKey: "isNeverShowingBubbleTutorial")
+                        isShowingBubbleTutorial = false
+                        isNeverShowingBubbleTutorialToggle = isNeverShowingBubbleTutorial
                         bubbleStatus = .waiting
-
-
                     } label: {
                         Image(systemName:  "xmark")
                             .resizable()
@@ -79,14 +77,6 @@ struct BubbleTutorialView: View {
             .padding(.bottom, 50)
             .padding(.horizontal, 34)
         }.edgesIgnoringSafeArea(.all)
-//            .onAppear{
-//                if UserDefaults.standard.bool(forKey: "isNeverShowingBubbleTutorial") == true {
-//                    bubbleStatus = .waiting
-//                }
-//                else {
-//                    bubbleStatus = .tutorial
-//                }
-//            }
     }
 }
 

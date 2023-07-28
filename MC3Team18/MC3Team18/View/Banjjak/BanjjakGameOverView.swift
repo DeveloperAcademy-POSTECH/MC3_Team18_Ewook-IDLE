@@ -21,7 +21,7 @@ struct BanjjakGameOverView: View {
     @EnvironmentObject var streamManager: BanjjakAudioStreamManager
     
     let banjjakMissionCount: Int = 10
-    var banjjakHighScore = UserDefaults.standard.integer(forKey: "banjjakScore")
+    @Binding var banjjakScore: String
 
     var body: some View {
         ZStack {
@@ -66,7 +66,7 @@ struct BanjjakGameOverView: View {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
-                        Text("\(banjjakHighScore)")
+                        Text(banjjakScore)
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
                     }
@@ -184,7 +184,7 @@ extension BanjjakGameOverView {
     
     @MainActor
     var dailyShareUIImage: UIImage {
-        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(banjjakHighScore), gameSelected: gameSelection))
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: banjjakScore, gameSelected: gameSelection))
         renderer.scale = 3.0
         return renderer.uiImage ?? .init()
     }
