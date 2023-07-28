@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ButtonStar.png",
+      "filename" : "ButtonBanjjak.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ButtonStar@2x.png",
+      "filename" : "ButtonBanjjak@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ButtonStar@3x.png",
+      "filename" : "ButtonBanjjak@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
