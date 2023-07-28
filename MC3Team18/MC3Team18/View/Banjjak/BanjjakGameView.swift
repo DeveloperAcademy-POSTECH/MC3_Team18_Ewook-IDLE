@@ -22,6 +22,8 @@ struct BanjjakGameView: View {
     
     @State var banjjakCharacterImage = Image("BanjjakDefault")
     
+    @AppStorage("banjjakScore") var banjjakScore: String = "0"
+    
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         streamManager.resultObservation(with: observer)
@@ -130,7 +132,6 @@ struct BanjjakGameView: View {
             
             switch banjjakStatus {
             case .tutorial:
-                // TODO: UserDefaults의 튜토리얼 변수 조건에 따라 visible
                 BanjjakTutorialView(banjjakStatus: $banjjakStatus)
                     .environmentObject(banjjakSKScene)
                     .transition(.opacity)
@@ -141,7 +142,7 @@ struct BanjjakGameView: View {
                     .environmentObject(banjjakSKScene)
                     .environmentObject(streamManager)
             case .gameover:
-                BanjjakGameOverView(banjjakStatus: $banjjakStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore)
+                BanjjakGameOverView(banjjakStatus: $banjjakStatus, secondsx4: $secondsx4, gameSelection: $gameSelection, isBestScore: $isBestScore, banjjakScore: $banjjakScore)
                     .environmentObject(banjjakSKScene)
                     .environmentObject(streamManager)
             }
@@ -183,8 +184,9 @@ struct BanjjakGameView: View {
         }
     }
     func checkBestScore() {
-        if UserDefaults.standard.integer(forKey: "banjjakScore") <= banjjakSKScene.score {
-            UserDefaults.standard.set(banjjakSKScene.score, forKey: "banjjakScore")
+        let banjjackHighScoreInt: Int = Int(banjjakScore) ?? 0
+        if banjjackHighScoreInt <= banjjakSKScene.score {
+            banjjakScore = String(banjjakSKScene.score)
             self.isBestScore = true
         }
     }

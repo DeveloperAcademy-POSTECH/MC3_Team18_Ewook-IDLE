@@ -21,10 +21,9 @@ struct BubbleStatusView: View {
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
     @State var score: String = "0"
-
-    @State var isNeverShowingBubbleTutorial: Bool = UserDefaults.standard.bool(forKey: "isNeverShowingBubbleTutorial") ?? false
+    @AppStorage("isNeverShowingBubbleTutorial") var isNeverShowingBubbleTutorial: Bool = false
     @State var isShowingBubbleTutorial: Bool = true
-    @State private var bubbleHighScore = UserDefaults.standard.string(forKey: "BubbleScore") ?? "0"
+    @AppStorage("bubbleScore") var bubbleHighScore: String = "0"
     @ObservedObject var observer: AudioStreamObserver
     @State var text: String = ""
     var streamManager: AudioStreamManager

@@ -45,6 +45,9 @@ struct ChagokGameView: View {
     @State var isStarted: Bool = false
     @State var tapToStartOpacity: Double = 1
     
+    @AppStorage("isChagokTutorialDisabled") var isChagokTutorialDisabled: Bool = false
+    @AppStorage("chagokScore") var chagokScore: String = "0"
+    
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -205,8 +208,8 @@ struct ChagokGameView: View {
             switch chagokStatus {
                 
             case .tutorial:
-                if(!UserDefaults.standard.bool(forKey: "isTutorialDisabled")){
-                    ChagokTutorialView(chagokStatus: $chagokStatus)
+                if(!isChagokTutorialDisabled){
+                    ChagokTutorialView(chagokStatus: $chagokStatus, isChagokTutorialDisabled: $isChagokTutorialDisabled)
                         .environmentObject(chagokScene)
                         .transition(.opacity)
                 }
@@ -216,7 +219,7 @@ struct ChagokGameView: View {
                 ChagokPauseView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
                     .environmentObject(chagokScene)
             case .gameover:
-                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity)
+                ChagokGameOverView(gameSelection: $gameSelection, chagokStatus: $chagokStatus, isBestScore: $isBestScore, secondsx4: $secondsx4, isStarted: $isStarted, tapToStartOpacity: $tapToStartOpacity, chagokScore: $chagokScore)
                     .environmentObject(chagokScene)
             }
         }
@@ -226,7 +229,7 @@ struct ChagokGameView: View {
             MusicPlayer.shared.stopBackgroundMusic()
             MusicPlayer.shared.startBackgroundMusic(musicName: SoundNames.chagokBGM.rawValue)
             // 다시보지 않기가 설정이 되었다면 게임으로 바로
-            if UserDefaults.standard.bool(forKey: "isTutorialDisabled") {
+            if isChagokTutorialDisabled {
                 chagokStatus = .game
             }
             chagokScene.leftCupStack = CupName.allCases.shuffled()
@@ -242,8 +245,8 @@ struct ChagokGameView: View {
                     withAnimation(.easeOut(duration: 1)) {
                         chagokStatus = .gameover
                         self.secondsx4 = 120
-                        if Int(UserDefaults.standard.string(forKey: "chagokScore") ?? "0" )! <= chagokScene.chagokScore {
-                            UserDefaults.standard.set(chagokScene.chagokScore, forKey: "chagokScore")
+                        if Int(chagokScore) ?? 0 <= chagokScene.chagokScore {
+                            chagokScore = String(chagokScene.chagokScore)
                             self.isBestScore = true
                         }
                     }

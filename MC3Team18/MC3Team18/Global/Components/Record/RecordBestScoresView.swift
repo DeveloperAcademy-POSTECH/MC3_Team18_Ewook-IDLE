@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct RecordBestScoresView: View {
-    //TODO: Banjjak 게임 만들어지면 바꿀 것
-    var bestScoreArray : [String] = [ UserDefaults.standard.string(forKey: "BubbleScore") ?? "0", String(UserDefaults.standard.integer(forKey: "chagokScore")), String(UserDefaults.standard.integer(forKey: "banjjakScore"))]
-    var bestRecordArray : [String] = [
-        String(format: "%.1f", Double(UserDefaults.standard.string(forKey: "BubbleScore") ?? "0")! / 1000.0), 
-        String(UserDefaults.standard.integer(forKey: "chagokScore") / 1500), String(UserDefaults.standard.integer(forKey: "banjjakScore")/300)
-    ]
+    
+    @AppStorage("bubbleScore") var bubbleScore: String = "0"
+    @AppStorage("chagokScore") var chagokScore: String = "0"
+    @AppStorage("banjjakScore") var banjjakScore: String = "0"
+    
+    var bestScoreArray : [String] {
+        return [bubbleScore, chagokScore, banjjakScore]
+    }
+    
+    var bestRecordArray : [String] {
+        return [
+            String(format: "%.1f", (Double(bubbleScore) ?? 0.0) / 1000.0),
+            String((Int(chagokScore) ?? 0) / 1500),
+            String((Int(banjjakScore) ?? 0) / 300)
+        ]
+    }
     var bestUnitArray : [String] = ["초", "줄", "개"]
     var bestNameArray : [String] = ["버블버블", "차곡차곡", "반짝반짝"]
     var body: some View {
@@ -42,7 +52,7 @@ struct RecordBestScoresView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     Text("\(bestScoreArray[index])점")
                                         .pretendardExtraLight12()
-                                      //  .padding(.bottom, 2)
+                                    //  .padding(.bottom, 2)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     HStack(alignment: .bottom, spacing: 2) {
                                         Text("\(bestRecordArray[index])")
