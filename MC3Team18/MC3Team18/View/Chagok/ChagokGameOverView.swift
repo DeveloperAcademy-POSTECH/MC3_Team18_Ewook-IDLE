@@ -18,7 +18,7 @@ struct ChagokGameOverView: View {
     @Binding var isStarted: Bool
     @Binding var tapToStartOpacity: Double
     @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
-    var chagokHighScore = UserDefaults.standard.integer(forKey: "chagokScore")
+    @Binding var chagokScore: String
     
     var body: some View {
         ZStack {
@@ -65,7 +65,7 @@ struct ChagokGameOverView: View {
                         .pretendardRegular24()
                         .foregroundColor(.LightGray)
                     // 최고 점수로 교체하기
-                    Text("\(chagokHighScore)")
+                    Text(chagokScore)
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                 }
@@ -185,7 +185,7 @@ extension ChagokGameOverView {
     
     @MainActor
     var dailyShareUIImage: UIImage {
-        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: String(chagokHighScore), gameSelected: gameSelection))
+        let renderer = ImageRenderer(content: BestScoreShareView(bestScore: chagokScore, gameSelected: gameSelection))
         renderer.scale = 3.0
         return renderer.uiImage ?? .init()
     }

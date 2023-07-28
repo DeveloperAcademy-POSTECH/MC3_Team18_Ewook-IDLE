@@ -12,6 +12,7 @@ struct ChagokTutorialView: View {
     @Binding var chagokStatus: ChagokStatus
     @EnvironmentObject var chagokScene: ChagokSKScene
     @State var isChecked: Bool = false
+    @Binding var isChagokTutorialDisabled: Bool
 
     var body: some View {
         ZStack {
@@ -22,6 +23,7 @@ struct ChagokTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
+                        isChagokTutorialDisabled = isChecked
                         chagokScene.isNotUpdate = true
                         withAnimation(.easeOut(duration: 0.3)) {
                             chagokStatus = .game
@@ -54,8 +56,6 @@ struct ChagokTutorialView: View {
                 HStack {
                     Button {
                         isChecked.toggle()
-                        UserDefaults.standard.set(isChecked, forKey: "isTutorialDisabled")
-
                     } label: {
                         Image(systemName: isChecked ? "checkmark.square.fill" : "square")
                             .font(.system(size: 20))
@@ -83,6 +83,6 @@ struct ChagokTutorialView: View {
 
 struct ChagokTutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        ChagokTutorialView(chagokStatus: .constant(.tutorial))
+        ChagokTutorialView(chagokStatus: .constant(.tutorial), isChagokTutorialDisabled: .constant(false))
     }
 }

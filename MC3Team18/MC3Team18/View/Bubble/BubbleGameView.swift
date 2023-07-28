@@ -32,7 +32,13 @@ struct BubbleGameView: View {
     
     @State var shouldEnlargeText = false
     @Binding var isBestScore: Bool
+
     @State var gameOpacity: Double = 0
+    
+    @AppStorage("bubbleScore") var bubbleScore: String = "0"
+    
+//    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+
 
     var body: some View {
         ZStack {
@@ -64,19 +70,6 @@ struct BubbleGameView: View {
                                 offsetX = CGFloat.random(in: -2...2) // 랜덤 좌우 이동
                                 offsetY = CGFloat.random(in: -2...2)
                             }
-//                            if Int(Double(timerString) ?? 0) % 3 == 0 && shouldEnlargeText == false && Int(Double(timerString) ?? 0)
-//                            != 0 {
-//                                // 3초마다 shouldEnlargeText 값을 변경하여 글자 크기 조정
-//                                withAnimation(.easeOut(duration: 0.2)) {
-//                                    shouldEnlargeText = true
-//                                }
-//
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//                                    withAnimation(.easeOut(duration: 0.2)) {
-//                                        shouldEnlargeText = false
-//                                    }
-//                                }
-//                            }
                         }
                     }
                 //.onChange(of: observer.currentSound) { _ in
@@ -142,7 +135,7 @@ struct BubbleGameView: View {
         if Float(bubbleHighScore)! < Float(score)! {
             isBestScore = true
             bubbleHighScore = score
-            UserDefaults.standard.set(score, forKey: "BubbleScore")
+            bubbleScore = score
         }
     }
 }
