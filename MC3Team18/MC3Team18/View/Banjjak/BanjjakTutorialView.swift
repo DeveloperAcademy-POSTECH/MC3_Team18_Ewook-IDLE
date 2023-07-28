@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct BanjjakTutorialView: View {
-    @State var isNeverShowingBanjjakTutorialToggle: Bool = false
+    
     @Binding var banjjakStatus: BanjjakStatus
     @State var tutorialOpacity: Double = 1
     @EnvironmentObject var banjjakSKScene: BanjjakSKScene
-
+    @State var isChecked: Bool = false
+    @AppStorage("isBanjjakTutorialDisabled") var isBanjjakTutorialDisabled: Bool = false
+    
     var body: some View {
         ZStack {
             Color(.black).opacity(0.75)
@@ -22,7 +24,7 @@ struct BanjjakTutorialView: View {
                     Spacer()
                     Button {
                         //TODO: 튜토리얼 상태 저장, 게임 업데이트=false
-                        
+                        isBanjjakTutorialDisabled = isChecked
                         withAnimation(.easeOut(duration: 0.2)) {
                             tutorialOpacity = 0
                         }
@@ -63,10 +65,10 @@ struct BanjjakTutorialView: View {
                 Spacer()
                 
                 Button {
-                    isNeverShowingBanjjakTutorialToggle.toggle()
+                    isChecked.toggle()
                 } label: {
                     HStack{
-                        Image(systemName: isNeverShowingBanjjakTutorialToggle ? "checkmark.square.fill" : "square")
+                        Image(systemName: isChecked ? "checkmark.square.fill" : "square")
                             .font(.system(size: 20))
                             .pretendardSemiBold20().bold()
                         
@@ -85,6 +87,10 @@ struct BanjjakTutorialView: View {
         .edgesIgnoringSafeArea(.all)
         .onAppear {
             banjjakSKScene.isStarted = false
+            if isBanjjakTutorialDisabled {
+                banjjakStatus = .game
+            }
+            
         }
     }
 }
