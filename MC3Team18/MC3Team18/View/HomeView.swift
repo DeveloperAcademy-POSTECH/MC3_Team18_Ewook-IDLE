@@ -17,97 +17,88 @@ struct HomeView: View {
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     
     var body: some View {
-        ZStack {
-            
-            Color.clear.overlay {
+        NavigationView {
+            ZStack {
+                Color.clear.overlay {
+                    Image("BackgroundHomeVIew")
+                        .resizable()
+                        .scaledToFill()
+                }
+                
                 Image("BackgroundHomeVIew")
                     .resizable()
                     .scaledToFill()
-            }
-            Image("BackgroundHomeVIew")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            switch gameSelected {
-            case .none:
-                ZStack{
+                    .ignoresSafeArea()
+                
+                switch gameSelected {
+                case .none:
+                    ZStack{
+                        Color.clear.overlay {
+                            Image("BackgroundHomeVIew")
+                                .resizable()
+                                .scaledToFill()
+                        }.ignoresSafeArea()
+                        VStack(spacing: 20) {
+                            Spacer().frame(height: 40)
+                            TrophyView(gameSelected: $gameSelected)
+                            Spacer().frame(height: 10)
+                            Button {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    gameSelected = .bubble
+                                }
+                            } label: {
+                                Image("ButtonBubble")
+                            }
+                            Button {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    gameSelected = .chagok
+                                }
+                            } label: {
+                                Image("ButtonCupStack")
+                            }
+                            Button {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    gameSelected = .banjjak
+                                }
+                            } label: {
+                                Image("ButtonBanjjak")
+                            }
+                            Spacer()
+                        }
+                    }
+                    .statusBarHidden()
+                    .ignoresSafeArea()
+                    .onAppear {
+                        MusicPlayer.shared.stopBackgroundMusic()
+                        MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
+                        UIApplication.shared.isIdleTimerDisabled = false
+                    }
+                case .bubble:
                     Color.clear.overlay {
-                        Image("BackgroundHomeVIew")
-                            .resizable()
-                            .scaledToFill()
-                    }.ignoresSafeArea()
-                    VStack(spacing: 20) {
-                        Spacer().frame(height: 40)
-                        TrophyView(gameSelected: $gameSelected)
-                        Spacer().frame(height: 10)
-                        Button {
-                            print("bubble")
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .bubble
-                            }
-                        } label: {
-                            Image("ButtonBubble")
-                        }
-                        Button {
-                            print("chagok")
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .chagok
-                            }
-                        } label: {
-                            Image("ButtonCupStack")
-                        }
-                        Button {
-                            
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                gameSelected = .banjjak
-                            }
-                        } label: {
-                            Image("ButtonBanjjak")
-                        }
-                        Spacer()
+                        BubbleStatusView(gameSelection: $gameSelected)
                     }
-                }
-                .statusBarHidden()
-                .ignoresSafeArea()
-                .transition(.slide)
-                .onAppear {
-                    MusicPlayer.shared.stopBackgroundMusic()
-                    MusicPlayer.shared.startBackgroundMusic(musicName: "homescreenBGM")
-                    UIApplication.shared.isIdleTimerDisabled = false
-                }
-            case .bubble:
-                Color.clear.overlay {
-                    BubbleStatusView(gameSelection: $gameSelected)
-                }
-                .transition(.backslide)
-                .onAppear {
-                    UIApplication.shared.isIdleTimerDisabled = true
-                }
-            case .chagok:
-                ChagokGameView(gameSelection: $gameSelected)
-                    .transition(.backslide)
                     .onAppear {
                         UIApplication.shared.isIdleTimerDisabled = true
                     }
-            case .banjjak:
-                BanjjakGameView(gameSelection: $gameSelected)
-                    .transition(.backslide)
-                    .onAppear {
-                        UIApplication.shared.isIdleTimerDisabled = true
-                    }
-            case .record:
-                RecordView(gameSelected: $gameSelected)
-                    .transition(.backslide)
-                    .onAppear {
-                        UIApplication.shared.isIdleTimerDisabled = true
-                    }
+                case .chagok:
+                    ChagokGameView(gameSelection: $gameSelected)
+                        .onAppear {
+                            UIApplication.shared.isIdleTimerDisabled = true
+                        }
+                case .banjjak:
+                    BanjjakGameView(gameSelection: $gameSelected)
+                        .onAppear {
+                            UIApplication.shared.isIdleTimerDisabled = true
+                        }
+                }
             }
-        }.onAppear{
-            if DailyRoutineCurrentDate != currentDate{
-                ChagokMissionSuccess = false
-                BubbleMissionSuccess = false
-                BanjjakMissionSuccess = false
-                DailyRoutineCurrentDate = currentDate
+            .onAppear{
+                if DailyRoutineCurrentDate != currentDate{
+                    ChagokMissionSuccess = false
+                    BubbleMissionSuccess = false
+                    BanjjakMissionSuccess = false
+                    DailyRoutineCurrentDate = currentDate
+                }
             }
         }
     }
@@ -125,6 +116,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(gameSelected: .constant(.none))
         MultiPreview {
             HomeView(gameSelected: .constant(.none))
-        } 
+        }
     }
 }

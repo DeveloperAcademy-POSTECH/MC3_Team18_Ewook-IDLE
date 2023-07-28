@@ -19,10 +19,8 @@ struct TrophyView: View {
     var body: some View {
         HStack {
             Spacer()
-            Button {
-                withAnimation(.easeOut(duration: 0.3)) {
-                    gameSelected = .record
-                }
+            NavigationLink {
+                RecordView(gameSelected: $gameSelected)
             } label: {
                 Rectangle()
                     .foregroundColor(.white.opacity(0.9))
@@ -36,10 +34,8 @@ struct TrophyView: View {
                     
             }
             .opacity(isDailyNotFinished ? 1 : 0)
-            Button {
-                withAnimation(.easeOut(duration: 0.3)) {
-                    gameSelected = .record
-                }
+            NavigationLink {
+                RecordView(gameSelected: $gameSelected)
             } label: {
                 Image(systemName: "trophy")
                     .resizable()
