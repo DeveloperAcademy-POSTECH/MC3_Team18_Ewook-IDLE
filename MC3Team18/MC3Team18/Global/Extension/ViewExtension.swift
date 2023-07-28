@@ -8,7 +8,19 @@
 import SwiftUI
 
 extension View {
+    //MARK: Backswipe
+    func onBackSwipe(perform action: @escaping () -> Void) -> some View {
+        gesture(
+            DragGesture()
+                .onEnded({ value in
+                    if value.startLocation.x < 50 && value.translation.width > 80 {
+                        action()
+                    }
+                })
+        )
+    }
     
+    //MARK: Font
     func pretendardBold36() -> some View {
         modifier(PretendardTextBold36())
     }
