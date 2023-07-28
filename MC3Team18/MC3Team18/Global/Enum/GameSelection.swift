@@ -12,5 +12,4 @@ enum GameSelection: String {
     case bubble = "버블버블"
     case chagok = "차곡차곡"
     case banjjak = "반짝반짝"
-    case record
 }

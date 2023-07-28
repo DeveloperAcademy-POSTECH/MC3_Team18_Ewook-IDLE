@@ -32,10 +32,13 @@ struct BubbleGameView: View {
     
     @State var shouldEnlargeText = false
     @Binding var isBestScore: Bool
+
+    @State var gameOpacity: Double = 0
     
     @AppStorage("bubbleScore") var bubbleScore: String = "0"
     
 //    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+
 
     var body: some View {
         ZStack {
@@ -69,10 +72,6 @@ struct BubbleGameView: View {
                             }
                         }
                     }
-                    .onAppear{
-                        self.stopTimer()
-                        self.startGame()
-                    }
                 //.onChange(of: observer.currentSound) { _ in
                     .onChange(of: observer.topResults) { _ in
                         if observer.currentSound == "Background"  && observer.topResults[1].confidence <= 0.04  {
@@ -82,6 +81,14 @@ struct BubbleGameView: View {
             }
             .padding(.bottom, 500)
             .edgesIgnoringSafeArea(.all)
+        }
+        .opacity(gameOpacity)
+        .onAppear {
+            withAnimation(.easeOut(duration: 0.3)) {
+                gameOpacity = 1
+            }
+            self.stopTimer()
+            self.startGame()
         }
     }
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordView: View {
     
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var gameSelected: GameSelection
     @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
@@ -30,21 +30,7 @@ struct RecordView: View {
                     VStack {
                         Spacer().frame(maxHeight: 55)
                         HStack {
-                            Button {
-                                withAnimation(.easeOut(duration: 0.3)) {
-                                    gameSelected = .none
-                                }
-                                
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .resizable()
-                                    .frame(width: 10, height: 18)
-                                    .pretendardBold20()
-                                    .foregroundColor(.white)
-                            }
-                            
                             Spacer()
-                            
                             
                             /*
                              message: 메세지 카톡 등을 보낼때 메세지를 같이 보낼 수 있는 메세지 내용
@@ -56,14 +42,13 @@ struct RecordView: View {
                                 photo.caption,
                                 image: photo.image)) {
                                     Image(systemName: "square.and.arrow.up")
-                                        .resizable()
-                                        .frame(width: 18, height: 23)
-                                        .pretendardBold20()
+                                        .resizable().scaledToFit()
+                                        .frame(width: 18, height: 22)
+                                        .pretendardSemiBold20()
                                         .foregroundColor(.white)
                                 }
                             
                         }
-                        .padding(.leading, 34)
                         .padding(.trailing, 37)
                         .frame(height: 24)
                         Spacer().frame(maxHeight: 36)
@@ -73,7 +58,6 @@ struct RecordView: View {
                         }
                         .pretendardSemiBold24()
                         .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
-                        
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         
@@ -92,9 +76,14 @@ struct RecordView: View {
             RecordBestScoresView()
             Spacer().frame(height: 60)
         }
+        .onBackSwipe {
+            presentationMode.wrappedValue.dismiss()
+        }
         .ignoresSafeArea()
         .statusBarHidden()
         .background(.white)
+        .navigationBarBackButtonHidden()
+        .navigationBarItems(leading: btnBack)
         .onAppear{
             if ChagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true{
                 firstLineText = "훌륭합니다! 🎉"
@@ -117,13 +106,27 @@ struct RecordView: View {
         return dateFormatter.string(from: Date())
     }
     
+    var btnBack : some View {
+        Button {
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            HStack {
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 16, height: 16)
+                    .pretendardSemiBold20()
+                    .foregroundColor(.white).padding()
+            }
+        }
+    }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView(gameSelected: .constant(.record))
+        RecordView(gameSelected: .constant(.none))
         MultiPreview {
-            RecordView(gameSelected: .constant(.record))
+            RecordView(gameSelected: .constant(.none))
         }
     }
 }
