@@ -20,7 +20,7 @@ struct BubbleGameOverView: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.75).ignoresSafeArea()
+            Color.black.opacity(0.75)
             
             VStack{
                 HStack {
@@ -32,14 +32,12 @@ struct BubbleGameOverView: View {
                                 Image(systemName: "square.and.arrow.up")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: 24)
-                                    .pretendardBold20()
+                                    .pretendardSemiBold24()
                                     .foregroundColor(.Yellow)
                             }
                     }
                 }
                 .frame(height: 24)
-                .padding(.top, 60)
                 .padding(.bottom, 22)
                 
                 if isBestScore {
@@ -88,7 +86,6 @@ struct BubbleGameOverView: View {
                     Spacer()
                     
                     Button {
-                        //TODO: 튜토리얼 변수 따라 튜토리얼로 넘어가는 케이스 추가
                         bubbleStatus = .waiting
                     } label: {
                         bubbleGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
@@ -101,6 +98,7 @@ struct BubbleGameOverView: View {
             .padding(.horizontal, 26)
             .padding(.vertical, 60)
         }
+        .ignoresSafeArea()
         .opacity(gameoverOpacity)
         .onAppear {
             withAnimation(.easeOut(duration: 0.3)) {
