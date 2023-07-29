@@ -12,7 +12,7 @@ struct RecordHexgagonView: View {
     @State var isCompleted: Bool = true
     @State var gameName = "차곡차곡"
     @State var recordedNumber = 5
-    @State var unit = "줄"
+    @State var unit = "개"
     
     
     
