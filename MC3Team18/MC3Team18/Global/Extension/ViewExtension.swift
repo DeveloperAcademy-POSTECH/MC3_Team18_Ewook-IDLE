@@ -53,12 +53,20 @@ extension View {
         modifier(PretendardTextSemiBold20())
     }
     
+    func pretendardSemiBold16() -> some View {
+        modifier(PretendardTextSemiBold16())
+    }
+    
     func pretendardSemiBold12() -> some View {
         modifier(PretendardTextSemiBold12())
     }
     
     func pretendardLight32() -> some View {
         modifier(PretendardTextLight32())
+    }
+    
+    func pretendardLight16() -> some View {
+        modifier(PretendardTextLight16())
     }
     
     func pretendardRegular24() -> some View {
@@ -69,12 +77,16 @@ extension View {
         modifier(PretendardTextRegular20())
     }
     
-    func pretendardRegular11() -> some View {
-        modifier(PretendardTextRegular11())
+    func pretendardRegular12() -> some View {
+        modifier(PretendardTextRegular12())
     }
     
     func pretendardMedium12() -> some View {
         modifier(PretendardTextMedium12())
+    }
+    
+    func pretendardMedium16() -> some View {
+        modifier(PretendardTextMedium16())
     }
     
     func pretendardMedium20() -> some View {
