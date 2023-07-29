@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MenuHexagon.png",
+      "filename" : "BestScoreLabelBanjjak.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MenuHexagon@2x.png",
+      "filename" : "BestScoreLabelBanjjak@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MenuHexagon@3x.png",
+      "filename" : "BestScoreLabelBanjjak@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

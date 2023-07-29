@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "StarBest.png",
+      "filename" : "BestScoreCompo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "StarBest@2x.png",
+      "filename" : "BestScoreCompo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "StarBest@3x.png",
+      "filename" : "BestScoreCompo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
