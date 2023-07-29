@@ -104,8 +104,10 @@ extension ChagokPauseView {
                 VStack(spacing:9){
                     Image(systemName: systemName)
                         .foregroundColor(.white)
+                        .frame(width: 24, height: 24)
                     Text(text)
                         .foregroundColor(.white)
+                            .pretendardBold20()
                     
                 }
             }
