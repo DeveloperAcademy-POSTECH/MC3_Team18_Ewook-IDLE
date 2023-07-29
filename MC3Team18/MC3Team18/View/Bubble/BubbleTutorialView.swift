@@ -10,10 +10,9 @@ import SwiftUI
 struct BubbleTutorialView: View {
     
     @Binding var bubbleStatus: BubbleStatus
-    @Binding var isShowingBubbleTutorial: Bool
-    @Binding var isNeverShowingBubbleTutorial: Bool
     @State var isNeverShowingBubbleTutorialToggle : Bool = false
-    
+    @AppStorage("isNeverShowingBubbleTutorial") var isNeverShowingBubbleTutorial: Bool = false
+
     var body: some View {
         
         ZStack(){
@@ -23,8 +22,7 @@ struct BubbleTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        isShowingBubbleTutorial = false
-                        isNeverShowingBubbleTutorialToggle = isNeverShowingBubbleTutorial
+                        isNeverShowingBubbleTutorial = isNeverShowingBubbleTutorialToggle
                         bubbleStatus = .waiting
                     } label: {
                         Image(systemName:  "xmark")
@@ -56,9 +54,6 @@ struct BubbleTutorialView: View {
                 Spacer()
                 Button {
                     isNeverShowingBubbleTutorialToggle.toggle()
-                    print("\(isNeverShowingBubbleTutorialToggle.description)")
-                   
-                    
                 } label: {
                     HStack{
                         Image(systemName: isNeverShowingBubbleTutorialToggle ? "checkmark.square.fill" : "square")
@@ -69,7 +64,6 @@ struct BubbleTutorialView: View {
                         Text("다시 보지 않기")
                             .pretendardRegular20()
                         .foregroundColor(.white)
-                        
                     }
                 }
             }
@@ -83,7 +77,7 @@ struct BubbleTutorialView: View {
 struct BubbleTutorialView_Previews: PreviewProvider {
     static var previews: some View {
         MultiPreview {
-            BubbleTutorialView(bubbleStatus: .constant(.tutorial), isShowingBubbleTutorial: .constant(true), isNeverShowingBubbleTutorial: .constant(false), isNeverShowingBubbleTutorialToggle: false)
+            BubbleTutorialView(bubbleStatus: .constant(.tutorial))
         }
     }
 }
