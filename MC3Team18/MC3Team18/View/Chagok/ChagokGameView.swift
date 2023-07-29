@@ -85,9 +85,9 @@ struct ChagokGameView: View {
                     }
                 }
                 .foregroundColor(.white)
-                .padding(.bottom, 5)
+                .padding(.bottom, 12)
                 .frame(height: 29)
-                HStack(spacing: 4) {
+                HStack(spacing: 8) {
                     Image(systemName: "hourglass")
                         .resizable()
                         .scaledToFit()
@@ -135,13 +135,14 @@ struct ChagokGameView: View {
                             }
                             .frame(width: 150, height: 300)
                             .opacity(isRightCupVisiable ? 1 : 0)
-                            .offset(y: 8)
+                            .offset(y: 40)
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
                             
                             SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 300)
+                                .offset(y: 33)
                         }
                 }
                 .foregroundColor(.white.opacity(0.4))
@@ -161,6 +162,7 @@ struct ChagokGameView: View {
                             Text("Tap to start")
                                 .pretendardSemiBold20()
                                 .foregroundColor(.white)
+                                .shadow(color:.black.opacity(0.25), radius: 8, x: 1, y: 2)
                         }
                         .opacity(tapToStartOpacity)
                         .padding(.bottom, 20)

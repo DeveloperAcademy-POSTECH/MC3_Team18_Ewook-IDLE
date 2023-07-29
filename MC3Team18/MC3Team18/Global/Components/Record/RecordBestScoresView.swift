@@ -17,10 +17,16 @@ struct RecordBestScoresView: View {
         return [bubbleScore, chagokScore, banjjakScore]
     }
     
+    var totalBox: String {
+        let temp: Int = ((Int(chagokScore) ?? 0) / 1500) * 5
+        let temp2: Int = ((Int(chagokScore) ?? 0) % 1500) / 100
+        return String(temp + temp2)
+    }
+    
     var bestRecordArray : [String] {
         return [
             String(format: "%.1f", (Double(bubbleScore) ?? 0.0) / 1000.0),
-            String((Int(chagokScore) ?? 0) / 1500),
+            totalBox,
             String((Int(banjjakScore) ?? 0) / 300)
         ]
     }

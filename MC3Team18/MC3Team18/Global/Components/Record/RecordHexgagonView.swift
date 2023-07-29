@@ -10,6 +10,7 @@ import SwiftUI
 struct RecordHexgagonView: View {
     
     @State var isCompleted: Bool = true
+
     var gameName = "차곡차곡"
     var recordedNumber = 5
     var unit = "개"
