@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "BestScoreCompoWidthBubble.png",
+      "filename" : "BestScoreLabelChagok.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "BestScoreCompoWidthBubble@2x.png",
+      "filename" : "BestScoreLabelChagok@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "BestScoreCompoWidthBubble@3x.png",
+      "filename" : "BestScoreLabelChagok@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

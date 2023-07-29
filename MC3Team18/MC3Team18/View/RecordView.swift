@@ -16,19 +16,17 @@ struct RecordView: View {
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
-    @State var firstLineText : String = ""
+    let firstLineText : String = "Daily Mission"
     @State var secondLineText : String = ""
-    
     
     var body: some View {
         VStack {
-            
             Image("RecordGradient")
                 .resizable()
-                .frame(minHeight: 250, maxHeight: .infinity)
+                .frame(maxHeight: 340)
                 .overlay {
                     VStack {
-                        Spacer().frame(maxHeight: 55)
+                        Spacer().frame(height: 68)
                         HStack {
                             Spacer()
                             
@@ -37,7 +35,6 @@ struct RecordView: View {
                              subject: 메일 등의 공유일 때 제목에 들어감
                              caption: 공유 창에 뜨는 텍스트
                              */
-                            
                             ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
                                 photo.caption,
                                 image: photo.image)) {
@@ -47,34 +44,36 @@ struct RecordView: View {
                                         .pretendardSemiBold20()
                                         .foregroundColor(.white)
                                 }
-                            
                         }
-                        .padding(.trailing, 37)
+                        .padding(.trailing, 34)
                         .frame(height: 24)
-                        Spacer().frame(maxHeight: 36)
-                        VStack(spacing:10) {
+                        
+                        Spacer().frame(maxHeight: 20)
+                        
+                        VStack(spacing: 8) {
                             Text(firstLineText)
+                                .pretendardSemiBold24()
                             Text(secondLineText)
+                                .pretendardMedium16()
                         }
-                        .pretendardSemiBold24()
                         .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         
-                        Spacer().frame(maxHeight: 60)
-                        HStack(spacing: 19) {
+                        Spacer().frame(minHeight: 28, maxHeight: 34)
+                        
+                        HStack(spacing: 12) {
                             RecordHexgagonView(isCompleted: BubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
                             RecordHexgagonView(isCompleted: ChagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 25, unit: "개")
                             RecordHexgagonView(isCompleted: BanjjakMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                         }
-                        Spacer()
+                        
+                        Spacer().frame(minHeight: 40, maxHeight: 48)
                     }
                 }
-            Spacer().frame(maxHeight: 34)
-            Divider()
-            Spacer().frame(height: 31)
+            Spacer().frame(minHeight: 20, maxHeight: 28)
             RecordBestScoresView()
-            Spacer().frame(height: 60)
+            Spacer().frame(minHeight: 20, maxHeight: 52)
         }
         .onBackSwipe {
             presentationMode.wrappedValue.dismiss()
@@ -85,16 +84,11 @@ struct RecordView: View {
         .navigationBarBackButtonHidden()
         .navigationBarItems(leading: btnBack)
         .onAppear{
-            if ChagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true{
-                firstLineText = "훌륭합니다! 🎉"
-                secondLineText = "오늘의 드릴을 완료했어요!"
-            } else if ChagokMissionSuccess == true || BubbleMissionSuccess == true || BanjjakMissionSuccess == true{
-                firstLineText = "잘하고 있어요! 👍"
-                secondLineText = "전부 완료해 볼까요?"
+            if ChagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true {
+                secondLineText = "데일리 미션을 완료했어요!"
             }
             else {
-                firstLineText = " 안녕하세요 😊"
-                secondLineText = "오늘의 SounDrill, 시작해볼까요?"
+                secondLineText = "데일리 미션을 완수하세요"
             }
         }
     }

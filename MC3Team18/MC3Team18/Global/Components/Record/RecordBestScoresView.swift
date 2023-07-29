@@ -42,50 +42,56 @@ struct RecordBestScoresView: View {
             }
             .padding(.leading, 34)
             Spacer().frame(maxHeight: 13)
-            HStack(spacing: -3) {
+            VStack {
                 ForEach(Array(BestScoreImage.allCases.enumerated()), id: \.element) { index, item in
                     Image("\(item.rawValue)")
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .overlay {
                             HStack {
-                                Spacer().frame(maxWidth: 24)
-                                VStack(spacing: 0) {
-                                    Spacer().frame(maxHeight: 90)
+                                Image("\(item.rawValue)"+"Label")
+                                    //.resizable().scaledToFill()
+                                    .offset(x: index == 1 ? -14 : -2)
+                                    .offset(x: index == 2 ? 4 : -2)
+                                    .offset(y: index == 2 ? -12 : -2)
+                                    .frame(width: 140)
+                                VStack(alignment: .leading, spacing: 0) {
                                     Text("\(bestNameArray[index])")
-                                        .pretendardBold14()
-                                        .padding(.bottom, 10)
+                                        .pretendardBold20()
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                    Spacer()
                                     Text("\(bestScoreArray[index])점")
-                                        .pretendardExtraLight12()
-                                    //  .padding(.bottom, 2)
+                                        .pretendardLight16()
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                                VStack {
+                                    Spacer()
                                     HStack(alignment: .bottom, spacing: 2) {
                                         Text("\(bestRecordArray[index])")
-                                            .pretendardMedium24()
+                                            .pretendardMedium20()
+                                            .offset(y: 2)
                                         Text("\(bestUnitArray[index])")
-                                            .pretendardSemiBold12()
-                                            .offset(y: -4)
-                                        Spacer()
+                                            .pretendardBold14()
                                     }
-                                    Spacer().frame(maxHeight: 16)
                                 }
-                                .multilineTextAlignment(.leading)
-                                Spacer()
                             }
+                            .padding(.vertical, 34)
+                            .padding(.trailing, 33)
+                            .multilineTextAlignment(.leading)
                             .foregroundColor(.white)
                         }
                 }
             }
-            .frame(minHeight: 155)
-            .padding(.horizontal, 14)
+            .padding(.horizontal, 26)
         }
     }
 }
 
 struct RecordBottomScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordBestScoresView()
+        MultiPreview {
+            RecordBestScoresView()
+        }
     }
 }
 

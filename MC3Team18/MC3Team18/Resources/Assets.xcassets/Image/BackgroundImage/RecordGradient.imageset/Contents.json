@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MenuGradient.png",
+      "filename" : "RecordGradient.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MenuGradient@2x.png",
+      "filename" : "RecordGradient@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MenuGradient@3x.png",
+      "filename" : "RecordGradient@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

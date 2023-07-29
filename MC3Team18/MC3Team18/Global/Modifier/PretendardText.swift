@@ -70,6 +70,13 @@ struct PretendardTextSemiBold18: ViewModifier {
     }
 }
 
+struct PretendardTextSemiBold16: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-SemiBold", size: 16))
+    }
+}
+
 struct PretendardTextSemiBold12: ViewModifier {
     
     func body(content: Content) -> some View {
@@ -81,6 +88,13 @@ struct PretendardTextLight32: ViewModifier {
     
     func body(content: Content) -> some View {
         content.font(.custom("Pretendard-Light", size: 32))
+    }
+}
+
+struct PretendardTextLight16: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Light", size: 16))
     }
 }
 
@@ -98,10 +112,10 @@ struct PretendardTextRegular20: ViewModifier {
     }
 }
 
-struct PretendardTextRegular11: ViewModifier {
+struct PretendardTextRegular12: ViewModifier {
     
     func body(content: Content) -> some View {
-        content.font(.custom("Pretendard-Regular", size: 11))
+        content.font(.custom("Pretendard-Regular", size: 12))
     }
 }
 
@@ -109,6 +123,13 @@ struct PretendardTextMedium12: ViewModifier {
     
     func body(content: Content) -> some View {
         content.font(.custom("Pretendard-Medium", size: 12))
+    }
+}
+
+struct PretendardTextMedium16: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Pretendard-Medium", size: 16))
     }
 }
 
