@@ -60,8 +60,8 @@ struct TrophyView: View {
         .onAppear{
             if !ChagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
                 isDailyNotFinished = true
-                totalCoinWithComma = addCommaToTotalcoin(balance: totalCoin)
             }
+            totalCoinWithComma = addCommaToTotalcoin(balance: totalCoin)
         }
     }
     
