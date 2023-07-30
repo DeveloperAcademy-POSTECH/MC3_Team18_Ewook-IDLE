@@ -128,9 +128,7 @@ struct ChagokGameView: View {
                         .overlay {
                             VStack(alignment: .center, spacing: 0) {
                                 ForEach(chagokScene.leftCupStack, id: \.rawValue) { cup in
-                                    Image(cup.rawValue)
-                                        .resizable()
-                                        .frame(width: 92, height: 56)
+                                    cupImage(cup: cup)
                                 }
                             }
                             .frame(width: 150, height: 300)
@@ -280,5 +278,19 @@ struct ChagokGameView: View {
 struct ChagokGameView_Previews: PreviewProvider {
     static var previews: some View {
         ChagokGameView(chagokStatus: .game, gameSelection: .constant(.chagok))
+    }
+}
+
+extension ChagokGameView {
+    
+    func cupImage(cup: CupName) -> some View {
+        
+        Color.clear
+            .frame(width: 100, height: 56)
+            .overlay {
+                Image(cup.rawValue)
+                    .resizable()
+                    .frame(width: cup == .YellowCup ? 100 : 92, height: 56)
+            }
     }
 }
