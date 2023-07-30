@@ -44,13 +44,13 @@ struct TrophyView: View {
                                 .pretendardSemiBold12()
                                 .foregroundColor(.white)
                         }
+                        .opacity(isDailyNotFinished ? 1 : 0)
                     Image("IconNudge")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40, height: 40)
                 }
             }
-            .opacity(isDailyNotFinished ? 1 : 0)
         }
         .frame(height: 40)
         .padding(.horizontal, 26)
