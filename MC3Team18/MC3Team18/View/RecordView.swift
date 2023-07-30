@@ -26,29 +26,7 @@ struct RecordView: View {
                 .frame(maxHeight: 340)
                 .overlay {
                     VStack {
-                        Spacer().frame(height: 60)
-                        HStack {
-                            Spacer()
-                            
-                            /*
-                             message: 메세지 카톡 등을 보낼때 메세지를 같이 보낼 수 있는 메세지 내용
-                             subject: 메일 등의 공유일 때 제목에 들어감
-                             caption: 공유 창에 뜨는 텍스트
-                             */
-                            ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
-                                photo.caption,
-                                image: photo.image)) {
-                                    Image(systemName: "square.and.arrow.up")
-                                        .resizable().scaledToFit()
-                                        .frame(width: 18, height: 22)
-                                        .pretendardSemiBold20()
-                                        .foregroundColor(.white)
-                                }
-                        }
-                        .padding(.trailing, 34)
-                        .frame(height: 24)
-                        
-                        Spacer().frame(maxHeight: 20)
+                        Spacer().frame(maxHeight: 124)
                         
                         VStack(spacing: 8) {
                             Text(firstLineText)
@@ -83,6 +61,23 @@ struct RecordView: View {
         .background(.white)
         .navigationBarBackButtonHidden()
         .navigationBarItems(leading: btnBack)
+        .toolbar(content: {
+            /*
+             message: 메세지 카톡 등을 보낼때 메세지를 같이 보낼 수 있는 메세지 내용
+             subject: 메일 등의 공유일 때 제목에 들어감
+             caption: 공유 창에 뜨는 텍스트
+             */
+            ShareLink(item: photo, subject: Text(""), message: Text(""), preview: SharePreview(
+                photo.caption,
+                image: photo.image)) {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable().scaledToFit()
+                        .frame(width: 18, height: 22)
+                        .pretendardSemiBold20()
+                        .foregroundColor(.white)
+                        .padding(.trailing, 18)
+                }
+        })
         .onAppear{
             if ChagokMissionSuccess == true && BubbleMissionSuccess == true && BanjjakMissionSuccess == true {
                 secondLineText = "데일리 미션을 완료했어요!"
