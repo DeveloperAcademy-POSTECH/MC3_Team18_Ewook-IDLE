@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Cup_yellow@3x-8.png",
+      "filename" : "YellowCup.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "23e.png",
+      "filename" : "YellowCup@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "23rf2r.png",
+      "filename" : "YellowCup@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -142,3 +142,17 @@ class ChagokSKScene: SKScene, ObservableObject {
         
     }
 }
+
+extension ChagokSKScene {
+
+    func cupImage(cup: CupName) -> SKNode {
+
+        let cupNode = SKSpriteNode(imageNamed: cup.rawValue)
+        cupNode.position = CGPoint(x: size.width / 2, y: size.height - 20)
+        cupNode.size = CGSize(width: cup == .YellowCup ? 100 : 92, height: 56)
+        cupNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 56))
+        cupNode.physicsBody?.allowsRotation = false
+        cupNode.physicsBody?.restitution = 0
+        return cupNode
+    }
+}
