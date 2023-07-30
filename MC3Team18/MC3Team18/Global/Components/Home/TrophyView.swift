@@ -17,47 +17,43 @@ struct TrophyView: View {
     @Binding var gameSelected: GameSelection
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
+            NavigationLink {
+                ShopView()
+            } label: {
+                HStack(spacing: 8) {
+                    Image("IconShop")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                    Text("1,000")
+                        .postNoBillsJaffnaExtraBold20()
+                        .foregroundColor(.Yellow)
+                }
+            }
             Spacer()
             NavigationLink {
                 RecordView(gameSelected: $gameSelected)
             } label: {
-                Rectangle()
-                    .foregroundColor(.white.opacity(0.9))
-                    .frame(width: 124, height: 24)
-                    .cornerRadius(12)
-                    .overlay {
-                        Text("데일리 연습 완성하기!")
-                            .pretendardMedium12()
-                            .foregroundColor(.Blue)
-                    }
-                    
+                HStack(spacing: 4) {
+                    Image("IconNudgeBackground")
+                        .resizable()
+                        .frame(width: 123, height: 24)
+                        .overlay {
+                            Text("데일리 연습 완성하기!")
+                                .pretendardSemiBold12()
+                                .foregroundColor(.white)
+                        }
+                    Image("IconNudge")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                }
             }
             .opacity(isDailyNotFinished ? 1 : 0)
-            NavigationLink {
-                RecordView(gameSelected: $gameSelected)
-            } label: {
-                Image(systemName: "trophy")
-                    .resizable()
-                    .pretendardSemiBold20()
-                    .scaledToFit()
-                    .foregroundColor(.white)
-                    .overlay {
-                        VStack {
-                            Circle()
-                                .foregroundColor(.Orange)
-                                .frame(width: 5, height: 5)
-                                .offset(x: -12.5)
-                            Spacer()
-                        }
-                        .opacity(isDailyNotFinished ? 1 : 0)
-                    }
-                    .padding(.trailing, 26)
-                    .padding(.top, 2)
-            }
         }
-        .frame(height: 26)
-        .frame(maxWidth: .infinity)
+        .frame(height: 40)
+        .padding(.horizontal, 26)
         .onAppear{
             if !ChagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
                 isDailyNotFinished = true

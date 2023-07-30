@@ -13,3 +13,10 @@ struct PostNoBillsJaffnaRegular64: ViewModifier {
         content.font(.custom("PostNoBillsJaffna-Medium", size: 64))
     }
 }
+
+struct PostNoBillsJaffnaExtraBold20: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("PostNoBillsJaffna-ExtraBold", size: 20))
+    }
+}

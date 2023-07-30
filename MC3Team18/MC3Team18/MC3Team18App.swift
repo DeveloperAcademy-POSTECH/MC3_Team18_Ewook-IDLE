@@ -17,6 +17,7 @@ struct MC3Team18App: App {
         Font.registerFonts(fontName: "Pretendard-SemiBold")
         Font.registerFonts(fontName: "Pretendard-Medium")
         Font.registerFontsTTF(fontName: "PostNoBillsJaffna-Medium")
+        Font.registerFontsTTF(fontName: "PostNoBillsJaffna-ExtraBold")
     }
     var body: some Scene {
         WindowGroup {
