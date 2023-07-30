@@ -263,6 +263,7 @@ struct ChagokGameView: View {
             if newValue {
                 withAnimation(.easeOut(duration: 0.3)) {
                     scoreScale = 1.3
+                    secondsx4 += 12
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     withAnimation(.easeIn(duration: 0.3)) {
