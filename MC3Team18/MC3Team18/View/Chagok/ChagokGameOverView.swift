@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ChagokGameOverView: View {
     
@@ -19,6 +20,7 @@ struct ChagokGameOverView: View {
     @Binding var tapToStartOpacity: Double
     @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     @Binding var chagokScore: String
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
         ZStack {
@@ -131,6 +133,7 @@ struct ChagokGameOverView: View {
             if chagokScene.boxLineCount >= 5{
                 ChagokMissionSuccess = true
             }
+            totalCoin = totalCoin + Int(chagokScene.chagokScore / 100)
         }
     }
 }

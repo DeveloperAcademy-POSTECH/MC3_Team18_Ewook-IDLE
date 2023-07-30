@@ -16,6 +16,7 @@ struct BanjjakGameOverView: View {
     @Binding var isBestScore: Bool
 
     @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     @EnvironmentObject var banjjakSKScene: BanjjakSKScene
     @EnvironmentObject var streamManager: BanjjakAudioStreamManager
@@ -132,6 +133,7 @@ struct BanjjakGameOverView: View {
                 gameoverOpacity = 1
             }
             banjjakSKScene.isPaused = true
+            totalCoin = totalCoin + Int(banjjakSKScene.score / 100)
         }
     }
 }
