@@ -61,7 +61,7 @@ struct HomeView: View {
                                     gameSelected = .banjjak
                                 }
                             } label: {
-                                Image("ButtonBanjjak")
+                                Image("ButtonBanjjak").offset(x: -10)
                             }
                             
                             Spacer()

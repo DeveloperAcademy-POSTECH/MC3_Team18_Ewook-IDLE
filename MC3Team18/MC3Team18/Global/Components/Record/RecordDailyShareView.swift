@@ -45,8 +45,8 @@ struct RecordDailyShareView: View {
                 }
                 Spacer().frame(height: 33)
                 HStack(spacing: 19) {
-                    RecordHexgagonView(isCompleted: bubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "줄")
-                    RecordHexgagonView(isCompleted: ChagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 5, unit: "초")
+                    RecordHexgagonView(isCompleted: bubbleMissionSuccess, gameName: "버블버블", recordedNumber: 5, unit: "초")
+                    RecordHexgagonView(isCompleted: ChagokMissionSuccess, gameName: "차곡차곡", recordedNumber: 25, unit: "개")
                     RecordHexgagonView(isCompleted: banjjakMissionSuccess, gameName: "반짝반짝", recordedNumber: 10, unit: "개")
                 }
                 Spacer().frame(height: 121)
