@@ -107,4 +107,8 @@ extension View {
     func postNoBillsJaffnaRegular64() -> some View {
         modifier(PostNoBillsJaffnaRegular64())
     }
+    
+    func postNoBillsJaffnaExtraBold20() -> some View {
+        modifier(PostNoBillsJaffnaExtraBold20())
+    }
 }
