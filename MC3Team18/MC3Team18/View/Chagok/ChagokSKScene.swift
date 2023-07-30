@@ -125,16 +125,7 @@ class ChagokSKScene: SKScene, ObservableObject {
         if isNotUpdate {
             return
         }
-        
-        print("Drop dropbox()")
-        
-        let cupNode = SKSpriteNode(imageNamed: cupname.rawValue)
-        cupNode.position = CGPoint(x: size.width / 2, y: size.height - 20)
-        cupNode.size = CGSize(width: 92, height: 56)
-        cupNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 92, height: 56))
-        cupNode.physicsBody?.allowsRotation = false
-        cupNode.physicsBody?.restitution = 0
-        addChild(cupNode)
+        addChild(cupImage(cup: cupname))
         rightCupStack.append(cupname)
         boxCount += 1
         // 박스가 떨어질때 마다 스코어가 추가되어야 합니다.
