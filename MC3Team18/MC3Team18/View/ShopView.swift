@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct ShopView: View {
+    
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
+    
     var body: some View {
-        Text("Shop View")
+        VStack{
+            Text("Shop View")
+            Text("Coin Balance: " + String(totalCoin))
+            Button(action: {
+                totalCoin = totalCoin + 100
+            },
+                   label: {
+                Text("Debug : Coin balance++")
+            })
+            Button(action: {
+                totalCoin = totalCoin - 100
+            },
+                   label: {
+                Text("Debug : Coin balance--")
+            })
+        }
     }
 }
 

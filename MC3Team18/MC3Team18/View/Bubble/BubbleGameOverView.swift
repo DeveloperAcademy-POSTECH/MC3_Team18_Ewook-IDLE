@@ -16,6 +16,7 @@ struct BubbleGameOverView: View {
     @State var gameoverOpacity: Double = 0
 
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     var streamManager: AudioStreamManager
 
     var body: some View {
@@ -108,6 +109,7 @@ struct BubbleGameOverView: View {
             if Int(score)! / 1000 >= 5{
                 BubbleMissionSuccess = true
             }
+            totalCoin = totalCoin + Int(Int(score)! / 100)
         }
     }
 }
