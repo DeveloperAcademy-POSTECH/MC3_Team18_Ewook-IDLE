@@ -26,7 +26,7 @@ struct RecordView: View {
                 .frame(maxHeight: 340)
                 .overlay {
                     VStack {
-                        Spacer().frame(height: 68)
+                        Spacer().frame(height: 60)
                         HStack {
                             Spacer()
                             

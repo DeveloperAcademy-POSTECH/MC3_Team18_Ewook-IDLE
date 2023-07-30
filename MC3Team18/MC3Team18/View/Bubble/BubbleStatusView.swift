@@ -13,25 +13,25 @@ struct BubbleStatusView: View {
 
     @Binding var gameSelection: GameSelection
     @State var bubbleStatus: BubbleStatus = .tutorial
+            
+    @AppStorage("bubbleScore") var bubbleHighScore: String = "0"
+    @State var isBestScore: Bool = false
+    @State var score: String = "0"
     
-    var offsetValue: CGFloat = -740.0
-        
+    @AppStorage("isNeverShowingBubbleTutorial") var isNeverShowingBubbleTutorial: Bool = false
+    @State var isShowingBubbleTutorial: Bool = true
+
     @State var currentExpressionIndex: Int = 0
     @State var backgroundOffset: CGFloat = -740
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
-    @State var score: String = "0"
-    @AppStorage("isNeverShowingBubbleTutorial") var isNeverShowingBubbleTutorial: Bool = false
-    @State var isShowingBubbleTutorial: Bool = true
-    @AppStorage("bubbleScore") var bubbleHighScore: String = "0"
     @ObservedObject var observer: AudioStreamObserver
-    @State var text: String = ""
+
     var streamManager: AudioStreamManager
     
     @State var offsetX: CGFloat = 0
     @State var offsetY: CGFloat = 0
     
-    @State var isBestScore: Bool = false
     
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
@@ -42,17 +42,20 @@ struct BubbleStatusView: View {
     
     var body: some View {
         ZStack {
-            Color.clear.overlay{BubbleMainView(bubbleStatus: $bubbleStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)}
+            Color.clear.overlay{
+                BubbleMainView(bubbleStatus: $bubbleStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)
+            }
+                .onAppear {
+                    if isNeverShowingBubbleTutorial {
+                        bubbleStatus = .waiting
+                    } else {
+                        bubbleStatus = .tutorial
+                    }
+                }
             
             switch bubbleStatus {
             case .tutorial:
-                if isNeverShowingBubbleTutorial {
-                    BubbleWaitingView(gameSelection: $gameSelection, bubbleStatus: $bubbleStatus, streamManager: streamManager, observer: observer)
-                } else {
-                    BubbleTutorialView(bubbleStatus: $bubbleStatus, isShowingBubbleTutorial: $isShowingBubbleTutorial, isNeverShowingBubbleTutorial: $isNeverShowingBubbleTutorial)
-                        //.padding(.top, -offsetValue)
-                        //.padding(.bottom, -offsetValue)
-                }
+                BubbleTutorialView(bubbleStatus: $bubbleStatus)
             case .waiting:
                 BubbleWaitingView(gameSelection: $gameSelection, bubbleStatus: $bubbleStatus, streamManager: streamManager, observer: observer)
             case .game:
@@ -60,7 +63,6 @@ struct BubbleStatusView: View {
             case .gameover:
                 BubbleGameOverView(bubbleStatus: $bubbleStatus, gameSelection: $gameSelection, score: $score, bubbleHighScore: $bubbleHighScore, isBestScore: $isBestScore, streamManager: streamManager)
             }
-            
         }
     }
 }
@@ -83,7 +85,6 @@ struct BubbleMainView: View {
     let bubbleImages = ["BubblePink","BubbleOrange", "BubbleBlue"]
   
     let animationBackgroundMaxDuration: Double = 30
-    let offsetValue: CGFloat = -740.0
    
     var body: some View {
         ZStack {
