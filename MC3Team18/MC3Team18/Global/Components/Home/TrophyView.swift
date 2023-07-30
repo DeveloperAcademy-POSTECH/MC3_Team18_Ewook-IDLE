@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct TrophyView: View {
     
     @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     @State var isDailyNotFinished: Bool = false
     @Binding var gameSelected: GameSelection
+    @State var totalCoinWithComma: String = "0"
     
     var body: some View {
         HStack(spacing: 0) {
@@ -26,7 +29,7 @@ struct TrophyView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40, height: 40)
-                    Text("1,000")
+                    Text(totalCoinWithComma)
                         .postNoBillsJaffnaExtraBold20()
                         .foregroundColor(.Yellow)
                 }
@@ -57,8 +60,15 @@ struct TrophyView: View {
         .onAppear{
             if !ChagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
                 isDailyNotFinished = true
+                totalCoinWithComma = addCommaToTotalcoin(balance: totalCoin)
             }
         }
+    }
+    
+    func addCommaToTotalcoin(balance: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: balance)!
     }
 }
 
