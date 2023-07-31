@@ -94,19 +94,16 @@ struct ChagokGameView: View {
                         .pretendardSemiBold20()
                         .frame(width: 15, height: 24)
                         .foregroundColor(.white)
-                    Spacer()
                     Capsule()
                         .frame(height: 16)
                         .foregroundColor(.white).opacity(0.4)
                         .overlay {
-                            
                             GeometryReader { geo in
-                                
                                 HStack {
                                     Capsule()
                                         .frame(height: 10)
                                         .frame(width: (geo.size.width - 10) * (CGFloat(secondsx4) / 120))
-                                        .offset(y: -1.5)
+                                        .offset(y: -2)
                                         .foregroundColor(.white.opacity(0.9))
                                         .padding(5)
                                     
@@ -116,8 +113,6 @@ struct ChagokGameView: View {
                                 .onAppear {
                                     print("geo : \(geo.size.width)")
                                 }
-                                
-                                
                             }
                         }
                 }
@@ -137,17 +132,15 @@ struct ChagokGameView: View {
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
-                            
                             SpriteView(scene: chagokScene, options: [.allowsTransparency])
                                 .frame(width: 150, height: 360)
                                 .offset(y: 2)
-                                
                         }
                 }
                 .foregroundColor(.white.opacity(0.4))
                 Spacer()
             }
-            .padding(.top, 50)
+            .padding(.top, 60)
             .padding(.horizontal, 34)
             
             VStack(spacing: 0) {
@@ -160,11 +153,11 @@ struct ChagokGameView: View {
                         } label: {
                             Text("Tap to start")
                                 .pretendardSemiBold20()
-                                .foregroundColor(.white)
-                                .shadow(color:.black.opacity(0.25), radius: 8, x: 1, y: 2)
+                                .foregroundColor(.Yellow)
+                                .shadow(color:.Yellow.opacity(0.85), radius: 8, x: 2, y: 2)
                         }
                         .opacity(tapToStartOpacity)
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 8)
                     }
                     
                     Image(ChagokFace.faceActive.rawValue)

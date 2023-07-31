@@ -14,7 +14,7 @@ struct BestScoreShareView: View {
     
     var body: some View {
         ZStack {
-            Image("Share_BestScore_\(gameSelected)")
+            Image("ShareBestScore_\(gameSelected)")
                 .resizable()
                 .frame(width: 393, height: 393)
             VStack(spacing: 0) {
