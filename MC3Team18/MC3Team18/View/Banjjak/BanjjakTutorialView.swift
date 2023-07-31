@@ -51,10 +51,7 @@ struct BanjjakTutorialView: View {
                         .multilineTextAlignment(.center)
                         .lineSpacing(3)
                         .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
-                    Text("• 혀굴리기 :  아rrrr\n• 입술털기 :  푸rrrr")
-                        .font(.custom("Pretendard", size: 13))
-                        .fontWeight(.semibold)
-                        .lineLimit(2)
+
                     LottieView(filename: "lottieAnima_shiningBanjjak")
                         .scaledToFit()
                         .frame(width: 255, height: 408)
