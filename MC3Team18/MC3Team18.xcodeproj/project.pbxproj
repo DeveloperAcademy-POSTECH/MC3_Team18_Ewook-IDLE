@@ -42,7 +42,6 @@
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
 		784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */; };
 		784E50A42A67F76C00733796 /* CelebLottieAnima.json in Resources */ = {isa = PBXBuildFile; fileRef = 784E50A32A67F76C00733796 /* CelebLottieAnima.json */; };
-		784E50A62A67F77A00733796 /* lottieAnima_chagok.json in Resources */ = {isa = PBXBuildFile; fileRef = 784E50A52A67F77A00733796 /* lottieAnima_chagok.json */; };
 		7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */; };
 		7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */; };
 		7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */; };
@@ -58,6 +57,8 @@
 		788C20E02A6A6D0C00953579 /* RecordBestScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C20DF2A6A6D0C00953579 /* RecordBestScoresView.swift */; };
 		788E4C7C2A6CF8EF00DAE596 /* RecordDailyShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7B2A6CF8EF00DAE596 /* RecordDailyShareView.swift */; };
 		788E4C7E2A6CFB2000DAE596 /* TransferableUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */; };
+		789691592A77471000E24BD0 /* lottieAnima_chagok.json in Resources */ = {isa = PBXBuildFile; fileRef = 789691572A77471000E24BD0 /* lottieAnima_chagok.json */; };
+		7896915A2A77471100E24BD0 /* lottieAnima_shiningBanjjak.json in Resources */ = {isa = PBXBuildFile; fileRef = 789691582A77471000E24BD0 /* lottieAnima_shiningBanjjak.json */; };
 		78A972CF2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78A972CE2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf */; };
 		78A972D12A7609D800A97AE4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A972D02A7609D800A97AE4 /* ShopView.swift */; };
 		78A99CED2A66A89500474F00 /* AnyTransitionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */; };
@@ -78,7 +79,6 @@
 		78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */; };
 		78E7C9E12A6BC30100570F4C /* TrophyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E7C9E02A6BC30100570F4C /* TrophyView.swift */; };
 		78F38C912A6FB88400AFF4C1 /* lottieAnima_bubble.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */; };
-		78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */; };
 		E53CEA1A2A5D3E7000BE59B9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA192A5D3E7000BE59B9 /* HomeView.swift */; };
 		E53CEA1C2A5D42EA00BE59B9 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */; };
 		E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */; };
@@ -120,7 +120,6 @@
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
 		784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreShareView.swift; sourceTree = "<group>"; };
 		784E50A32A67F76C00733796 /* CelebLottieAnima.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CelebLottieAnima.json; sourceTree = "<group>"; };
-		784E50A52A67F77A00733796 /* lottieAnima_chagok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_chagok.json; sourceTree = "<group>"; };
 		7872CA682A5CFB8C00FC8444 /* ChagokGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameView.swift; sourceTree = "<group>"; };
 		7872CA6A2A5CFB9400FC8444 /* ChagokTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokTutorialView.swift; sourceTree = "<group>"; };
 		7872CA6C2A5CFBA200FC8444 /* ChagokGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokGameOverView.swift; sourceTree = "<group>"; };
@@ -136,6 +135,8 @@
 		788C20DF2A6A6D0C00953579 /* RecordBestScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBestScoresView.swift; sourceTree = "<group>"; };
 		788E4C7B2A6CF8EF00DAE596 /* RecordDailyShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDailyShareView.swift; sourceTree = "<group>"; };
 		788E4C7D2A6CFB2000DAE596 /* TransferableUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableUIImage.swift; sourceTree = "<group>"; };
+		789691572A77471000E24BD0 /* lottieAnima_chagok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_chagok.json; sourceTree = "<group>"; };
+		789691582A77471000E24BD0 /* lottieAnima_shiningBanjjak.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningBanjjak.json; sourceTree = "<group>"; };
 		78A972CE2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PostNoBillsJaffna-ExtraBold.ttf"; sourceTree = "<group>"; };
 		78A972D02A7609D800A97AE4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionExtension.swift; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		78DD4FBE2A5BAFC20007251D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78E7C9E02A6BC30100570F4C /* TrophyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyView.swift; sourceTree = "<group>"; };
 		78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_bubble.json; sourceTree = "<group>"; };
-		78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningBanjjack.json; sourceTree = "<group>"; };
 		E53CEA192A5D3E7000BE59B9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E53CEA1B2A5D42EA00BE59B9 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		E53CEA1D2A5E23E200BE59B9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -273,9 +273,9 @@
 		78C7EF932A678ADE00460E90 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				784E50A52A67F77A00733796 /* lottieAnima_chagok.json */,
-				78F38C962A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json */,
 				78F38C902A6FB88400AFF4C1 /* lottieAnima_bubble.json */,
+				789691572A77471000E24BD0 /* lottieAnima_chagok.json */,
+				789691582A77471000E24BD0 /* lottieAnima_shiningBanjjak.json */,
 				784E50A32A67F76C00733796 /* CelebLottieAnima.json */,
 			);
 			path = Lottie;
@@ -487,22 +487,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7896915A2A77471100E24BD0 /* lottieAnima_shiningBanjjak.json in Resources */,
 				78DD4FBF2A5BAFC20007251D /* Preview Assets.xcassets in Resources */,
 				78BE77D12A5D69440028A446 /* Pretendard-Regular.otf in Resources */,
 				2FF0BA202A682789005B11CD /* chagokPungEffect.mp3 in Resources */,
 				788C20DC2A6A5D1B00953579 /* Pretendard-Medium.otf in Resources */,
-				78F38C972A6FE9A700AFF4C1 /* lottieAnima_shiningBanjjack.json in Resources */,
 				78BE77D52A5D69440028A446 /* Pretendard-Bold.otf in Resources */,
 				78DD4FBC2A5BAFC20007251D /* Assets.xcassets in Resources */,
 				2FF0BA1D2A682789005B11CD /* bubbleBGM.mp3 in Resources */,
 				2FF0BA212A682789005B11CD /* bubbleBlowEffect.mp3 in Resources */,
 				78F38C912A6FB88400AFF4C1 /* lottieAnima_bubble.json in Resources */,
 				2FF0BA1C2A682789005B11CD /* homescreenBGM.mp3 in Resources */,
+				789691592A77471000E24BD0 /* lottieAnima_chagok.json in Resources */,
 				2F1BF1902A6FB423004D9EBE /* banjjakBGM.mp3 in Resources */,
 				78A972CF2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf in Resources */,
 				2FF0BA1E2A682789005B11CD /* chagokBGM.mp3 in Resources */,
 				2FF0BA1F2A682789005B11CD /* bubbleGameOverEffect.mp3 in Resources */,
-				784E50A62A67F77A00733796 /* lottieAnima_chagok.json in Resources */,
 				78BE77D32A5D69440028A446 /* PostNoBillsJaffna-Medium.ttf in Resources */,
 				78BE77D22A5D69440028A446 /* Pretendard-SemiBold.otf in Resources */,
 				78BE77D42A5D69440028A446 /* Pretendard-Light.otf in Resources */,
