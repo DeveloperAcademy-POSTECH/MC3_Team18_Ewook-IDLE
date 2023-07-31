@@ -140,8 +140,8 @@ extension ChagokSKScene {
 
         let cupNode = SKSpriteNode(imageNamed: cup.rawValue)
         cupNode.position = CGPoint(x: size.width / 2, y: size.height - 20)
-        cupNode.size = CGSize(width: cup == .YellowCup ? 100 : 92, height: 56)
-        cupNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 56))
+        cupNode.size = CGSize(width: cup == .YellowCup ? 118 : 113, height: 69)
+        cupNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 118, height: 69))
         cupNode.physicsBody?.allowsRotation = false
         cupNode.physicsBody?.restitution = 0
         return cupNode

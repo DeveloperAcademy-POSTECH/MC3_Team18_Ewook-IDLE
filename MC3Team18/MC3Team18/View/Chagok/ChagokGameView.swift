@@ -34,7 +34,7 @@ struct ChagokGameView: View {
     @State var chagokStatus: ChagokStatus = .tutorial
     @Binding var gameSelection: GameSelection
     
-    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 300))
+    @StateObject var chagokScene = ChagokSKScene(size: CGSize(width: 150, height: 360))
     @State var secondsx4 = 120
     
     @State var isRightCupVisiable: Bool = false
@@ -131,16 +131,17 @@ struct ChagokGameView: View {
                                     cupImage(cup: cup)
                                 }
                             }
-                            .frame(width: 150, height: 300)
+                            .frame(width: 150, height: 360)
                             .opacity(isRightCupVisiable ? 1 : 0)
-                            .offset(y: 40)
+                            .offset(y: 7)
                         }
                     Rectangle().frame(width: 155, height: 360).cornerRadius(12)
                         .overlay {
                             
                             SpriteView(scene: chagokScene, options: [.allowsTransparency])
-                                .frame(width: 150, height: 300)
-                                .offset(y: 33)
+                                .frame(width: 150, height: 360)
+                                .offset(y: 2)
+                                
                         }
                 }
                 .foregroundColor(.white.opacity(0.4))
@@ -286,12 +287,8 @@ extension ChagokGameView {
     
     func cupImage(cup: CupName) -> some View {
         
-        Color.clear
-            .frame(width: 100, height: 56)
-            .overlay {
-                Image(cup.rawValue)
-                    .resizable()
-                    .frame(width: cup == .YellowCup ? 100 : 92, height: 56)
-            }
+        Image(cup.rawValue)
+            .resizable()
+            .frame(width: cup == .YellowCup ? 118 : 113, height: 69)
     }
 }
