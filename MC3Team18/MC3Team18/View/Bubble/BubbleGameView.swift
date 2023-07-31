@@ -25,7 +25,7 @@ struct BubbleGameView: View {
     @Binding var score: String
     @Binding var bubbleHighScore: String
     
-    var offsetValue: CGFloat = -740.0
+    var offsetValue: CGFloat = -700.0
     
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
@@ -119,7 +119,7 @@ struct BubbleGameView: View {
         offsetX = 0
         offsetY = 0
         startTime = Date()
-        backgroundOffset = -740
+        backgroundOffset = -700
         currentExpressionIndex = 0
     }
     

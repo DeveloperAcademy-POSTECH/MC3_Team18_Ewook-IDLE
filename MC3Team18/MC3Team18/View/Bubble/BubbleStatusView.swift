@@ -22,7 +22,7 @@ struct BubbleStatusView: View {
     @State var isShowingBubbleTutorial: Bool = true
 
     @State var currentExpressionIndex: Int = 0
-    @State var backgroundOffset: CGFloat = -740
+    @State var backgroundOffset: CGFloat = -700
     @State var scale: CGFloat = 0.02
     @State var currentBubbleImageIndex = 0
     @ObservedObject var observer: AudioStreamObserver
