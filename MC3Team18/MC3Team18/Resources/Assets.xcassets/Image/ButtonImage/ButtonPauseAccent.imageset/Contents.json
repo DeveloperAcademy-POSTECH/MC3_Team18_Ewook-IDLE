@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "PauseBtn.png",
+      "filename" : "ButtonPauseAccent.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "PauseBtn@2x.png",
+      "filename" : "ButtonPauseAccent@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "PauseBtn@3x.png",
+      "filename" : "ButtonPauseAccent@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

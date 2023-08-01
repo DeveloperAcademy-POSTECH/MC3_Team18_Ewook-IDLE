@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BanjjakGameOverView: View {
     @State var gameoverOpacity: Double = 0
-
+    
     @Binding var banjjakStatus: BanjjakStatus
     @Binding var secondsx4: Int
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
-
+    
     @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
@@ -23,7 +23,7 @@ struct BanjjakGameOverView: View {
     
     let banjjakMissionCount: Int = 10
     @Binding var banjjakScore: String
-
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
@@ -58,7 +58,7 @@ struct BanjjakGameOverView: View {
                     } else {
                         Text("Your Score")
                             .pretendardLight32()
-                        .foregroundColor(.white)
+                            .foregroundColor(.white)
                     }
                     Text("\(banjjakSKScene.score)")
                         .postNoBillsJaffnaRegular64()
