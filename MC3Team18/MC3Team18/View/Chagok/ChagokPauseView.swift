@@ -28,8 +28,10 @@ struct ChagokPauseView: View {
                     }
                     chagokScene.isNotUpdate = false
                 } label: {
-                    chagokPauseButton(systemName: "play", text: "Continue")
+                    GameOverButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
                 }
+                .buttonStyle(PauseButtonStyle(gameSelection: .chagok))
+                
                 Spacer()
                 Button {
                     // 게임 상황 리셋하는 코드 만들기 (점수 초기화 구현 상태, 스택 초기화, 타이머 초기화 구현되어야함)
@@ -46,7 +48,7 @@ struct ChagokPauseView: View {
                         gameSelection = .none
                     }
                 } label: {
-                    chagokPauseButton(systemName: "house", text: "Home")
+                    gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 167, height: 134)
                 }
                 
                 Spacer()
@@ -70,7 +72,7 @@ struct ChagokPauseView: View {
                         chagokStatus = .game
                     }
                 } label: {
-                    chagokPauseButton(systemName: "arrow.clockwise", text: "Retry")
+                    gameOverGlassMorphicButtonLabel(systemName: "arrow.clockwise", text: "Retry", width: 167, height: 134)
                 }
             }
             .pretendardSemiBold24()
@@ -93,37 +95,3 @@ struct ChagokPauseView: View {
 //        ChagokPauseView(gameSelection: .constant(.chagok), chagokStatus: .constant(.pause), chagokScore: .constant(0))
 //    }
 //}
-
-extension ChagokPauseView {
-    
-    func chagokPauseButton(systemName: String, text: String) -> some View {
-        
-        return GlassMorphicCard()
-            .overlay {
-                Image("ButtonPauseBorder")
-                VStack(spacing:9){
-                    Image(systemName: systemName)
-                        .foregroundColor(.white)
-                        .frame(width: 24, height: 24)
-                    Text(text)
-                        .foregroundColor(.white)
-                            .pretendardBold20()
-                    
-                }
-            }
-    }
-    
-    @ViewBuilder
-    func GlassMorphicCard() -> some View {
-        ZStack {
-            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
-                view.gaussianBlurRadius = 4.5
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        }
-        .frame(width: 170, height: 137)
-        .shadow(
-            color: Color(.white).opacity(0.4), radius: 16
-        )
-    }
-}

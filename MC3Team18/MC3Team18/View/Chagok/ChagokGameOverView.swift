@@ -81,7 +81,7 @@ struct ChagokGameOverView: View {
                             gameSelection = .none
                         }
                     } label: {
-                        GlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
+                        gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
                     
                     Button {
@@ -107,9 +107,9 @@ struct ChagokGameOverView: View {
                             chagokStatus = .game
                         }
                     } label: {
-                        CustomButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
+                        GameOverButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
-                    .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
+                    .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }
                 .padding(.bottom, 160)
             }

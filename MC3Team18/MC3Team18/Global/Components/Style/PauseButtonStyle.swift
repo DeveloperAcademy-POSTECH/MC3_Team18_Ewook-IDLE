@@ -1,13 +1,14 @@
 //
-//  AccentButtonStyle.swift
+//  PauseButtonStyle.swift
 //  MC3Team18
 //
 //  Created by ChoiYujin on 2023/08/01.
 //
 
+import Foundation
 import SwiftUI
 
-struct CustomButtonStyle: ButtonStyle {
+struct PauseButtonStyle: ButtonStyle {
     
     @State var gameSelection: GameSelection = .bubble
     
@@ -28,11 +29,11 @@ struct CustomButtonStyle: ButtonStyle {
         configuration.label
             .pretendardBold20()
             .foregroundColor(
-                configuration.isPressed ? .white :AccentTextColor
+                configuration.isPressed ? .white : AccentTextColor
             )
             .background(configuration.isPressed ?
                         Image("ButtonTouchedGameOver").resizable() :
-                            Image("ButtonAccentGameOver").resizable()
+                            Image("ButtonPauseAccent").resizable()
             )
             .shadow(
                 color: configuration.isPressed ?
@@ -45,14 +46,14 @@ struct CustomButtonStyle: ButtonStyle {
     }
 }
 
-struct AccentButtonStyle_Previews: PreviewProvider {
+struct PauseButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Button {
             //
         } label: {
-            CustomButtonLabel()
+            GameOverButtonLabel()
         }
-        .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
+        .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
     }
 }
 

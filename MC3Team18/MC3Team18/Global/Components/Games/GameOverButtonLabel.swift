@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButtonLabel: View {
+struct GameOverButtonLabel: View {
     
     @State var width: CGFloat = 136
     @State var height: CGFloat = 96
@@ -30,6 +30,6 @@ struct CustomButtonLabel: View {
 
 struct LightYellowStyleButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButtonLabel()
+        GameOverButtonLabel()
     }
 }

@@ -134,7 +134,7 @@ extension View {
         )
     }
     
-    func GlassMorphicButtonLabel(systemName: String, text: String, width: CGFloat, height: CGFloat) -> some View {
+    func gameOverGlassMorphicButtonLabel(systemName: String, text: String, width: CGFloat, height: CGFloat) -> some View {
         return GlassMorphicCard(width: width, height: height)
             .overlay {
                 Image("ButtonGameOverBorder")
@@ -149,6 +149,23 @@ extension View {
                         .foregroundColor(.white)
                 }
                 .pretendardBold20()
+            }
+    }
+    
+    func pauseGlassMorphicButtonLabel(systemName: String, text: String, width: CGFloat, height: CGFloat) -> some View {
+        
+        return GlassMorphicCard(width: width, height: height)
+            .overlay {
+                Image("ButtonPauseBorder")
+                VStack(spacing:9){
+                    Image(systemName: systemName)
+                        .foregroundColor(.white)
+                        .frame(width: 24, height: 24)
+                    Text(text)
+                        .foregroundColor(.white)
+                        .pretendardBold20()
+                    
+                }
             }
     }
 }

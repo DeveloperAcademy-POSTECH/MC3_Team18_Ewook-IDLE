@@ -88,7 +88,7 @@ struct BanjjakGameOverView: View {
                             streamManager.stopAudioStream()
                         }
                     } label: {
-                        GlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
+                        gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
                     
                     Button {
@@ -104,9 +104,9 @@ struct BanjjakGameOverView: View {
                         }
                         banjjakSKScene.removeAllChildren()
                     } label: {
-                        CustomButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
+                        GameOverButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
-                    .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
+                    .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }
             }
         }
