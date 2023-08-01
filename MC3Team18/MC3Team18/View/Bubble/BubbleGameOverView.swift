@@ -88,9 +88,10 @@ struct BubbleGameOverView: View {
                     
                     Button {
                         bubbleStatus = .waiting
-                    } label: {
-                        bubbleGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                    } label: { 
+                        CustomButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
+                    .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
                 }
                 .padding(.horizontal, 36)
                 
