@@ -72,15 +72,18 @@ struct ChagokGameOverView: View {
                         .foregroundColor(.Yellow)
                 }
                 Spacer()
-                HStack(spacing: 60) {
+                
+                HStack(spacing: 40){
+                    
                     Button {
                         isBestScore = false
                         withAnimation(.easeOut(duration: 0.3)) {
                             gameSelection = .none
                         }
                     } label: {
-                        chagokGameOverButton(systemName: "house", text: "Home")
+                        GlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
+                    
                     Button {
                         // 게임 상태 초기화 만들기
                         chagokScene.chagokScore = 0
@@ -104,8 +107,9 @@ struct ChagokGameOverView: View {
                             chagokStatus = .game
                         }
                     } label: {
-                        chagokGameOverButton(systemName: "arrow.clockwise", text: "Retry")
+                        CustomButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
+                    .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
                 }
                 .padding(.bottom, 160)
             }
@@ -143,41 +147,6 @@ struct ChagokGameOverView: View {
 //        ChagokGameOverView(gameSelection: .constant(.chagok), chagokStatus: .constant(.gameover), isBestScore: .constant(true), secondsx4: .constant(120))
 //    }
 //}
-
-extension ChagokGameOverView {
-    
-    func chagokGameOverButton(systemName: String, text: String) -> some View {
-        
-        return GlassMorphicCard()
-            .overlay {
-                Image("ButtonGameOverBorder")
-                VStack(spacing:9){
-                    Image(systemName: systemName)
-                        .foregroundColor(.white)
-                        .pretendardSemiBold20()
-                        .frame(width: 21, height: 26)
-                    Text(text)
-                        .foregroundColor(.white)
-                        .pretendardBold24()
-                    
-                }
-            }
-    }
-    
-    @ViewBuilder
-    func GlassMorphicCard() -> some View {
-        ZStack {
-            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
-                view.gaussianBlurRadius = 4.5
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        }
-        .frame(width: 104, height: 137)
-        .shadow(
-            color: Color(.white).opacity(0.4), radius: 16
-        )
-    }
-}
 
 extension ChagokGameOverView {
     
