@@ -30,7 +30,10 @@ struct CustomButtonStyle: ButtonStyle {
             .foregroundColor(
                 configuration.isPressed ? .white :AccentTextColor
             )
-            .background(configuration.isPressed ? Image("ButtonTouched") : Image("ButtonAccent"))
+            .background(configuration.isPressed ?
+                        Image("ButtonTouched").resizable() :
+                            Image("ButtonAccent").resizable()
+            )
             .shadow(
                 color: configuration.isPressed ?
                 Color(red: 0, green: 0, blue: 0, opacity: 0.25) :

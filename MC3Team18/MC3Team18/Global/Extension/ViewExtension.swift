@@ -116,3 +116,39 @@ extension View {
         modifier(PostNoBillsJaffnaExtraBold24())
     }
 }
+
+// MARK: - Glass Morphic
+extension View {
+    
+    @ViewBuilder
+    func GlassMorphicCard( width: CGFloat, height: CGFloat) -> some View {
+        ZStack {
+            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
+                view.gaussianBlurRadius = 4.5
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
+        .frame(width: width, height: height)
+        .shadow(
+            color: Color(.white).opacity(0.4), radius: 16
+        )
+    }
+    
+    func GlassMorphicButtonLabel(systemName: String, text: String, width: CGFloat, height: CGFloat) -> some View {
+        return GlassMorphicCard(width: width, height: height)
+            .overlay {
+                Image("ButtonGameOverBorder")
+                    .resizable()
+                    .frame(width: width, height: height)
+                    .scaledToFit()
+                VStack(spacing: 8){
+                    Image(systemName: systemName)
+                        .foregroundColor(.white)
+                        .frame(height: 25).scaledToFit()
+                    Text(text)
+                        .foregroundColor(.white)
+                }
+                .pretendardBold20()
+            }
+    }
+}

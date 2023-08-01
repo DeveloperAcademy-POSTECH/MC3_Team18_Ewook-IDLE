@@ -15,15 +15,15 @@ struct CustomButtonLabel: View {
     @State var buttonText: String = "Retry"
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 8) {
-                Image(systemName: "arrow.clockwise")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 24)
-                Text("Retry")
-            }
+        
+        VStack(spacing: 8) {
+            Image(systemName: systemName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 24)
+            Text(buttonText)
         }
+        .pretendardBold20()
         .frame(width: width, height: height)
     }
 }
