@@ -74,7 +74,8 @@ struct BanjjakGameOverView: View {
                 }
                 .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                 
-                HStack(){
+                HStack(spacing: 40){
+                    
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             isBestScore = false
@@ -87,10 +88,8 @@ struct BanjjakGameOverView: View {
                             streamManager.stopAudioStream()
                         }
                     } label: {
-                        banjjakGameOverViewButton(systemName: "house", text: "Home")
+                        GlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
-                    
-                    Spacer()
                     
                     Button {
                         isBestScore = false
@@ -105,9 +104,10 @@ struct BanjjakGameOverView: View {
                         }
                         banjjakSKScene.removeAllChildren()
                     } label: {
-                        banjjakGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                        CustomButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
-                }.padding(.horizontal, 62)
+                    .buttonStyle(CustomButtonStyle(gameSelection: .bubble))
+                }
             }
         }
         .opacity(gameoverOpacity)
