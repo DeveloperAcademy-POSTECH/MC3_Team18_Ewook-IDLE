@@ -106,7 +106,7 @@ struct BanjjakGameOverView: View {
                     } label: {
                         GameButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
-                    .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
+                    .buttonStyle(GameOverButtonStyle(gameSelection: .banjjak))
                 }
             }
         }

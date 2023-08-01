@@ -33,7 +33,7 @@ struct BanjjakPauseView: View {
                 } label: {
                     GameButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
                 }
-                .buttonStyle(PauseButtonStyle(gameSelection: .chagok))
+                .buttonStyle(PauseButtonStyle(gameSelection: .banjjak))
                 Button {
                     // TODO: 게임 리셋, 화면 이동(애니메이션)
                     withAnimation(.easeOut(duration: 0.3)) {
