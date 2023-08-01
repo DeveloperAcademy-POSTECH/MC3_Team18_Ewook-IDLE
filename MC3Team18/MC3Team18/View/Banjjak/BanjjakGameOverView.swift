@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BanjjakGameOverView: View {
     @State var gameoverOpacity: Double = 0
-
+    
     @Binding var banjjakStatus: BanjjakStatus
     @Binding var secondsx4: Int
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
-
+    
     @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
@@ -23,7 +23,7 @@ struct BanjjakGameOverView: View {
     
     let banjjakMissionCount: Int = 10
     @Binding var banjjakScore: String
-
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
@@ -58,7 +58,7 @@ struct BanjjakGameOverView: View {
                     } else {
                         Text("Your Score")
                             .pretendardLight32()
-                        .foregroundColor(.white)
+                            .foregroundColor(.white)
                     }
                     Text("\(banjjakSKScene.score)")
                         .postNoBillsJaffnaRegular64()
@@ -74,7 +74,8 @@ struct BanjjakGameOverView: View {
                 }
                 .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
                 
-                HStack(){
+                HStack(spacing: 40){
+                    
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             isBestScore = false
@@ -87,10 +88,8 @@ struct BanjjakGameOverView: View {
                             streamManager.stopAudioStream()
                         }
                     } label: {
-                        banjjakGameOverViewButton(systemName: "house", text: "Home")
+                        gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
-                    
-                    Spacer()
                     
                     Button {
                         isBestScore = false
@@ -105,9 +104,10 @@ struct BanjjakGameOverView: View {
                         }
                         banjjakSKScene.removeAllChildren()
                     } label: {
-                        banjjakGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                        GameButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
-                }.padding(.horizontal, 62)
+                    .buttonStyle(GameOverButtonStyle(gameSelection: .banjjak))
+                }
             }
         }
         .opacity(gameoverOpacity)
