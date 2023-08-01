@@ -104,7 +104,7 @@ struct BanjjakGameOverView: View {
                         }
                         banjjakSKScene.removeAllChildren()
                     } label: {
-                        GameOverButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
+                        GameButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
                     .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }

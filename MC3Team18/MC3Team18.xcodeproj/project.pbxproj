@@ -61,7 +61,7 @@
 		7896915A2A77471100E24BD0 /* lottieAnima_shiningBanjjak.json in Resources */ = {isa = PBXBuildFile; fileRef = 789691582A77471000E24BD0 /* lottieAnima_shiningBanjjak.json */; };
 		789D890A2A78FAFE00A50B1E /* TouchedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D89092A78FAFE00A50B1E /* TouchedButton.swift */; };
 		789D890D2A78FC9C00A50B1E /* GameOverButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D890C2A78FC9C00A50B1E /* GameOverButtonStyle.swift */; };
-		789D89132A791DDD00A50B1E /* GameOverButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D89122A791DDD00A50B1E /* GameOverButtonLabel.swift */; };
+		789D89132A791DDD00A50B1E /* GameButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D89122A791DDD00A50B1E /* GameButtonLabel.swift */; };
 		789D89152A79223F00A50B1E /* PauseButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789D89142A79223F00A50B1E /* PauseButtonStyle.swift */; };
 		78A972CF2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78A972CE2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf */; };
 		78A972D12A7609D800A97AE4 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A972D02A7609D800A97AE4 /* ShopView.swift */; };
@@ -143,7 +143,7 @@
 		789691582A77471000E24BD0 /* lottieAnima_shiningBanjjak.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieAnima_shiningBanjjak.json; sourceTree = "<group>"; };
 		789D89092A78FAFE00A50B1E /* TouchedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchedButton.swift; sourceTree = "<group>"; };
 		789D890C2A78FC9C00A50B1E /* GameOverButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverButtonStyle.swift; sourceTree = "<group>"; };
-		789D89122A791DDD00A50B1E /* GameOverButtonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverButtonLabel.swift; sourceTree = "<group>"; };
+		789D89122A791DDD00A50B1E /* GameButtonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButtonLabel.swift; sourceTree = "<group>"; };
 		789D89142A79223F00A50B1E /* PauseButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButtonStyle.swift; sourceTree = "<group>"; };
 		78A972CE2A76014800A97AE4 /* PostNoBillsJaffna-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PostNoBillsJaffna-ExtraBold.ttf"; sourceTree = "<group>"; };
 		78A972D02A7609D800A97AE4 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */,
-				789D89122A791DDD00A50B1E /* GameOverButtonLabel.swift */,
+				789D89122A791DDD00A50B1E /* GameButtonLabel.swift */,
 				789D89092A78FAFE00A50B1E /* TouchedButton.swift */,
 			);
 			path = Games;
@@ -576,7 +576,7 @@
 				788C20DA2A6A5B5C00953579 /* RecordHexgagonView.swift in Sources */,
 				78777F0C2A5E9594008826DA /* ChagokStatus.swift in Sources */,
 				78A972D12A7609D800A97AE4 /* ShopView.swift in Sources */,
-				789D89132A791DDD00A50B1E /* GameOverButtonLabel.swift in Sources */,
+				789D89132A791DDD00A50B1E /* GameButtonLabel.swift in Sources */,
 				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
 				608059952A5FF0EA007A716D /* BubbleStatus.swift in Sources */,
 				789D89152A79223F00A50B1E /* PauseButtonStyle.swift in Sources */,

@@ -28,7 +28,7 @@ struct ChagokPauseView: View {
                     }
                     chagokScene.isNotUpdate = false
                 } label: {
-                    GameOverButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
+                    GameButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
                 }
                 .buttonStyle(PauseButtonStyle(gameSelection: .chagok))
                 

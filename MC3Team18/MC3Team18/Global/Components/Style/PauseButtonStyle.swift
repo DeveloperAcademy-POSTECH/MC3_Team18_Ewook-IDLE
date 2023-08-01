@@ -51,7 +51,7 @@ struct PauseButtonStyle_Previews: PreviewProvider {
         Button {
             //
         } label: {
-            GameOverButtonLabel()
+            GameButtonLabel()
         }
         .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
     }

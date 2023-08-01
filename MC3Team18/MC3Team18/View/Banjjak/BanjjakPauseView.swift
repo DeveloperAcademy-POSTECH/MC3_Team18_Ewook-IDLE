@@ -31,7 +31,7 @@ struct BanjjakPauseView: View {
                     }
                     // TODO: 화면 업데이트 중지 및 재개 기능??
                 } label: {
-                    GameOverButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
+                    GameButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
                 }
                 .buttonStyle(PauseButtonStyle(gameSelection: .chagok))
                 Button {

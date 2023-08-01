@@ -50,7 +50,7 @@ struct GameOverButtonStyle_Previews: PreviewProvider {
         Button {
             //
         } label: {
-            GameOverButtonLabel()
+            GameButtonLabel()
         }
         .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
     }
