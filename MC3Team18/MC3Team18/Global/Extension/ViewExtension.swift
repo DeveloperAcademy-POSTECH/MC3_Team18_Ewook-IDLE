@@ -111,4 +111,8 @@ extension View {
     func postNoBillsJaffnaExtraBold20() -> some View {
         modifier(PostNoBillsJaffnaExtraBold20())
     }
+    
+    func postNoBillsJaffnaExtraBold24() -> some View {
+        modifier(PostNoBillsJaffnaExtraBold24())
+    }
 }
