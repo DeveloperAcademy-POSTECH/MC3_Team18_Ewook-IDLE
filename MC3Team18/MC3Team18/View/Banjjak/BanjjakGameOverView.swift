@@ -15,7 +15,12 @@ struct BanjjakGameOverView: View {
     @Binding var gameSelection: GameSelection
     @Binding var isBestScore: Bool
 
-    @AppStorage("BanjjakMissionSuccess") var banjjakMissionSuccess: Bool = false
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
+    @AppStorage("hasDailyMissionPrizeBeenShown") var hasDailyMissionPrizeBeenShown: Bool = false
+    @State var showDailyPrize: Bool = false
+
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     @EnvironmentObject var banjjakSKScene: BanjjakSKScene
@@ -49,8 +54,9 @@ struct BanjjakGameOverView: View {
             .padding(.top, 60)
             .padding(.trailing, 26)
             
-            VStack(spacing:209){
-                VStack(spacing: 11){
+            VStack{
+                VStack(spacing: 12){
+                    Spacer().frame(height: 158)
                     if isBestScore {
                         Text("Best Score!")
                             .pretendardBold20()
@@ -73,6 +79,14 @@ struct BanjjakGameOverView: View {
                     }
                 }
                 .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
+                .padding(.bottom, 32)
+                
+                if showDailyPrize {
+                    DailyQuestPrizeView()
+                } else {
+                    GameCoinPrizeView()
+                }
+                Spacer()
                 
                 HStack(){
                     Button {
@@ -108,7 +122,7 @@ struct BanjjakGameOverView: View {
                         banjjakGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }.padding(.horizontal, 62)
-            }
+            }.padding(.bottom, 83)
         }
         .opacity(gameoverOpacity)
         .statusBarHidden()
@@ -126,14 +140,28 @@ struct BanjjakGameOverView: View {
         .onAppear {
             //MARK: BanjjakMissionSuccess 데이터 연결
             if (banjjakSKScene.score / 300) >= banjjakMissionCount {
-                banjjakMissionSuccess = true
+                BanjjakMissionSuccess = true
             }
             UIApplication.shared.isIdleTimerDisabled = false
+            
+            banjjakSKScene.isPaused = true
+            totalCoin = totalCoin + Int(banjjakSKScene.score / 100)
+            
+            check()
+            
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
-            banjjakSKScene.isPaused = true
-            totalCoin = totalCoin + Int(banjjakSKScene.score / 100)
+        }
+    }
+    
+    func check() {
+        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
+        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        
+        if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
+            showDailyPrize = true
+            hasDailyMissionPrizeBeenShown = true
         }
     }
 }

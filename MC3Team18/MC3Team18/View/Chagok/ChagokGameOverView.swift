@@ -18,10 +18,16 @@ struct ChagokGameOverView: View {
     @Binding var secondsx4: Int
     @Binding var isStarted: Bool
     @Binding var tapToStartOpacity: Double
+
     @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
+    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
+
     @Binding var chagokScore: String
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    
+    @AppStorage("hasDailyMissionPrizeBeenShown") var hasDailyMissionPrizeBeenShown: Bool = false
+    @State var showDailyPrize: Bool = false
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
@@ -48,8 +54,8 @@ struct ChagokGameOverView: View {
             .padding(.trailing, 26)
             
             
-            VStack(spacing: 11) {
-                Spacer().frame(height: 157)
+            VStack(spacing: 12) {
+                Spacer().frame(height: 158)
                 
                 if isBestScore {
                     Text("Best Score!")
@@ -70,6 +76,12 @@ struct ChagokGameOverView: View {
                     Text(chagokScore)
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
+                }
+                .padding(.bottom, 32)
+                if showDailyPrize {
+                    DailyQuestPrizeView()
+                } else {
+                    GameCoinPrizeView()
                 }
                 Spacer()
                 HStack(spacing: 60) {
@@ -107,7 +119,7 @@ struct ChagokGameOverView: View {
                         chagokGameOverButton(systemName: "arrow.clockwise", text: "Retry")
                     }
                 }
-                .padding(.bottom, 160)
+                .padding(.bottom, 83)
             }
             .foregroundColor(.white)
             VStack {
@@ -115,8 +127,6 @@ struct ChagokGameOverView: View {
                     LottieView(filename: "CelebLottieAnima")
                         .frame(width: 232, height: 66)
                         .padding(.top, 108)
-//                        .padding(.top, 80)
-                    
                 }
                 Spacer()
             }
@@ -127,6 +137,7 @@ struct ChagokGameOverView: View {
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
             chagokScene.isNotUpdate = true
+            check() 
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
@@ -134,6 +145,15 @@ struct ChagokGameOverView: View {
                 ChagokMissionSuccess = true
             }
             totalCoin = totalCoin + Int(chagokScene.chagokScore / 100)
+        }
+    }
+    func check() {
+        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
+        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        
+        if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
+            showDailyPrize = true
+            hasDailyMissionPrizeBeenShown = true
         }
     }
 }
