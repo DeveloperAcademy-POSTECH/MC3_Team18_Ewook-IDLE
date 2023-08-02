@@ -10,7 +10,7 @@ import SwiftUI
 struct ShopAccessoriesScrollView: View {
     
     let accessoriesItemArray : [String] = ["sunglasses", "flower", "cap"]
-    
+    var items: [ShopItem] = []
     
     var body: some View {
         VStack(spacing: 16){

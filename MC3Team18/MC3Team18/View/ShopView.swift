@@ -30,6 +30,9 @@ struct ShopView: View {
                         
 
         }
+        .onAppear {
+            ShopItem.fetchItemList()
+        }
 
     }
 }

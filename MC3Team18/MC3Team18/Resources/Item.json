@@ -1,0 +1,66 @@
+
+[
+    {
+        "itemName" : "sunglasses",
+        "price" : 1500,
+        "itemCategory" : 0,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "flower",
+        "price" : 150,
+        "itemCategory" : 0,
+        "itemStatus" : 0
+    },
+
+    {
+        "itemName" : "cap",
+        "price" : 500,
+        "itemCategory" : 0,
+        "itemStatus" : 0
+    },
+
+    {
+        "itemName" : "bubbleCow",
+        "price" : 500,
+        "itemCategory" : 1,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "bubblePupple",
+        "price" : 150,
+        "itemCategory" : 1,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "bubbleRainbow",
+        "price" : 1500,
+        "itemCategory" : 1,
+        "itemStatus" : 0
+    },
+    
+    {
+        "itemName" : "starPink",
+        "price" : 150,
+        "itemCategory" : 2,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "starPupple",
+        "price" : 1500,
+        "itemCategory" : 2,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "starMint",
+        "price" : 500,
+        "itemCategory" : 2,
+        "itemStatus" : 0
+    },
+    {
+        "itemName" : "starRainbow",
+        "price" : 3000,
+        "itemCategory" : 2,
+        "itemStatus" : 0
+    }   
+]
