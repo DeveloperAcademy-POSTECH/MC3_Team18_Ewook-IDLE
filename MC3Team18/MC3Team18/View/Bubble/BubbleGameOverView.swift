@@ -83,23 +83,36 @@ struct BubbleGameOverView: View {
                     
                 }
                 
+
                 Spacer()
                 HStack(){
+// =======
+//                 HStack(spacing: 40){
+                    
+// >>>>>>> develop
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             streamManager.stopAudioStream()
                             gameSelection = .none
                         }
                     } label: {
-                        bubbleGameOverViewButton(systemName: "house", text: "Home")
+                        gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
+
                     Spacer()
+// =======
+                    
+// >>>>>>> develop
                     Button {
                         bubbleStatus = .waiting
-                    } label: {
-                        bubbleGameOverViewButton(systemName: "arrow.clockwise", text: "Retry")
+                    } label: { 
+                        GameButtonLabel(width: 136, height: 96, systemName: "arrow.clockwise", buttonText: "Retry")
                     }
+                    .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }
+// =======
+//                 Spacer().frame(minHeight: 120)
+// >>>>>>> develop
             }
             .padding(.horizontal, 26)
             .padding(.top, isBestScore ? 108 : 158)
@@ -135,39 +148,6 @@ struct BubbleGameOverView: View {
 struct BubbleGameOverView_Previews: PreviewProvider {
     static var previews: some View {
         BubbleGameOverView(bubbleStatus: .constant(.gameover), gameSelection: .constant(.bubble), score: .constant("23.0"), bubbleHighScore: .constant("22.0"), isBestScore: .constant(true), streamManager: AudioStreamManager())
-    }
-}
-
-extension BubbleGameOverView {
-    func bubbleGameOverViewButton(systemName: String, text: String) -> some View {
-        return GlassMorphicCard()
-            .overlay {
-                Image("ButtonGameOverBorder")
-                VStack(spacing:9){
-                    Image(systemName: systemName)
-                        .foregroundColor(.white)
-                        .pretendardSemiBold24()
-                        .frame(height: 25).scaledToFit()
-                        .bold()
-                    Text(text)
-                        .foregroundColor(.white)
-                        .pretendardBold24()
-                }
-            }
-    }
-    
-    @ViewBuilder
-    func GlassMorphicCard() -> some View {
-        ZStack {
-            CustomBlurView(effect: .systemUltraThinMaterialLight) { view in
-                view.gaussianBlurRadius = 4.5
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        }
-        .frame(width: 104, height: 137)
-        .shadow(
-            color: Color(.white).opacity(0.4), radius: 16
-        )
     }
 }
 
