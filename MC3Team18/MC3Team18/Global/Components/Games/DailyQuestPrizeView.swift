@@ -10,7 +10,9 @@ import SwiftUI
 struct DailyQuestPrizeView: View {
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25,style: .continuous).fill(.black).frame(width: 341,height: 106).opacity(0.5)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .frame(width: 341,height: 106).opacity(0.9)
             VStack(spacing:8){
                 HStack(spacing:4){
                     Text("게임 획득 보상")
@@ -30,9 +32,8 @@ struct DailyQuestPrizeView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
-                }.padding(.horizontal,20)
-                    .padding(.top,25)
-                HStack(spacing:4){
+                }.frame(height: 24)
+                HStack(spacing:4) {
                     Text("Daily Mission 완료 보상")
                         .pretendardMedium20()
                         .foregroundStyle(
@@ -43,15 +44,17 @@ struct DailyQuestPrizeView: View {
                             )
                         )
                     Spacer()
-                    Text("1,000")
+                    Text("3,000")
                         .postNoBillsJaffnaExtraBold24()
                         .foregroundColor(.white)
                     Image("IconShop")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
-                }.padding(.horizontal,20).padding(.bottom,25)
-            }.frame(width: 341,height: 106)
+                }
+                .frame(height: 24)
+            }.padding(.horizontal,20).padding(.vertical,25)
+            .frame(width: 341,height: 106)
         }
     }
 }

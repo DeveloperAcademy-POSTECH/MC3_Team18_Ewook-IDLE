@@ -14,16 +14,20 @@ struct BubbleGameOverView: View {
     @Binding var bubbleHighScore: String
     @Binding var isBestScore: Bool
     @State var gameoverOpacity: Double = 0
-
+    
+    @AppStorage("ChagokMissionSuccess") var ChagokMissionSuccess: Bool = false
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
+    @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    var streamManager: AudioStreamManager
+    @AppStorage("hasDailyMissionPrizeBeenShown") var hasDailyMissionPrizeBeenShown: Bool = false
+    @State var showDailyPrize: Bool = false
 
+    var streamManager: AudioStreamManager
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.75)
-            
-            VStack{
+            VStack {
                 HStack {
                     if isBestScore {
                         Spacer()
@@ -39,43 +43,53 @@ struct BubbleGameOverView: View {
                     }
                 }
                 .frame(height: 24)
-                .padding(.bottom, 22)
-                
-                if isBestScore {
-                    LottieView(filename: "CelebLottieAnima")
-                        .frame(width: 232, height: 66).offset(y: 16)
-                    Text("Best Score!")
-                        .pretendardBold20()
-                        .foregroundColor(.Yellow)
-                } else {
-                    Text("Your Score")
-                        .pretendardLight32()
-                        .foregroundColor(.white)
-                }
-                
-                Spacer().frame(height: 11)
-                
-                VStack(spacing: 11){
+                .padding(.top, 60)
+                .padding(.trailing, 26)
+                Spacer()
+            }
+            
+            VStack {
+                VStack(spacing: 12) {
+                    if isBestScore {
+                        LottieView(filename: "CelebLottieAnima")
+                            .frame(width: 232, height: 66).offset(y: 16)
+                        Text("Best Score!")
+                            .pretendardBold20()
+                            .foregroundColor(.Yellow)
+                    } else {
+                        Text("Your Score")
+                            .pretendardLight32()
+                            .foregroundColor(.white)
+                    }
                     
                     Text(score)
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     
-                    HStack{
+                    HStack {
                         Text("Best Score")
                             .pretendardRegular24()
                             .foregroundColor(.LightGray)
                         Text(bubbleHighScore)
                             .pretendardSemiBold24()
                             .foregroundColor(.Yellow)
-                    }
-                }
-                .shadow(color: .black.opacity(0.25), radius: 12, x: 1, y: 2)
-                
-                Spacer().frame(minHeight: 224)
-                
-                HStack(spacing: 40){
+                    }.padding(.bottom, 32)
                     
+                    if showDailyPrize {
+                        DailyQuestPrizeView()
+                    } else {
+                        GameCoinPrizeView()
+                    }
+                    
+                }
+                
+
+                Spacer()
+                HStack(){
+// =======
+//                 HStack(spacing: 40){
+                    
+// >>>>>>> develop
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             streamManager.stopAudioStream()
@@ -84,7 +98,11 @@ struct BubbleGameOverView: View {
                     } label: {
                         gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
+
+                    Spacer()
+// =======
                     
+// >>>>>>> develop
                     Button {
                         bubbleStatus = .waiting
                     } label: { 
@@ -92,14 +110,19 @@ struct BubbleGameOverView: View {
                     }
                     .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }
-                Spacer().frame(minHeight: 120)
+// =======
+//                 Spacer().frame(minHeight: 120)
+// >>>>>>> develop
             }
             .padding(.horizontal, 26)
-            .padding(.vertical, 60)
+            .padding(.top, isBestScore ? 108 : 158)
+            .padding(.bottom, 83)
         }
         .ignoresSafeArea()
+        .padding(.horizontal, 36)
         .opacity(gameoverOpacity)
         .onAppear {
+            check()
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
@@ -108,6 +131,16 @@ struct BubbleGameOverView: View {
                 BubbleMissionSuccess = true
             }
             totalCoin = totalCoin + Int(Int(score)! / 100)
+        }
+    }
+    
+    func check() {
+        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
+        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        
+        if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
+            showDailyPrize = true
+            hasDailyMissionPrizeBeenShown = true
         }
     }
 }

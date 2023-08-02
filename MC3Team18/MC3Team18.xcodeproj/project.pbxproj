@@ -41,6 +41,8 @@
 		6080599D2A60272E007A716D /* BubbleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080599C2A60272E007A716D /* BubbleGameView.swift */; };
 		608059A22A62B33D007A716D /* AudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059A12A62B33D007A716D /* AudioStreamObserver.swift */; };
 		608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059A32A62B352007A716D /* AudioStreamManager.swift */; };
+		609CB0352A78D3D9004A1E82 /* DailyQuestPrizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609CB0342A78D3D9004A1E82 /* DailyQuestPrizeView.swift */; };
+		609CB0372A78D3E1004A1E82 /* GameCoinPrizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609CB0362A78D3E1004A1E82 /* GameCoinPrizeView.swift */; };
 		60CC5C512A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C502A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift */; };
 		60CC5C532A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
@@ -126,6 +128,8 @@
 		6080599C2A60272E007A716D /* BubbleGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGameView.swift; sourceTree = "<group>"; };
 		608059A12A62B33D007A716D /* AudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamObserver.swift; sourceTree = "<group>"; };
 		608059A32A62B352007A716D /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
+		609CB0342A78D3D9004A1E82 /* DailyQuestPrizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyQuestPrizeView.swift; sourceTree = "<group>"; };
+		609CB0362A78D3E1004A1E82 /* GameCoinPrizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCoinPrizeView.swift; sourceTree = "<group>"; };
 		60CC5C502A6F6A5F004E33BF /* BanjjakAudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakAudioStreamManager.swift; sourceTree = "<group>"; };
 		60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakAudioStreamObserver.swift; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 		784CADAB2A6D082700B2CE6C /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				609CB0342A78D3D9004A1E82 /* DailyQuestPrizeView.swift */,
+				609CB0362A78D3E1004A1E82 /* GameCoinPrizeView.swift */,
 				784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */,
 				789D89122A791DDD00A50B1E /* GameButtonLabel.swift */,
 				789D89092A78FAFE00A50B1E /* TouchedButton.swift */,
@@ -566,6 +572,7 @@
 				6002642A2A6D1C2B0035A0E1 /* BanjjakStatus.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,
+				609CB0352A78D3D9004A1E82 /* DailyQuestPrizeView.swift in Sources */,
 				7872CA6D2A5CFBA200FC8444 /* ChagokGameOverView.swift in Sources */,
 				788C20D62A6A4DCD00953579 /* RecordView.swift in Sources */,
 				784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */,
@@ -582,6 +589,7 @@
 				784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */,
 				78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */,
 				608059892A5E71DC007A716D /* BubbleTutorialView.swift in Sources */,
+				609CB0372A78D3E1004A1E82 /* GameCoinPrizeView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
 				2DA355E22A79B70A0037D9AF /* ShopItemData.swift in Sources */,
 				789D890A2A78FAFE00A50B1E /* TouchedButton.swift in Sources */,
