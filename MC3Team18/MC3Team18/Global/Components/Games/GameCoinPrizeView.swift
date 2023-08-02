@@ -13,7 +13,7 @@ struct GameCoinPrizeView: View {
         @State var coinPrizeWithComma : Int = 0
         
         ZStack {
-            RoundedRectangle(cornerRadius: 25,style: .continuous).fill(.black).frame(width: 341,height: 74).opacity(0.5)
+            RoundedRectangle(cornerRadius: 22,style: .continuous).fill(.ultraThinMaterial).frame(width: 341,height: 74).opacity(0.9)
             VStack{
                 HStack(spacing:4){
                     Text("게임 획득 보상")
