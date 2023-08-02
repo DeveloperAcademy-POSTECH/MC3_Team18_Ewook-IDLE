@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA355DB2A78E0E80037D9AF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2DA355DA2A78E0E80037D9AF /* Lottie */; };
+		2DA355DE2A7944380037D9AF /* ShopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA355DD2A7944380037D9AF /* ShopHeaderView.swift */; };
+		2DA355E02A7947A60037D9AF /* ShopAccessoriesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA355DF2A7947A60037D9AF /* ShopAccessoriesScrollView.swift */; };
+		2DA355E22A79B70A0037D9AF /* ShopItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA355E12A79B70A0037D9AF /* ShopItemData.swift */; };
+		2DA355E42A79C2830037D9AF /* ShopItemPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA355E32A79C2830037D9AF /* ShopItemPurchaseView.swift */; };
 		2F1BF1902A6FB423004D9EBE /* banjjakBGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */; };
 		2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */; };
 		2F2CE2322A5E52E1009043BD /* ChagokARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */; };
@@ -75,7 +80,6 @@
 		78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DA2A5D6A160028A446 /* FontExtension.swift */; };
 		78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */; };
 		78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */; };
-		78C7EF902A678A1200460E90 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 78C7EF8F2A678A1200460E90 /* Lottie */; };
 		78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7EF912A678A6B00460E90 /* LottieView.swift */; };
 		78D517C32A6BAC37005B4A6C /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
@@ -89,6 +93,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DA355DD2A7944380037D9AF /* ShopHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopHeaderView.swift; sourceTree = "<group>"; };
+		2DA355DF2A7947A60037D9AF /* ShopAccessoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAccessoriesScrollView.swift; sourceTree = "<group>"; };
+		2DA355E12A79B70A0037D9AF /* ShopItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemData.swift; sourceTree = "<group>"; };
+		2DA355E32A79C2830037D9AF /* ShopItemPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemPurchaseView.swift; sourceTree = "<group>"; };
 		2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = banjjakBGM.mp3; sourceTree = "<group>"; };
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
@@ -175,13 +183,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C7EF902A678A1200460E90 /* Lottie in Frameworks */,
+				2DA355DB2A78E0E80037D9AF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DA355DC2A7943E60037D9AF /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				2DA355DD2A7944380037D9AF /* ShopHeaderView.swift */,
+				2DA355DF2A7947A60037D9AF /* ShopAccessoriesScrollView.swift */,
+				2DA355E32A79C2830037D9AF /* ShopItemPurchaseView.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		2FF0B9DF2A64E236005B11CD /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +271,7 @@
 				608059942A5FF0EA007A716D /* BubbleStatus.swift */,
 				2FF0BA242A682D98005B11CD /* SoundNames.swift */,
 				600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */,
+				2DA355E12A79B70A0037D9AF /* ShopItemData.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -368,6 +387,7 @@
 				7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */,
 				787AEDEA2A612046007FC5EB /* CustomBlurView.swift */,
 				78C7EF912A678A6B00460E90 /* LottieView.swift */,
+				2DA355DC2A7943E60037D9AF /* Shop */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -460,7 +480,7 @@
 			);
 			name = MC3Team18;
 			packageProductDependencies = (
-				78C7EF8F2A678A1200460E90 /* Lottie */,
+				2DA355DA2A78E0E80037D9AF /* Lottie */,
 			);
 			productName = MC3Team18;
 			productReference = 78DD4FB42A5BAFC10007251D /* MC3Team18.app */;
@@ -491,7 +511,7 @@
 			);
 			mainGroup = 78DD4FAB2A5BAFC10007251D;
 			packageReferences = (
-				78C7EF8E2A678A1200460E90 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				2DA355D92A78E0E80037D9AF /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 78DD4FB52A5BAFC10007251D /* Products */;
 			projectDirPath = "";
@@ -556,12 +576,14 @@
 				600264262A6D0FCD0035A0E1 /* BanjjakGameOverView.swift in Sources */,
 				600264322A6D989B0035A0E1 /* Trill_35_05_50.mlmodel in Sources */,
 				788E4C7C2A6CF8EF00DAE596 /* RecordDailyShareView.swift in Sources */,
+				2DA355E42A79C2830037D9AF /* ShopItemPurchaseView.swift in Sources */,
 				2F2CE2302A5E52C3009043BD /* ChagokSKScene.swift in Sources */,
 				2FF0BA252A682D98005B11CD /* SoundNames.swift in Sources */,
 				784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */,
 				78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */,
 				608059892A5E71DC007A716D /* BubbleTutorialView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
+				2DA355E22A79B70A0037D9AF /* ShopItemData.swift in Sources */,
 				789D890A2A78FAFE00A50B1E /* TouchedButton.swift in Sources */,
 				6080598B2A5E71DC007A716D /* BubbleStatusView.swift in Sources */,
 				7872CA692A5CFB8C00FC8444 /* ChagokGameView.swift in Sources */,
@@ -578,6 +600,8 @@
 				78A972D12A7609D800A97AE4 /* ShopView.swift in Sources */,
 				789D89132A791DDD00A50B1E /* GameButtonLabel.swift in Sources */,
 				787AEDEF2A612231007FC5EB /* UIVisualEffectViewExtension.swift in Sources */,
+				2DA355DE2A7944380037D9AF /* ShopHeaderView.swift in Sources */,
+				2DA355E02A7947A60037D9AF /* ShopAccessoriesScrollView.swift in Sources */,
 				608059952A5FF0EA007A716D /* BubbleStatus.swift in Sources */,
 				789D89152A79223F00A50B1E /* PauseButtonStyle.swift in Sources */,
 				7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */,
@@ -812,7 +836,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		78C7EF8E2A678A1200460E90 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		2DA355D92A78E0E80037D9AF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
@@ -823,9 +847,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		78C7EF8F2A678A1200460E90 /* Lottie */ = {
+		2DA355DA2A78E0E80037D9AF /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 78C7EF8E2A678A1200460E90 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 2DA355D92A78E0E80037D9AF /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
