@@ -15,7 +15,8 @@ struct TrophyView: View {
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
-    @State var isDailyNotFinished: Bool = false
+    @State var isDailyFinished: Bool = false
+
     @Binding var gameSelected: GameSelection
     @State var totalCoinWithComma: String = "0"
     
@@ -47,7 +48,7 @@ struct TrophyView: View {
                                 .pretendardSemiBold12()
                                 .foregroundColor(.white)
                         }
-                        .opacity(isDailyNotFinished ? 1 : 0)
+                        .opacity(isDailyFinished ?  0 : 1)
                     Image("IconNudge")
                         .resizable()
                         .scaledToFit()
@@ -58,8 +59,8 @@ struct TrophyView: View {
         .frame(height: 40)
         .padding(.horizontal, 26)
         .onAppear{
-            if !ChagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
-                isDailyNotFinished = true
+            if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
+                isDailyFinished = true
             }
             totalCoinWithComma = addCommaToTotalcoin(balance: totalCoin)
         }
