@@ -86,7 +86,6 @@ struct ChagokGameOverView: View {
                 Spacer()
                 
                 HStack(spacing: 40){
-                    
                     Button {
                         isBestScore = false
                         withAnimation(.easeOut(duration: 0.3)) {
@@ -95,7 +94,6 @@ struct ChagokGameOverView: View {
                     } label: {
                         gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
-                    
                     Button {
                         // 게임 상태 초기화 만들기
                         chagokScene.chagokScore = 0
@@ -153,7 +151,7 @@ struct ChagokGameOverView: View {
     }
     func check() {
         //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
-        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        if hasDailyMissionPrizeBeenShown == true { return }
         
         if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
             showDailyPrize = true

@@ -23,7 +23,6 @@ struct BanjjakTutorialView: View {
                 HStack {
                     Spacer()
                     Button {
-                        //TODO: 튜토리얼 상태 저장, 게임 업데이트=false
                         isBanjjakTutorialDisabled = isChecked
                         withAnimation(.easeOut(duration: 0.2)) {
                             tutorialOpacity = 0

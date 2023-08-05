@@ -36,9 +36,6 @@ struct BubbleGameView: View {
     @State var gameOpacity: Double = 0
     
     @AppStorage("bubbleScore") var bubbleScore: String = "0"
-    
-//    @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
-
 
     var body: some View {
         ZStack {

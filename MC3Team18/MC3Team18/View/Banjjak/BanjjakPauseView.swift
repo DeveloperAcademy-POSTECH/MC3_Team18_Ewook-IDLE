@@ -29,13 +29,11 @@ struct BanjjakPauseView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         banjjakStatus = .game
                     }
-                    // TODO: 화면 업데이트 중지 및 재개 기능??
                 } label: {
                     GameButtonLabel(width: 167, height: 134, systemName: "play", buttonText: "Continue")
                 }
                 .buttonStyle(PauseButtonStyle(gameSelection: .banjjak))
                 Button {
-                    // TODO: 게임 리셋, 화면 이동(애니메이션)
                     withAnimation(.easeOut(duration: 0.3)) {
                         banjjakSKScene.isPaused = false
                         banjjakSKScene.removeAllChildren()
@@ -49,9 +47,7 @@ struct BanjjakPauseView: View {
                     pauseGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 167, height: 134)
                 }
                 
-                Button {
-                    // TODO: 게임 리셋
-                    
+                Button {                    
                     withAnimation(.easeOut(duration: 0.3)) {
                         banjjakSKScene.isPaused = false
                         banjjakSKScene.removeAllChildren()

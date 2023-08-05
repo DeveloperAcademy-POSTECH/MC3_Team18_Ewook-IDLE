@@ -61,7 +61,6 @@ struct BubbleGameOverView: View {
                             .pretendardLight32()
                             .foregroundColor(.white)
                     }
-                    
                     Text(score)
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
@@ -80,16 +79,9 @@ struct BubbleGameOverView: View {
                     } else {
                         GameCoinPrizeView()
                     }
-                    
                 }
-                
-
                 Spacer()
-                HStack(){
-// =======
-//                 HStack(spacing: 40){
-                    
-// >>>>>>> develop
+                HStack(spacing: 40){
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             streamManager.stopAudioStream()
@@ -99,10 +91,6 @@ struct BubbleGameOverView: View {
                         gameOverGlassMorphicButtonLabel(systemName: "house", text: "Home", width: 136, height: 96)
                     }
 
-                    Spacer()
-// =======
-                    
-// >>>>>>> develop
                     Button {
                         bubbleStatus = .waiting
                     } label: { 
@@ -110,16 +98,11 @@ struct BubbleGameOverView: View {
                     }
                     .buttonStyle(GameOverButtonStyle(gameSelection: .bubble))
                 }
-// =======
-//                 Spacer().frame(minHeight: 120)
-// >>>>>>> develop
             }
-            .padding(.horizontal, 26)
             .padding(.top, isBestScore ? 108 : 158)
             .padding(.bottom, 83)
         }
         .ignoresSafeArea()
-        .padding(.horizontal, 36)
         .opacity(gameoverOpacity)
         .onAppear {
             check()
@@ -136,7 +119,7 @@ struct BubbleGameOverView: View {
     
     func check() {
         //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
-        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        if hasDailyMissionPrizeBeenShown == true { return }
         
         if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
             showDailyPrize = true

@@ -60,7 +60,6 @@ struct BanjjakGameView: View {
                     //TODO: ScaleEffect
                     Spacer()
                     Button {
-                        //TODO: banjjakState = 일시정지
                         banjjakSKScene.isPaused = true
                         banjjakStatus = BanjjakStatus.pause
                     } label: {

@@ -89,7 +89,6 @@ struct BanjjakGameOverView: View {
                 Spacer()
                 
                 HStack(spacing: 40){
-                    
                     Button {
                         withAnimation(.easeOut(duration: 0.3)) {
                             isBestScore = false
@@ -122,15 +121,8 @@ struct BanjjakGameOverView: View {
                     }
                     .buttonStyle(GameOverButtonStyle(gameSelection: .banjjak))
                 }
+                .padding(.bottom, 83)
             }
-// <<<<<<< UI/#307
-//                 }.padding(.horizontal, 62)
-//             }.padding(.bottom, 83)
-// =======
-//                     .buttonStyle(GameOverButtonStyle(gameSelection: .banjjak))
-//                 }
-//             }
-// >>>>>>> develop
         }
         .opacity(gameoverOpacity)
         .statusBarHidden()
@@ -165,7 +157,7 @@ struct BanjjakGameOverView: View {
     
     func check() {
         //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
-        if hasDailyMissionPrizeBeenShown == true { return } // 한번 보여줬으면 안보여주기
+        if hasDailyMissionPrizeBeenShown == true { return }
         
         if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
             showDailyPrize = true
@@ -174,11 +166,11 @@ struct BanjjakGameOverView: View {
     }
 }
 
-//struct BanjjakGameOverView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BanjjakGameOverView(banjjakScore: .constant(0), isBestScore: true, banjjakStatus: .constant(.gameover), gameSelection: .constant(.banjjak))
-//    }
-//}
+struct BanjjakGameOverView_Previews: PreviewProvider {
+    static var previews: some View {
+        BanjjakGameOverView(banjjakStatus: .constant(.gameover), secondsx4: .constant(0), gameSelection: .constant(.banjjak), isBestScore: .constant(true), banjjakScore: .constant("0"))
+    }
+}
 
 extension BanjjakGameOverView {
     func banjjakGameOverViewButton(systemName: String, text: String) -> some View {
