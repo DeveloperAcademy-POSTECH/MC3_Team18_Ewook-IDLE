@@ -82,8 +82,8 @@ struct AccessoriesItemBoxView: View {
                 }
                 Spacer()
                 Button {
-                    if item.itemStatus == 0 {
-                        
+                    switch item.itemStatus {
+                    case 0:                        
                         if item.price <= totalCoin {
                             item.itemStatus = 1
                             totalCoin -= item.price
@@ -94,21 +94,28 @@ struct AccessoriesItemBoxView: View {
                         } else {
                             print("not enough money")
                         }
+                    case 1:
+                        print("Item Apply")
+                    case 2:
+                        print("case 2")
+                    default:
+                        print("default")
                     }
                 } label: {
                     switch item.itemStatus {
                     case 0:
                         Image("buttonBuy")
                     case 1:
-                        Image("buttonDisabled")
-                    case 2:
                         Image("buttonApply")
+                    case 2:
+                        Image("buttonDisabled")
                     default:
                         EmptyView()
                     }
                 }
-                .disabled(item.itemStatus == 1)
             }
+          
+         
         }
     }
 }
