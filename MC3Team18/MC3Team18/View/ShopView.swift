@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ShopView: View {
     
+    @State var shopItem: [ShopItem] = []
+    
     
     var body: some View {
         ZStack{
@@ -21,14 +23,16 @@ struct ShopView: View {
                     .padding(.top, 60)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack (spacing: 40){
-                        ShopAccessoriesScrollView()
-                        ShopAccessoriesScrollView()
-                        ShopAccessoriesScrollView()
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 0)
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 1)
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 2)
+                        Spacer().frame(height: 50)
                     }
                 }
             }
-                        
-
+        }
+        .onAppear {
+            shopItem = ShopItem.fetchItemList() 
         }
 
     }

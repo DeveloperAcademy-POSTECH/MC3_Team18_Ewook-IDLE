@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ShopHeaderView: View {
-    var totalCoinWithComma: String = "1,000"
+    
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
         VStack (spacing: 16){
@@ -25,7 +26,7 @@ struct ShopHeaderView: View {
                             .cornerRadius(12)
                             .frame(width: 68, height: 28)
                             .opacity(0.2)
-                        Text(totalCoinWithComma)
+                        Text(totalCoin.addComma())
                             .postNoBillsJaffnaExtraBold20()
                             .foregroundColor(.Yellow)
                     }

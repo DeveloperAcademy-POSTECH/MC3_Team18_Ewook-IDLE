@@ -9,74 +9,113 @@ import SwiftUI
 
 struct ShopAccessoriesScrollView: View {
     
-    let accessoriesItemArray : [String] = ["sunglasses", "flower", "cap"]
-    
+    @Binding var shopItem: [ShopItem]
+    var itemCategory: Int
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
         VStack(spacing: 16){
             HStack{
-                Image("AccessoriesTitle")
+                switch itemCategory {
+                case 0:
+                    Image("AccessoriesTitle")
+                case 1:
+                    Image("bubbleTitle")
+                case 2:
+                    Image("starTitle")
+                default:
+                    Image("AccessoriesTitle")
+                }
+                
                 Spacer()
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(0..<3) { i in
-                        AccessoriesItemBoxView(itemImage: "\(accessoriesItemArray[i])")
+                    ForEach($shopItem) { $item in
+                        if item.itemCategory == itemCategory {
+                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item)
+                        }
                     }
                 }
             }
         }
         .padding(.leading, 26)
-        
     }
 }
+
 struct AccessoriesItemBoxView: View {
-    @State var itemImage: String
-    var itemInUse : Bool = false
-    var itemSold : Bool = true
     
+    @Binding var shopItem: [ShopItem]
+    @Binding var item: ShopItem
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     var body: some View {
         VStack(spacing: 8){
             ZStack {
                 Image("itemBox")
                     .resizable()
                     .frame(width: 157, height: 162)
-//                Rectangle()
-//                    .fill(Color.white)
-//                    .frame(width: 157, height: 162)
-//                    .cornerRadius(12)
                     .shadow(color: Color("Shadow").opacity(0.12), radius: 8, x: 4, y: 4)
-                Image("\(itemImage)")
-
-                Image("itemLabelSold")
-                    .resizable()
-                    .frame(width: 157, height: 162)
-                    .opacity(itemInUse ? 0 : 1)
-                Image("itemLabelInUse")
-                    .resizable()
-                    .frame(width: 157, height: 162)
-                    .opacity(itemSold ? 0 : 1)
+                Image("\(item.itemName)")
+                switch item.itemStatus {
+                case 0:
+                    EmptyView()
+                case 1:
+                    Image("itemLabelSold")
+                        .resizable()
+                        .frame(width: 157, height: 162)
+                case 2:
+                    Image("itemLabelInUse")
+                        .resizable()
+                        .frame(width: 157, height: 162)
+                default:
+                    EmptyView()
+                }
             }
             HStack {
                 HStack(spacing: 4){
                     Image("IconShop")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    Text("500")
+                    Text("\(item.price)")
                         .font(.custom("PostNoBillsJaffna-ExtraBold", size: 24))
                         .foregroundColor(.Yellow)
                 }
                 Spacer()
-                Image("buttonBuy")
+                Button {
+                    switch item.itemStatus {
+                    case 0:                        
+                        if item.price <= totalCoin {
+                            item.itemStatus = 1
+                            totalCoin -= item.price
+                            if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
+                                shopItem[index].itemStatus = item.itemStatus
+                            }
+                            ShopItem.saveItemChanges(items: shopItem)
+                        } else {
+                            print("not enough money")
+                        }
+                    case 1:
+                        print("Item Apply")
+                    case 2:
+                        print("case 2")
+                    default:
+                        print("default")
+                    }
+                } label: {
+                    switch item.itemStatus {
+                    case 0:
+                        Image("buttonBuy")
+                    case 1:
+                        Image("buttonApply")
+                    case 2:
+                        Image("buttonDisabled")
+                    default:
+                        EmptyView()
+                    }
+                }
             }
+          
+         
         }
-            
-    }
-}
-
-struct ShopAccessoriesScrollView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopAccessoriesScrollView()
-            .background(.blue)
     }
 }
