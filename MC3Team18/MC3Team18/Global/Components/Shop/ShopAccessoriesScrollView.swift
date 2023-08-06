@@ -32,7 +32,7 @@ struct ShopAccessoriesScrollView: View {
                 HStack(spacing: 12) {
                     ForEach($shopItem) { $item in
                         if item.itemCategory == itemCategory {
-                            AccessoriesItemBoxView(item: $item)
+                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item)
                         }
                     }
                 }
@@ -44,6 +44,7 @@ struct ShopAccessoriesScrollView: View {
 
 struct AccessoriesItemBoxView: View {
     
+    @Binding var shopItem: [ShopItem]
     @Binding var item: ShopItem
     
     var body: some View {
@@ -79,7 +80,14 @@ struct AccessoriesItemBoxView: View {
                         .foregroundColor(.Yellow)
                 }
                 Spacer()
-                Image("buttonBuy")
+                Button {
+                    item.itemStatus = 1
+                    if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
+                        shopItem[index].itemStatus = item.itemStatus
+                    }
+                } label: {
+                    Image("buttonBuy")
+                }
             }
         }
     }

@@ -29,8 +29,6 @@ struct ShopView: View {
                     }
                 }
             }
-                        
-
         }
         .onAppear {
             shopItem = ShopItem.fetchItemList() 
