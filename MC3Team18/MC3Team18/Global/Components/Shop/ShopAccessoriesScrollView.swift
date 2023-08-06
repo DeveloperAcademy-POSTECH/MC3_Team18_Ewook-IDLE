@@ -10,11 +10,12 @@ import SwiftUI
 struct ShopAccessoriesScrollView: View {
     
     @Binding var shopItem: [ShopItem]
+    var itemCategory: Int
     
     var body: some View {
         VStack(spacing: 16){
             HStack{
-                switch shopItem.first?.itemCategory {
+                switch itemCategory {
                 case 0:
                     Image("AccessoriesTitle")
                 case 1:
@@ -29,16 +30,18 @@ struct ShopAccessoriesScrollView: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach($shopItem) { item in
-                        AccessoriesItemBoxView(item: item)
+                    ForEach($shopItem) { $item in
+                        if item.itemCategory == itemCategory {
+                            AccessoriesItemBoxView(item: $item)
+                        }
                     }
                 }
             }
         }
         .padding(.leading, 26)
-        
     }
 }
+
 struct AccessoriesItemBoxView: View {
     
     @Binding var item: ShopItem
@@ -79,13 +82,5 @@ struct AccessoriesItemBoxView: View {
                 Image("buttonBuy")
             }
         }
-            
     }
 }
-
-//struct ShopAccessoriesScrollView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ShopAccessoriesScrollView()
-//            .background(.blue)
-//    }
-//}

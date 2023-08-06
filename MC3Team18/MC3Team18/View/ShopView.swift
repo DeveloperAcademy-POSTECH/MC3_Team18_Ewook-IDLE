@@ -10,9 +10,6 @@ import SwiftUI
 struct ShopView: View {
     
     @State var shopItem: [ShopItem] = []
-    @State var shopAccessoryItem: [ShopItem] = []
-    @State var shopBubbleGumItem: [ShopItem] = []
-    @State var shopStarItem: [ShopItem] = []
     
     var body: some View {
         ZStack{
@@ -25,9 +22,9 @@ struct ShopView: View {
                     .padding(.top, 60)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack (spacing: 40){
-                        ShopAccessoriesScrollView(shopItem: $shopAccessoryItem)
-                        ShopAccessoriesScrollView(shopItem: $shopBubbleGumItem)
-                        ShopAccessoriesScrollView(shopItem: $shopStarItem)
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 0)
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 1)
+                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 2)
                         Spacer().frame(height: 50)
                     }
                 }
@@ -36,12 +33,7 @@ struct ShopView: View {
 
         }
         .onAppear {
-            shopItem = ShopItem.fetchItemList()
-            shopAccessoryItem = shopItem.filter { $0.itemCategory == 0 }
-            shopBubbleGumItem = shopItem.filter { $0.itemCategory == 1 }
-            shopStarItem = shopItem.filter { $0.itemCategory == 2 }
-    
-            
+            shopItem = ShopItem.fetchItemList() 
         }
 
     }
