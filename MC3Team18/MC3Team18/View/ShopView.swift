@@ -26,8 +26,8 @@ struct ShopView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack (spacing: 40){
                         ShopAccessoriesScrollView(shopItem: $shopAccessoryItem)
-                        ShopAccessoriesScrollView(shopItem: $shopStarItem)
                         ShopAccessoriesScrollView(shopItem: $shopBubbleGumItem)
+                        ShopAccessoriesScrollView(shopItem: $shopStarItem)
                         Spacer().frame(height: 50)
                     }
                 }

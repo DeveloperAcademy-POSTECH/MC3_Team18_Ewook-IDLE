@@ -29,8 +29,8 @@ struct ShopAccessoriesScrollView: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(shopItem) { item in
-                        AccessoriesItemBoxView(itemImage: item.itemName)
+                    ForEach($shopItem) { item in
+                        AccessoriesItemBoxView(item: item)
                     }
                 }
             }
@@ -40,9 +40,8 @@ struct ShopAccessoriesScrollView: View {
     }
 }
 struct AccessoriesItemBoxView: View {
-    @State var itemImage: String
-    @State var itemInUse : Bool = false
-    @State var itemSold : Bool = true
+    
+    @Binding var item: ShopItem
     
     var body: some View {
         VStack(spacing: 8){
@@ -50,28 +49,29 @@ struct AccessoriesItemBoxView: View {
                 Image("itemBox")
                     .resizable()
                     .frame(width: 157, height: 162)
-//                Rectangle()
-//                    .fill(Color.white)
-//                    .frame(width: 157, height: 162)
-//                    .cornerRadius(12)
                     .shadow(color: Color("Shadow").opacity(0.12), radius: 8, x: 4, y: 4)
-                Image("\(itemImage)")
-
-                Image("itemLabelSold")
-                    .resizable()
-                    .frame(width: 157, height: 162)
-                    .opacity(itemInUse ? 0 : 1)
-                Image("itemLabelInUse")
-                    .resizable()
-                    .frame(width: 157, height: 162)
-                    .opacity(itemSold ? 0 : 1)
+                Image("\(item.itemName)")
+                switch item.itemStatus {
+                case 0:
+                    EmptyView()
+                case 1:
+                    Image("itemLabelSold")
+                        .resizable()
+                        .frame(width: 157, height: 162)
+                case 2:
+                    Image("itemLabelInUse")
+                        .resizable()
+                        .frame(width: 157, height: 162)
+                default:
+                    EmptyView()
+                }
             }
             HStack {
                 HStack(spacing: 4){
                     Image("IconShop")
                         .resizable()
                         .frame(width: 24, height: 24)
-                    Text("500")
+                    Text("\(item.price)")
                         .font(.custom("PostNoBillsJaffna-ExtraBold", size: 24))
                         .foregroundColor(.Yellow)
                 }
