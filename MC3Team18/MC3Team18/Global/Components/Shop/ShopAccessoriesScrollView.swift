@@ -9,19 +9,28 @@ import SwiftUI
 
 struct ShopAccessoriesScrollView: View {
     
-    let accessoriesItemArray : [String] = ["sunglasses", "flower", "cap"]
-    var items: [ShopItem] = []
+    @Binding var shopItem: [ShopItem]
     
     var body: some View {
         VStack(spacing: 16){
             HStack{
-                Image("AccessoriesTitle")
+                switch shopItem.first?.itemCategory {
+                case 0:
+                    Image("AccessoriesTitle")
+                case 1:
+                    Image("bubbleTitle")
+                case 2:
+                    Image("starTitle")
+                default:
+                    Image("AccessoriesTitle")
+                }
+                
                 Spacer()
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(0..<3) { i in
-                        AccessoriesItemBoxView(itemImage: "\(accessoriesItemArray[i])")
+                    ForEach(shopItem) { item in
+                        AccessoriesItemBoxView(itemImage: item.itemName)
                     }
                 }
             }
@@ -32,8 +41,8 @@ struct ShopAccessoriesScrollView: View {
 }
 struct AccessoriesItemBoxView: View {
     @State var itemImage: String
-    var itemInUse : Bool = false
-    var itemSold : Bool = true
+    @State var itemInUse : Bool = false
+    @State var itemSold : Bool = true
     
     var body: some View {
         VStack(spacing: 8){
@@ -74,9 +83,9 @@ struct AccessoriesItemBoxView: View {
     }
 }
 
-struct ShopAccessoriesScrollView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopAccessoriesScrollView()
-            .background(.blue)
-    }
-}
+//struct ShopAccessoriesScrollView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopAccessoriesScrollView()
+//            .background(.blue)
+//    }
+//}
