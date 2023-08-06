@@ -11,6 +11,7 @@ struct ShopView: View {
     
     @State var shopItem: [ShopItem] = []
     
+    
     var body: some View {
         ZStack{
             Image("BackgroundShopView")

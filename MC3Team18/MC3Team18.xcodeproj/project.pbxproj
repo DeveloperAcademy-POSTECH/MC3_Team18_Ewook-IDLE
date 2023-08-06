@@ -81,6 +81,7 @@
 		78BE77DB2A5D6A160028A446 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DA2A5D6A160028A446 /* FontExtension.swift */; };
 		78BE77DD2A5D6AC20028A446 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */; };
 		78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */; };
+		78C132242A7F55F0001A742F /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C132232A7F55F0001A742F /* IntExtension.swift */; };
 		78C7EF922A678A6B00460E90 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7EF912A678A6B00460E90 /* LottieView.swift */; };
 		78D517C32A6BAC37005B4A6C /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */; };
 		78DD4FB82A5BAFC10007251D /* MC3Team18App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */; };
@@ -167,6 +168,7 @@
 		78BE77DA2A5D6A160028A446 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		78BE77DC2A5D6AC20028A446 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		78BE77DE2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoBillsJaffnaText.swift; sourceTree = "<group>"; };
+		78C132232A7F55F0001A742F /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		78C7EF912A678A6B00460E90 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		78D517C22A6BAC37005B4A6C /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		78DD4FB42A5BAFC10007251D /* MC3Team18.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Team18.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,6 +406,7 @@
 				787AEDF02A612276007FC5EB /* UIViewExtension.swift */,
 				787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */,
 				78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */,
+				78C132232A7F55F0001A742F /* IntExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				60CC5C532A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift in Sources */,
 				600264282A6D163E0035A0E1 /* BanjjakTutorialView.swift in Sources */,
 				7872CA6B2A5CFB9400FC8444 /* ChagokTutorialView.swift in Sources */,
+				78C132242A7F55F0001A742F /* IntExtension.swift in Sources */,
 				6002642A2A6D1C2B0035A0E1 /* BanjjakStatus.swift in Sources */,
 				78777F0E2A5E9630008826DA /* ChagokPauseView.swift in Sources */,
 				78BE77DF2A5D6DAA0028A446 /* PostNoBillsJaffnaText.swift in Sources */,

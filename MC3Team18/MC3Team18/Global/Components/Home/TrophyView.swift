@@ -61,14 +61,8 @@ struct TrophyView: View {
             if !ChagokMissionSuccess || !BubbleMissionSuccess || !BanjjakMissionSuccess {
                 isDailyNotFinished = true
             }
-            totalCoinWithComma = addCommaToTotalcoin(balance: totalCoin)
+            totalCoinWithComma = totalCoin.addComma()
         }
-    }
-    
-    func addCommaToTotalcoin(balance: Int) -> String{
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(for: balance)!
     }
 }
 

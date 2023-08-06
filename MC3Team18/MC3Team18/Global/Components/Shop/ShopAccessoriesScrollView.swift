@@ -11,6 +11,7 @@ struct ShopAccessoriesScrollView: View {
     
     @Binding var shopItem: [ShopItem]
     var itemCategory: Int
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
         VStack(spacing: 16){
@@ -46,7 +47,7 @@ struct AccessoriesItemBoxView: View {
     
     @Binding var shopItem: [ShopItem]
     @Binding var item: ShopItem
-    
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     var body: some View {
         VStack(spacing: 8){
             ZStack {
@@ -81,14 +82,32 @@ struct AccessoriesItemBoxView: View {
                 }
                 Spacer()
                 Button {
-                    item.itemStatus = 1
-                    if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
-                        shopItem[index].itemStatus = item.itemStatus
+                    if item.itemStatus == 0 {
+                        
+                        if item.price <= totalCoin {
+                            item.itemStatus = 1
+                            totalCoin -= item.price
+                            if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
+                                shopItem[index].itemStatus = item.itemStatus
+                            }
+                            ShopItem.saveItemChanges(items: shopItem)
+                        } else {
+                            print("not enough money")
+                        }
                     }
-                    ShopItem.saveItemChanges(items: shopItem)
                 } label: {
-                    Image("buttonBuy")
+                    switch item.itemStatus {
+                    case 0:
+                        Image("buttonBuy")
+                    case 1:
+                        Image("buttonDisabled")
+                    case 2:
+                        Image("buttonApply")
+                    default:
+                        EmptyView()
+                    }
                 }
+                .disabled(item.itemStatus == 1)
             }
         }
     }
