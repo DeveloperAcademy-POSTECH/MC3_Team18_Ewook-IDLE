@@ -85,6 +85,7 @@ struct AccessoriesItemBoxView: View {
                     if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
                         shopItem[index].itemStatus = item.itemStatus
                     }
+                    ShopItem.saveItemChanges(items: shopItem)
                 } label: {
                     Image("buttonBuy")
                 }
