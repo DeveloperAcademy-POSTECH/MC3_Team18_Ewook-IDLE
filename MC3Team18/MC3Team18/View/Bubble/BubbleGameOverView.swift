@@ -77,7 +77,7 @@ struct BubbleGameOverView: View {
                     if showDailyPrize {
                         DailyQuestPrizeView()
                     } else {
-                        GameCoinPrizeView()
+                        GameCoinPrizeView(coinPrize: Int(Int(score)! / 100))
                     }
                 }
                 Spacer()

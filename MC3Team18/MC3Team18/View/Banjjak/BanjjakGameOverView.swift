@@ -66,7 +66,7 @@ struct BanjjakGameOverView: View {
                             .pretendardLight32()
                             .foregroundColor(.white)
                     }
-                    Text("\(banjjakSKScene.score)")
+                    Text(String(banjjakSKScene.score))
                         .postNoBillsJaffnaRegular64()
                         .foregroundColor(.white)
                     HStack{
@@ -84,7 +84,7 @@ struct BanjjakGameOverView: View {
                 if showDailyPrize {
                     DailyQuestPrizeView()
                 } else {
-                    GameCoinPrizeView()
+                    GameCoinPrizeView(coinPrize: Int(banjjakSKScene.score / 100))
                 }
                 Spacer()
                 

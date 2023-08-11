@@ -66,7 +66,7 @@ struct ChagokGameOverView: View {
                         .pretendardLight32()
                 }
                 
-                Text("\(chagokScene.chagokScore)")
+                Text(String(chagokScene.chagokScore))
                     .postNoBillsJaffnaRegular64()
                 HStack {
                     Text("Best Score")
@@ -81,7 +81,7 @@ struct ChagokGameOverView: View {
                 if showDailyPrize {
                     DailyQuestPrizeView()
                 } else {
-                    GameCoinPrizeView()
+                    GameCoinPrizeView(coinPrize: Int(chagokScene.chagokScore / 100))
                 }
                 Spacer()
                 
