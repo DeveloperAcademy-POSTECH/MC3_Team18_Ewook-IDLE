@@ -51,7 +51,7 @@ struct BanjjakGameView: View {
                     Text("Score: ")
                         .pretendardRegular20()
                         .frame(height: 29)
-                    Text("\(banjjakSKScene.score)")
+                    Text(String(banjjakSKScene.score))
                         .pretendardSemiBold24()
                         .foregroundColor(.Yellow)
                         .onTapGesture {
