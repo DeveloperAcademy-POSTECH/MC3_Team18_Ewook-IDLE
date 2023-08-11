@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct GameCoinPrizeView: View {
+    
+    @State var coinPrize : Int
+
     var body: some View {
-        
-        @State var coinPrizeWithComma : Int = 0
-        
+                
         ZStack {
             RoundedRectangle(cornerRadius: 22,style: .continuous).fill(.ultraThinMaterial).frame(width: 341,height: 74).opacity(0.9)
             VStack{
@@ -26,7 +27,7 @@ struct GameCoinPrizeView: View {
                             )
                         )
                     Spacer()
-                    Text("1,000")
+                    Text("\(coinPrize)")
                         .postNoBillsJaffnaExtraBold24()
                         .foregroundColor(.white)
                     Image("IconShop")
@@ -41,6 +42,6 @@ struct GameCoinPrizeView: View {
 
 struct GameCoinPrizeView_Previews: PreviewProvider {
     static var previews: some View {
-        GameCoinPrizeView()
+        GameCoinPrizeView(coinPrize: 1000)
     }
 }
