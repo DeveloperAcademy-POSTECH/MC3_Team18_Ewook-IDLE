@@ -79,7 +79,7 @@ struct ChagokGameOverView: View {
                 }
                 .padding(.bottom, 32)
                 if showDailyPrize {
-                    DailyQuestPrizeView()
+                    DailyQuestPrizeView(coinPrize: Int(chagokScene.chagokScore / 100))
                 } else {
                     GameCoinPrizeView(coinPrize: Int(chagokScene.chagokScore / 100))
                 }
@@ -139,7 +139,7 @@ struct ChagokGameOverView: View {
         .onAppear {
             UIApplication.shared.isIdleTimerDisabled = false
             chagokScene.isNotUpdate = true
-            check() 
+            dailyMissionDoneCheck() 
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
             }
@@ -149,8 +149,8 @@ struct ChagokGameOverView: View {
             totalCoin = totalCoin + Int(chagokScene.chagokScore / 100)
         }
     }
-    func check() {
-        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
+    func dailyMissionDoneCheck() {
+        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false -> HomeView에 처리해둠
         if hasDailyMissionPrizeBeenShown == true { return }
         
         if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {

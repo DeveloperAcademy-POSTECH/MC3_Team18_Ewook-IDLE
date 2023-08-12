@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct DailyQuestPrizeView: View {
+    
+    @State var coinPrize : Int
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
+    let dailyMissionPrize = 300
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 22, style: .continuous)
@@ -25,7 +30,7 @@ struct DailyQuestPrizeView: View {
                             )
                         )
                     Spacer()
-                    Text("1,000")
+                    Text("\(coinPrize)")
                         .postNoBillsJaffnaExtraBold24()
                         .foregroundColor(.white)
                     Image("IconShop")
@@ -44,7 +49,7 @@ struct DailyQuestPrizeView: View {
                             )
                         )
                     Spacer()
-                    Text("3,000")
+                    Text("\(dailyMissionPrize)")
                         .postNoBillsJaffnaExtraBold24()
                         .foregroundColor(.white)
                     Image("IconShop")
@@ -55,12 +60,14 @@ struct DailyQuestPrizeView: View {
                 .frame(height: 24)
             }.padding(.horizontal,20).padding(.vertical,25)
             .frame(width: 341,height: 106)
+        }.onAppear(){
+            totalCoin += 300
         }
     }
 }
 
 struct DailyQuestPrizeView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyQuestPrizeView()
+        DailyQuestPrizeView(coinPrize: 100)
     }
 }

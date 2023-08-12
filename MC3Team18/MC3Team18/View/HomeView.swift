@@ -15,6 +15,7 @@ struct HomeView: View {
     @AppStorage("BubbleMissionSuccess") var BubbleMissionSuccess: Bool = false
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
+    @AppStorage("hasDailyMissionPrizeBeenShown") var hasDailyMissionPrizeBeenShown: Bool = false
     
     var body: some View {
         NavigationView {
@@ -99,6 +100,7 @@ struct HomeView: View {
                     BubbleMissionSuccess = false
                     BanjjakMissionSuccess = false
                     DailyRoutineCurrentDate = currentDate
+                    hasDailyMissionPrizeBeenShown = false
                 }
             }
         }
