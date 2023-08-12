@@ -101,6 +101,7 @@
 		2DA355DF2A7947A60037D9AF /* ShopAccessoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAccessoriesScrollView.swift; sourceTree = "<group>"; };
 		2DA355E12A79B70A0037D9AF /* ShopItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemData.swift; sourceTree = "<group>"; };
 		2DA355E32A79C2830037D9AF /* ShopItemPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemPurchaseView.swift; sourceTree = "<group>"; };
+		2F05F5EC2A87C23F00559FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2F1BF18F2A6FB423004D9EBE /* banjjakBGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = banjjakBGM.mp3; sourceTree = "<group>"; };
 		2F2CE22F2A5E52C3009043BD /* ChagokSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokSKScene.swift; sourceTree = "<group>"; };
 		2F2CE2312A5E52E1009043BD /* ChagokARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagokARViewContainer.swift; sourceTree = "<group>"; };
@@ -348,6 +349,7 @@
 		78DD4FB62A5BAFC10007251D /* MC3Team18 */ = {
 			isa = PBXGroup;
 			children = (
+				2F05F5EC2A87C23F00559FA2 /* Info.plist */,
 				78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */,
 				78DD4FC92A5BB0370007251D /* Resources */,
 				78DD4FCC2A5BB04C0007251D /* View */,
@@ -766,6 +768,7 @@
 				DEVELOPMENT_TEAM = UG6UT639QH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC3Team18/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SounDrill;
 				INFOPLIST_KEY_NSCameraUsageDescription = "”SounDrill”이 얼굴 추적을 통한 게임 진행을 위해 카메라에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "”SounDrill”이 음성 인식을 통한 게임 진행을 위해 마이크에 접근하도록 허용해주세요.";
@@ -802,6 +805,7 @@
 				DEVELOPMENT_TEAM = K4QNQ98D35;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MC3Team18/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SounDrill;
 				INFOPLIST_KEY_NSCameraUsageDescription = "”SounDrill”이 얼굴 추적을 통한 게임 진행을 위해 카메라에 접근하도록 허용해주세요.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "”SounDrill”이 음성 인식을 통한 게임 진행을 위해 마이크에 접근하도록 허용해주세요.";
