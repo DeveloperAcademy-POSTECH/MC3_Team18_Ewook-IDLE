@@ -15,13 +15,9 @@ struct ShopView: View {
     
     var body: some View {
         ZStack{
-            Image("BackgroundShopView")
-                .resizable()
-                .scaledToFill()
+            Color.CobaltBlue
                 .ignoresSafeArea()
             VStack (spacing: 24){
-                ShopHeaderView()
-                    .padding(.top, 60)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack (spacing: 40){
                         ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 0)
@@ -40,7 +36,17 @@ struct ShopView: View {
         }
         .navigationBarBackButtonHidden()
         .navigationBarItems(leading: btnBack)
-
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("상점")
+                    .pretendardSemiBold24()
+                    .foregroundColor(.white)
+                    .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShopHeaderView().padding(.trailing, 18)
+            }
+        }
     }
     
     var btnBack : some View {
