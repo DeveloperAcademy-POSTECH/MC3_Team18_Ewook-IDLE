@@ -33,6 +33,7 @@
 		6002642A2A6D1C2B0035A0E1 /* BanjjakStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */; };
 		600264322A6D989B0035A0E1 /* Trill_35_05_50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 600264312A6D989B0035A0E1 /* Trill_35_05_50.mlmodel */; };
 		600264362A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 600264352A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel */; };
+		607E8D3A2A89268500D632B0 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E8D392A89268500D632B0 /* ImageExtension.swift */; };
 		608059892A5E71DC007A716D /* BubbleTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059852A5E71DC007A716D /* BubbleTutorialView.swift */; };
 		6080598A2A5E71DC007A716D /* BubbleGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059862A5E71DC007A716D /* BubbleGameOverView.swift */; };
 		6080598B2A5E71DC007A716D /* BubbleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608059872A5E71DC007A716D /* BubbleStatusView.swift */; };
@@ -122,6 +123,7 @@
 		600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakStatus.swift; sourceTree = "<group>"; };
 		600264312A6D989B0035A0E1 /* Trill_35_05_50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Trill_35_05_50.mlmodel; sourceTree = "<group>"; };
 		600264352A6D9EDC0035A0E1 /* Voice_35_05_75.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Voice_35_05_75.mlmodel; sourceTree = "<group>"; };
+		607E8D392A89268500D632B0 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		608059852A5E71DC007A716D /* BubbleTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTutorialView.swift; sourceTree = "<group>"; };
 		608059862A5E71DC007A716D /* BubbleGameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleGameOverView.swift; sourceTree = "<group>"; };
 		608059872A5E71DC007A716D /* BubbleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleStatusView.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				787AEDF22A6123CB007FC5EB /* NSObjectExtension.swift */,
 				78A99CEC2A66A89500474F00 /* AnyTransitionExtension.swift */,
 				78C132232A7F55F0001A742F /* IntExtension.swift */,
+				607E8D392A89268500D632B0 /* ImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				608059892A5E71DC007A716D /* BubbleTutorialView.swift in Sources */,
 				609CB0372A78D3E1004A1E82 /* GameCoinPrizeView.swift in Sources */,
 				E53CEA1E2A5E23E200BE59B9 /* ColorExtension.swift in Sources */,
+				607E8D3A2A89268500D632B0 /* ImageExtension.swift in Sources */,
 				2DA355E22A79B70A0037D9AF /* ShopItemData.swift in Sources */,
 				789D890A2A78FAFE00A50B1E /* TouchedButton.swift in Sources */,
 				6080598B2A5E71DC007A716D /* BubbleStatusView.swift in Sources */,
