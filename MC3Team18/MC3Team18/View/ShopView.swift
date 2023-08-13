@@ -10,7 +10,8 @@ import SwiftUI
 struct ShopView: View {
     
     @State var shopItem: [ShopItem] = []
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     
     var body: some View {
         ZStack{
@@ -34,7 +35,24 @@ struct ShopView: View {
         .onAppear {
             shopItem = ShopItem.fetchItemList() 
         }
+        .onBackSwipe {
+            presentationMode.wrappedValue.dismiss()
+        }
+        .navigationBarBackButtonHidden()
+        .navigationBarItems(leading: btnBack)
 
+    }
+    
+    var btnBack : some View {
+        Button {
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            Image.backIcon
+                .scaledToFit()
+                .frame(width: 16, height: 16)
+                .pretendardSemiBold20()
+                .foregroundColor(.white).padding()
+        }
     }
 }
 

@@ -14,7 +14,6 @@ struct ShopHeaderView: View {
     var body: some View {
         VStack (spacing: 16){
             HStack {
-                Image("IconArrowLeft")
                 Spacer()
                 HStack(spacing: -10) {
                     Image("IconShop")
