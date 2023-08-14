@@ -33,6 +33,10 @@ extension View {
         modifier(PretendardTextBold20())
     }
     
+    func pretendardBold16() -> some View {
+        modifier(PretendardTextBold16())
+    }
+    
     func pretendardBold14() -> some View {
         modifier(PretendardTextBold14())
     }
