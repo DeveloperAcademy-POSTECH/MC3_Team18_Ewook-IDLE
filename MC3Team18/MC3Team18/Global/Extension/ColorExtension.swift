@@ -26,4 +26,12 @@ extension Color {
     static let GamePrizeGradient1 = Color("GamePrizeGradient1")
     static let GamePrizeGradient2 = Color("GamePrizeGradient2")
     static let AccentButtonText = Color("AccentButtonText")
+    static let GradientYellow1 = Color("GradientYellow1")
+    static let GradientYellow2 = Color("GradientYellow2")
+    static let GradientYellowShadow = Color("GradientYellowShadow")
+    static let GradientRed1 = Color("GradientRed1")
+    static let GradientRed2 = Color("GradientRed2")
+    static let InUse = Color("InUse")
+    static let InUseFont = Color("InUseFont")
+    static let InUseShadow = Color("InUseShadow")
 }
