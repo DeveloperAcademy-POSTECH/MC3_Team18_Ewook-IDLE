@@ -82,7 +82,7 @@ struct BanjjakGameOverView: View {
                 .padding(.bottom, 32)
                 
                 if showDailyPrize {
-                    DailyQuestPrizeView()
+                    DailyQuestPrizeView(coinPrize: Int(banjjakSKScene.score / 100))
                 } else {
                     GameCoinPrizeView(coinPrize: Int(banjjakSKScene.score / 100))
                 }
@@ -147,7 +147,7 @@ struct BanjjakGameOverView: View {
             banjjakSKScene.isPaused = true
             totalCoin = totalCoin + Int(banjjakSKScene.score / 100)
             
-            check()
+            dailyMissionDoneCheck()
             
             withAnimation(.easeOut(duration: 0.3)) {
                 gameoverOpacity = 1
@@ -155,8 +155,8 @@ struct BanjjakGameOverView: View {
         }
     }
     
-    func check() {
-        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false
+    func dailyMissionDoneCheck() {
+        //TODO: hasDailyMissionPrizeBeenShown 다음날인 경우 false -> HomeView에 처리해둠
         if hasDailyMissionPrizeBeenShown == true { return }
         
         if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
