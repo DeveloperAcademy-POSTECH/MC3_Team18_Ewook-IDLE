@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "starMint.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "starMint@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "starMint@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "민트별.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

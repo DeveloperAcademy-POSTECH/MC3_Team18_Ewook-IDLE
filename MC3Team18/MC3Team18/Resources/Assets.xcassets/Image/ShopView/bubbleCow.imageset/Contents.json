@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "bubbleCow.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "bubbleCow@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "bubbleCow@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "젖소버블.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
