@@ -8,28 +8,33 @@
 import SwiftUI
 
 struct ShopView: View {
-    
-    @State var shopItem: [ShopItem] = []
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var shopItem: [ShopItem] = []
+    @State var selectedItem: ShopItem?
+    @State var isPurchasePopupAppear: Bool = false
 
-    
     var body: some View {
         ZStack{
-            Color.CobaltBlue
-                .ignoresSafeArea()
-            VStack (spacing: 24){
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack (spacing: 40){
-                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 0)
-                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 1)
-                        ShopAccessoriesScrollView(shopItem: $shopItem, itemCategory: 2)
-                        Spacer().frame(height: 50)
+            Color.CobaltBlue.ignoresSafeArea()
+            
+            VStack (spacing: 20){
+                Image("MainCharacter").resizable().scaledToFit()
+                    .frame(width: 211, height: 217, alignment: .bottomTrailing)
+                    .overlay {
+                        Image(selectedItem?.itemName ?? "")
                     }
-                }
+                             
+                ShopAccessoriesScrollView(shopItem: $shopItem, selectedItem: $selectedItem, isPurchasePopupAppear: $isPurchasePopupAppear)
+            }
+            .padding(.top, 20)
+            
+            if isPurchasePopupAppear {
+                Color.Black.opacity(0.8).ignoresSafeArea()
+                ShopItemPurchaseView()
             }
         }
         .onAppear {
-            shopItem = ShopItem.fetchItemList() 
+            shopItem = ShopItem.fetchItemList()
         }
         .onBackSwipe {
             presentationMode.wrappedValue.dismiss()
