@@ -7,13 +7,12 @@
 
 import UIKit
 
-struct ShopItem : Identifiable, Decodable, Encodable {
-    
+struct ShopItem : Identifiable, Codable {
     let id: UUID = UUID()
-    var itemName: String = ""
-    var price: Int = 0
-    var itemCategory: Int = 0
-    var itemStatus: Int = 0
+    var itemName: String 
+    var price: Int
+    var itemCategory: ItemCategory
+    var itemStatus: Int
 }
 
 extension ShopItem {

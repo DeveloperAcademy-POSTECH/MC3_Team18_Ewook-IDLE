@@ -8,36 +8,24 @@
 import SwiftUI
 
 struct ShopHeaderView: View {
-    
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
-        VStack (spacing: 16){
-            HStack {
-                Image("IconArrowLeft")
-                Spacer()
-                HStack(spacing: -10) {
-                    Image("IconShop")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
-                    ZStack{
-                        Rectangle()
-                            .cornerRadius(12)
-                            .frame(width: 68, height: 28)
-                            .opacity(0.2)
-                        Text(totalCoin.addComma())
-                            .postNoBillsJaffnaExtraBold20()
-                            .foregroundColor(.Yellow)
-                    }
-                }
-            }
-            Text("Shop")
-                .pretendardRegular24()
-                .foregroundColor(.white)
+        HStack(spacing: -10) {
+            Image("IconShop")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 28, height: 28).zIndex(1)
+            
+            Text(totalCoin.addComma())
+                .postNoBillsJaffnaExtraBold20()
+                .foregroundColor(.Yellow)
+                .padding(.leading, 14)
+                .padding(.trailing, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 20).fill(Color.black.opacity(0.2))
+                )
         }
-        .frame(height: 78)
-        .padding(.horizontal, 26)
     }
 }
 

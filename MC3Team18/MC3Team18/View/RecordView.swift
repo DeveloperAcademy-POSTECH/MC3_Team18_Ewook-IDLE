@@ -99,14 +99,11 @@ struct RecordView: View {
         Button {
             self.presentationMode.wrappedValue.dismiss()
         } label: {
-            HStack {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 16, height: 16)
-                    .pretendardSemiBold20()
-                    .foregroundColor(.white).padding()
-            }
+            Image.backIcon
+                .scaledToFit()
+                .frame(width: 16, height: 16)
+                .pretendardSemiBold20()
+                .foregroundColor(.white).padding()
         }
     }
 }
