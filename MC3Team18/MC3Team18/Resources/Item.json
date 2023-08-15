@@ -1,66 +1,65 @@
-
 [
     {
         "itemName" : "sunglasses",
         "price" : 1500,
-        "itemCategory" : 0,
+        "itemCategory" : "액세서리",
         "itemStatus" : 0
     },
     {
         "itemName" : "flower",
         "price" : 150,
-        "itemCategory" : 0,
+        "itemCategory" : "액세서리",
         "itemStatus" : 0
     },
 
     {
         "itemName" : "cap",
         "price" : 500,
-        "itemCategory" : 0,
+        "itemCategory" : "액세서리",
         "itemStatus" : 0
     },
 
     {
         "itemName" : "bubbleCow",
         "price" : 500,
-        "itemCategory" : 1,
+        "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     {
         "itemName" : "bubblePupple",
         "price" : 150,
-        "itemCategory" : 1,
+        "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     {
         "itemName" : "bubbleRainbow",
         "price" : 1500,
-        "itemCategory" : 1,
+        "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     
     {
         "itemName" : "starPink",
         "price" : 150,
-        "itemCategory" : 2,
+        "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
         "itemName" : "starPupple",
         "price" : 1500,
-        "itemCategory" : 2,
+        "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
         "itemName" : "starMint",
         "price" : 500,
-        "itemCategory" : 2,
+        "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
         "itemName" : "starRainbow",
         "price" : 3000,
-        "itemCategory" : 2,
+        "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     }   
 ]
