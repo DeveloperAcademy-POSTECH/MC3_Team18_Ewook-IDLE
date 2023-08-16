@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "starRainbow.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "starRainbow@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "starRainbow@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "무지개별.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

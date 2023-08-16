@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "sunglasses.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "sunglasses@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "sunglasses@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "선글라스_블랙.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

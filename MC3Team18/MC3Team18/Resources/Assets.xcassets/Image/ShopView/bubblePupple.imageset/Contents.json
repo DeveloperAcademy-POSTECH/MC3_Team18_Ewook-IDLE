@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "bubblePupple.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "bubblePupple@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "bubblePupple@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "보라버블.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
