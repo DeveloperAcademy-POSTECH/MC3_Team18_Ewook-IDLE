@@ -170,12 +170,18 @@ struct ChagokGameView: View {
                                     .frame(width: 52)
                                     .padding(.bottom, 3)
                                 // 기본 width 20 height 16
-                                Image("ChagokMouth")
-                                    .resizable()
-                                    .frame(width: 20 + (20 * mouthWidth), height: 16 + (16 * mouthHeight))
+                                
+                                if chagokScene.mouthState == .u {
+                                    Image("ChagokMouthU")
+                                } else if chagokScene.mouthState == .e {
+                                    Image("ChagokMouthCheekPuff")
+                                } else {
+                                    Image("ChagokMouth")
+                                        .resizable()
+                                        .frame(width: 20 + (20 * mouthWidth), height: 16 + (16 * mouthHeight))
+                                }
                                 Spacer()
                             }
-                            
                         }
                         .offset(y: 52)
                         
