@@ -20,15 +20,13 @@ struct ShopAccessoriesScrollView: View {
                     ForEach(ItemCategory.allCases, id: \.rawValue) {category in
                         ShopCategoryTitleView(category: category, selectedCategory: $selectedCategory)
                             .onTapGesture {
-                                withAnimation(.easeOut) {
-                                    selectedCategory = category
-                                    for index in shopItem.indices {
-                                        if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == selectedCategory {
-                                            selectedItem = shopItem[index]
-                                            break
-                                        } else {
-                                            selectedItem = nil
-                                        }
+                                selectedCategory = category
+                                for index in shopItem.indices {
+                                    if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == selectedCategory {
+                                        selectedItem = shopItem[index]
+                                        break
+                                    } else {
+                                        selectedItem = nil
                                     }
                                 }
                                 ShopItem.saveItemChanges(items: shopItem)
@@ -46,7 +44,7 @@ struct ShopAccessoriesScrollView: View {
             }
             
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                     ForEach($shopItem) { $item in
                         if item.itemCategory.rawValue == selectedCategory.rawValue {
                             AccessoriesItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, isPurchasePopupAppear: $isPurchasePopupAppear)
@@ -57,7 +55,7 @@ struct ShopAccessoriesScrollView: View {
             }
             .shadow(color: .Black.opacity(0.12), radius: 8, x: 4, y: 4)
         }
-        .padding(.horizontal, 34)
+        .padding(.horizontal, 32)
     }
 }
 
@@ -68,7 +66,7 @@ struct ShopCategoryTitleView: View {
     
     var body: some View {
         Text(category.rawValue)
-            .pretendardSemiBold16()
+            .pretendardBold16()
             .foregroundColor(category.rawValue == selectedCategory.rawValue ? .Yellow : .Gray50)
             .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
             .padding(8)
@@ -77,7 +75,7 @@ struct ShopCategoryTitleView: View {
 
 //TODO: item, selectedItem 통일
 struct AccessoriesItemBoxView: View {
-
+    
     @Binding var shopItem: [ShopItem]
     @Binding var item: ShopItem
     @AppStorage("totalCoin") var totalCoin: Int = 1000
@@ -88,28 +86,23 @@ struct AccessoriesItemBoxView: View {
         VStack(spacing: 8){
             Image("\(item.itemName)")
                 .frame(width: 157, height: 162)
+                .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
                 .background(
                     Rectangle()
                         .fill(
-                            .white.shadow(.inner(color: .ShadowBlue.opacity(0.25), radius: 4,
-                                                 x: item.itemStatus == 0 ? 4 : -4,
-                                                 y: item.itemStatus == 0 ? -4 : 4))
+                            .white.shadow(.inner(color: .ShadowBlue.opacity(0.25), radius: 4, x: 4, y: -4))
                         )
                 )
                 .overlay(alignment: .topLeading) {
                     switch item.itemStatus {
-                    case 0:
-                        EmptyView()
                     case 1:
-                        Color.Black.opacity(0.4)
                         Image("itemLabelSold")
                             .resizable()
-                            .frame(width: 157, height: 162).offset(x: -2, y: -2)
+                            .frame(width: 157, height: 162).offset(x: -6, y: -6)
                     case 2:
-                        Color.Black.opacity(0.4)
                         Image("itemLabelInUse")
                             .resizable()
-                            .frame(width: 157, height: 162).offset(x: -2, y: -2)
+                            .frame(width: 157, height: 162).offset(x: -6, y: -6)
                     default:
                         EmptyView()
                     }
@@ -133,48 +126,34 @@ struct AccessoriesItemBoxView: View {
                     switch item.itemStatus {
                     case 0:
                         Text("구매")
-                            .pretendardBold16()
-                            .foregroundColor(.White)
-                            .shadow(color: .Black.opacity(0.25), radius: 4, x: 2, y: 2)
-                            .frame(width: 66, height: 32)
+                            .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
+                            .frame(width: 60, height: 32)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
-                                    .fill(
-                                        .linearGradient(colors: [.GradientYellow1, .GradientYellow2], startPoint: .top, endPoint: .bottom)
-                                        .shadow(.inner(color: .GradientYellowShadow, radius: 8, x: 0, y: -4))
-                                        .shadow(.inner(color: .White.opacity(0.35), radius: 4, x: 0, y: 4))
-                                        
-                                    )
+                                    .fill(Color.Buy.shadow(.inner(color: .White.opacity(0.35), radius: 4, x: 0, y: 4)))
                             )
                     case 1:
-                        Text("장착") // 보유중
-                            .pretendardBold16()
-                            .foregroundColor(.White)
-                            .shadow(color: .Black.opacity(0.25), radius: 4, x: 2, y: 2)
-                            .frame(width: 66, height: 32)
+                        Text("착용")
+                            .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
+                            .frame(width: 60, height: 32)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
-                                    .fill(
-                                        .linearGradient(colors: [.GradientRed1, .GradientRed2], startPoint: .top, endPoint: .bottom)
-                                        .shadow(.inner(color: .White.opacity(0.20), radius: 8, x: 2, y: 4))
-                                    )
+                                    .fill(Color.Use.shadow(.inner(color: .White.opacity(0.35), radius: 4, x: 0, y: 4)))
                             )
                     case 2:
-                        Text("해제") //착용중
-                            .pretendardBold16()
-                            .foregroundColor(.InUseFont)
-                            .frame(width: 66, height: 32)
+                        Text("해제")
+                            .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
+                            .frame(width: 60, height: 32)
                             .background(
                                 RoundedRectangle(cornerRadius: 16)
-                                    .fill(
-                                        Color.InUse
-                                        .shadow(.inner(color: Color.InUseShadow.opacity(0.80), radius: 4, x: 2, y: 4))
-                                    )
+                                    .fill(Color.Unuse.shadow(.inner(color: .White.opacity(0.35), radius: 4, x: 0, y: 4)))
                             )
                     default:
                         EmptyView()
                     }
                 }
+                .pretendardBold16()
+                .foregroundColor(.White)
             }
         }
     }

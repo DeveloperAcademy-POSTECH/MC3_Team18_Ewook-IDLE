@@ -31,7 +31,7 @@ extension Color {
     static let GradientYellowShadow = Color("GradientYellowShadow")
     static let GradientRed1 = Color("GradientRed1")
     static let GradientRed2 = Color("GradientRed2")
-    static let InUse = Color("InUse")
-    static let InUseFont = Color("InUseFont")
-    static let InUseShadow = Color("InUseShadow")
+    static let Use = Color("Use")
+    static let Unuse = Color("Unuse")
+    static let Buy = Color("Buy")
 }
