@@ -80,11 +80,7 @@ class ChagokSKScene: SKScene, ObservableObject {
                 mouthState = MouthState.u
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
             }
-        } else {
-            mouthState = .none
         }
-        
-        
         
         if boxCount == 5 {
             isNotUpdate = true
