@@ -172,7 +172,7 @@ struct ChagokGameView: View {
                                 // 기본 width 20 height 16
                                 Image("ChagokMouth")
                                     .resizable()
-                                    .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
+                                    .frame(width: 20 + (20 * mouthWidth), height: 16 + (16 * mouthHeight))
                                 Spacer()
                             }
                             
