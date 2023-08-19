@@ -13,6 +13,8 @@ struct ShopItem : Identifiable, Codable {
     var price: Int
     var itemCategory: ItemCategory
     var itemStatus: Int
+    var x: Int?
+    var y: Int?
 }
 
 extension ShopItem {

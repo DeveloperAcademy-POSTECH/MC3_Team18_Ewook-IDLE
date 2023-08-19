@@ -3,31 +3,41 @@
         "itemName" : "flower",
         "price" : 150,
         "itemCategory" : "액세서리",
-        "itemStatus" : 0
+        "itemStatus" : 0,
+        "x": 12,
+        "y": -90
     },
     {
         "itemName" : "cap",
         "price" : 500,
         "itemCategory" : "액세서리",
-        "itemStatus" : 0
+        "itemStatus" : 0,
+        "x": 0,
+        "y": -80
     },
     {
         "itemName" : "sunglasses",
         "price" : 1500,
         "itemCategory" : "액세서리",
-        "itemStatus" : 0
+        "itemStatus" : 0,
+        "x": 0,
+        "y": -32
     },
     {
         "itemName" : "sunglassesGreen",
         "price" : 2000,
         "itemCategory" : "액세서리",
-        "itemStatus" : 0
+        "itemStatus" : 0,
+        "x": 0,
+        "y": -33
     },
     {
         "itemName" : "mustache",
         "price" : 2500,
         "itemCategory" : "액세서리",
-        "itemStatus" : 0
+        "itemStatus" : 0,
+        "x": 0,
+        "y": -20
     },
 
     {
