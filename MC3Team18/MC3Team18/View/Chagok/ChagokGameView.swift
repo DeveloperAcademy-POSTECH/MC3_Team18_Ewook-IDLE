@@ -161,46 +161,36 @@ struct ChagokGameView: View {
                     }
                     
                     Image(ChagokFace.faceActive.rawValue)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 300)
-                        .offset(y: 20)
-                        .padding(2)
                         .overlay {
-                            VStack(alignment: .center, spacing: 10) {
+                            VStack(alignment: .center, spacing: 0) {
+                                Spacer().frame(height: 59)
                                 Image("ChagokEyes")
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 74)
+                                    .frame(width: 52)
+                                    .padding(.bottom, 3)
+                                // 기본 width 20 height 16
                                 Image("ChagokMouth")
                                     .resizable()
                                     .frame(width: 35 * (1 + mouthWidth), height: 26 * (1 + mouthHeight))
-                            }
-                        }
-                } else {
-                    Image(ChagokFace.faceInactive.rawValue)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 300)
-                        .offset(y: 20)
-                        .padding(2)
-                        .overlay {
-                            if isStarted {
-                                VStack(alignment: .center, spacing: 10) {
-                                    Text("얼굴이 인식되지 않습니다.")
-                                    Text("정면을 바라봐주세요!.")
-                                }
-                                .pretendardSemiBold20()
-                                .foregroundColor(.white)
-                            } else {
-                                VStack(alignment: .center, spacing: 10) {
-                                    Text("얼굴이 인식되면 시작합니다.")
-                                    Text("기기를 정면으로 들어주세요.")
-                                }
-                                .pretendardSemiBold20()
-                                .foregroundColor(.white)
+                                Spacer()
                             }
                             
+                        }
+                        .offset(y: 52)
+                        
+                } else {
+                    Image(ChagokFace.faceInactive.rawValue)
+                        .offset(y: 52)
+                        .overlay {
+                            
+                            VStack(alignment: .center, spacing: 10) {
+                                Text(isStarted ? "얼굴이 인식되지 않습니다." : "얼굴이 인식되면 시작합니다.")
+                                Text(isStarted ? "정면을 바라봐주세요!." : "기기를 정면으로 들어주세요.")
+                            }
+                            .pretendardSemiBold20()
+                            .foregroundColor(.white)
+                            .offset(y: 26)
                         }
                 }
                 ChagokARViewContainer(mouthHeight: $mouthHeight, mouthWidth: $mouthWidth, isFaceTracked: $isFaceTracked, isStarted: $isStarted, chagokStatus: $chagokStatus)
