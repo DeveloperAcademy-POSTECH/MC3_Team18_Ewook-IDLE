@@ -34,4 +34,5 @@ extension Color {
     static let Use = Color("Use")
     static let Unuse = Color("Unuse")
     static let Buy = Color("Buy")
+    static let NegativeRed = Color("NegativeRed")
 }
