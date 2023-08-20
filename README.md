@@ -1,4 +1,40 @@
-# MC3 오전 Team18 E욱이와 I들
+# MC3 SounDrill
+
+![SounDrill2](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/3381a654-6a86-4904-a2e6-844d45e680bd)
+
+
+<h1 align="middle">😴SounDrill😴</h1>
+<p align="middle">발성 및 노래실력 향상을 위해 누구나 쉽고 재미있게 참여할 수 있는 iOS 게임 어플리케이션 </p>
+
+<br><br>
+# 서비스 소개
+<p align="left">
+**SounDrill: 음성과 발성 향상의 놀이터**
+
+음성과 얼굴 추적 기술을 활용한 혁신적인 발성 및 노래실력 향상 경험을 즐겨보세요! SounDrill은 뛰어난 iOS 게임 애플리케이션으로, 발음과 노래실력을 즐겁게 향상시킬 수 있는 기회를 제공합니다. 모두가 손쉽게 참여하여 멋진 발성과 노래실력을 개선해보세요.</p>
+
+<br><br>
+# 프로젝트 기술 스택 (Stack used in the Project)
+
+### 공통 (Common Stack)
+
+<img src="https://shields.io/badge/GitHub-181717?logo=GitHub&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Sketch-F7B500?logo=Sketch&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Miro-050038?logo=Miro&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/microsoftteams-6264A7?logo=microsoftteams&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Notion-000000?logo=Notion&logoColor=FFF&style=flat-square"/> 
+
+### 개발스택 (Development Stack)
+<img src="https://shields.io/badge/iOS-000000?logo=iOS&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Xcode-147EFB?logo=Xcode&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Swift-F05138?logo=Swift&logoColor=FFF&style=flat-square"/> 
+
+<br><br>
+# 팀원 소개 (Team Introduction)
+| iOS | iOS | iOS  | iOS | iOS | iOS |
+| :-----: | :-----: | :-----:  | :-----: | :-----: | :-----: |
+| <img src="https://user-images.githubusercontent.com/108044639/236133570-82917d4a-17ca-4375-b659-b18c0788778d.png" width=400px alt="Peter Jung"/>  | <img src="https://user-images.githubusercontent.com/108044639/236135311-e81d1d0a-042f-4431-b54d-891138503cad.png" width=400px alt="Chad"/>  | <img src="https://user-images.githubusercontent.com/108044639/236134419-025c15d1-7f70-48cf-9016-d22e6d28bcd4.png" width=400px alt="Coffee"/>   | <img src="https://user-images.githubusercontent.com/108044639/236133624-5b418819-d4aa-4a9e-9791-b91cb2cc78e8.png" width=400px alt="Jay"/>  | <img src="https://user-images.githubusercontent.com/108044639/236133234-7bb38735-9409-409e-94f2-4e4123891e60.png" width=400px alt="Peter Pyeon"/>  | <img src="https://user-images.githubusercontent.com/108044639/236133634-7a8154d4-50b4-488d-bbe3-5c4ed1080179.png" width=400px alt="Rei"/> | 
+[Chad[PO]](https://github.com/shine-jung) | [Eugene[Dev]](https://github.com/chad0909)  | [Jen[Design]](https://github.com/yuncoffee) | [MK[PM/Dev]](https://github.com/jay-appledeveloperacademy) | [Radin[Dev]](https://github.com/pyeonjaesik) | [Rubik[Dev]](https://github.com/kybeen) |
+
+
+
+
+
+
 ## 협업 방법 & 깃 컨벤션
 
 <details>
