@@ -47,7 +47,8 @@ struct ChagokGameView: View {
     
     @AppStorage("isChagokTutorialDisabled") var isChagokTutorialDisabled: Bool = false
     @AppStorage("chagokScore") var chagokScore: String = "0"
-    
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
+
     enum ChagokFace: String {
         case faceActive = "ChagokCharacterActive"
         case faceInactive = "ChagokCharacterInActive"
@@ -182,6 +183,13 @@ struct ChagokGameView: View {
                                 }
                                 Spacer()
                             }
+                            Image(shopItemVM.selectedAcc?.itemName ?? "")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(shopItemVM.selectedAcc?.itemName == "flower" ? 0.2 : 0.3)
+                                .offset(y:( ["flower", "cap"].contains(shopItemVM.selectedAcc?.itemName) ? -52 : -34))
+                                .offset(x: CGFloat(shopItemVM.selectedAcc?.x ?? 0), y: CGFloat(shopItemVM.selectedAcc?.y ?? 0))
+                                .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
                         }
                         .offset(y: 52)
                         
@@ -192,7 +200,7 @@ struct ChagokGameView: View {
                             
                             VStack(alignment: .center, spacing: 10) {
                                 Text(isStarted ? "얼굴이 인식되지 않습니다." : "얼굴이 인식되면 시작합니다.")
-                                Text(isStarted ? "정면을 바라봐주세요!." : "기기를 정면으로 들어주세요.")
+                                Text(isStarted ? "정면을 바라봐주세요." : "기기를 정면으로 들어주세요.")
                             }
                             .pretendardSemiBold20()
                             .foregroundColor(.white)
