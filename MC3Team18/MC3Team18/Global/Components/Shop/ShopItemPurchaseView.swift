@@ -8,70 +8,162 @@
 import SwiftUI
 
 struct ShopItemPurchaseView: View {
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
+    @Binding var shopItem: [ShopItem]
+    @Binding var isPurchasePopupAppear: Bool
+    @Binding var tappedItem: ShopItem
+    
+    let buyAble: Bool
     var body: some View {
-        VStack{
+        VStack(spacing: 24){
             ZStack {
                 Image("itemPurchaseBox")
                     .resizable()
                     .frame(width: 323, height: 415)
-                
+                    .overlay(alignment: .topTrailing) {
+                        Image("xmarkIcon")
+                            .offset(x: 16, y: -14)
+                            .onTapGesture {
+                                isPurchasePopupAppear = false
+                            }
+                    }
                 VStack{
                     VStack(spacing: 16){
                         VStack(spacing: 24) {
-                            Image("characterSunglass")
+                            ShopPopupCharacterView(tappedItem: $tappedItem)
+                                .scaleEffect(1.2)
                             VStack (spacing: 8) {
-                                Text("나는 멋져 선글라스")
+                                Text(tappedItem.itemNameKorean)
                                     .pretendardBold20()
                                     .foregroundColor(.CobaltBlue)
-                                Text("구입하시겠어요?")
+                                Text(buyAble ? "구입하시겠어요?" : "루비가 모자라요!")
                                     .pretendardSemiBold16()
-                                    .foregroundColor(.DarkGray)
+                                    .foregroundColor(buyAble ? .DarkGray : .NegativeRed)
                             }
                         }
                         
-                        ZStack {
-                            Image("leftRubyTextBox")
-                                .resizable()
-                                .frame(width: 184, height: 33)
-                            HStack (spacing: 8){
-                                Text("현재 보유 루비")
-                                    .pretendardSemiBold16()
-                                    .foregroundColor(.DarkGray)
-                                HStack(spacing: 4){
-                                    Image("IconShop")
-                                        .resizable()
-                                        .frame(width: 24, height: 24)
-                                    Text("1,500")
-                                        .font(.custom("PostNoBillsJaffna-ExtraBold", size: 16))
-                                        .foregroundColor(.Orange)
-                                }
+                        HStack (spacing: 8){
+                            Text("가격")
+                                .pretendardSemiBold16()
+                                .foregroundColor(.DarkGray)
+                            HStack(spacing: 4){
+                                Image("IconShop")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                Text(tappedItem.price.addComma())
+                                    .font(.custom("PostNoBillsJaffna-ExtraBold", size: 16))
+                                    .foregroundColor(.Orange)
                             }
                         }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.White
+                                    .shadow(.inner(color: .Black.opacity(0.08), radius: 8, x: 0, y: 0)))
+                        )
                     }
                     .padding(.top, 10)
-                    
                 }
-                
-            }
-            ZStack{
-                Image("buttonPurchase")
-
-                Text("1,500")
-                    .font(.custom("PostNoBillsJaffna-ExtraBold", size: 32))
-                    .foregroundColor(.Orange)
-                Image("IconShop")
-                    .padding(.trailing, 120)
             }
             
+            switch buyAble {
+            case true :
+                //TODO: 구매 가능할떄 로직 확인 및 JSOn파일에 저장되는지 확인
+                Button {
+                    tappedItem.itemStatus = 1
+                    totalCoin -= tappedItem.price
+                    if let index = shopItem.firstIndex(where: { $0.id == tappedItem.id }) {
+                        shopItem[index].itemStatus = tappedItem.itemStatus
+                    }
+                    ShopItem.saveItemChanges(items: shopItem)
+                    isPurchasePopupAppear = false
+
+                    //updatedItem.itemStatus = 1
+                    //totalCoin -= updatedItem.price
+                    //if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
+                    //  shopItem[index].itemStatus = updatedItem.itemStatus
+                    //}
+                } label: {
+                    Text("구매")
+                        .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
+                        .frame(width: 99, height: 45)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .fill(Color.Buy
+                                    .shadow(.inner(color: Color("BuyGradient"), radius: 8, x: 0, y: -4))
+                                    .shadow(.inner(color: .White.opacity(0.35), radius: 8, x: 0, y: 4)))
+                        )
+                        .pretendardBold20()
+                        .foregroundColor(.White)
+                }
+                
+            case false :
+                Button {
+                } label: {
+                    Text("구매")
+                        .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
+                        .frame(width: 99, height: 45)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .fill(Color.LightGray
+                                    .shadow(.inner(color: .Black.opacity(0.2), radius: 8, x: 0, y: 4)))
+                        )
+                        .pretendardBold20()
+                        .foregroundColor(.DarkGray)
+                }.disabled(true)
+            }
         }
-//        .frame(width: 334, height: 496)
+        //.frame(width: 334, height: 496)
         .padding(.horizontal, 34)
     }
 }
 
-struct ShopItemPurchaseView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopItemPurchaseView()
-            .background(.black)
+//struct ShopItemPurchaseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopItemPurchaseView(isPurchasePopupAppear: .constant(true), selectedItem: .constant(Item), buyAble: true)
+//            .background(.black)
+//    }
+//}
+
+struct ShopPopupCharacterView: View {
+    @Binding var tappedItem: ShopItem
+    
+    var body: some View {
+        Image("ShopCharacter").resizable().scaledToFit()
+            .frame(width: 325, height: 217, alignment: .bottom)
+            .overlay {
+                switch tappedItem.itemCategory {
+                case .acc:
+                    Image(tappedItem.itemName)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.2)
+                        .offset(x: CGFloat(tappedItem.x ?? 0), y: CGFloat(tappedItem.y ?? 0))
+                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
+                case .bubble:
+                    Image(tappedItem.itemName)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.35)
+                        .offset(y: 15)
+                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
+                case .star:
+                    Image(tappedItem.itemName)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.26)
+                        .offset(x: -80, y: -62)
+                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
+                    Image(tappedItem.itemName)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.22)
+                        .offset(x: -44, y: -26)
+                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
+                default:
+                    EmptyView()
+                }
+            }
     }
 }
