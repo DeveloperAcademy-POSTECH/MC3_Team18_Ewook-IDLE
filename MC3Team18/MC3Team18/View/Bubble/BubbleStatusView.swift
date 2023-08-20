@@ -95,12 +95,16 @@ struct BubbleMainView: View {
                 .animation(bubbleStatus == .game ? .linear(duration: animationBackgroundMaxDuration): .default, value: backgroundOffset)
             
             // MARK: 캐릭터 바디 & 표정 & 버블껌 이미지
-            ShopCharacterView(selectedCategory: .acc, onlyBody: true)
+            Image("ShopCharacterBody")
+                .resizable().scaledToFit()
+                .frame(width: 325, height: 217, alignment: .bottom)
                 .scaleEffect(1.3)
                 .offset(y: 40)
                 .overlay {
+                    // 표정
                     Image(expressionImages[currentExpressionIndex])
                         .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
+                    // 버블껌
                     Image(shopItemVM.selectedBubble?.itemName ?? bubbleImages)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -108,6 +112,14 @@ struct BubbleMainView: View {
                         .offset(y: 108)
                         .offset(x: offsetX, y: offsetY)
                         .animation(bubbleStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+                    // 아이템
+                    Image(shopItemVM.selectedAcc?.itemName ?? "")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.2)
+                        .offset(y: 20)
+                        .offset(x: CGFloat(shopItemVM.selectedAcc?.x ?? 0), y: CGFloat(shopItemVM.selectedAcc?.y ?? 0))
+                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
                 }
                 .opacity(bubbleStatus == .tutorial ? 0 : 1)
         }

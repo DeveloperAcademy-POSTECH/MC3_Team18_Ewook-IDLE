@@ -23,7 +23,8 @@ struct BanjjakGameView: View {
     @State var banjjakCharacterImage = Image("BanjjakDefault")
     
     @AppStorage("banjjakScore") var banjjakScore: String = "0"
-    
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
+
     init(gameSelection: Binding<GameSelection>) {
         _gameSelection = gameSelection
         streamManager.resultObservation(with: observer)
@@ -44,6 +45,16 @@ struct BanjjakGameView: View {
                     .resizable()
                     .frame(width: 120, height: 137)
                     .offset(y:-49)
+                    .overlay {
+                        Image(shopItemVM.selectedAcc?.itemName ?? "")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(0.3)
+                            //.offset(y: -44)
+                            .offset(y:shopItemVM.selectedAcc?.itemName == "mustache" ? -51 : -42 )
+                            .offset(x: CGFloat(shopItemVM.selectedAcc?.x ?? 0), y: CGFloat(shopItemVM.selectedAcc?.y ?? 0))
+                            .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
+                    }
                     .opacity(banjjakStatus != .tutorial ? 1 : 0)
             }
             VStack(spacing: 0) {
@@ -150,6 +161,11 @@ struct BanjjakGameView: View {
         .ignoresSafeArea()
         .opacity(gameOpacity)
         .onAppear {
+            if shopItemVM.selectedStar == nil {
+                banjjakSKScene.starImageNames = ["WhiteStar", "YellowStar"]
+            } else {
+                banjjakSKScene.starImageNames = ["WhiteStar", shopItemVM.selectedStar!.itemName]
+            }
             withAnimation(.easeOut(duration: 0.3)) {
                 gameOpacity = 1
             }
