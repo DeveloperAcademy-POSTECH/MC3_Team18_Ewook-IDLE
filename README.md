@@ -9,16 +9,19 @@
 <br><br>
 # 서비스 소개
 <p align="left">
-<h2> SounDrill: 음성과 발성 향상의 놀이터 </h2>
+<h2> SounDrill: 음성과 발성 향상을 위한 어플리케이션 </h2>
 
 음성과 얼굴 추적 기술을 활용한 혁신적인 발성 및 노래실력 향상 경험을 즐겨보세요! SounDrill은 뛰어난 iOS 게임 애플리케이션으로, 발음과 노래실력을 즐겁게 향상시킬 수 있는 기회를 제공합니다. 모두가 손쉽게 참여하여 멋진 발성과 노래실력을 개선해보세요.</p>
 
 <br><br>
-# 프로젝트 기술 스택 (Stack used in the Project)
+# 프로젝트 기술 스택
 
-### 공통 (Common Stack)
+### 공통
 
-<img src="https://shields.io/badge/GitHub-181717?logo=GitHub&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Sketch-F7B500?logo=Sketch&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Miro-050038?logo=Miro&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/microsoftteams-6264A7?logo=microsoftteams&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Notion-000000?logo=Notion&logoColor=FFF&style=flat-square"/> 
+<img src="https://shields.io/badge/GitHub-181717?logo=GitHub&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Sketch-F7B500?logo=Sketch&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Miro-050038?logo=Miro&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/microsoftteams-6264A7?logo=microsoftteams&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Notion-000000?logo=Notion&logoColor=FFF&style=flat-square"/> <img src="https://img.shields.io/badge/Figma-#F24E1E?ogo=Figma&logoColor=white"/>
+
+
+#F24E1E
 
 ### 개발스택 (Development Stack)
 <img src="https://shields.io/badge/iOS-000000?logo=iOS&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Xcode-147EFB?logo=Xcode&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Swift-F05138?logo=Swift&logoColor=FFF&style=flat-square"/> 
