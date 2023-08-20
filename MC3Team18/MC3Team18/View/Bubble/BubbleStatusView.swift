@@ -24,7 +24,6 @@ struct BubbleStatusView: View {
     @State var currentExpressionIndex: Int = 0
     @State var backgroundOffset: CGFloat = -700
     @State var scale: CGFloat = 0.02
-    @State var currentBubbleImageIndex = 0
     @ObservedObject var observer: AudioStreamObserver
 
     var streamManager: AudioStreamManager
@@ -43,7 +42,7 @@ struct BubbleStatusView: View {
     var body: some View {
         ZStack {
             Color.clear.overlay{
-                BubbleMainView(bubbleStatus: $bubbleStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, currentBubbleImageIndex: $currentBubbleImageIndex, offsetX: $offsetX, offsetY: $offsetY)
+                BubbleMainView(bubbleStatus: $bubbleStatus, currentExpressionIndex: $currentExpressionIndex, backgroundOffset: $backgroundOffset, scale: $scale, offsetX: $offsetX, offsetY: $offsetY)
             }
                 .onAppear {
                     if isNeverShowingBubbleTutorial {
@@ -68,12 +67,12 @@ struct BubbleStatusView: View {
 }
 
 struct BubbleMainView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @Binding var bubbleStatus: BubbleStatus
     
     @Binding var currentExpressionIndex: Int
     @Binding var backgroundOffset: CGFloat
     @Binding var scale: CGFloat
-    @Binding var currentBubbleImageIndex: Int
     
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
@@ -82,7 +81,7 @@ struct BubbleMainView: View {
     let expressionImages = ["ExpressionDefault", "ExpressionSleepy", "ExpressionTired",  "ExpressionGameover"]
 
     let animationGumSizeMaxDuration: Double = 17
-    let bubbleImages = ["BubblePink","BubbleOrange", "BubbleBlue"]
+    let bubbleImages = "BubblePink"
   
     let animationBackgroundMaxDuration: Double = 30
    
@@ -95,33 +94,21 @@ struct BubbleMainView: View {
                 .offset(y: backgroundOffset)
                 .animation(bubbleStatus == .game ? .linear(duration: animationBackgroundMaxDuration): .default, value: backgroundOffset)
             
-            // MARK: 캐릭터 바디
-            Image("MainCharacterBody")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 180, height: 201)
-                .padding(.top, 60)
-                .opacity(bubbleStatus == .tutorial ? 0 : 1)
-
-            // MARK: 캐릭터 표정
-            VStack {
-                Spacer()
-                Image(expressionImages[currentExpressionIndex])
-                    .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
-                    .opacity(bubbleStatus == .tutorial ? 0 : 1)
-            }
-            .frame(width: 68, height: 52)
-            .padding(.bottom, 78)
-            .padding(.top, 60)
-
-            // MARK: 버블껌 이미지
-            Image(bubbleImages[currentBubbleImageIndex])
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .scaleEffect(scale, anchor: .top)
-                .offset(y: 198)//.padding(.top, 60)
-                .offset(x: offsetX, y: offsetY)
-                .animation(bubbleStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+            // MARK: 캐릭터 바디 & 표정 & 버블껌 이미지
+            ShopCharacterView(selectedCategory: .acc, onlyBody: true)
+                .scaleEffect(1.3)
+                .offset(y: 40)
+                .overlay {
+                    Image(expressionImages[currentExpressionIndex])
+                        .offset(x: -1, y: expressionImagesYOffset[currentExpressionIndex])
+                    Image(shopItemVM.selectedBubble?.itemName ?? bubbleImages)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .scaleEffect(scale, anchor: .top)
+                        .offset(y: 108)
+                        .offset(x: offsetX, y: offsetY)
+                        .animation(bubbleStatus == .game ? .easeOut(duration: animationGumSizeMaxDuration): .default, value: [scale])
+                }
                 .opacity(bubbleStatus == .tutorial ? 0 : 1)
         }
     }

@@ -48,14 +48,6 @@ struct ShopItemScrollView: View {
                             }
                     }
                 }
-                .onAppear {
-                    for index in shopItemVM.shopItemList.indices {
-                        if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == .acc {
-                            shopItemVM.selectedAcc = shopItemVM.shopItemList[index]
-                            shopItemVM.saveItemChanges()
-                        }
-                    }
-                }
             }
             
             ScrollView(.vertical, showsIndicators: false) {

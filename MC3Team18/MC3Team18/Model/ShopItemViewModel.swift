@@ -18,6 +18,18 @@ class ShopItemViewModel: ObservableObject {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.json")
     }
     
+    func fetchSelectedItem() {
+        for index in shopItemList.indices {
+            if shopItemList[index].itemStatus == 2 && shopItemList[index].itemCategory == .acc {
+                selectedAcc = shopItemList[index]
+            } else if shopItemList[index].itemStatus == 2 && shopItemList[index].itemCategory == .bubble {
+                selectedBubble = shopItemList[index]
+            } else if shopItemList[index].itemStatus == 2 && shopItemList[index].itemCategory == .star {
+                selectedStar = shopItemList[index]
+            }
+        }
+    }
+    
     func fetchItemList() {
         print("Fetching JSON data")
         let jsonDecoder = JSONDecoder()
