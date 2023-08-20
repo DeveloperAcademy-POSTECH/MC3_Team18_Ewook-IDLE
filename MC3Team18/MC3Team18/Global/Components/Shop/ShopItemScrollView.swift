@@ -8,37 +8,38 @@
 import SwiftUI
 
 struct ShopItemScrollView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @State var selectedCategory: ItemCategory = .acc
-    @Binding var shopItem: [ShopItem]
     @Binding var selectedItem: ShopItem?
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
     @Binding var buyable: Bool
+
     var body: some View {
         VStack(spacing: 16){
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 4) {
                     ForEach(ItemCategory.allCases, id: \.rawValue) {category in
-                        ShopCategoryTitleView(category: category, selectedCategory: $selectedCategory)
+                        ShopCategoryTitleView(category: category, selectedCategory: selectedCategory)
                             .onTapGesture {
                                 selectedCategory = category
-                                for index in shopItem.indices {
-                                    if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == selectedCategory {
-                                        selectedItem = shopItem[index]
+                                for index in shopItemVM.shopItemList.indices {
+                                    if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == selectedCategory {
+                                        selectedItem = shopItemVM.shopItemList[index]
                                         break
                                     } else {
                                         selectedItem = nil
                                     }
                                 }
-                                ShopItem.saveItemChanges(items: shopItem)
+                                shopItemVM.saveItemChanges()
                             }
                     }
                 }
                 .onAppear {
-                    for index in shopItem.indices {
-                        if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == .acc {
-                            selectedItem = shopItem[index]
-                            ShopItem.saveItemChanges(items: shopItem)
+                    for index in shopItemVM.shopItemList.indices {
+                        if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == .acc {
+                            selectedItem = shopItemVM.shopItemList[index]
+                            shopItemVM.saveItemChanges()
                         }
                     }
                 }
@@ -46,9 +47,9 @@ struct ShopItemScrollView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                    ForEach($shopItem) { $item in
+                    ForEach($shopItemVM.shopItemList) { $item in
                         if item.itemCategory.rawValue == selectedCategory.rawValue {
-                            ShopItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
+                            ShopItemBoxView(item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
                         }
                     }
                 }
@@ -63,7 +64,7 @@ struct ShopItemScrollView: View {
 
 struct ShopCategoryTitleView: View {
     let category: ItemCategory
-    @Binding var selectedCategory: ItemCategory
+    let selectedCategory: ItemCategory
     
     var body: some View {
         Text(category.rawValue)

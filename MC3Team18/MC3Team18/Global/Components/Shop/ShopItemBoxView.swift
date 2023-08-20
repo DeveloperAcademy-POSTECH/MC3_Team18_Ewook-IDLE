@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ShopItemBoxView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    @Binding var shopItem: [ShopItem]
     @Binding var item: ShopItem
     @Binding var selectedItem: ShopItem?
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
     @Binding var buyable: Bool
+
     var body: some View {
         VStack(spacing: 8){
             Image("\(item.itemName)")
@@ -98,12 +99,6 @@ struct ShopItemBoxView: View {
                 tappedItem = updatedItem
                 buyable = true
                 isPurchasePopupAppear = true
-                
-//                updatedItem.itemStatus = 1
-//                totalCoin -= updatedItem.price
-//                if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
-//                    shopItem[index].itemStatus = updatedItem.itemStatus
-//                }
             } else {
                 tappedItem = updatedItem
                 buyable = false
@@ -112,10 +107,9 @@ struct ShopItemBoxView: View {
             }
         case 1:
             print("보유 > 장착")
-            for index in shopItem.indices {
-                //TODO: 조건문 확인
-                if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == updatedItem.itemCategory {
-                    shopItem[index].itemStatus = 1
+            for index in shopItemVM.shopItemList.indices {
+                if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == updatedItem.itemCategory {
+                    shopItemVM.shopItemList[index].itemStatus = 1
                 }
             }
             selectedItem = updatedItem
@@ -131,10 +125,10 @@ struct ShopItemBoxView: View {
             print("default")
         }
         
-        if let index = shopItem.firstIndex(where: { $0.id == updatedItem.id }) {
-            shopItem[index].itemStatus = updatedItem.itemStatus
+        if let index = shopItemVM.shopItemList.firstIndex(where: { $0.id == updatedItem.id }) {
+            shopItemVM.shopItemList[index].itemStatus = updatedItem.itemStatus
         }
-        ShopItem.saveItemChanges(items: shopItem)
+        shopItemVM.saveItemChanges()
     }
 }
 

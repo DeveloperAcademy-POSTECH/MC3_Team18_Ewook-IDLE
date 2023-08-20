@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct MC3Team18App: App {
+    @StateObject var shopItemVM = ShopItemViewModel()
     
     init() {
         Font.registerFonts(fontName: "Pretendard-Bold")
@@ -23,7 +24,7 @@ struct MC3Team18App: App {
     }
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SplashView().environmentObject(shopItemVM)
         }
     }
 }

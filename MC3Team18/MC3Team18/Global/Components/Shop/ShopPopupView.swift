@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ShopPopupView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    @Binding var shopItem: [ShopItem]
     @Binding var showPurchasePopup: Bool
     @Binding var tappedItem: ShopItem
-    
     let buyAble: Bool
+    
     var body: some View {
         VStack(spacing: 24){
             ZStack {
@@ -73,10 +73,10 @@ struct ShopPopupView: View {
                 Button {
                     tappedItem.itemStatus = 1
                     totalCoin -= tappedItem.price
-                    if let index = shopItem.firstIndex(where: { $0.id == tappedItem.id }) {
-                        shopItem[index].itemStatus = tappedItem.itemStatus
+                    if let index = shopItemVM.shopItemList.firstIndex(where: { $0.id == tappedItem.id }) {
+                        shopItemVM.shopItemList[index].itemStatus = tappedItem.itemStatus
                     }
-                    ShopItem.saveItemChanges(items: shopItem)
+                    shopItemVM.saveItemChanges()
                     showPurchasePopup = false
 
                     //updatedItem.itemStatus = 1
@@ -84,6 +84,7 @@ struct ShopPopupView: View {
                     //if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
                     //  shopItem[index].itemStatus = updatedItem.itemStatus
                     //}
+                    
                 } label: {
                     Text("구매")
                         .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)

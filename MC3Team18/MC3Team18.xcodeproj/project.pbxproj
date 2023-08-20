@@ -49,6 +49,7 @@
 		60CC5C532A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */; };
 		60EF94B62A91E49A00A2A06A /* ShopPopupCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EF94B52A91E49A00A2A06A /* ShopPopupCharacterView.swift */; };
 		60EF94B82A91E6E400A2A06A /* ShopItemBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EF94B72A91E6E400A2A06A /* ShopItemBoxView.swift */; };
+		60EF94BA2A91EAA400A2A06A /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EF94B92A91EAA400A2A06A /* ShopItemViewModel.swift */; };
 		7813FCA42A5EBB1A00B588DA /* MultiPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */; };
 		784A209D2A5E8C9B0091B59F /* GameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A209C2A5E8C9B0091B59F /* GameSelection.swift */; };
 		784CADAD2A6D085300B2CE6C /* BestScoreShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */; };
@@ -143,6 +144,7 @@
 		60CC5C522A6F6A95004E33BF /* BanjjakAudioStreamObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjjakAudioStreamObserver.swift; sourceTree = "<group>"; };
 		60EF94B52A91E49A00A2A06A /* ShopPopupCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopPopupCharacterView.swift; sourceTree = "<group>"; };
 		60EF94B72A91E6E400A2A06A /* ShopItemBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemBoxView.swift; sourceTree = "<group>"; };
+		60EF94B92A91EAA400A2A06A /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		7813FCA32A5EBB1A00B588DA /* MultiPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPreview.swift; sourceTree = "<group>"; };
 		784A209C2A5E8C9B0091B59F /* GameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelection.swift; sourceTree = "<group>"; };
 		784CADAC2A6D085300B2CE6C /* BestScoreShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestScoreShareView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,15 @@
 			path = Bubble;
 			sourceTree = "<group>";
 		};
+		60EF94BB2A91EAAB00A2A06A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DA355E12A79B70A0037D9AF /* ShopItemData.swift */,
+				60EF94B92A91EAA400A2A06A /* ShopItemViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		784CADAB2A6D082700B2CE6C /* Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +304,6 @@
 				2FF0BA242A682D98005B11CD /* SoundNames.swift */,
 				600264292A6D1C2B0035A0E1 /* BanjjakStatus.swift */,
 				607E8D3C2A89415500D632B0 /* ItemCategory.swift */,
-				2DA355E12A79B70A0037D9AF /* ShopItemData.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -364,6 +374,7 @@
 				78DD4FB72A5BAFC10007251D /* MC3Team18App.swift */,
 				78DD4FC92A5BB0370007251D /* Resources */,
 				78DD4FCC2A5BB04C0007251D /* View */,
+				60EF94BB2A91EAAB00A2A06A /* Model */,
 				78DD4FCB2A5BB04A0007251D /* MLModel */,
 				78DD4FBD2A5BAFC20007251D /* Preview Content */,
 				78DD4FC52A5BB0140007251D /* Global */,
@@ -623,6 +634,7 @@
 				6080598A2A5E71DC007A716D /* BubbleGameOverView.swift in Sources */,
 				2FF0BA072A66372A005B11CD /* HapticManager.swift in Sources */,
 				78E7C9E12A6BC30100570F4C /* TrophyView.swift in Sources */,
+				60EF94BA2A91EAA400A2A06A /* ShopItemViewModel.swift in Sources */,
 				608059A42A62B352007A716D /* AudioStreamManager.swift in Sources */,
 				787AEDF12A612276007FC5EB /* UIViewExtension.swift in Sources */,
 				788C20E02A6A6D0C00953579 /* RecordBestScoresView.swift in Sources */,

@@ -16,7 +16,7 @@ struct HomeView: View {
     @AppStorage("BanjjakMissionSuccess") var BanjjakMissionSuccess: Bool = false
     @AppStorage("DailyRoutineCurrentDate") var DailyRoutineCurrentDate: String = ""
     @AppStorage("hasDailyMissionPrizeBeenShown") var hasDailyMissionPrizeBeenShown: Bool = false
-    
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     var body: some View {
         NavigationView {
             ZStack {
@@ -102,6 +102,7 @@ struct HomeView: View {
                     DailyRoutineCurrentDate = currentDate
                     hasDailyMissionPrizeBeenShown = false
                 }
+                shopItemVM.fetchItemList()
             }
         }
     }

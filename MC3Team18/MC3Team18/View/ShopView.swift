@@ -50,7 +50,7 @@ struct ShopCharacterView: View {
 
 struct ShopView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var shopItem: [ShopItem] = []
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @State var selectedItem: ShopItem?
     @State var tappedItem: ShopItem = ShopItem(itemName: "", itemNameKorean: "", price: 0, itemCategory: .acc, itemStatus: 0)
     @State var showPurchasePopup: Bool = false
@@ -61,8 +61,7 @@ struct ShopView: View {
             
             VStack (spacing: 10){
                 ShopCharacterView(selectedItem: $selectedItem)
-                
-                ShopItemScrollView(shopItem: $shopItem, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $showPurchasePopup, buyable: $buyable)
+                ShopItemScrollView(selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $showPurchasePopup, buyable: $buyable)
             }
             .padding(.top, 20)
             
@@ -71,11 +70,8 @@ struct ShopView: View {
                     .onTapGesture {
                         showPurchasePopup = false
                     }
-                ShopPopupView(shopItem: $shopItem, showPurchasePopup: $showPurchasePopup, tappedItem: $tappedItem, buyAble: buyable)
+                ShopPopupView(showPurchasePopup: $showPurchasePopup, tappedItem: $tappedItem, buyAble: buyable)
             }
-        }
-        .onAppear {
-            shopItem = ShopItem.fetchItemList()
         }
         .onBackSwipe {
             presentationMode.wrappedValue.dismiss()
