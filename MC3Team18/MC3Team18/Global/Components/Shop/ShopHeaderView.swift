@@ -11,7 +11,7 @@ struct ShopHeaderView: View {
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     
     var body: some View {
-        HStack(spacing: -10) {
+        HStack(spacing: -12) {
             Image("IconShop")
                 .resizable()
                 .scaledToFill()
