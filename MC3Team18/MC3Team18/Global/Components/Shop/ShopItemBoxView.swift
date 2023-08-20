@@ -1,85 +1,16 @@
 //
-//  ShopAccessoriesScrollView.swift
+//  ShopItemBoxView.swift
 //  MC3Team18
 //
-//  Created by jisukwon on 2023/08/01.
+//  Created by Lee Jinhee on 2023/08/20.
 //
 
 import SwiftUI
 
-struct ShopAccessoriesScrollView: View {
-    @State var selectedCategory: ItemCategory = .acc
-    @Binding var shopItem: [ShopItem]
-    @Binding var selectedItem: ShopItem?
-    @Binding var tappedItem: ShopItem
-    @Binding var isPurchasePopupAppear: Bool
-    @Binding var buyable: Bool
-    var body: some View {
-        VStack(spacing: 16){
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 4) {
-                    ForEach(ItemCategory.allCases, id: \.rawValue) {category in
-                        ShopCategoryTitleView(category: category, selectedCategory: $selectedCategory)
-                            .onTapGesture {
-                                selectedCategory = category
-                                for index in shopItem.indices {
-                                    if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == selectedCategory {
-                                        selectedItem = shopItem[index]
-                                        break
-                                    } else {
-                                        selectedItem = nil
-                                    }
-                                }
-                                ShopItem.saveItemChanges(items: shopItem)
-                            }
-                    }
-                }
-                .onAppear {
-                    for index in shopItem.indices {
-                        if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == .acc {
-                            selectedItem = shopItem[index]
-                            ShopItem.saveItemChanges(items: shopItem)
-                        }
-                    }
-                }
-            }
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                    ForEach($shopItem) { $item in
-                        if item.itemCategory.rawValue == selectedCategory.rawValue {
-                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
-                        }
-                    }
-                }
-                Spacer().frame(height: 50)
-            }
-            .shadow(color: .Black.opacity(0.12), radius: 8, x: 4, y: 4)
-        }
-        .padding(.horizontal, 32)
-    }
-}
-
-
-struct ShopCategoryTitleView: View {
-    let category: ItemCategory
-    @Binding var selectedCategory: ItemCategory
-    
-    var body: some View {
-        Text(category.rawValue)
-            .pretendardBold16()
-            .foregroundColor(category.rawValue == selectedCategory.rawValue ? .Yellow : .Gray50)
-            .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
-            .padding(8)
-    }
-}
-
-//TODO: item, selectedItem 통일
-struct AccessoriesItemBoxView: View {
-    
+struct ShopItemBoxView: View {
+    @AppStorage("totalCoin") var totalCoin: Int = 1000
     @Binding var shopItem: [ShopItem]
     @Binding var item: ShopItem
-    @AppStorage("totalCoin") var totalCoin: Int = 1000
     @Binding var selectedItem: ShopItem?
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
@@ -206,3 +137,10 @@ struct AccessoriesItemBoxView: View {
         ShopItem.saveItemChanges(items: shopItem)
     }
 }
+
+
+//struct ShopItemBoxView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopItemBoxView()
+//    }
+//}
