@@ -14,7 +14,7 @@ class BanjjakSKScene: SKScene, ObservableObject {
     @Published var score: Int = 0
     @Published var isStarted: Bool = false
     
-    private let starImageNames : [String] = ["WhiteStar","YellowStar"]
+    var starImageNames : [String] = ["WhiteStar", "YellowStar"]
     
     var gravityField: SKFieldNode!
     var sprite: SKSpriteNode!
