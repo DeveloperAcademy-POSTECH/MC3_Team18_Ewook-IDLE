@@ -103,6 +103,7 @@ struct HomeView: View {
                     hasDailyMissionPrizeBeenShown = false
                 }
                 shopItemVM.fetchItemList()
+                shopItemVM.fetchSelectedItem()
             }
         }
     }
