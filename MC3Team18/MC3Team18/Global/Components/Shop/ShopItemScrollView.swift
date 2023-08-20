@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ShopItemScrollView: View {
     @EnvironmentObject var shopItemVM: ShopItemViewModel
-    @State var selectedCategory: ItemCategory = .acc
-    @Binding var selectedItem: ShopItem?
+    @Binding var selectedCategory: ItemCategory
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
     @Binding var buyable: Bool
@@ -25,10 +24,24 @@ struct ShopItemScrollView: View {
                                 selectedCategory = category
                                 for index in shopItemVM.shopItemList.indices {
                                     if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == selectedCategory {
-                                        selectedItem = shopItemVM.shopItemList[index]
+                                        switch selectedCategory {
+                                        case .acc:
+                                            shopItemVM.selectedAcc = shopItemVM.shopItemList[index]
+                                        case .bubble:
+                                            shopItemVM.selectedBubble = shopItemVM.shopItemList[index]
+                                        case .star:
+                                            shopItemVM.selectedStar = shopItemVM.shopItemList[index]
+                                        }
                                         break
                                     } else {
-                                        selectedItem = nil
+                                        switch selectedCategory {
+                                        case .acc:
+                                            shopItemVM.selectedAcc = nil
+                                        case .bubble:
+                                            shopItemVM.selectedBubble = nil
+                                        case .star:
+                                            shopItemVM.selectedStar = nil
+                                        }
                                     }
                                 }
                                 shopItemVM.saveItemChanges()
@@ -38,7 +51,7 @@ struct ShopItemScrollView: View {
                 .onAppear {
                     for index in shopItemVM.shopItemList.indices {
                         if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == .acc {
-                            selectedItem = shopItemVM.shopItemList[index]
+                            shopItemVM.selectedAcc = shopItemVM.shopItemList[index]
                             shopItemVM.saveItemChanges()
                         }
                     }
@@ -49,7 +62,7 @@ struct ShopItemScrollView: View {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                     ForEach($shopItemVM.shopItemList) { $item in
                         if item.itemCategory.rawValue == selectedCategory.rawValue {
-                            ShopItemBoxView(item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
+                            ShopItemBoxView(item: $item, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
                         }
                     }
                 }

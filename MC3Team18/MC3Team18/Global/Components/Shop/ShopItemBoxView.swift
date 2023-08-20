@@ -11,7 +11,6 @@ struct ShopItemBoxView: View {
     @EnvironmentObject var shopItemVM: ShopItemViewModel
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     @Binding var item: ShopItem
-    @Binding var selectedItem: ShopItem?
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
     @Binding var buyable: Bool
@@ -111,16 +110,25 @@ struct ShopItemBoxView: View {
                 if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == updatedItem.itemCategory {
                     shopItemVM.shopItemList[index].itemStatus = 1
                 }
+                if updatedItem.itemCategory == .acc {
+                    shopItemVM.selectedAcc = updatedItem
+                } else if updatedItem.itemCategory == .star {
+                    shopItemVM.selectedStar = updatedItem
+                } else if updatedItem.itemCategory == .bubble {
+                    shopItemVM.selectedBubble = updatedItem
+                }
             }
-            selectedItem = updatedItem
             updatedItem.itemStatus = 2
         case 2:
             print("장착 > 보유")
-            if var selected = selectedItem {
-                selected.itemStatus = 1
-            }
-            selectedItem = nil
             updatedItem.itemStatus = 1
+            if updatedItem.itemCategory == .acc {
+                shopItemVM.selectedAcc = nil
+            } else if updatedItem.itemCategory == .star {
+                shopItemVM.selectedStar = nil
+            } else if updatedItem.itemCategory == .bubble {
+                shopItemVM.selectedBubble = nil
+            }
         default:
             print("default")
         }
