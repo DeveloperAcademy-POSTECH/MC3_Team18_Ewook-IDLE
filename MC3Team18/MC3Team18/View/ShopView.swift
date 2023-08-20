@@ -9,9 +9,10 @@ import SwiftUI
 struct ShopCharacterView: View {
     @EnvironmentObject var shopItemVM: ShopItemViewModel
     let selectedCategory: ItemCategory
-    
+    let onlyBody: Bool
     var body: some View {
-        Image("ShopCharacter").resizable().scaledToFit()
+        
+        Image(onlyBody ? "ShopCharacterBody" : "ShopCharacter").resizable().scaledToFit()
             .frame(width: 325, height: 217, alignment: .bottom)
             .overlay {
                 switch selectedCategory {
@@ -60,7 +61,7 @@ struct ShopView: View {
             Color.CobaltBlue.ignoresSafeArea()
             
             VStack (spacing: 10){
-                ShopCharacterView(selectedCategory: selectedCategory)
+                ShopCharacterView(selectedCategory: selectedCategory, onlyBody: false)
                 ShopItemScrollView(selectedCategory: $selectedCategory, tappedItem: $tappedItem, isPurchasePopupAppear: $showPurchasePopup, buyable: $buyable)
             }
             .padding(.top, 20)
