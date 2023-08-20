@@ -29,7 +29,7 @@ enum MouthState{
 class ChagokSKScene: SKScene, ObservableObject {
     
     var statusChanged: Bool = false
-    var mouthState : MouthState = MouthState.none
+    @Published var mouthState : MouthState = MouthState.none
     
     @Published var boxCount: Int = 0
     @Published var boxLineCount : Int = 0
@@ -56,34 +56,26 @@ class ChagokSKScene: SKScene, ObservableObject {
                 mouthState = MouthState.a
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
             }
-        }
-        
-        if mouthE > 0.5 && mouthU < 0.5{
+        } else if mouthE > 0.5 && mouthU < 0.5 {
             if mouthState != MouthState.e && leftCupStack[self.currentIndex] == CupName.YellowCup {
                 dropbox(cupname: CupName.YellowCup)
                 mouthState = MouthState.e
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
             }
-        }
-        
-        if mouthI > 0.5 && mouthA < 0.15 {
+        } else if mouthI > 0.5 && mouthA < 0.15 {
             if mouthState != MouthState.i && leftCupStack[self.currentIndex] == CupName.GreenCup {
                 dropbox(cupname: CupName.GreenCup)
                 mouthState = MouthState.i
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
             }
-        }
-        
-        if mouthA > 0.5 && mouthI < 0.15 && leftCupStack[self.currentIndex] == CupName.BlueCup {
-            if mouthState != MouthState.o{
+        } else if mouthA > 0.5 && mouthI < 0.15 && leftCupStack[self.currentIndex] == CupName.BlueCup {
+            if mouthState != MouthState.o {
                 dropbox(cupname: CupName.BlueCup)
                 mouthState = MouthState.o
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
             }
-        }
-        
-        if mouthU > 0.65 && mouthI < 0.5 && mouthA < 0.25 && mouthE < 0.25 && leftCupStack[self.currentIndex] == CupName.PinkCup{
-            if mouthState != MouthState.u{
+        } else if mouthU > 0.65 && mouthI < 0.5 && mouthA < 0.25 && mouthE < 0.25 && leftCupStack[self.currentIndex] == CupName.PinkCup {
+            if mouthState != MouthState.u {
                 dropbox(cupname: CupName.PinkCup)
                 mouthState = MouthState.u
                 self.currentIndex = self.currentIndex == 0 ? 4 : self.currentIndex - 1
