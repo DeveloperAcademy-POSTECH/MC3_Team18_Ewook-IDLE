@@ -25,7 +25,7 @@
 
 <br><br>
 # 팀원 소개 (Team Introduction)
-| PO | iOS | Design  | iOS/PM | iOS | iOS |
+| PO | CTO | Design  | iOS/PM | iOS(ML) | iOS(AR) |
 | :-----: | :-----: | :-----:  | :-----: | :-----: | :-----: |
 | <img src="https://user-images.githubusercontent.com/108044639/236135311-e81d1d0a-042f-4431-b54d-891138503cad.png" width=400px alt="Chad"/> | ![eugene](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/ff559e51-56b1-45da-85cf-a849e8e307a1) | ![gen](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/4d0b770a-3b1f-484a-8b0c-2ac4994d5334) | ![MK](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/91c75bb5-78d6-405e-93a0-fd498363fdf2) |  ![Radin](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/cb78aac2-4638-41d5-904a-cca14c0b5e91)  | ![Rubik](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/2ff7dc23-4586-47f0-bca6-5c09141e176c) 
 [Chad](https://github.com/chad0909) | [Eugene](https://github.com/dayjack)  | [Jen](https://github.com/jis00ya) | [MK](https://github.com/MK827) | [Radin](https://github.com/JINi0S) | [Rubik](https://github.com/RubiksCube33) |
