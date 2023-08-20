@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ShopItemPurchaseView: View {
+struct ShopPopupView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    @Binding var shopItem: [ShopItem]
-    @Binding var isPurchasePopupAppear: Bool
+    @Binding var showPurchasePopup: Bool
     @Binding var tappedItem: ShopItem
-    
     let buyAble: Bool
+    
     var body: some View {
         VStack(spacing: 24){
             ZStack {
@@ -24,13 +24,13 @@ struct ShopItemPurchaseView: View {
                         Image("xmarkIcon")
                             .offset(x: 16, y: -14)
                             .onTapGesture {
-                                isPurchasePopupAppear = false
+                                showPurchasePopup = false
                             }
                     }
                 VStack{
                     VStack(spacing: 16){
                         VStack(spacing: 24) {
-                            ShopPopupCharacterView(tappedItem: $tappedItem)
+                            ShopPopupCharacterView(tappedItem: tappedItem)
                                 .scaleEffect(1.2)
                             VStack (spacing: 8) {
                                 Text(tappedItem.itemNameKorean)
@@ -73,17 +73,18 @@ struct ShopItemPurchaseView: View {
                 Button {
                     tappedItem.itemStatus = 1
                     totalCoin -= tappedItem.price
-                    if let index = shopItem.firstIndex(where: { $0.id == tappedItem.id }) {
-                        shopItem[index].itemStatus = tappedItem.itemStatus
+                    if let index = shopItemVM.shopItemList.firstIndex(where: { $0.id == tappedItem.id }) {
+                        shopItemVM.shopItemList[index].itemStatus = tappedItem.itemStatus
                     }
-                    ShopItem.saveItemChanges(items: shopItem)
-                    isPurchasePopupAppear = false
+                    shopItemVM.saveItemChanges()
+                    showPurchasePopup = false
 
                     //updatedItem.itemStatus = 1
                     //totalCoin -= updatedItem.price
                     //if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
                     //  shopItem[index].itemStatus = updatedItem.itemStatus
                     //}
+                    
                 } label: {
                     Text("구매")
                         .shadow(color: .Black.opacity(0.3), radius: 8, x: 2, y: 2)
@@ -125,45 +126,3 @@ struct ShopItemPurchaseView: View {
 //            .background(.black)
 //    }
 //}
-
-struct ShopPopupCharacterView: View {
-    @Binding var tappedItem: ShopItem
-    
-    var body: some View {
-        Image("ShopCharacter").resizable().scaledToFit()
-            .frame(width: 325, height: 217, alignment: .bottom)
-            .overlay {
-                switch tappedItem.itemCategory {
-                case .acc:
-                    Image(tappedItem.itemName)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.2)
-                        .offset(x: CGFloat(tappedItem.x ?? 0), y: CGFloat(tappedItem.y ?? 0))
-                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
-                case .bubble:
-                    Image(tappedItem.itemName)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.35)
-                        .offset(y: 15)
-                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
-                case .star:
-                    Image(tappedItem.itemName)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.26)
-                        .offset(x: -80, y: -62)
-                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
-                    Image(tappedItem.itemName)
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.22)
-                        .offset(x: -44, y: -26)
-                        .shadow(color: .Black.opacity(0.16), radius: 6, x: 4, y: 4)
-                default:
-                    EmptyView()
-                }
-            }
-    }
-}

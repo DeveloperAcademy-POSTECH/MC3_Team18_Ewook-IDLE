@@ -1,40 +1,33 @@
 //
-//  ShopItemData.swift
+//  ShopItemViewModel.swift
 //  MC3Team18
 //
-//  Created by jisukwon on 2023/08/02.
+//  Created by Lee Jinhee on 2023/08/20.
 //
 
-import UIKit
+import Foundation
 
-struct ShopItem : Identifiable, Codable {
-    let id: UUID = UUID()
-    var itemName: String
-    var itemNameKorean: String
-    var price: Int
-    var itemCategory: ItemCategory
-    var itemStatus: Int
-    var x: Int?
-    var y: Int?
-}
-
-extension ShopItem {
+@MainActor
+class ShopItemViewModel: ObservableObject {
+    @Published var shopItemList: [ShopItem] = []
+    @Published var selectedAcc: ShopItem?
+    @Published var selectedBubble: ShopItem?
+    @Published var selectedStar: ShopItem?
     
-    static var itemJSONURL: URL? {
+    var itemJSONURL: URL? {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.json")
     }
     
-    static func fetchItemList() -> [ShopItem] {
+    func fetchItemList() {
         print("Fetching JSON data")
-        var items: [ShopItem] = []
         let jsonDecoder = JSONDecoder()
         
         // Check if the JSON file exists in the document directory
         if let jsonURL = itemJSONURL, FileManager.default.fileExists(atPath: jsonURL.path) {
             do {
                 let jsonData = try Data(contentsOf: jsonURL)
-                items = try jsonDecoder.decode([ShopItem].self, from: jsonData)
-                print("Fetched JSON data from document directory: \(items)")
+                shopItemList = try jsonDecoder.decode([ShopItem].self, from: jsonData)
+                print("Fetched JSON data from document directory: \(shopItemList)")
             } catch {
                 print(error.localizedDescription)
             }
@@ -47,19 +40,17 @@ extension ShopItem {
                     
                     // Now load the data from the copied file
                     if let jsonData = try loadDataFromJSONFile(named: "Item") {
-                        items = try jsonDecoder.decode([ShopItem].self, from: jsonData)
-                        print("Fetched JSON data from copied file: \(items)")
+                        shopItemList = try jsonDecoder.decode([ShopItem].self, from: jsonData)
+                        print("Fetched JSON data from copied file: \(shopItemList)")
                     }
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         }
-        
-        return items
     }
     
-    static func loadDataFromJSONFile(named fileName: String) throws -> Data? {
+    private func loadDataFromJSONFile(named fileName: String) throws -> Data? {
         if let fileUrl = itemJSONURL {
             do {
                 let data = try Data(contentsOf: fileUrl)
@@ -71,11 +62,11 @@ extension ShopItem {
         return nil
     }
     
-    static func saveItemChanges(items: [ShopItem]) {
+    func saveItemChanges() {
         let jsonEncoder = JSONEncoder()
         
         do {
-            let data = try jsonEncoder.encode(items)
+            let data = try jsonEncoder.encode(shopItemList)
             
             if let jsonURL = itemJSONURL {
                 try data.write(to: jsonURL)

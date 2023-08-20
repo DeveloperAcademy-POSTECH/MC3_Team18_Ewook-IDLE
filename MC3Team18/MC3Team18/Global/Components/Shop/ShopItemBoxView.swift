@@ -1,89 +1,20 @@
 //
-//  ShopAccessoriesScrollView.swift
+//  ShopItemBoxView.swift
 //  MC3Team18
 //
-//  Created by jisukwon on 2023/08/01.
+//  Created by Lee Jinhee on 2023/08/20.
 //
 
 import SwiftUI
 
-struct ShopAccessoriesScrollView: View {
-    @State var selectedCategory: ItemCategory = .acc
-    @Binding var shopItem: [ShopItem]
-    @Binding var selectedItem: ShopItem?
-    @Binding var tappedItem: ShopItem
-    @Binding var isPurchasePopupAppear: Bool
-    @Binding var buyable: Bool
-    var body: some View {
-        VStack(spacing: 16){
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 4) {
-                    ForEach(ItemCategory.allCases, id: \.rawValue) {category in
-                        ShopCategoryTitleView(category: category, selectedCategory: $selectedCategory)
-                            .onTapGesture {
-                                selectedCategory = category
-                                for index in shopItem.indices {
-                                    if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == selectedCategory {
-                                        selectedItem = shopItem[index]
-                                        break
-                                    } else {
-                                        selectedItem = nil
-                                    }
-                                }
-                                ShopItem.saveItemChanges(items: shopItem)
-                            }
-                    }
-                }
-                .onAppear {
-                    for index in shopItem.indices {
-                        if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == .acc {
-                            selectedItem = shopItem[index]
-                            ShopItem.saveItemChanges(items: shopItem)
-                        }
-                    }
-                }
-            }
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                    ForEach($shopItem) { $item in
-                        if item.itemCategory.rawValue == selectedCategory.rawValue {
-                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
-                        }
-                    }
-                }
-                Spacer().frame(height: 50)
-            }
-            .shadow(color: .Black.opacity(0.12), radius: 8, x: 4, y: 4)
-        }
-        .padding(.horizontal, 32)
-    }
-}
-
-
-struct ShopCategoryTitleView: View {
-    let category: ItemCategory
-    @Binding var selectedCategory: ItemCategory
-    
-    var body: some View {
-        Text(category.rawValue)
-            .pretendardBold16()
-            .foregroundColor(category.rawValue == selectedCategory.rawValue ? .Yellow : .Gray50)
-            .shadow(color: Color("Shadow").opacity(0.5), radius: 8, x: 0, y: 0)
-            .padding(8)
-    }
-}
-
-//TODO: item, selectedItem 통일
-struct AccessoriesItemBoxView: View {
-    
-    @Binding var shopItem: [ShopItem]
-    @Binding var item: ShopItem
+struct ShopItemBoxView: View {
+    @EnvironmentObject var shopItemVM: ShopItemViewModel
     @AppStorage("totalCoin") var totalCoin: Int = 1000
-    @Binding var selectedItem: ShopItem?
+    @Binding var item: ShopItem
     @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
     @Binding var buyable: Bool
+
     var body: some View {
         VStack(spacing: 8){
             Image("\(item.itemName)")
@@ -167,12 +98,6 @@ struct AccessoriesItemBoxView: View {
                 tappedItem = updatedItem
                 buyable = true
                 isPurchasePopupAppear = true
-                
-//                updatedItem.itemStatus = 1
-//                totalCoin -= updatedItem.price
-//                if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
-//                    shopItem[index].itemStatus = updatedItem.itemStatus
-//                }
             } else {
                 tappedItem = updatedItem
                 buyable = false
@@ -181,28 +106,43 @@ struct AccessoriesItemBoxView: View {
             }
         case 1:
             print("보유 > 장착")
-            for index in shopItem.indices {
-                //TODO: 조건문 확인
-                if shopItem[index].itemStatus == 2 && shopItem[index].itemCategory == updatedItem.itemCategory {
-                    shopItem[index].itemStatus = 1
+            for index in shopItemVM.shopItemList.indices {
+                if shopItemVM.shopItemList[index].itemStatus == 2 && shopItemVM.shopItemList[index].itemCategory == updatedItem.itemCategory {
+                    shopItemVM.shopItemList[index].itemStatus = 1
+                }
+                if updatedItem.itemCategory == .acc {
+                    shopItemVM.selectedAcc = updatedItem
+                } else if updatedItem.itemCategory == .star {
+                    shopItemVM.selectedStar = updatedItem
+                } else if updatedItem.itemCategory == .bubble {
+                    shopItemVM.selectedBubble = updatedItem
                 }
             }
-            selectedItem = updatedItem
             updatedItem.itemStatus = 2
         case 2:
             print("장착 > 보유")
-            if var selected = selectedItem {
-                selected.itemStatus = 1
-            }
-            selectedItem = nil
             updatedItem.itemStatus = 1
+            if updatedItem.itemCategory == .acc {
+                shopItemVM.selectedAcc = nil
+            } else if updatedItem.itemCategory == .star {
+                shopItemVM.selectedStar = nil
+            } else if updatedItem.itemCategory == .bubble {
+                shopItemVM.selectedBubble = nil
+            }
         default:
             print("default")
         }
         
-        if let index = shopItem.firstIndex(where: { $0.id == updatedItem.id }) {
-            shopItem[index].itemStatus = updatedItem.itemStatus
+        if let index = shopItemVM.shopItemList.firstIndex(where: { $0.id == updatedItem.id }) {
+            shopItemVM.shopItemList[index].itemStatus = updatedItem.itemStatus
         }
-        ShopItem.saveItemChanges(items: shopItem)
+        shopItemVM.saveItemChanges()
     }
 }
+
+
+//struct ShopItemBoxView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopItemBoxView()
+//    }
+//}
