@@ -66,7 +66,7 @@ struct ChagokTutorialView: View {
                         .foregroundColor(.white)
                     }
                 }
-                .padding(.bottom, 36)
+                .padding(.bottom, 50)
                 
                 
             }
