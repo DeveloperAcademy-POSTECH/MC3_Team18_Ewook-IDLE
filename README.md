@@ -27,11 +27,7 @@
 # 팀원 소개 (Team Introduction)
 | PO | iOS | Design  | iOS/PM | iOS | iOS |
 | :-----: | :-----: | :-----:  | :-----: | :-----: | :-----: |
-| <img src="https://user-images.githubusercontent.com/108044639/236135311-e81d1d0a-042f-4431-b54d-891138503cad.png" width=400px alt="Chad"/>  | ![eugene](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/ff559e51-56b1-45da-85cf-a849e8e307a1)
- | <img src="https://user-images.githubusercontent.com/108044639/236134419-025c15d1-7f70-48cf-9016-d22e6d28bcd4.png" width=400px alt="Coffee"/>   | <img src="https://user-images.githubusercontent.com/108044639/236133624-5b418819-d4aa-4a9e-9791-b91cb2cc78e8.png" width=400px alt="Jay"/>  | <img src="https://user-images.githubusercontent.com/108044639/236133234-7bb38735-9409-409e-94f2-4e4123891e60.png" width=400px alt="Peter Pyeon"/>  | <img src="https://user-images.githubusercontent.com/108044639/236133634-7a8154d4-50b4-488d-bbe3-5c4ed1080179.png" width=400px alt="Rei"/> | 
-[Chad](https://github.com/chad0909) | [Eugene](https://github.com/dayjack)  | [Jen](https://github.com/jis00ya) | [MK](https://github.com/MK827) | [Radin](https://github.com/JINi0S) | [Rubik](https://github.com/RubiksCube33) |
-
-
+| <img src="https://user-images.githubusercontent.com/108044639/236135311-e81d1d0a-042f-4431-b54d-891138503cad.png" width=400px alt="Chad"/> | ![eugene](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/ff559e51-56b1-45da-85cf-a849e8e307a1) | ![gen](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/4d0b770a-3b1f-484a-8b0c-2ac4994d5334) | ![MK](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/91c75bb5-78d6-405e-93a0-fd498363fdf2) |  ![Radin](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/cb78aac2-4638-41d5-904a-cca14c0b5e91)  | ![Rubik](https://github.com/DeveloperAcademy-POSTECH/MC3_Team18_Ewook-IDLE/assets/108044639/2ff7dc23-4586-47f0-bca6-5c09141e176c) | [Chad](https://github.com/chad0909) | [Eugene](https://github.com/dayjack)  | [Jen](https://github.com/jis00ya) | [MK](https://github.com/MK827) | [Radin](https://github.com/JINi0S) | [Rubik](https://github.com/RubiksCube33) |
 
 
 
