@@ -1,6 +1,7 @@
 [
     {
         "itemName" : "flower",
+        "itemNameKorean" : "이 구역의 미친 놈은 나야",
         "price" : 150,
         "itemCategory" : "액세서리",
         "itemStatus" : 0,
@@ -9,6 +10,7 @@
     },
     {
         "itemName" : "cap",
+        "itemNameKorean" : "아~ 아~ 이장입니다 모자",
         "price" : 500,
         "itemCategory" : "액세서리",
         "itemStatus" : 0,
@@ -17,6 +19,7 @@
     },
     {
         "itemName" : "sunglasses",
+        "itemNameKorean" : "나는 멋져 선글라스",
         "price" : 1500,
         "itemCategory" : "액세서리",
         "itemStatus" : 0,
@@ -25,6 +28,7 @@
     },
     {
         "itemName" : "sunglassesGreen",
+        "itemNameKorean" : "나는 외계인 선글라스",
         "price" : 2000,
         "itemCategory" : "액세서리",
         "itemStatus" : 0,
@@ -33,6 +37,7 @@
     },
     {
         "itemName" : "mustache",
+        "itemNameKorean" : "명탐정 수염",
         "price" : 2500,
         "itemCategory" : "액세서리",
         "itemStatus" : 0,
@@ -42,24 +47,28 @@
 
     {
         "itemName" : "bubblePurple",
+        "itemNameKorean" : "보라색 풍선껌",
         "price" : 150,
         "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     {
         "itemName" : "bubbleCow",
+        "itemNameKorean" : "젖소무늬 풍선껌",
         "price" : 500,
         "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     {
         "itemName" : "bubbleRainbow",
+        "itemNameKorean" : "이상한 나라의 솜사탕",
         "price" : 1500,
         "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
     },
     {
         "itemName" : "bubbleSevenStar",
+        "itemNameKorean" : "북두칠성 풍선껌",
         "price" : 2000,
         "itemCategory" : "버블버블 풍선",
         "itemStatus" : 0
@@ -68,24 +77,28 @@
     
     {
         "itemName" : "starPink",
+        "itemNameKorean" : "핑크별",
         "price" : 150,
         "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
         "itemName" : "starMint",
+        "itemNameKorean" : "민트별",
         "price" : 500,
         "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
-        "itemName" : "starPupple",
+        "itemName" : "starPurple",
+        "itemNameKorean" : "보라별",
         "price" : 1500,
         "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0
     },
     {
         "itemName" : "starRainbow",
+        "itemNameKorean" : "무지개별",
         "price" : 3000,
         "itemCategory" : "반짝반짝 별",
         "itemStatus" : 0

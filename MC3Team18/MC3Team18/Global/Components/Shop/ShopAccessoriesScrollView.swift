@@ -11,8 +11,9 @@ struct ShopAccessoriesScrollView: View {
     @State var selectedCategory: ItemCategory = .acc
     @Binding var shopItem: [ShopItem]
     @Binding var selectedItem: ShopItem?
+    @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
-    
+    @Binding var buyable: Bool
     var body: some View {
         VStack(spacing: 16){
             ScrollView(.horizontal, showsIndicators: false) {
@@ -47,7 +48,7 @@ struct ShopAccessoriesScrollView: View {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                     ForEach($shopItem) { $item in
                         if item.itemCategory.rawValue == selectedCategory.rawValue {
-                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, isPurchasePopupAppear: $isPurchasePopupAppear)
+                            AccessoriesItemBoxView(shopItem: $shopItem, item: $item, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
                         }
                     }
                 }
@@ -80,8 +81,9 @@ struct AccessoriesItemBoxView: View {
     @Binding var item: ShopItem
     @AppStorage("totalCoin") var totalCoin: Int = 1000
     @Binding var selectedItem: ShopItem?
+    @Binding var tappedItem: ShopItem
     @Binding var isPurchasePopupAppear: Bool
-    
+    @Binding var buyable: Bool
     var body: some View {
         VStack(spacing: 8){
             Image("\(item.itemName)")
@@ -162,14 +164,19 @@ struct AccessoriesItemBoxView: View {
         switch updatedItem.itemStatus {
         case 0:
             if updatedItem.price <= totalCoin {
-                //TODO: 팝업뷰 로직 & UI 변경, 아래 item.id
+                tappedItem = updatedItem
+                buyable = true
                 isPurchasePopupAppear = true
-                updatedItem.itemStatus = 1
-                totalCoin -= updatedItem.price
-                if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
-                    shopItem[index].itemStatus = updatedItem.itemStatus
-                }
+                
+//                updatedItem.itemStatus = 1
+//                totalCoin -= updatedItem.price
+//                if let index = shopItem.firstIndex(where: { $0.id == item.id }) {
+//                    shopItem[index].itemStatus = updatedItem.itemStatus
+//                }
             } else {
+                tappedItem = updatedItem
+                buyable = false
+                isPurchasePopupAppear = true
                 print("not enough money")
             }
         case 1:

@@ -52,22 +52,26 @@ struct ShopView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var shopItem: [ShopItem] = []
     @State var selectedItem: ShopItem?
+    @State var tappedItem: ShopItem = ShopItem(itemName: "", itemNameKorean: "", price: 0, itemCategory: .acc, itemStatus: 0)
     @State var isPurchasePopupAppear: Bool = false
-
+    @State var buyable: Bool = false
     var body: some View {
         ZStack{
             Color.CobaltBlue.ignoresSafeArea()
             
             VStack (spacing: 10){
                 ShopCharacterView(selectedItem: $selectedItem)
-                             
-                ShopAccessoriesScrollView(shopItem: $shopItem, selectedItem: $selectedItem, isPurchasePopupAppear: $isPurchasePopupAppear)
+                
+                ShopAccessoriesScrollView(shopItem: $shopItem, selectedItem: $selectedItem, tappedItem: $tappedItem, isPurchasePopupAppear: $isPurchasePopupAppear, buyable: $buyable)
             }
             .padding(.top, 20)
             
             if isPurchasePopupAppear {
                 Color.Black.opacity(0.8).ignoresSafeArea()
-                ShopItemPurchaseView()
+                    .onTapGesture {
+                        isPurchasePopupAppear = false
+                    }
+                ShopItemPurchaseView(shopItem: $shopItem, isPurchasePopupAppear: $isPurchasePopupAppear, tappedItem: $tappedItem, buyAble: buyable)
             }
         }
         .onAppear {
