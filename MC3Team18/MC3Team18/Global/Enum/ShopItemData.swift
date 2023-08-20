@@ -9,7 +9,8 @@ import UIKit
 
 struct ShopItem : Identifiable, Codable {
     let id: UUID = UUID()
-    var itemName: String 
+    var itemName: String
+    var itemNameKorean: String
     var price: Int
     var itemCategory: ItemCategory
     var itemStatus: Int
