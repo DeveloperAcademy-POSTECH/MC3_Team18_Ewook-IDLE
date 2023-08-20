@@ -18,7 +18,7 @@
 
 ### 공통
 
-<img src="https://shields.io/badge/GitHub-181717?logo=GitHub&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Sketch-F7B500?logo=Sketch&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Miro-050038?logo=Miro&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/microsoftteams-6264A7?logo=microsoftteams&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Notion-000000?logo=Notion&logoColor=FFF&style=flat-square"/> <img src="https://img.shields.io/badge/Figma-#F24E1E?ogo=Figma&logoColor=white"/>
+<img src="https://shields.io/badge/GitHub-181717?logo=GitHub&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Sketch-F7B500?logo=Sketch&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Miro-050038?logo=Miro&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/microsoftteams-6264A7?logo=microsoftteams&logoColor=FFF&style=flat-square"/> <img src="https://shields.io/badge/Notion-000000?logo=Notion&logoColor=FFF&style=flat-square"/> <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma&logoColor=white&style=flat-square"/>
 
 
 #F24E1E
