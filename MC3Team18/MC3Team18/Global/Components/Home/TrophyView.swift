@@ -25,15 +25,10 @@ struct TrophyView: View {
             NavigationLink {
                 ShopView()
             } label: {
-                HStack(spacing: 8) {
-                    Image("IconShop")
+                    Image("ShopIcon")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
-                    Text(totalCoinWithComma)
-                        .postNoBillsJaffnaExtraBold20()
-                        .foregroundColor(.Yellow)
-                }
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
             }
             Spacer()
             NavigationLink {
@@ -51,12 +46,12 @@ struct TrophyView: View {
                         .opacity(isDailyFinished ?  0 : 1)
                     Image("IconNudge")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
                 }
             }
         }
-        .frame(height: 40)
+        .frame(height: 48)
         .padding(.horizontal, 26)
         .onAppear{
             if ChagokMissionSuccess && BubbleMissionSuccess && BanjjakMissionSuccess {
